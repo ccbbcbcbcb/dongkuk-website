@@ -971,6 +971,8 @@
 
     .inv-change-val .tri {
       color: #F64301;
+      font-size: 14px;
+      border-radius: 1px;
     }
 
     .inv-divider-thin {

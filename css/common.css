@@ -33,6 +33,11 @@ body {
     /* GNB fixed 높이 보정 */
 }
 
+/* 모바일 전용 줄바꿈 */
+.mo-br, .m-br {
+    display: none;
+}
+
 
 /* ===== LAYOUT ===== */
 .inner {
@@ -586,6 +591,10 @@ body {
         font-size: 16px;
     }
 
+    .mo-br, .m-br {
+        display: block !important;
+    }
+
     body {
         min-width: 0 !important;
         width: 100% !important;
@@ -710,7 +719,7 @@ body {
     .support-info p {
         grid-column: 1 / span 2;
         grid-row: 2;
-        font-size: 14px;
+        font-size: 16px;
         margin: 0;
     }
 
