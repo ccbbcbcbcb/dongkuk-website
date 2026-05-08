@@ -1219,41 +1219,39 @@
             if (idx >= TOTAL_STEPS) idx = 0;
             currentStep = idx;
 
-            /* 1. Progress bar 업데이트 (데스크탑) */
+            /* 1. 클래스 초기화 및 리플로우 트리거 (애니메이션 재시작용) */
             const stepEls = document.querySelectorAll('#ps-steps-bar .ps-step');
-            stepEls.forEach((el) => {
-                el.classList.remove('active', 'done');
-            });
-            const activeStepEl = document.querySelector('#ps-steps-bar .ps-step[data-step="' + idx + '"]');
-            const activeStepLine = activeStepEl ? activeStepEl.querySelector('.ps-step-line') : null;
-            if (activeStepLine) void activeStepLine.offsetWidth;
+            const dotEls = document.querySelectorAll('.ps-mobile-dot');
+            
+            stepEls.forEach(el => el.classList.remove('active', 'done'));
+            dotEls.forEach(el => el.classList.remove('active', 'done'));
+
+            // 리플로우 트리거: 애니메이션이 0%부터 다시 시작되도록 함
+            if (stepEls[idx]) void stepEls[idx].offsetWidth;
+            if (dotEls[idx]) void dotEls[idx].offsetWidth;
+
+            /* 2. 데스크탑 Progress bar 업데이트 */
             stepEls.forEach((el, i) => {
                 if (i < idx) el.classList.add('done');
                 if (i === idx) el.classList.add('active');
             });
 
-            /* 2. 공정 이미지(SVG/PNG) 업데이트 (데스크탑) */
+            /* 3. 공정 이미지(SVG/PNG) 업데이트 (데스크탑) */
             document.querySelectorAll('#diagram-냉연 .ps-step-img').forEach((el, i) => {
                 el.classList.toggle('visible', i === idx);
             });
 
-            /* 3. 말풍선(Tooltip) 업데이트 (데스크탑) */
+            /* 4. 말풍선(Tooltip) 업데이트 (데스크탑) */
             document.querySelectorAll('#diagram-냉연 .ps-bubble').forEach((el, i) => {
                 el.classList.toggle('visible', i === idx);
             });
 
-            /* 4. 모바일 아이콘 활성화 */
+            /* 5. 모바일 아이콘 활성화 */
             document.querySelectorAll('.ps-mob-icon').forEach((el) => {
                 el.classList.toggle('active', parseInt(el.dataset.step) === idx);
             });
 
-            /* 5. 모바일 인디케이터 */
-            const dotEls = document.querySelectorAll('.ps-mobile-dot');
-            dotEls.forEach((el) => {
-                el.classList.remove('active', 'done');
-            });
-            const activeDot = document.querySelector('.ps-mobile-dot[data-step="' + idx + '"]');
-            if (activeDot) void activeDot.offsetWidth;
+            /* 6. 모바일 인디케이터 업데이트 */
             dotEls.forEach((el, i) => {
                 if (i < idx) el.classList.add('done');
                 if (i === idx) el.classList.add('active');
