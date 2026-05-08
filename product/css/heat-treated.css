@@ -52,7 +52,7 @@
         .hero-text-outer {
             position: relative;
             min-height: 250vh;
-            padding-bottom: 200px;
+            padding-bottom: 100px;
         }
 
         .hero-text-inner {
@@ -278,8 +278,16 @@
 
         .product-intro .inner {
             display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 100px clamp(16px, 6.25vw, 120px) 0;
+        }
+
+        .pi-top-wrapper {
+            display: flex;
             gap: 6.25rem;
             align-items: flex-start;
+            width: 100%;
         }
 
         .pi-left {
@@ -473,13 +481,10 @@
         }
 
         /* ===== Accordion (Figma Specs) ===== */
-        .accordion {
-            padding: 40px 0 100px;
+        .product-intro .accordion {
+            padding: 0;
             background: #fff;
-        }
-
-        .accordion .inner {
-            padding: 0 clamp(16px, 6.25vw, 120px);
+            margin-top: 0;
             display: flex;
             flex-direction: column;
         }
@@ -635,9 +640,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            /* 👈 좌측 정렬로 변경 */
-            padding-left: 24px;
-            /* 👈 왼쪽 벽과 24px 간격 유지 */
+            padding: 0 24px;
             font-size: 20px;
             font-weight: 400;
             color: #363636;
@@ -647,6 +650,10 @@
 
         .spec-grid-col:last-child .spec-value {
             border-right: none;
+        }
+
+        .spec-grid-row:last-child .spec-value {
+            border-bottom: none !important;
         }
 
         /* ── 기계적 물성 하단 범례(Legend) 박스 (Figma Specs 적용) ── */
@@ -1415,12 +1422,23 @@
             .product-intro .inner {
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 60px;
                 padding: 0 16px;
                 padding-bottom: 20px;
                 max-width: 100% !important;
                 box-sizing: border-box !important;
                 overflow: hidden;
+            }
+
+            .pi-top-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .product-intro .accordion {
+                padding: 0;
+                margin: 0;
             }
 
             .pi-left,
@@ -2322,6 +2340,7 @@
         .grade-td {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
             padding: 18px 24px;
             background: #FFFFFF;
             border-top: 1px solid #D6D6D6;
@@ -2357,6 +2376,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: flex-start;
             padding: 18px 24px;
             background: #FFFFFF;
             border-top: 1px solid #D6D6D6;
@@ -2367,6 +2387,11 @@
             box-sizing: border-box;
             gap: 8px;
             line-height: 160%;
+        }
+
+        .grade-row:last-child .grade-td,
+        .grade-row:last-child .grade-micro-cell {
+            border-bottom: none !important;
         }
 
         .grade-micro-cell:last-child {

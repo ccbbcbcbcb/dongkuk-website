@@ -355,7 +355,7 @@
             }
 
             .story-text {
-                width: 100% !important;
+                width: 296px !important;
                 max-width: 100% !important;
                 flex: none;
                 height: auto;
@@ -375,6 +375,10 @@
             }
 
             .story-bullets {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
                 width: 100%;
             }
 
@@ -396,6 +400,8 @@
             /* Scene */
             .scene-section {
                 padding: 40px 0;
+                height: 379px;
+                box-sizing: border-box;
             }
 
             .scene-section .inner {
