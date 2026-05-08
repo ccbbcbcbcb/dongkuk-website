@@ -1350,12 +1350,14 @@
 
             /* 1. 현재 모드에 맞는 Progress bar 업데이트 */
             const stepEls = document.querySelectorAll('#' + stepsBarId + ' .ps-step');
-            stepEls.forEach((el) => {
-                el.classList.remove('active', 'done');
-            });
-            const activeStepEl = document.querySelector('#' + stepsBarId + ' .ps-step[data-step="' + idx + '"]');
-            const activeStepLine = activeStepEl ? activeStepEl.querySelector('.ps-step-line') : null;
-            if (activeStepLine) void activeStepLine.offsetWidth;
+            
+            // 1. 클래스 제거 (초기화)
+            stepEls.forEach(el => el.classList.remove('active', 'done'));
+
+            // 2. 리플로우 트리거 (0%부터 다시 시작되도록 보장)
+            if (stepEls[idx]) void stepEls[idx].offsetWidth;
+
+            // 3. 클래스 재적용
             stepEls.forEach((el, i) => {
                 if (i < idx) el.classList.add('done');
                 if (i === idx) el.classList.add('active');
@@ -1376,11 +1378,13 @@
             const dotsContainer = document.getElementById(dotsId);
             if (dotsContainer) {
                 const dotEls = dotsContainer.querySelectorAll('.ps-mobile-dot');
-                dotEls.forEach((dot) => {
-                    dot.classList.remove('active', 'done');
-                });
-                const activeDot = dotsContainer.querySelector('.ps-mobile-dot[data-step="' + idx + '"]');
-                if (activeDot) void activeDot.offsetWidth;
+                // 1. 클래스 제거 (초기화)
+                dotEls.forEach(dot => dot.classList.remove('active', 'done'));
+                
+                // 2. 리플로우 트리거 (0%부터 다시 시작되도록 보장)
+                if (dotEls[idx]) void dotEls[idx].offsetWidth;
+
+                // 3. 클래스 재적용
                 dotEls.forEach((dot, i) => {
                     if (i < idx) dot.classList.add('done');
                     if (i === idx) dot.classList.add('active');
