@@ -172,7 +172,7 @@
             height: 228px;
             left: 0;
             top: 312px;
-            background: url('../assets/heat-treated/열처리강판.png') no-repeat center/contain;
+            background: url('../assets/heat-treated/heat-treated-plate.png') no-repeat center/contain;
             border-radius: 0px 0px 8px 8px;
             z-index: 3;
         }
