@@ -654,31 +654,40 @@
             if (idx >= TOTAL_STEPS) idx = 0;
             currentStep = idx;
 
-            /* 1. Progress bar 업데이트 (데스크탑) */
-            document.querySelectorAll('#ps-steps-bar .ps-step').forEach((el, i) => {
-                el.classList.remove('active', 'done');
+            /* 1. 클래스 초기화 및 리플로우 트리거 (애니메이션 재시작용) */
+            const stepEls = document.querySelectorAll('#ps-steps-bar .ps-step');
+            const dotEls = document.querySelectorAll('.ps-mobile-dot');
+            
+            stepEls.forEach(el => el.classList.remove('active', 'done'));
+            dotEls.forEach(el => el.classList.remove('active', 'done'));
+
+            // 리플로우 트리거: 애니메이션이 0%부터 다시 시작되도록 함
+            if (stepEls[idx]) void stepEls[idx].offsetWidth;
+            if (dotEls[idx]) void dotEls[idx].offsetWidth;
+
+            /* 2. 데스크탑 Progress bar 업데이트 */
+            stepEls.forEach((el, i) => {
                 if (i < idx) el.classList.add('done');
                 if (i === idx) el.classList.add('active');
             });
 
-            /* 2. SVG overlay images 업데이트 (데스크탑) */
+            /* 3. SVG overlay images 업데이트 (데스크탑) */
             document.querySelectorAll('#diagram-열처리 .ps-step-img').forEach((el, i) => {
                 el.classList.toggle('visible', i === idx);
             });
 
-            /* 3. Tooltips 업데이트 (데스크탑) */
+            /* 4. Tooltips 업데이트 (데스크탑) */
             document.querySelectorAll('#diagram-열처리 .ps-bubble').forEach((el, i) => {
                 el.classList.toggle('visible', i === idx);
             });
 
-            /* 4. 모바일 아이콘 활성화 */
+            /* 5. 모바일 아이콘 활성화 */
             document.querySelectorAll('.ps-mob-icon').forEach((el) => {
                 el.classList.toggle('active', parseInt(el.dataset.step) === idx);
             });
 
-            /* 5. 모바일 인디케이터 */
-            document.querySelectorAll('.ps-mobile-dot').forEach((el, i) => {
-                el.classList.remove('active', 'done');
+            /* 6. 모바일 인디케이터 업데이트 */
+            dotEls.forEach((el, i) => {
                 if (i < idx) el.classList.add('done');
                 if (i === idx) el.classList.add('active');
             });

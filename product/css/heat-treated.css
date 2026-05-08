@@ -775,13 +775,14 @@
             font-weight: 400;
             line-height: 160%;
             color: #A7A7A7;
-            display: block;
+            display: none;
             word-break: keep-all;
             transition: color 0.3s;
         }
 
         /* 활성 상태 텍스트 색상 */
         .usage-menu-item.active .umi-desc {
+            display: block;
             color: #4E4E4E;
             /* 활성 상태 색상 (기본 회색) */
         }

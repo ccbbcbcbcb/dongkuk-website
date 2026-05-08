@@ -33,6 +33,11 @@ body {
     /* GNB fixed 높이 보정 */
 }
 
+/* 모바일 전용 줄바꿈 */
+.mo-br, .m-br {
+    display: none;
+}
+
 
 /* ===== LAYOUT ===== */
 .inner {
@@ -584,6 +589,10 @@ body {
     /* ── Reset / Base ── */
     html {
         font-size: 16px;
+    }
+
+    .mo-br, .m-br {
+        display: block !important;
     }
 
     body {

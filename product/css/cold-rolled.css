@@ -958,8 +958,7 @@
             line-height: 160%;
             color: #A7A7A7;
             /* 비활성 상태 색상 (연한 회색) */
-            display: block;
-            /* 💡 아코디언 숨김 해제! 항상 노출 */
+            display: none;
             word-break: keep-all;
             transition: color 0.3s;
             /* 부드러운 색상 전환 */
@@ -967,6 +966,7 @@
 
         /* 활성 상태 텍스트 색상 */
         .usage-menu-item.active .umi-desc {
+            display: block;
             color: #4E4E4E;
             /* 활성 상태 색상 (기본 회색) */
         }
@@ -2055,6 +2055,7 @@
                 pointer-events: none;
                 z-index: 10;
                 transform: translateX(-50%) translateY(-100%);
+                margin-top: -5px;
             }
 
             .ps-mobile-step-label.visible {
@@ -2096,7 +2097,7 @@
 
             .ps-mobile-step-label[data-step="3"] {
                 left: 86%;
-                top: calc(12% + 10px);
+                top: calc(12% + 13px);
             }
 
             .ps-mobile-step-label[data-step="4"] {
