@@ -24,6 +24,7 @@
   var categories = [
     {
       title: '회사정보',
+      img: 'img_회사정보.png',
       items: [
         { text: '회사소개', href: '#', key: '' },
         { text: '연혁', href: '#', key: '' },
@@ -34,6 +35,7 @@
     },
     {
       title: '제품소개',
+      img: 'gnb-thumb.png',
       items: [
         { text: '제품정보 센터', href: B + 'product/product-center.html', key: 'product-center' },
         { text: '니켈도금강판: DiKel', href: B + 'product/dikel.html', key: 'dikel' },
@@ -44,6 +46,7 @@
     },
     {
       title: '투자정보',
+      img: 'img_투자정보.png',
       items: [
         { text: '투자정보 센터', href: '#', key: '' },
         { text: '주식정보', href: '#', key: '' },
@@ -54,6 +57,7 @@
     },
     {
       title: '지속가능경영',
+      img: 'img_지속가능경영.png',
       items: [
         { text: '지속가능경영 센터', href: '#', key: '' },
         { text: '환경경영', href: '#', key: '' },
@@ -63,6 +67,7 @@
     },
     {
       title: '인재경영',
+      img: 'img_인재경영.png',
       items: [
         { text: '인재상', href: '#', key: '' },
         { text: '직무소개', href: '#', key: '' },
@@ -95,7 +100,7 @@
     for (var i = 0; i < categories.length; i++) {
       var c = categories[i];
       h += '<div class="gnb-menu-col">';
-      h += '<div class="gnb-menu-thumb"><img src="' + THUMB + '" alt="' + c.title + '"></div>';
+      h += '<div class="gnb-menu-thumb"><img src="' + B + 'assets/common/' + c.img + '" alt="' + c.title + '"></div>';
       h += '<div class="gnb-menu-cat">' + c.title + '</div>';
       h += '<ul class="gnb-menu-links">';
       for (var j = 0; j < c.items.length; j++) h += '<li>' + linkHTML(c.items[j]) + '</li>';
