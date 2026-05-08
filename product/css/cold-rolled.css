@@ -365,8 +365,16 @@
 
         .product-intro .inner {
             display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 0 clamp(16px, 6.25vw, 120px);
+        }
+
+        .pi-top-wrapper {
+            display: flex;
             gap: 6.25rem;
             align-items: flex-start;
+            width: 100%;
         }
 
         .pi-left {
@@ -559,13 +567,10 @@
         }
 
         /* ===== Accordion (Figma Specs) ===== */
-        .accordion {
-            padding: 0 0 100px;
+        .product-intro .accordion {
+            padding: 0;
             background: #fff;
-        }
-
-        .accordion .inner {
-            padding: 0 clamp(16px, 6.25vw, 120px);
+            margin-top: 0;
             display: flex;
             flex-direction: column;
             gap: 8px;
@@ -1587,12 +1592,23 @@
             .product-intro .inner {
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 60px;
                 padding: 0 16px;
                 padding-bottom: 20px;
                 max-width: 100%;
                 box-sizing: border-box;
                 overflow: hidden;
+            }
+
+            .pi-top-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .product-intro .accordion {
+                padding: 0;
+                margin: 0;
             }
 
             .pi-left {
@@ -1663,7 +1679,7 @@
             }
 
             .pi-subtitle {
-                font-size: 24px;
+                font-size: 24px !important;
                 line-height: 1.5;
                 width: 100%;
             }
@@ -1743,10 +1759,6 @@
                 padding: 0 0 40px;
             }
 
-            .accordion .inner {
-                max-width: 100%;
-                padding: 0 16px;
-            }
 
             .acc-item {
                 width: 100%;
@@ -1780,6 +1792,10 @@
                 padding: 16px 0;
                 gap: 24px;
                 border-radius: 16px;
+            }
+
+            .pr-item-desc {
+                font-weight: 400 !important;
             }
 
             .spec-grid-group {
@@ -2007,39 +2023,39 @@
 
             /* 1행: 1-열연코일세팅, 2-산세라인, 3-정밀컷팅, 4-냉간압연 */
             .ps-mob-icon[data-step="0"] {
-                left: 0%;
-                top: 16%;
+                left: 0px;
+                top: 54px;
                 width: 28%;
             }
 
             .ps-mob-icon[data-step="1"] {
-                left: 26%;
-                top: 16%;
+                left: 100.23px;
+                top: 54px;
                 width: 18%;
             }
 
             .ps-mob-icon[data-step="2"] {
-                left: 46%;
-                top: 16%;
-                width: 25%;
+                left: 161.98px;
+                top: 54.46px;
+                width: calc(25% + 5px);
             }
 
             .ps-mob-icon[data-step="3"] {
-                left: calc(72% + 11px);
-                top: calc(6% + 20px);
+                left: 253.72px;
+                top: 54.46px;
                 width: 69px;
             }
 
             /* 2행: 5-소둔라인, 6-표면마감, 7-포장정리 */
             .ps-mob-icon[data-step="4"] {
-                left: 8%;
-                top: 52%;
+                left: 35px;
+                top: 131px;
                 width: 24%;
             }
 
             .ps-mob-icon[data-step="5"] {
-                left: 31%;
-                top: 52%;
+                left: 115.09px;
+                top: 131px;
                 width: 20%;
             }
 
@@ -2081,43 +2097,43 @@
 
             /* 각 step 라벨 위치 (아이콘 top과 동일) */
             .ps-mobile-step-label[data-step="0"] {
-                left: 14%;
-                top: 16%;
+                left: 45.92px;
+                top: 54px;
             }
 
             .ps-mobile-step-label[data-step="1"] {
-                left: 33%;
-                top: 16%;
+                left: 129.75px;
+                top: 54px;
             }
 
             .ps-mobile-step-label[data-step="2"] {
-                left: 58%;
-                top: 16%;
+                left: 205.48px;
+                top: 54.46px;
             }
 
             .ps-mobile-step-label[data-step="3"] {
-                left: 86%;
-                top: calc(12% + 13px);
+                left: 288.22px;
+                top: 54.46px;
             }
 
             .ps-mobile-step-label[data-step="4"] {
-                left: 20%;
-                top: 62%;
+                left: 74.36px;
+                top: 136px;
             }
 
             .ps-mobile-step-label[data-step="5"] {
-                left: 40%;
-                top: 70%;
+                left: 147.89px;
+                top: 151px;
             }
 
             .ps-mobile-step-label[data-step="6"] {
-                left: 70%;
-                top: 76%;
+                left: 243.41px;
+                top: 161px;
             }
 
             .ps-mob-icon[data-step="6"] {
-                left: 54%;
-                top: 48%;
+                left: 184.37px;
+                top: 121px;
                 width: 36%;
             }
 

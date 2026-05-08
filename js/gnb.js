@@ -296,10 +296,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const footerTop = footer.offsetTop;
       const overlap = scrollBottom - footerTop;
       const isMobile = window.innerWidth <= 1023;
-      const baseBottom = isMobile ? 66 : 80;
+      const baseBottom = 16;
 
       if (overlap > 0) {
-        btnTop.style.bottom = `${baseBottom + overlap}px`;
+        btnTop.style.bottom = `${overlap + baseBottom}px`;
       } else {
         btnTop.style.bottom = `${baseBottom}px`;
       }

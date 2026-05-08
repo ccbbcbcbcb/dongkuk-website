@@ -134,7 +134,7 @@ body {
     height: 44px;
     border-radius: 50px;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 500;
     color: #4E4E4E;
     line-height: 1.5;
     text-decoration: none;
@@ -768,31 +768,49 @@ body {
     }
 
     .footer-divider {
-        display: none;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        margin-bottom: 24px;
     }
 
     .footer-bottom {
-        padding-top: 40px;
+        padding-top: 0;
         gap: 16px;
     }
 
-    .footer-bottom-info {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-
     .footer-links {
-        flex-wrap: wrap;
-        gap: 6px;
+        display: block; /* 블록 레이아웃으로 변경하여 겹침 방지 */
+        width: 100%;
     }
 
     .footer-links a {
+        display: inline-block;
         font-size: 14px;
+        line-height: 1.6;
+        vertical-align: middle;
+    }
+
+    /* 상단 링크들 사이의 여백 */
+    .footer-links a:nth-child(1),
+    .footer-links a:nth-child(3),
+    .footer-links a:nth-child(5) {
+        margin-bottom: 12px;
+    }
+
+    /* 전화번호와 주소는 무조건 한 줄 전체 차지 */
+    .footer-links a:nth-child(7),
+    .footer-links a:nth-child(9) {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
     }
 
     .footer-links .bar {
-        height: 11px;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 8px;
     }
 
     .footer-links .bar:nth-child(6),
@@ -800,15 +818,17 @@ body {
         display: none;
     }
 
-    .footer-links a:nth-child(7),
-    .footer-links a:nth-child(9) {
-        display: block;
+    .footer-bottom-info {
+        display: block; /* 블록 레이아웃으로 변경 */
         width: 100%;
     }
 
     .footer-copy {
+        display: block;
+        margin-top: 20px;
         font-size: 14px;
+        line-height: 1.5;
+        color: #FFFFFF;
         text-align: left;
-        word-break: keep-all;
     }
 }

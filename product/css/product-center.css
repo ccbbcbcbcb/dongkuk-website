@@ -660,7 +660,7 @@
         .btn-top {
             position: fixed;
             right: 80px;
-            bottom: 80px;
+            bottom: 16px;
             /* 기본적으로 화면 아래에서 80px 띄움 */
             width: 60px;
             /* 💡 피그마 스펙에 맞춰 버튼 크기 조절 필요 */
@@ -938,6 +938,7 @@
                 position: relative;
                 display: flex;
                 flex-direction: column;
+                gap: 8px;
                 padding: 20px 16px;
             }
             .pc-expanded-content {
