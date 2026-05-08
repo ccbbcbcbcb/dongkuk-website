@@ -4845,7 +4845,7 @@
 
             .hero-title {
                 flex-direction: column !important;
-                gap: 0 !important;
+                gap: 6px !important;
                 align-items: center !important;
                 height: auto !important;
                 width: 100% !important;
@@ -4864,12 +4864,15 @@
             }
 
             .hero-sub {
+                display: block !important;
                 width: 100% !important;
                 max-width: 100% !important;
                 height: auto !important;
                 font-size: 16px !important;
                 line-height: 1.6 !important;
                 text-align: center !important;
+                margin: 0 auto !important;
+                word-break: keep-all !important;
             }
 
             /* ── 새로운 소재: 피그마 38:4175 MOB ── */
