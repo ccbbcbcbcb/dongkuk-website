@@ -102,30 +102,15 @@
                         <div class="pi-brochure-btns">
                             <button class="btn-round">
                                 <span class="btn-label">KR/EN</span>
-                                <div class="ic-download">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 3V15M12 15L8 11M12 15L16 11M5 19H19" stroke="white" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </div>
+                                <img class="ic-download" src="assets/dikel/ic_download.svg" alt="다운로드">
                             </button>
                             <button class="btn-round">
                                 <span class="btn-label">JP/EN</span>
-                                <div class="ic-download">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 3V15M12 15L8 11M12 15L16 11M5 19H19" stroke="white" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </div>
+                                <img class="ic-download" src="assets/dikel/ic_download.svg" alt="다운로드">
                             </button>
                             <button class="btn-round">
                                 <span class="btn-label">CN/EN</span>
-                                <div class="ic-download">
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 3V15M12 15L8 11M12 15L16 11M5 19H19" stroke="white" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </div>
+                                <img class="ic-download" src="assets/dikel/ic_download.svg" alt="다운로드">
                             </button>
                         </div>
                     </div>
@@ -726,7 +711,7 @@
                                         <span class="pr-title-main">냉연강판</span>
                                         <span class="pr-title-sub">Cold Rolled Coil (CR)</span>
                                     </div>
-                                    <p class="pr-item-desc">열연강판에 산세 공정(PO)을 적용한 후 상온에서 정밀 압연(Cold Rolled)과 <br class="mo-br">열처리를 거쳐, 표면이 매끄럽고 강도가 우수한 강판</p>
+                                    <p class="pr-item-desc">열연강판에 산세 공정(PO)을 적용한 후 상온에서<br class="mo-br">정밀 압연(Cold Rolled)과 열처리를 거쳐, <br class="mo-br">표면이 매끄럽고 강도가 우수한 강판</p>
                                 </div>
                                 <div class="desktop-only pr-chart-box" style="height: 616px;">
                                     <div class="pr-chart-visual">
@@ -985,8 +970,8 @@
                 <!-- ── Diagram area ── -->
                 <div class="ps-diagram-area" id="diagram-냉연">
 
-                    <!-- Default background -->
-                    <img class="ps-diagram-default" src="assets/cold-rolled/cold-rolled-default.svg" alt="">
+
+
 
                     <!-- Step image overlays (Figma pixel positions) -->
                     <!-- 01 열연 코일 세팅: 335×387 @ left:0, top:99 -->
@@ -1015,7 +1000,7 @@
 
                     <!-- 07 포장정리: 352×387 @ left:1508, top:99 -->
                     <img class="ps-step-img" id="img-step-6" src="assets/cold-rolled/7.packaging.svg" alt=""
-                        style="width:352px;height:387px;left:1508px;top:99px;">
+                        style="width:352px;height:387px;left:1508px;top:74px;">
 
                     <!-- ── Tooltips ── -->
 
@@ -1126,21 +1111,16 @@
                 </div>
 
                 <!-- ═══ 모바일 전용: 다이어그램 + 인디케이터 + 설명카드 ═══ -->
-                <div class="ps-mobile-diagram mobile-only">
+                <div class="ps-mobile-diagram mobile-only" id="ps-mobile-diagram-cold">
                     <div class="ps-mobile-row">
-                        <div class="ps-mob-group">
-                            <img class="ps-mob-icon" data-step="0" src="assets/cold-rolled/1.hot-coil-setup.svg"
-                                alt="열연 코일 세팅">
-                            <img class="ps-mob-icon" data-step="1" src="assets/cold-rolled/2.pickling-line.png" alt="산세라인">
-                        </div>
+                        <img class="ps-mob-icon" data-step="0" src="assets/cold-rolled/1.hot-coil-setup.svg" alt="열연 코일 세팅">
+                        <img class="ps-mob-icon" data-step="1" src="assets/cold-rolled/2.pickling-line.png" alt="산세라인">
                         <img class="ps-mob-icon" data-step="2" src="assets/cold-rolled/3.precision-cutting.svg" alt="정밀컷팅">
                         <img class="ps-mob-icon" data-step="3" src="assets/cold-rolled/4.cold-rolling.svg" alt="냉간압연">
                     </div>
                     <div class="ps-mobile-row">
-                        <div class="ps-mob-group">
-                            <img class="ps-mob-icon" data-step="4" src="assets/cold-rolled/5.annealing-line.svg" alt="소둔라인">
-                            <img class="ps-mob-icon" data-step="5" src="assets/cold-rolled/6.surface-finish.svg" alt="표면마감">
-                        </div>
+                        <img class="ps-mob-icon" data-step="4" src="assets/cold-rolled/5.annealing-line.svg" alt="소둔라인">
+                        <img class="ps-mob-icon" data-step="5" src="assets/cold-rolled/6.surface-finish.svg" alt="표면마감">
                         <img class="ps-mob-icon" data-step="6" src="assets/cold-rolled/7.packaging.svg" alt="포장정리">
                     </div>
                     <!-- 모바일 공정 라벨 -->
@@ -1262,7 +1242,9 @@
                 el.classList.toggle('visible', parseInt(el.dataset.step) === idx);
             });
 
-            /* 6. 모바일 설명카드 */
+
+
+            /* 7. 모바일 설명카드 */
             const numEl = document.querySelector('.ps-mobile-info-num');
             const nameEl = document.querySelector('.ps-mobile-info-name');
             const descEl = document.querySelector('.ps-mobile-info-desc');
@@ -1284,6 +1266,9 @@
 
         /* 초기 실행 및 클릭 이벤트 연결 */
         document.addEventListener('DOMContentLoaded', () => {
+
+
+
             activateStep(0);
             startAutoPlay();
 
@@ -1296,7 +1281,7 @@
                 });
             });
 
-            /* 💡 2. [추가] 다이어그램 이미지 클릭 시 해당 스텝으로 이동 */
+            /* 2. 다이어그램 이미지 클릭 시 해당 스텝으로 이동 (데스크탑) */
             document.querySelectorAll('#diagram-냉연 .ps-step-img').forEach((el, i) => {
                 el.style.pointerEvents = 'auto';
                 el.style.cursor = 'pointer';

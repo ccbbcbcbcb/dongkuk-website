@@ -424,13 +424,7 @@
             font-size: 18px;
         }
 
-        .ic-download {
-            width: 24px;
-            height: 24px;
-            position: relative;
-        }
-
-        .ic-download svg {
+        img.ic-download {
             width: 24px;
             height: 24px;
         }
@@ -1008,25 +1002,18 @@
         }
 
         /* Default background SVG */
-        .ps-diagram-default {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: fill;
-            filter: grayscale(1);
-        }
-
-        /* Each step's highlight SVG – hidden by default */
+        /* Each step's highlight SVG – grayscale by default */
         .ps-step-img {
             position: absolute;
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            opacity: 0.4;
+            filter: grayscale(1);
+            transition: filter 0.4s ease, opacity 0.4s ease;
             pointer-events: none;
         }
 
         .ps-step-img.visible {
             opacity: 1;
+            filter: grayscale(0);
         }
 
         /* ── Tooltip (speech bubble) ── */
@@ -1729,20 +1716,9 @@
                 flex-grow: 0;
             }
 
-            .btn-round .ic-download {
+            .btn-round img.ic-download {
                 width: 20px;
                 height: 20px;
-                flex: none;
-                flex-grow: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .btn-round .ic-download svg {
-                width: 20px;
-                height: 20px;
-                display: block;
             }
 
             /* Accordion — 1680px 고정폭 해제 */
@@ -1851,6 +1827,7 @@
                 margin-left: 0;
                 font-size: 16px;
                 height: auto !important;
+                margin-bottom: 10px;
             }
 
             .umi-icon {
@@ -1859,6 +1836,7 @@
 
             .umi-header {
                 gap: 0 !important;
+                height: auto !important;
             }
 
             .usage-menu-item {
@@ -3053,5 +3031,11 @@
                 order: 0;
                 flex-grow: 0;
                 white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .usage-menu-item {
+                gap: 12px !important;
             }
         }

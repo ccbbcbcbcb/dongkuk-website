@@ -367,7 +367,7 @@
             display: flex;
             flex-direction: column;
             gap: 40px;
-            padding: 0 clamp(16px, 6.25vw, 120px);
+            padding: 100px clamp(16px, 6.25vw, 120px) 0;
         }
 
         .pi-top-wrapper {
@@ -510,13 +510,7 @@
             line-height: 160%;
         }
 
-        .ic-download {
-            width: 24px;
-            height: 24px;
-            position: relative;
-        }
-
-        .ic-download svg {
+        img.ic-download {
             width: 24px;
             height: 24px;
         }
@@ -1178,26 +1172,18 @@
             overflow: visible;
         }
 
-        /* Default background SVG */
-        .ps-diagram-default {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: fill;
-            filter: grayscale(1);
-        }
-
-        /* Each step's highlight SVG – hidden by default */
+        /* Each step's highlight SVG – grayscale by default */
         .ps-step-img {
             position: absolute;
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            opacity: 0.4;
+            filter: grayscale(1);
+            transition: filter 0.4s ease, opacity 0.4s ease;
             pointer-events: none;
         }
 
         .ps-step-img.visible {
             opacity: 1;
+            filter: grayscale(0);
         }
 
         /* ── Tooltip (speech bubble) ── */
@@ -1739,20 +1725,9 @@
                 flex-grow: 0;
             }
 
-            .btn-round .ic-download {
+            .btn-round img.ic-download {
                 width: 20px;
                 height: 20px;
-                flex: none;
-                flex-grow: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .btn-round .ic-download svg {
-                width: 20px;
-                height: 20px;
-                display: block;
             }
 
             .accordion {
@@ -1854,6 +1829,7 @@
 
             .umi-header {
                 gap: 0;
+                height: auto !important;
             }
 
             .usage-menu-item {
@@ -1869,10 +1845,12 @@
             }
 
             .umi-desc {
-                width: 100%;
+                width: 100% !important;
+                max-width: 100% !important;
                 margin-left: 0;
                 font-size: 16px;
-                height: auto;
+                height: auto !important;
+                margin-bottom: 10px;
             }
 
             .usage-right {
@@ -1932,7 +1910,7 @@
 
             /* ── 공정: 데스크탑 요소 숨김 ── */
             .process-scroll-outer {
-                width: 360px;
+                width: 100%;
                 max-width: 100vw;
                 margin: 0 auto;
                 padding: 0;
@@ -1947,16 +1925,16 @@
             }
 
             .process-card {
-                width: 100%;
-                max-width: 100%;
-                height: auto;
-                padding: 40px 16px 20px;
-                border-radius: 0;
-                overflow: visible;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                padding: 40px 16px 20px !important;
+                border-radius: 0 !important;
+                overflow: visible !important;
                 display: flex;
                 flex-direction: column;
                 gap: 60px;
-                transform: none;
+                transform: none !important;
             }
 
             .ps-header {
@@ -1989,20 +1967,15 @@
                 display: none;
             }
 
-            /* ── 모바일 전용 공정 다이어그램 (피그마 38:3921 좌표 기반) ── */
             .ps-mobile-diagram {
                 display: block;
                 width: 100%;
                 position: relative;
-                aspect-ratio: 328 / 240;
+                aspect-ratio: 360 / 360;
                 overflow: visible;
             }
 
             .ps-mobile-row {
-                display: contents;
-            }
-
-            .ps-mob-group {
                 display: contents;
             }
 
@@ -2023,40 +1996,46 @@
 
             /* 1행: 1-열연코일세팅, 2-산세라인, 3-정밀컷팅, 4-냉간압연 */
             .ps-mob-icon[data-step="0"] {
-                left: 0px;
-                top: 54px;
-                width: 28%;
+                left: 0%;
+                top: 22%;
+                width: 30%;
             }
 
             .ps-mob-icon[data-step="1"] {
-                left: 100.23px;
-                top: 54px;
-                width: 18%;
+                left: 27%;
+                top: 20%;
+                width: 20%;
             }
 
             .ps-mob-icon[data-step="2"] {
-                left: 161.98px;
-                top: 54.46px;
-                width: calc(25% + 5px);
+                left: 46%;
+                top: 22%;
+                width: 28%;
             }
 
             .ps-mob-icon[data-step="3"] {
-                left: 253.72px;
-                top: 54.46px;
-                width: 69px;
+                left: 74%;
+                top: 16%;
+                width: 20%;
             }
 
             /* 2행: 5-소둔라인, 6-표면마감, 7-포장정리 */
             .ps-mob-icon[data-step="4"] {
-                left: 35px;
-                top: 131px;
-                width: 24%;
+                left: 0%;
+                top: 57%;
+                width: 30%;
             }
 
             .ps-mob-icon[data-step="5"] {
-                left: 115.09px;
-                top: 131px;
-                width: 20%;
+                left: 28%;
+                top: 56%;
+                width: 26%;
+            }
+
+            .ps-mob-icon[data-step="6"] {
+                left: 59%;
+                top: 49%;
+                width: 47%;
             }
 
             /* 활성 공정 라벨 (공정 이름 + 화살표) */
@@ -2095,46 +2074,40 @@
                 border-top: 9px solid #F27100;
             }
 
-            /* 각 step 라벨 위치 (아이콘 top과 동일) */
+            /* 각 step 라벨 위치 (대각선 하강) */
             .ps-mobile-step-label[data-step="0"] {
-                left: 45.92px;
-                top: 54px;
+                left: 14%;
+                top: 22%;
             }
 
             .ps-mobile-step-label[data-step="1"] {
-                left: 129.75px;
-                top: 54px;
+                left: 34.5%;
+                top: 20%;
             }
 
             .ps-mobile-step-label[data-step="2"] {
-                left: 205.48px;
-                top: 54.46px;
+                left: 58%;
+                top: 22%;
             }
 
             .ps-mobile-step-label[data-step="3"] {
-                left: 288.22px;
-                top: 54.46px;
+                left: 83.5%;
+                top: 22%;
             }
 
             .ps-mobile-step-label[data-step="4"] {
-                left: 74.36px;
-                top: 136px;
+                left: 19%;
+                top: 57%;
             }
 
             .ps-mobile-step-label[data-step="5"] {
-                left: 147.89px;
-                top: 151px;
+                left: 38%;
+                top: 71%;
             }
 
             .ps-mobile-step-label[data-step="6"] {
-                left: 243.41px;
-                top: 161px;
-            }
-
-            .ps-mob-icon[data-step="6"] {
-                left: 184.37px;
-                top: 121px;
-                width: 36%;
+                left: 80%;
+                top: 75%;
             }
 
             /* ── 모바일 인디케이터 바 ── */
@@ -2860,13 +2833,17 @@
                 background: #fff; /* Reset columns background */
             }
 
+            .cat-table-inner,
+            .cat-table-inner * {
+                box-sizing: border-box;
+            }
+
             /* Columns */
             .cat-col {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 flex-shrink: 0;
-                gap: 1px; /* Horizontal lines */
             }
 
             .cat-col-label { 
@@ -3096,6 +3073,12 @@
         @media (max-width: 1023px) {
             .desktop-only { display: none !important; }
             .mo-br { display: block; }
+        }
+
+        @media (max-width: 768px) {
+            .usage-menu-item {
+                gap: 12px !important;
+            }
         }
 
         @media (min-width: 1024px) {
