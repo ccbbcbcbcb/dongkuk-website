@@ -430,6 +430,11 @@
             }
           } else if (rect.top <= 0) {
             /* ── 섹션 진입 완료 ── */
+            if (fixedWrap) {
+              fixedWrap.classList.add('coil-fixed');
+              fixedWrap.classList.add('coil-on-product');
+              fixedWrap.style.opacity = '1';
+            }
             if (!window._coilLocked) {
               var tRaw = 0.35 + p * 0.65;
               if (idx >= 2) {

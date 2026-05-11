@@ -396,6 +396,7 @@ body {
   height: calc(100svh - 80px);
   height: calc(100vh - 80px);
   height: calc(100svh - 80px);
+  max-height: 930px;
   background: linear-gradient(135deg, #E46116 0%, #FF7824 66%, #F98039 100%);
   border-radius: clamp(16px, 1.458vw, 28px);
   overflow: visible;
