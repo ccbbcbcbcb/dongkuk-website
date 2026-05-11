@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Disc Torus Test</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#F8F9FB; overflow:hidden; font-family:'Pretendard',sans-serif; }
+  canvas { display:block; }
+
+  /* ── 4방향 문구 ── */
+  .label-overlay {
+    position: fixed;
+    pointer-events: none;
+    z-index: 5;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0.35;
+    transform: translateY(4px);
+  }
+  .label-overlay.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .label-overlay .label-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1B1B1B;
+    line-height: 1.4;
+    transition: color 0.5s ease;
+  }
+  .label-overlay.active .label-title {
+    color: #F27100;
+  }
+  .label-overlay .label-desc {
+    font-size: 16px;
+    font-weight: 400;
+    color: #6B6B6B;
+    line-height: 1.6;
+    margin-top: 6px;
+  }
+
+  .label-tl { top: 18%; left: 6%; text-align: left; }
+  .label-bl { bottom: 22%; left: 6%; text-align: left; }
+  .label-br { bottom: 22%; right: 6%; text-align: right; }
+  .label-tr { top: 18%; right: 6%; text-align: right; }
+</style>
+</head>
+<body>
+
+<!-- 4방향 문구 -->
+<div class="label-overlay label-tl" id="lbl-tl">
+  <div class="label-title">인재와 기회</div>
+  <div class="label-desc">미래를 주도하는 동국인</div>
+</div>
+<div class="label-overlay label-bl" id="lbl-bl">
+  <div class="label-title">사회환원과 책임</div>
+  <div class="label-desc">상생과 투명한 책임경영</div>
+</div>
+<div class="label-overlay label-br" id="lbl-br">
+  <div class="label-title">사회와 문화</div>
+  <div class="label-desc">삶의 질을 높이는 문화 창달</div>
+</div>
+<div class="label-overlay label-tr" id="lbl-tr">
+  <div class="label-title">혁신과 품질</div>
+  <div class="label-desc">타협 없는 최고의 성과와 협력</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  /* ═══════════ 설정 ═══════════ */
+  const DISC_COUNT   = 28;
+  const TORUS_R      = 3.6;
+  const DISC_RADIUS  = 1.15;
+  const TILT         = 0.85;
+
+  let ORANGE_DEEP  = new THREE.Color(0xF27100);
+  let ORANGE_MID   = new THREE.Color(0xF0A07A);  // 피치살몬
+  let ORANGE_LIGHT = new THREE.Color(0xF5C9AB);  // 따뜻한 피치
+  let ORANGE_PALE  = new THREE.Color(0xFADFC9);  // 크리미 피치
+
+  const guiColors = {
+    deep:  '#F27100',
+    mid:   '#F0A07A',
+    light: '#F5C9AB',
+    arcHL: '#F27100',
+    arcBase: '#D8D8D8',
+  };
+  const guiParams = {
+    waveScale: 0.25,
+    waveTilt: 0.25,
+    loopSpeed: 8,
+    discShape: 'Lathe (둥글)',
+  };
+  const gui = new dat.GUI({ width: 280 });
+  const fDisc = gui.addFolder('디스크');
+  fDisc.addColor(guiColors, 'deep').name('Deep (포커스)').onChange(v => ORANGE_DEEP.set(v));
+  fDisc.addColor(guiColors, 'mid').name('Mid (중간)').onChange(v => ORANGE_MID.set(v));
+  fDisc.addColor(guiColors, 'light').name('Light (연한)').onChange(v => ORANGE_LIGHT.set(v));
+  fDisc.add(guiParams, 'discShape', ['Lathe (둥글)', 'Extrude (베벨)']).name('형태').onChange(() => swapGeometry());
+  fDisc.open();
+  const fWave = gui.addFolder('웨이브');
+  fWave.add(guiParams, 'waveScale', 0, 1, 0.01).name('크기');
+  fWave.add(guiParams, 'waveTilt', 0, 1, 0.01).name('기울기');
+  fWave.add(guiParams, 'loopSpeed', 2, 30, 0.5).name('회전주기(s)');
+  fWave.open();
+  const fArc = gui.addFolder('호(띠)');
+  fArc.addColor(guiColors, 'arcHL').name('하이라이트').onChange(v => {
+    const c = new THREE.Color(v);
+    arc1Mat.uniforms.uColorHL.value.copy(c);
+    arc2Mat.uniforms.uColorHL.value.copy(c);
+  });
+  fArc.open();
+
+  // 문구 라벨 (좌상=135°, 좌하=225°, 우하=315°, 우상=45°)
+  const labels = [
+    { el: document.getElementById('lbl-tl'), angle: Math.PI * 0.75 },   // 좌상 135°
+    { el: document.getElementById('lbl-bl'), angle: Math.PI * 1.25 },   // 좌하 225°
+    { el: document.getElementById('lbl-br'), angle: Math.PI * 1.75 },   // 우하 315°
+    { el: document.getElementById('lbl-tr'), angle: Math.PI * 0.25 },   // 우상 45°
+  ];
+
+  /* ═══════════ 씬 / 카메라 / 렌더러 ═══════════ */
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xF8F9FB);
+
+  const camera = new THREE.PerspectiveCamera(40, innerWidth/innerHeight, 0.1, 100);
+  camera.position.set(0, 0, 16);
+  camera.lookAt(0, 0, 0);
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.1;
+  document.body.appendChild(renderer.domElement);
+
+  /* ═══════════ 조명 ═══════════ */
+  scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+  const keyLight = new THREE.DirectionalLight(0xffffff, 0.9);
+  keyLight.position.set(3, 5, 8);
+  scene.add(keyLight);
+  const fillLight = new THREE.DirectionalLight(0xE8E0FF, 0.4);
+  fillLight.position.set(-5, 3, -3);
+  scene.add(fillLight);
+  const rimLight = new THREE.DirectionalLight(0xFFF5E6, 0.6);
+  rimLight.position.set(0, -2, -5);
+  scene.add(rimLight);
+  const topLight = new THREE.DirectionalLight(0xffffff, 0.3);
+  topLight.position.set(0, 10, 0);
+  scene.add(topLight);
+
+  function createLatheDisc(radius) {
+    const halfH = 0.05, bevel = 0.04, pts = [];
+    pts.push(new THREE.Vector2(0, halfH));
+    pts.push(new THREE.Vector2(radius - bevel, halfH));
+    for (let i = 0; i <= 8; i++) {
+      const a = (i / 8) * Math.PI * 0.5;
+      pts.push(new THREE.Vector2(radius - bevel + Math.sin(a) * bevel, halfH * Math.cos(a)));
+    }
+    for (let i = 8; i >= 0; i--) {
+      const a = (i / 8) * Math.PI * 0.5;
+      pts.push(new THREE.Vector2(radius - bevel + Math.sin(a) * bevel, -halfH * Math.cos(a)));
+    }
+    pts.push(new THREE.Vector2(0, -halfH));
+    return new THREE.LatheGeometry(pts, 64);
+  }
+
+  function createExtrudeDisc(radius) {
+    const shape = new THREE.Shape();
+    shape.absarc(0, 0, radius, 0, Math.PI * 2, false);
+    return new THREE.ExtrudeGeometry(shape, {
+      depth: 0.08, bevelEnabled: true,
+      bevelThickness: 0.03, bevelSize: 0.03,
+      bevelSegments: 12, curveSegments: 64
+    });
+  }
+
+  const geoLathe = createLatheDisc(DISC_RADIUS);
+  const geoExtrude = createExtrudeDisc(DISC_RADIUS);
+
+  function swapGeometry() {
+    const geo = guiParams.discShape.startsWith('Lathe') ? geoLathe : geoExtrude;
+    discs.forEach(d => { d.mesh.geometry = geo; });
+  }
+
+  /* ═══════════ 디스크 그룹 ═══════════ */
+  const discGroup = new THREE.Group();
+  const discs = [];
+  const discGeo = geoLathe;
+
+  for (let i = 0; i < DISC_COUNT; i++) {
+    const angle = (i / DISC_COUNT) * Math.PI * 2;
+    const mat = new THREE.MeshStandardMaterial({
+      color: ORANGE_PALE.clone(),
+      metalness: 0.05,
+      roughness: 0.35,
+      side: THREE.DoubleSide,
+    });
+
+    const mesh = new THREE.Mesh(discGeo, mat);
+    mesh.position.set(Math.cos(angle) * TORUS_R, Math.sin(angle) * TORUS_R, 0);
+    mesh.rotation.set(0, 0, angle);
+    mesh.rotateX(TILT);
+    mesh.castShadow = false;
+    mesh.receiveShadow = false;
+
+    discs.push({ mesh, mat, angle, index: i, scale: 1, velocity: 0, tiltOffset: 0, tiltVel: 0 });
+    discGroup.add(mesh);
+  }
+  scene.add(discGroup);
+
+  /* ═══════════ 띠(호) 2개 — ShaderMaterial 부분 그라데이션 ═══════════ */
+  const ARC_R = TORUS_R + DISC_RADIUS + 0.9;
+  const ARC_W = 0.018;
+
+  const arcShaderVert = `
+    varying vec2 vPos;
+    void main() {
+      vPos = position.xy;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `;
+  const arcShaderFrag = `
+    uniform float uFocus;
+    uniform vec3 uColorHL;
+    uniform vec3 uColorBase;
+    varying vec2 vPos;
+    
+    void main() {
+      float angle = atan(vPos.y, vPos.x);
+      // 포커스와의 각도 차이 (signed: 양수=진행방향 앞, 음수=꼬리)
+      float diff = angle - uFocus;
+      diff = mod(diff + 3.14159265, 6.28318530) - 3.14159265;
+      // 비대칭 유성: 선두 sharp, 꼬리 긴 그라데이션
+      float t;
+      if (diff > 0.0) {
+        // 선두: 칼같이 잘림
+        t = 1.0 - step(0.03, diff);
+      } else {
+        // 꼬리: 천천히 페이드
+        t = 1.0 - smoothstep(0.0, 1.2, abs(diff));
+      }
+      vec3 col = mix(uColorBase, uColorHL, t);
+      float alpha = mix(0.28, 0.9, t);
+      gl_FragColor = vec4(col, alpha);
+    }
+  `;
+
+  function createArcMat() {
+    return new THREE.ShaderMaterial({
+      uniforms: {
+        uFocus: { value: 0 },
+        uColorHL: { value: new THREE.Color(0xF27100) },
+        uColorBase: { value: new THREE.Color(0xD8D8D8) },
+      },
+      vertexShader: arcShaderVert,
+      fragmentShader: arcShaderFrag,
+      side: THREE.DoubleSide,
+      transparent: true,
+    });
+  }
+
+  const arc1Mat = createArcMat();
+  const arc1Geo = new THREE.RingGeometry(ARC_R - ARC_W, ARC_R + ARC_W, 128, 1,
+    Math.PI * 0.55, Math.PI * 0.9);
+  const arc1 = new THREE.Mesh(arc1Geo, arc1Mat);
+  arc1.position.z = -0.15;
+  scene.add(arc1);
+
+  const arc2Mat = createArcMat();
+  const arc2Geo = new THREE.RingGeometry(ARC_R - ARC_W, ARC_R + ARC_W, 128, 1,
+    Math.PI * 1.55, Math.PI * 0.9);
+  const arc2 = new THREE.Mesh(arc2Geo, arc2Mat);
+  arc2.position.z = -0.15;
+  scene.add(arc2);
+
+  /* ═══════════ 포커스 회전 (반시계) ═══════════ */
+  let focusAngle = Math.PI * 0.75; // 좌상에서 시작
+
+  // 두 각도 사이의 최단 거리
+  function angleDist(a, b) {
+    let d = ((b - a) % (Math.PI * 2) + Math.PI * 3) % (Math.PI * 2) - Math.PI;
+    return Math.abs(d);
+  }
+
+  function updateFocus(time) {
+    // 반시계 방향: 각도 증가 (Three.js에서 반시계=양의 방향)
+    focusAngle = (Math.PI * 0.75 + (time / guiParams.loopSpeed) * Math.PI * 2) % (Math.PI * 2);
+
+    // ── 디스크 색상 + 스케일 업데이트 ──
+    const groupRot = discGroup.rotation.z; // 회전 보정
+    discs.forEach((d) => {
+      const visualAngle = (d.angle + groupRot) % (Math.PI * 2);
+      const dist = angleDist(visualAngle, focusAngle);
+      // 25%씩 균등 대칭: DEEP → MID → LIGHT → MID → DEEP
+      const t = dist / Math.PI; // 0(포커스) → 1(반대편) 선형
+      
+      let color;
+      if (t < 0.5) {
+        // 0~50%: DEEP → MID (포커스~90°)
+        color = ORANGE_DEEP.clone().lerp(ORANGE_MID, t / 0.5);
+      } else {
+        // 50~100%: MID → LIGHT (90°~반대편)
+        color = ORANGE_MID.clone().lerp(ORANGE_LIGHT, (t - 0.5) / 0.5);
+      }
+
+      d.mat.color.copy(color);
+      d.mat.metalness = 0.05 + (1 - t) * 0.05;
+      d.mat.roughness = 0.35 - (1 - t) * 0.05;
+
+      // 스프링 스케일 (탁 치고 가는 느낌)
+      const wave = Math.max(0, 1 - dist / (Math.PI * 0.35));
+      const targetScale = 1 + wave * guiParams.waveScale;
+      const dt = 0.016;
+      const stiffness = 180;
+      const damping = 8;
+      const scaleForce = (targetScale - d.scale) * stiffness;
+      d.velocity += (scaleForce - d.velocity * damping) * dt;
+      d.scale += d.velocity * dt;
+      d.mesh.scale.set(d.scale, d.scale, d.scale);
+
+      // 스프링 기울기 (눈힘짓 느낌 — 치고 지나갈 때 더 눅혀졌다 복원)
+      const targetTilt = -wave * guiParams.waveTilt;
+      const tiltForce = (targetTilt - d.tiltOffset) * 120;
+      d.tiltVel += (tiltForce - d.tiltVel * 7) * dt;
+      d.tiltOffset += d.tiltVel * dt;
+      // 기본 회전 재설정 + tiltOffset 적용
+      d.mesh.rotation.set(0, 0, d.angle);
+      d.mesh.rotateX(TILT + d.tiltOffset);
+    });
+
+    // ── 문구 활성화 (포커스와 가장 가까운 라벨) ──
+    let closestIdx = 0;
+    let closestDist = Infinity;
+    labels.forEach((lbl, i) => {
+      const dist = angleDist(lbl.angle, focusAngle);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closestIdx = i;
+      }
+    });
+    labels.forEach((lbl, i) => {
+      if (i === closestIdx) {
+        lbl.el.classList.add('active');
+      } else {
+        lbl.el.classList.remove('active');
+      }
+    });
+
+    // ── 호 shader uniform 업데이트 ──
+    arc1Mat.uniforms.uFocus.value = focusAngle;
+    arc2Mat.uniforms.uFocus.value = focusAngle;
+  }
+
+  /* ═══════════ 마우스 인터랙션 ═══════════ */
+  let mouseX = 0, mouseY = 0;
+  document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / innerWidth - 0.5) * 2;
+    mouseY = (e.clientY / innerHeight - 0.5) * 2;
+  });
+
+  /* ═══════════ 렌더 루프 ═══════════ */
+  function animate() {
+    requestAnimationFrame(animate);
+    const time = performance.now() / 1000;
+
+    // 디스크 회전 (포커스 속도에 연동)
+    discGroup.rotation.z += (Math.PI * 2) / (guiParams.loopSpeed * 60 * 130 / 8);
+    const targetRotX = mouseY * 0.08;
+    const targetRotY = mouseX * -0.08;
+    discGroup.rotation.x += (targetRotX - discGroup.rotation.x) * 0.03;
+    discGroup.rotation.y += (targetRotY - discGroup.rotation.y) * 0.03;
+
+    updateFocus(time);
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  /* ═══════════ 리사이즈 ═══════════ */
+  window.addEventListener('resize', () => {
+    camera.aspect = innerWidth / innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth, innerHeight);
+  });
+
+})();
+</script>
+</body>
+</html>
