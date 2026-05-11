@@ -231,7 +231,10 @@ body {
     width: 2.6041vw;
     /* 50px / 1920px */
     height: 2.6041vw;
-    background: var(--active-icon) no-repeat center/contain;
+    background-image: var(--active-icon);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     opacity: 1;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
