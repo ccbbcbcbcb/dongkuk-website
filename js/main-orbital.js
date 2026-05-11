@@ -273,6 +273,15 @@
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', () => { setup(); onScroll(); }, { passive: true });
       setup(); onScroll();
+      /* _coil3d가 뒤늦게 로드되면 초기 상태 재설정 */
+      if (!window._coil3d) {
+        var _waitCoilOrb = setInterval(function () {
+          if (window._coil3d) {
+            clearInterval(_waitCoilOrb);
+            onScroll();
+          }
+        }, 50);
+      }
     })();
 
     const fadeEls = document.querySelectorAll('.fade-in');
@@ -483,6 +492,15 @@
       function initProd() {
         if (!wrapper.offsetHeight) { requestAnimationFrame(initProd); return; }
         setStep(0); onProdScroll();
+        /* _coil3d가 아직 로드 안 됐으면 (main-coil3d.js가 뒤에 로드) 재시도 */
+        if (!window._coil3d) {
+          var _waitCoil = setInterval(function () {
+            if (window._coil3d) {
+              clearInterval(_waitCoil);
+              onProdScroll();
+            }
+          }, 50);
+        }
       }
       requestAnimationFrame(initProd);
     })();
