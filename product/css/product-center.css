@@ -394,14 +394,8 @@ body {
 }
 
 /* ================= 글로벌 비즈니스 ================= */
-#global-wrapper {
-    position: relative;
-    height: 300vh;
-}
-
 .global-section {
-    position: sticky;
-    top: 0;
+    position: relative;
     width: 100%;
     max-width: 1920px;
     height: 940px;

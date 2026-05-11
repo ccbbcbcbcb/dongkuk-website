@@ -125,7 +125,6 @@
             </div>
         </section>
 
-        <div id="global-wrapper">
         <section class="global-section" id="globalSection">
             <span class="global-label">글로벌 비즈니스</span>
             <h2 class="global-title global-title-1">동국산업의 소재<br class="mob-br"> 솔루션은<br class="desk-br"> 세계에서<br class="mob-br"> 그 가치를 증명하며</h2>
@@ -152,7 +151,6 @@
                 </div>
             </div>
         </section>
-        </div>
 
         <section class="products-section">
             <div class="products-container">
@@ -402,13 +400,12 @@
             }
         });
 
-        // 🌐 글로벌 비즈니스 섹션 — 스크롤 기반 영상 재생 🌐
+        // 🌐 글로벌 비즈니스 섹션 🌐
         (function() {
-            const wrapper = document.getElementById('global-wrapper');
             const section = document.getElementById('globalSection');
             const frame   = document.getElementById('globalVideoFrame');
             const video   = document.getElementById('globalVideo');
-            if (!wrapper || !section || !frame || !video) return;
+            if (!section || !frame || !video) return;
 
             video.addEventListener('loadeddata', () => { video.currentTime = 0.01; });
 
@@ -418,11 +415,14 @@
             const stats   = section.querySelector('.global-stats');
             const counters = section.querySelectorAll('.counter');
 
-            let expanded = false;
+            let triggered = false;
             let counted = false;
 
-            function showOverlays() {
+            function showMarkers() {
                 markers.forEach((m, i) => setTimeout(() => m.classList.add('show'), i * 150));
+            }
+
+            function showStats() {
                 if (stats) stats.classList.add('show');
                 if (!counted) {
                     counted = true;
@@ -439,47 +439,37 @@
                 }
             }
 
-            function onGlobalScroll() {
-                const wTop = wrapper.getBoundingClientRect().top;
-                const range = wrapper.offsetHeight - window.innerHeight;
-                if (range <= 0) return;
-                const p = Math.max(0, Math.min(1, -wTop / range));
+            /* 마커: 영상 끝나기 1초 전부터 표시 */
+            let markersShown = false;
+            video.addEventListener('timeupdate', () => {
+                if (!markersShown && video.duration && video.currentTime >= video.duration - 1) {
+                    markersShown = true;
+                    showMarkers();
+                }
+            });
 
-                /* 0~0.15: 프레임 확장 + 타이틀 전환 */
-                if (p > 0.05 && !expanded) {
-                    expanded = true;
+            function checkScroll() {
+                if (triggered) return;
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.2) {
+                    triggered = true;
+                    window.removeEventListener('scroll', checkScroll);
                     frame.classList.add('expanded');
                     setTimeout(() => {
                         title1.classList.add('fade-out');
                         title2.classList.add('fade-in');
                     }, 300);
-                }
-                if (p < 0.03 && expanded) {
-                    expanded = false;
-                    frame.classList.remove('expanded');
-                    title1.classList.remove('fade-out');
-                    title2.classList.remove('fade-in');
-                }
-
-                /* 0.15~0.85: 영상 스크롤 재생 */
-                if (video.duration && video.duration > 0) {
-                    const videoP = Math.max(0, Math.min(1, (p - 0.15) / 0.70));
-                    var targetTime = videoP * video.duration;
-                    /* 부드러운 탐색: 큰 점프 방지 */
-                    if (Math.abs(video.currentTime - targetTime) > 0.05) {
-                        video.currentTime = targetTime;
-                    }
-                }
-
-                /* 0.85~1.0: 오버레이 표시 */
-                if (p > 0.85) {
-                    showOverlays();
+                    /* 스탯 카드: 프레임 확장과 함께 자연스럽게 등장 */
+                    setTimeout(() => showStats(), 800);
+                    setTimeout(() => video.play(), 800);
                 }
             }
 
-            window.addEventListener('scroll', onGlobalScroll, { passive: true });
-            /* 초기 실행 (새로고침 시 중간 스크롤 대응) */
-            setTimeout(() => onGlobalScroll(), 100);
+            // 1초 딜레이: 브라우저 스크롤 복원으로 인한 즉시 트리거 방지
+            setTimeout(() => {
+                window.addEventListener('scroll', checkScroll, { passive: true });
+            }, 1000);
+            setTimeout(() => { if (!counted) { showMarkers(); showStats(); } }, 6000);
         })();
     </script>
     <script src="../js/gnb.js"></script>
