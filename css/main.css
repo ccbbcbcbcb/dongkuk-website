@@ -646,7 +646,7 @@ body {
   height: clamp(40px, 3.177vw, 61px);
   padding: 0 clamp(16px, 1.25vw, 24px);
   font-size: clamp(13px, 0.937vw, 18px);
-  font-weight: 700;
+  font-weight: 500;
   color: #000;
   background: #fff;
   line-height: 1.6;
@@ -1915,10 +1915,111 @@ body {
     padding: 16px !important;
     border-radius: 16px !important;
     flex-shrink: 0 !important;
+    gap: 11px !important;
+  }
+
+  .inv-stock-header {
+    padding: 0 !important;
+    height: 62px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+  }
+
+  .inv-stock-name {
+    gap: 10px !important;
+  }
+
+  .inv-company-label {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #4E4E4E !important;
+    line-height: 1.6 !important;
+  }
+
+  .invest-ticker-badge {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    padding: 2px 8px !important;
+    border: 0.646px solid #F48D33 !important;
+    border-radius: 3.874px !important;
+    color: #F27100 !important;
+  }
+
+  .inv-stock-body {
+    gap: 10px !important;
   }
 
   .inv-price-num {
-    font-size: 36px;
+    font-size: 36px !important;
+    font-weight: 700 !important;
+    color: #000 !important;
+    line-height: 1.5 !important;
+    gap: 10px !important;
+  }
+
+  .inv-price-unit {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #363636 !important;
+    line-height: 1.6 !important;
+    padding-bottom: 2px !important;
+  }
+
+  .inv-change-box {
+    background: #F8F9FB !important;
+    border-radius: 6px !important;
+    padding: 8px 16px !important;
+    height: 89px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+  }
+
+  .inv-change-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 0 !important;
+    width: 100% !important;
+    align-items: flex-start !important;
+  }
+
+  .inv-change-row {
+    display: flex !important;
+    gap: 6px !important;
+    align-items: flex-start !important;
+    height: 26px !important;
+  }
+
+  .inv-change-label {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #1B1B1B !important;
+    line-height: 1.6 !important;
+    width: auto !important;
+  }
+
+  .inv-change-val {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #1B1B1B !important;
+    line-height: 1.6 !important;
+    gap: 4px !important;
+  }
+
+  .inv-change-val .tri {
+    display: inline-flex !important;
+    align-items: center !important;
+    position: relative !important;
+    top: -2px !important;
+  }
+
+  .inv-divider-thin {
+    background: #D3D3D3 !important;
   }
 
   .inv-card-col {
