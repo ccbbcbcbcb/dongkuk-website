@@ -555,7 +555,7 @@ img.ic-download {
 }
 
 .spec-grid-label {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     line-height: 150%;
     color: #363636;
@@ -580,7 +580,7 @@ img.ic-download {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 700;
     line-height: 160%;
     color: #000000;
@@ -596,7 +596,7 @@ img.ic-download {
     justify-content: flex-start;
     align-items: center;
     padding: 0 24px;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 150%;
     color: #363636;
@@ -1668,16 +1668,22 @@ img.ic-download {
         flex: none;
     }
 
+    .spec-grid-label {
+        font-size: 20px;
+    }
+
     .spec-head {
         width: 150px;
         height: 100px;
         box-sizing: border-box;
+        font-size: 18px;
     }
 
     .spec-value {
         width: 150px;
         height: 90px;
         box-sizing: border-box;
+        font-size: 14px;
     }
 
     .spec-ann-col.wide {
@@ -3009,7 +3015,7 @@ img.ic-download {
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 24px;
     color: #363636;
     text-align: center;
 }
@@ -3022,7 +3028,7 @@ img.ic-download {
     border-top: 1px solid #D6D6D6;
     border-right: 1px solid #D6D6D6;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 20px;
     color: #4E4E4E;
     text-align: left;
     padding: 0 24px;
