@@ -1346,8 +1346,8 @@ body {
 }
 
 .support-arrow-svg {
-  width: clamp(14px, 1.19vw, 23px);
-  height: clamp(11.5px, 0.96vw, 18.5px);
+  width: 26px;
+  height: 26px;
 }
 
 .support-card-desc {
