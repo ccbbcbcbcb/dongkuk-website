@@ -1,0 +1,2059 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: #000;
+    overflow-x: hidden;
+    padding-top: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.gnb {
+    position: fixed !important;
+    background: transparent;
+}
+
+/* Hero Section */
+.invest-hero {
+    position: relative;
+    width: 1920px;
+    height: 709px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    gap: 120px;
+    overflow: hidden;
+    margin: 0 auto;
+    background: url('../assets/invest-center/투자정보센터header.png') no-repeat center/cover;
+}
+
+.invest-hero .gnb {
+    position: relative !important;
+    z-index: 2;
+    width: 100%;
+    height: 100px;
+}
+
+.invest-hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 995px;
+    height: 289px;
+    text-align: center;
+    color: #fff;
+}
+
+.invest-hero-subtitle {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.invest-hero-maintitle {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Responsive adjustment for the 80px main title */
+@media (max-width: 1023px) {
+    .invest-hero {
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+        padding: 100px 20px 60px;
+        gap: 40px;
+        background-size: cover;
+    }
+    .invest-hero-maintitle {
+        font-size: clamp(32px, 8vw, 48px);
+        padding: 0;
+    }
+    .invest-hero-subtitle {
+        font-size: clamp(16px, 4vw, 20px);
+    }
+    .invest-hero-content {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Investment Overview (투자개요) */
+.investment-overview {
+    width: 100%;
+    max-width: 1920px;
+    height: auto;
+    min-height: 755px;
+    margin: 0 auto;
+    padding: 100px 120px; /* Horizontal padding 120px */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #FFFFFF;
+}
+
+.investment-overview .inner {
+    width: 100%;
+    max-width: 1680px;
+    margin: 0; /* Horizontal margin removed */
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.overview-title {
+    font-size: clamp(32px, 2.6vw, 50px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #000000;
+    margin: 0;
+    margin-bottom: 60px;
+}
+
+.overview-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 24px;
+    width: 100%;
+    max-width: 1680px; /* Fixed width for desktop */
+    height: 435px; /* Fixed height for desktop */
+}
+
+.overview-card {
+    min-height: 435px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* 주가정보 카드 */
+.stock-info {
+    flex: 1.7;
+    padding: 40px 0px 40px 0px; /* Removed right padding as requested */
+    justify-content: space-between; /* Pushes content to the bottom */
+}
+
+.card-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Changed from flex-start to center for better alignment */
+    justify-content: space-between; /* Attached to both walls */
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    height: 46px;
+}
+
+.card-base-date {
+    white-space: nowrap;
+    font-size: 20px;
+    font-weight: 500;
+    color: #7A7A7A;
+    display: flex;
+    align-items: center;
+}
+
+.card-title-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    width: auto;
+    height: 46px;
+    gap: 2px;
+}
+
+.card-title-wrap h3 {
+    white-space: nowrap;
+    width: auto;
+    height: 45px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 150%;
+    color: #363636;
+    margin: 0;
+}
+
+.chevron-icon {
+    width: 36px;
+    height: 36px;
+}
+
+.stock-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    gap: 0;
+}
+
+.stock-label {
+    white-space: nowrap;
+    width: auto;
+    height: 36px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    color: #363636;
+    margin: 0;
+}
+
+/* Frame 2116936095 - Horizontal Wrap for Price and Stats */
+.price-row-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+    width: 100%;
+    height: 112px;
+}
+
+/* Frame 2116935947 - Price Area */
+.price-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 14px;
+    width: 293px; /* Frame 2116935947 width */
+    height: 112px;
+}
+
+.price-val {
+    width: 220px;
+    height: 112px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 140%;
+    color: #000000;
+    margin: 0;
+}
+
+.price-unit {
+    width: 72px;
+    height: 59px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 150%;
+    color: #363636;
+    padding-bottom: 12px;
+}
+
+/* Frame 2116936065 - Stats Area */
+.stock-bottom-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+    width: 376px;
+    height: 100px;
+}
+
+.info-rows-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+    width: 376px;
+    height: 60px;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+}
+
+.info-label-box {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 0px;
+    width: auto;
+    min-width: 52px;
+    height: 36px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 160%;
+    color: #7A7A7A;
+}
+
+.info-val-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 6px;
+}
+
+.info-val-wrap.down {
+    color: #2063F3;
+}
+
+.info-val-wrap.down .arrow-icon {
+    width: 16px;
+    height: 12px;
+    object-fit: contain;
+}
+
+.arrow-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-val-wrap .val {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 150%;
+}
+
+.info-val-wrap .unit {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    align-self: flex-end;
+    padding-bottom: 4px;
+}
+
+.v-line-svg {
+    width: 20px;
+    height: 20px;
+    flex: none;
+}
+
+.base-date {
+    width: 211px;
+    height: 32px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 160%;
+    display: flex;
+    align-items: center;
+    color: #7A7A7A;
+}
+
+/* 주주환원 카드 */
+.shareholder-return {
+    width: 484px;
+    background: #F8F9FB;
+    justify-content: space-between;
+}
+
+.return-main {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.return-header-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 0;
+    width: fit-content; /* Size to content */
+}
+
+.return-icon-box {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0; /* Margin removed */
+}
+
+.return-icon-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.return-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1B1B1B;
+    margin: 0; /* Margin removed */
+}
+
+.return-stats-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    justify-content: space-between;
+    width: 345px;
+    height: 100px;
+}
+
+.return-stats-sep-svg {
+    width: 1px;
+    height: 85px;
+    flex: none;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 5px;
+    height: 99px;
+}
+
+.stat-item:nth-child(1) { width: 118px; }
+.stat-item:nth-child(3) { width: 127px; }
+
+.stat-label {
+    width: auto;
+    height: 32px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 160%;
+    color: #7A7A7A;
+    display: flex;
+    align-items: center;
+}
+
+.stat-val-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 8px;
+    height: 62px;
+}
+
+.stat-val-wrap .val {
+    height: 62px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 62px;
+    display: flex;
+    align-items: flex-end;
+    color: #1B1B1B;
+}
+
+.stat-unit-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px 6px;
+    gap: 10px;
+    width: 30px;
+    height: 44px;
+}
+
+.stat-val-wrap .unit {
+    width: 30px;
+    height: 38px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 38px;
+    display: flex;
+    align-items: flex-end;
+    color: #1B1B1B;
+    padding-bottom: 0;
+}
+
+.stat-sep-line {
+    width: 85px;
+    height: 0px;
+    border: 1px solid #D3D3D3;
+    transform: rotate(90deg);
+}
+
+/* 파트너십 카드 */
+.partnership {
+    width: 320px;
+    background: #FCE3CC;
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.partnership-txt {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #1B1B1B;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.partnership-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-item-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-label-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Hide labels on desktop to match original design if they weren't there */
+.contact-label {
+    display: none;
+}
+
+.contact-icon-wrap img {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.contact-val {
+    font-size: 24px;
+    font-weight: 400;
+    color: #363636;
+}
+
+.partnership-bg-circle {
+    position: absolute;
+    width: 433px;
+    height: 433px;
+    right: -100px;
+    bottom: -200px;
+    background: linear-gradient(180deg, rgba(250, 198, 153, 0.8) 10%, rgba(250, 198, 153, 0) 90%);
+    border-radius: 50%;
+    transform: rotate(-90deg);
+    z-index: 1;
+}
+
+/* News Section & Contact Section override */
+.news-container {
+    padding-top: 40px;
+}
+
+/* Responsive adjustment for Overview Section */
+@media (max-width: 1023px) {
+    .investment-overview {
+        padding: 60px 20px;
+    }
+    .overview-title {
+        font-family: 'Pretendard';
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 140%;
+        color: #000000;
+        margin-bottom: 30px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+    }
+    .overview-grid {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        height: auto;
+    }
+    .overview-card {
+        width: 100%;
+        min-height: auto;
+        padding: 0; /* Removing padding as per mobile layout spec */
+    }
+    .stock-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        justify-content: space-between;
+        width: 328px;
+        height: 261px;
+    }
+    .stock-info .card-top {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 14px 0;
+        width: 328px;
+        height: 46px;
+    }
+    .stock-info .card-title-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        gap: 4px;
+        width: 98px;
+        height: 30px;
+    }
+    .stock-info .card-title-wrap h3 {
+        width: 70px;
+        height: 30px;
+        font-family: 'Pretendard';
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 150%;
+        color: #363636;
+        white-space: nowrap;
+    }
+    .stock-info .chevron-icon {
+        width: 24px;
+        height: 24px;
+        position: relative;
+    }
+    .stock-info .chevron-icon::after {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        left: calc(50% - 8px/2 - 4px);
+        top: calc(50% - 8px/2 - 2px);
+        border: 2px solid #363636;
+        border-left: 0;
+        border-bottom: 0;
+        transform: rotate(45deg);
+    }
+    .stock-main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        width: 328px;
+        height: 185px;
+    }
+    .stock-label {
+        width: 47px;
+        height: 29px;
+        font-family: 'Pretendard';
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 160%;
+        color: #363636;
+    }
+    .price-row-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        gap: 0;
+        width: 328px;
+        height: auto;
+    }
+    .price-row {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        padding: 0;
+        gap: 14px;
+        width: 228px;
+        height: 70px;
+    }
+    .price-val {
+        width: 142px;
+        height: 70px;
+        font-family: 'Pretendard';
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 140%;
+        color: #000000;
+    }
+    .price-unit {
+        width: 72px;
+        height: 50px;
+        font-family: 'Pretendard';
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 150%;
+        color: #363636;
+    }
+    .stock-bottom-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        gap: 0;
+        width: 328px;
+        height: 86px;
+        margin-top: 0;
+    }
+    .info-rows-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start; /* Left-aligned */
+        padding: 0;
+        gap: 10px; /* 10px gap on both sides of the zero-width separator box */
+        width: 328px;
+        height: 60px;
+    }
+    .v-line-svg {
+        width: 1px; /* Set to 1px to ensure visibility while being minimal */
+        height: 20px;
+        flex: none;
+        margin: 0;
+    }
+    .info-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        gap: 8px; /* Gap between label and value box */
+        height: 60px;
+        width: auto;
+    }
+    .info-group:nth-child(1), .info-group:nth-child(3) { width: auto; }
+
+    .info-label-box {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 0;
+        gap: 10px;
+        height: 26px;
+        border-radius: 800px;
+        font-family: 'Pretendard';
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 160%;
+        color: #7A7A7A;
+    }
+    .info-group:nth-child(1) .info-label-box { width: 42px; }
+    .info-group:nth-child(3) .info-label-box { width: 56px; }
+
+    .info-val-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        gap: 6px;
+        height: 60px;
+        width: auto;
+    }
+    .info-group:nth-child(1) .info-val-wrap, .info-group:nth-child(3) .info-val-wrap { width: auto; }
+
+    .arrow-wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        gap: 0;
+        width: 16px;
+        height: 12px;
+    }
+    
+    .arrow-icon {
+        width: 16px;
+        height: 12px;
+        object-fit: contain;
+    }
+
+    .info-val-wrap .arrow-up,
+    .info-val-wrap .arrow-down {
+        width: 16px;
+        height: 12px;
+        background: #2063F3;
+        border-radius: 1px;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        flex: none;
+    }
+    .info-val-wrap .arrow-down {
+        transform: rotate(-180deg);
+    }
+    .info-val-wrap .val {
+        font-family: 'Pretendard';
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 150%;
+        color: #2063F3;
+        height: 30px;
+        display: flex;
+        align-items: center;
+    }
+    .info-group:nth-child(1) .val { width: 40px; }
+    .info-group:nth-child(3) .val { width: 26px; }
+    .info-val-wrap .unit {
+        width: 18px;
+        height: 28px;
+        font-family: 'Pretendard';
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 160%;
+        color: #2063F3;
+        display: flex;
+        align-items: center;
+        align-self: center;
+        padding-bottom: 0;
+    }
+    .v-line {
+        width: 20px;
+        height: 0;
+        border: 1px solid #D3D3D3;
+        transform: rotate(90deg);
+        margin: 0;
+    }
+    .base-date {
+        width: 211px;
+        height: 26px;
+        font-family: 'Pretendard';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        color: #7A7A7A;
+        margin: 0;
+    }
+    .return-stats-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        width: auto;
+        height: auto;
+    }
+    .return-stats-sep-svg {
+        display: none;
+    }
+
+    /* --- 주주환원 모바일 ---  */
+    .shareholder-return {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+        width: 328px;
+        height: 270px;
+        background: #F8F9FB;
+        border-radius: 16px;
+        box-sizing: border-box;
+    }
+
+    /* 카드 상단 헤더 행 */
+    .shareholder-return .card-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        width: 288px;
+        height: 30px;
+        flex: none;
+        align-self: stretch;
+    }
+
+    /* 제목 + 아이콘 그룹 */
+    .shareholder-return .card-title-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        gap: 4px;
+        width: 98px;
+        height: 30px;
+    }
+    .shareholder-return .card-title-wrap h3 {
+        width: 70px;
+        height: 30px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 150%;
+        color: #363636;
+        display: flex;
+        align-items: center;
+    }
+    .shareholder-return .chevron-icon {
+        width: 24px;
+        height: 24px;
+        position: relative;
+    }
+
+    /* 기준 날짜 텍스트 */
+    .shareholder-return .card-base-date {
+        width: 120px;
+        height: 26px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        color: #7A7A7A;
+    }
+
+    /* 콘텐츠 영역 (아이콘 + 제목 + 지표 행) */
+    .shareholder-return .return-main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        gap: 16px;
+        width: 260.54px;
+        height: 178px;
+    }
+
+    /* 아이콘 + 타이틀 그룹 */
+    .shareholder-return .return-header-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        gap: 10px;
+        width: 157px;
+        height: 78px;
+    }
+    .shareholder-return .return-icon-box {
+        width: 32px;
+        height: 32px;
+    }
+    .shareholder-return .return-icon-box img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+    }
+    .shareholder-return .return-title {
+        width: 157px;
+        height: 36px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 150%;
+        color: #1B1B1B;
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+
+    /* 지표 행 */
+    .shareholder-return .return-stats-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        gap: 40px;
+        width: 260.54px;
+        height: 84px;
+    }
+
+    /* 개별 지표 아이템 */
+    .shareholder-return .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        gap: 4px;
+        height: 84px;
+    }
+    .shareholder-return .stat-item:nth-child(1) { width: 87.6px; }
+    .shareholder-return .stat-item:nth-child(3) { width: 92.94px; }
+
+    /* 지표 라벨 */
+    .shareholder-return .stat-label {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        gap: 8.32px;
+        width: 70px;
+        height: 26px;
+        border-radius: 82.32px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        color: #7A7A7A;
+    }
+
+    /* 지표 수치 행 */
+    .shareholder-return .stat-val-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        padding: 0;
+        gap: 6.65px;
+        height: 54px;
+    }
+    .shareholder-return .stat-item:nth-child(1) .stat-val-wrap { width: 87.6px; }
+    .shareholder-return .stat-item:nth-child(3) .stat-val-wrap { width: 92.94px; }
+
+    /* 수치 값 */
+    .shareholder-return .val {
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 150%;
+        display: flex;
+        align-items: flex-end;
+        text-align: right;
+        color: #1B1B1B;
+    }
+    .shareholder-return .stat-item:nth-child(1) .val { width: 56px; height: 54px; }
+    .shareholder-return .stat-item:nth-child(3) .val { width: 63px; height: 54px; }
+
+    /* 단위 래퍼 */
+    .shareholder-return .stat-unit-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 0 4.99px;
+        gap: 8.32px;
+        width: 24.95px;
+        height: 46.99px;
+    }
+    /* 단위 텍스트 */
+    .shareholder-return .unit {
+        width: 24.95px;
+        height: 42px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 150%;
+        display: flex;
+        align-items: center;
+        text-align: right;
+        color: #1B1B1B;
+        padding-bottom: 0;
+        align-self: stretch;
+    }
+
+    /* 지표 구분선 (SVG를 모바일에서는 표시) */
+    .shareholder-return .return-stats-sep-svg {
+        display: block;
+        width: 1px;
+        height: 70px;
+        overflow: visible;
+        flex: none;
+    }
+    .v-line {
+        display: none;
+    }
+    /* --- 파트너십 모바일 --- */
+    .partnership {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+        isolation: isolate;
+        width: 328px;
+        height: 270px;
+        background: #FCE3CC;
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .partnership-txt {
+        margin: 0;
+        width: auto;
+        height: 120px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 150%;
+        display: flex;
+        align-items: center;
+        color: #1B1B1B;
+        z-index: 1;
+        text-align: left;
+    }
+
+    .partnership-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 10px;
+        margin: 0;
+        width: 288px;
+        height: 62px;
+        z-index: 2;
+    }
+
+    .contact-item-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px;
+        width: 288px;
+        height: 26px;
+    }
+
+    .contact-label-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 12px;
+        width: 120px;
+        height: 26px;
+    }
+
+    .contact-icon-wrap {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact-icon-wrap img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .contact-label {
+        display: block;
+        width: 84px;
+        height: 26px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        color: #4E4E4E;
+    }
+
+    .contact-val {
+        width: 220px;
+        height: 26px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        text-align: right;
+        color: #4E4E4E;
+    }
+
+    .partnership-bg-circle {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        left: calc(50% - 400px/2);
+        top: 80px;
+        background: linear-gradient(180deg, rgba(250, 198, 153, 0.8) 10%, rgba(250, 198, 153, 0) 89.98%);
+        border-radius: 50%;
+        transform: rotate(-90deg);
+        z-index: 0;
+    }
+    
+    /* 추가적인 배경 원 (Ellipse 1947) */
+    .partnership::after {
+        content: '';
+        position: absolute;
+        width: 133.03px;
+        height: 133.03px;
+        left: calc(50% - 133.03px/2 - 0.55px);
+        top: calc(50% - 133.03px/2 + 128.55px);
+        background: #FCE2CC;
+        border-radius: 50%;
+        transform: rotate(-90deg);
+        z-index: 0;
+    }
+}
+
+
+/* 투자공지 Section */
+.notice-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 30px;
+    gap: 10px;
+    width: 1920px;
+    height: 737px;
+    box-sizing: border-box;
+}
+
+.notice-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 90px;
+    width: 1860px;
+    height: 617px;
+    background: #F1F3F7;
+    border-radius: 30px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.notice-main-title-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 1055px;
+    width: 1680px;
+    height: 60px;
+}
+
+.notice-main-title {
+    width: 173px;
+    height: 60px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 60px;
+    text-transform: capitalize;
+    color: #000000;
+    margin: 0;
+}
+
+.notice-cols-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 30px;
+    width: 1670px;
+    height: 377px;
+}
+
+.notice-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 30px;
+    width: 820px;
+    height: 377px;
+}
+
+.notice-col-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 2px;
+    width: 820px;
+    height: 46px;
+}
+
+.notice-col-title {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 150%;
+    color: #363636;
+    margin: 0;
+}
+
+.notice-chevron {
+    width: 36px;
+    height: 36px;
+}
+
+.notice-cards {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    width: 820px;
+    height: 301px;
+}
+
+.notice-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px;
+    gap: 70px;
+    width: 262.67px;
+    height: 301px;
+    background: #FFFFFF;
+    border-radius: 20px;
+}
+
+.notice-card-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px;
+    width: 209px;
+    height: 241px;
+}
+
+.notice-icon-box {
+    width: 46px;
+    height: 46px;
+    flex: none;
+}
+
+.notice-icon-box img {
+    width: 46px;
+    height: 46px;
+    background: #FCE3CC;
+    border-radius: 700px;
+    object-fit: contain;
+    padding: 11px;
+    box-sizing: border-box;
+    display: block;
+}
+
+.notice-card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    width: 209px;
+    height: 120px;
+}
+
+.notice-card-title {
+    width: 209px;
+    height: 72px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    color: #1B1B1B;
+    margin: 0;
+}
+
+.notice-card-date {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 160%;
+    text-align: right;
+    color: #7A7A7A;
+}
+
+/* News Section */
+.news-container {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.news-image {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #eee;
+}
+
+.news-image img {
+    width: 100%;
+    display: block;
+}
+
+.news-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.news-item-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.news-item-date {
+    font-size: 14px;
+    color: #999;
+}
+
+/* Contact IR */
+.contact-section {
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.contact-info-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.contact-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.contact-text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #111;
+}
+
+/* IR소식 Section */
+.ir-news-section {
+    position: relative;
+    width: 1920px;
+    height: 769px;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.ir-news-title-wrap {
+    position: absolute;
+    left: 120px;
+    top: 120px;
+    width: 1680px;
+    height: 60px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.ir-news-main-title {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 60px;
+    text-transform: capitalize;
+    color: #000000;
+    margin: 0;
+}
+
+.ir-news-cards {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 1680px;
+    height: 436px;
+    left: 120px;
+    top: 245.73px;
+}
+
+/* 공통 카드 */
+.ir-card {
+    display: flex;
+    flex-direction: column;
+    padding: 48px 40px;
+    isolation: isolate;
+    width: 828px;
+    height: 436px;
+    border-radius: 30px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.ir-card-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* IR 자료실 - 어두운 카드 */
+.ir-card--dark {
+    /* 카드 본체 배경을 20% 농도로 설정 */
+    background: rgba(69, 32, 0, 0.2);
+}
+
+.ir-card--dark::before {
+    content: '';
+    position: absolute;
+    width: 882px;
+    height: 497px;
+    left: calc(50% - 882px/2);
+    top: calc(50% - 497px/2 - 0.5px);
+    background: linear-gradient(0deg, rgba(69, 32, 0, 0.46), rgba(69, 32, 0, 0.46)), url('../assets/invest-center/IR소식.png') center/cover no-repeat;
+    filter: blur(9.8px);
+    z-index: 0;
+}
+
+/* 주주총회 - 밝은 카드 */
+.ir-card--light {
+    border: 1px solid #E9E9E9;
+    background: #FFFFFF;
+}
+
+/* 카드 헤더 */
+.ir-card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    width: 748px;
+    height: 46px;
+}
+
+.ir-card-label {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 150%;
+    color: #FFFFFF;
+}
+
+.ir-card-label--dark {
+    color: #363636;
+}
+
+.ir-chevron {
+    width: 36px;
+    height: 36px;
+}
+
+/* IR 카드 본문 */
+.ir-card-body {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 58px;
+    width: 748px;
+    height: 234px;
+}
+
+.ir-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 316px;
+    height: 234px;
+}
+
+.ir-item-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 9px;
+    width: 273px;
+    height: 66px;
+}
+
+.ir-item-category {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 150%;
+    color: #FFFFFF;
+}
+
+.ir-item-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 44px;
+    width: 316px;
+    height: 148px;
+}
+
+.ir-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    width: 316px;
+}
+
+.ir-item-name {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 160%;
+    color: #FFFFFF;
+    width: 316px;
+}
+
+.ir-item-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 316px;
+    height: 60px;
+}
+
+.ir-item-date {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 160%;
+    color: #FFFFFF;
+}
+
+.ir-download-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+    width: 60px;
+    height: 60px;
+    background: rgba(241, 237, 234, 0.2);
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.ir-download-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+/* 세로 구분선 */
+.ir-divider {
+    width: 1px;
+    height: 234px;
+    background: #A7A7A7;
+    flex: none;
+}
+
+/* 주주총회 목록 */
+.ir-meeting-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 748px;
+    height: 244px;
+}
+
+.ir-meeting-item {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+    width: 748px;
+    height: 76px;
+    border-bottom: 1px solid #E9E9E9;
+}
+
+.ir-meeting-item--last {
+    border-bottom: none;
+}
+
+.ir-meeting-title {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    color: #170B00;
+}
+
+.ir-meeting-date {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 160%;
+    text-align: right;
+    color: #7A7A7A;
+}
+
+/* Mobile */
+@media (max-width: 1023px) {
+    .invest-hero {
+        padding: 0 20px;
+        height: 400px;
+    }
+    .invest-hero-title {
+        font-size: 36px;
+    }
+    .invest-hero-desc {
+        font-size: 16px;
+    }
+    .invest-section {
+        padding: 60px 20px;
+    }
+    .section-title {
+        font-size: 32px;
+    }
+    .news-container {
+        flex-direction: column;
+    }
+    .contact-info-wrap {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    /* Notice Section Mobile */
+    .invest-section.notice-section {
+        padding: 0;
+        width: 100%;
+        height: auto;
+    }
+    .notice-inner {
+        width: 100%;
+        height: auto;
+        padding: 40px 16px;
+        gap: 20px;
+        border-radius: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .notice-main-title-wrap {
+        width: 100%;
+        height: auto;
+        gap: 0;
+        justify-content: flex-start;
+    }
+    .notice-main-title {
+        font-size: 24px;
+        line-height: 150%;
+        width: auto;
+        height: auto;
+    }
+    .notice-cols-wrapper {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .notice-col {
+        width: 100%;
+        height: auto;
+        gap: 20px;
+    }
+    .notice-col-header {
+        width: 100%;
+        height: 30px;
+        justify-content: flex-start;
+        gap: 4px;
+    }
+    .notice-col-title {
+        font-size: 20px;
+        line-height: 150%;
+    }
+    .notice-chevron {
+        width: 24px;
+        height: 24px;
+    }
+    .notice-cards {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .notice-card {
+        width: 100%;
+        height: auto;
+        min-height: 99px;
+        padding: 16px;
+        border-radius: 12px;
+        gap: 0;
+    }
+    .notice-card-inner {
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 26px 1fr;
+        grid-template-rows: 26px auto;
+        column-gap: 8px;
+        row-gap: 20px;
+    }
+    .notice-icon-box {
+        grid-column: 1;
+        grid-row: 1;
+        width: 26px;
+        height: 26px;
+        padding: 0;
+    }
+    .notice-icon-box img {
+        width: 26px;
+        height: 26px;
+        padding: 6px;
+        border-radius: 409px;
+    }
+    .notice-card-info {
+        display: contents;
+    }
+    .notice-card-title {
+        grid-column: 2;
+        grid-row: 1;
+        width: 100%;
+        height: auto;
+        font-size: 16px;
+        line-height: 160%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        opacity: 0.8;
+        align-self: center;
+    }
+    .notice-card-date {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        font-size: 14px;
+        line-height: 150%;
+        text-align: left;
+    }
+
+    /* IR소식 Section Mobile */
+    .invest-section.ir-news-section {
+        display: flex;
+        flex-direction: column;
+        padding: 40px 16px;
+        gap: 20px;
+        width: 100%;
+        height: auto;
+    }
+    .ir-news-title-wrap {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        margin: 0;
+    }
+    .ir-news-main-title {
+        font-size: 30px;
+        line-height: 140%;
+    }
+    .ir-news-cards {
+        position: static;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .ir-card {
+        width: 100%;
+        height: auto;
+        padding: 16px;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .ir-card-content-wrapper {
+        width: 296px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 30px;
+        z-index: 1;
+    }
+    .ir-card--dark .ir-card-content-wrapper {
+        height: 368px;
+    }
+    .ir-card--light .ir-card-content-wrapper {
+        height: 220px;
+        gap: 40px;
+    }
+    .ir-card--dark {
+        min-height: 400px;
+    }
+    .ir-card--dark::before {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: linear-gradient(0deg, rgba(69, 32, 0, 0.46), rgba(69, 32, 0, 0.46)), url('../assets/invest-center/IR소식.png') center/cover no-repeat;
+        filter: blur(6px);
+    }
+    .ir-card--light {
+        gap: 40px;
+    }
+    .ir-card-header {
+        width: 100%;
+        height: 30px;
+        gap: 4px;
+        justify-content: flex-start;
+    }
+    .ir-card-label {
+        font-size: 20px;
+        line-height: 150%;
+    }
+    .ir-chevron {
+        width: 24px;
+        height: 24px;
+    }
+    .ir-card-body {
+        width: 100%;
+        height: auto;
+        gap: 20px;
+        padding: 0;
+        flex-direction: column;
+    }
+    .ir-item {
+        width: 100%;
+        height: auto;
+        gap: 0;
+    }
+    .ir-item-top {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        justify-content: flex-start;
+    }
+    .ir-item-category {
+        font-size: 30px;
+        line-height: 150%;
+        height: auto;
+    }
+    .ir-item-bottom {
+        width: 100%;
+        height: auto;
+        gap: 16px;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .ir-item-info {
+        width: 100%;
+        height: auto;
+        gap: 16px;
+    }
+    .ir-item-name {
+        width: 100%;
+        height: auto;
+        font-size: 16px;
+        line-height: 160%;
+    }
+    .ir-item-footer {
+        width: 100%;
+        height: auto;
+        min-height: 42px;
+        gap: 20px;
+    }
+    .ir-item-date {
+        font-size: 16px;
+        line-height: 160%;
+    }
+    .ir-download-btn {
+        width: 42px;
+        height: 42px;
+        padding: 0;
+    }
+    .ir-download-btn img {
+        width: 24px;
+        height: 24px;
+    }
+    .ir-divider {
+        width: 100%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.4);
+    }
+    .ir-meeting-list {
+        width: 100%;
+        height: auto;
+        gap: 0;
+    }
+    .ir-meeting-item {
+        width: 100%;
+        height: auto;
+        min-height: 50px;
+        padding: 20px 0;
+        gap: 10px;
+    }
+    .ir-meeting-title {
+        font-size: 16px;
+    }
+    .ir-meeting-date {
+        font-size: 14px;
+    }
+}

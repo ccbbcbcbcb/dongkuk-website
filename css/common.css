@@ -734,7 +734,7 @@ body {
     .btn-top {
         width: 52px;
         height: 52px;
-        right: 16px;
+        right: 16px !important; /* Ensure it stays within mobile viewport */
     }
 
     /* ── Footer ── */
