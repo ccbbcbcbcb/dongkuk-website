@@ -181,6 +181,7 @@
   }
 
   const geoLathe = createLatheDisc(DISC_RADIUS);
+  geoLathe.rotateX(-Math.PI / 2); // Y축→Z축 정렬 (Extrude와 동일 방향)
   const geoExtrude = createExtrudeDisc(DISC_RADIUS);
 
   function swapGeometry() {
