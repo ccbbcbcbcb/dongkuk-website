@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/stock-info.css">
 </head>
 
-<body data-page="dikel">
+<body data-page="finance-info">
 
     <!-- GNB -->
     <header class="gnb">
@@ -114,7 +114,7 @@
                                         <span>2024</span>
                                         <span>2025</span>
                                     </div>
-                                    <div class="fs-tooltip hidden" style="left: 377px; top: 93px;">
+                                    <div class="fs-tooltip hidden" style="left: 337px; top: 93px;">
                                         <div class="fs-tooltip-box">
                                             <span>658,502</span>
                                         </div>
@@ -149,7 +149,7 @@
                                         <span>2024</span>
                                         <span>2025</span>
                                     </div>
-                                    <div class="fs-tooltip hidden" style="left: 377px; top: 93px;">
+                                    <div class="fs-tooltip hidden" style="left: 337px; top: 93px;">
                                         <div class="fs-tooltip-box">
                                             <span>658,502</span>
                                         </div>
@@ -269,7 +269,7 @@
                                         <span>2024</span>
                                         <span>2025</span>
                                     </div>
-                                    <div class="fs-tooltip" style="left: 337px; top: -22px;">
+                                    <div class="fs-tooltip" style="left: 337px; top: -41px;">
                                         <div class="fs-tooltip-box">
                                             <span>658,502</span>
                                         </div>
@@ -304,7 +304,7 @@
                                         <span>2024</span>
                                         <span>2025</span>
                                     </div>
-                                    <div class="fs-tooltip hidden" style="left: 377px; top: 93px;">
+                                    <div class="fs-tooltip hidden" style="left: 337px; top: 93px;">
                                         <div class="fs-tooltip-box">
                                             <span>658,502</span>
                                         </div>
@@ -339,7 +339,7 @@
                                         <span>2024</span>
                                         <span>2025</span>
                                     </div>
-                                    <div class="fs-tooltip hidden" style="left: 377px; top: 93px;">
+                                    <div class="fs-tooltip hidden" style="left: 337px; top: 93px;">
                                         <div class="fs-tooltip-box">
                                             <span>658,502</span>
                                         </div>
@@ -443,131 +443,107 @@
                         <!-- 그래프 영역 -->
                         <div class="fs-graphs">
                             <!-- 매출액 -->
-                            <div class="fs-graph-box" style="border-color: #D3D3D3;">
-                                <h3 class="fs-graph-title" style="color: #363636;">매출액</h3>
-                                <div class="fs-chart-area" style="display: flex; flex-direction: column; gap: 70px; height: 330px; position: absolute; width: 466px; left: 40px; top: 134px;">
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 0;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">900,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title" style="width: 160px; white-space: nowrap;">매출액</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-y-axis">
+                                        <span>900,000</span>
+                                        <span>700,000</span>
+                                        <span>500,000</span>
+                                        <span>0</span>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 1;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">700,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                                    <div class="fs-grid-lines">
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line dark"></div>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 2;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">500,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                                    <div class="fs-bars">
+                                        <div class="fs-bar gray" style="height: 84.1%; bottom: 0; left: 117px;"></div>
+                                        <div class="fs-bar gray" style="height: 87.8%; bottom: 0; left: 242px;"></div>
+                                        <div class="fs-bar orange" style="height: 80.8%; bottom: 0; left: 367px;"></div>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 3;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">0</span>
-                                        <div style="width: 372px; border-top: 1px solid #4E4E4E;"></div>
+                                    <div class="fs-x-axis">
+                                        <span>2023</span>
+                                        <span>2024</span>
+                                        <span>2025</span>
                                     </div>
-                                    
-                                    <!-- Bars -->
-                                    <div class="fs-bar gray" style="position: absolute; width: 72px; height: 280px; left: 117px; top: 35px; border-radius: 8px 8px 0px 0px; background: #A7A7A7; bottom: auto; z-index: 4;"></div>
-                                    <div class="fs-bar gray" style="position: absolute; width: 72px; height: 230px; left: 242px; top: 85px; border-radius: 8px 8px 0px 0px; background: #A7A7A7; bottom: auto; z-index: 5;"></div>
-                                    <div class="fs-bar orange" style="position: absolute; width: 72px; height: 257px; left: 367px; top: 58px; border-radius: 8px 8px 0px 0px; background: #F27100; bottom: auto; z-index: 6;"></div>
-                                </div>
-                                
-                                <!-- X-axis -->
-                                <div class="fs-x-axis" style="position: absolute; width: 372px; height: 30px; left: 132px; top: 470px; display: flex; gap: 2px;">
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2023</span>
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2024</span>
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2025</span>
-                                </div>
-                                
-                                <!-- Tooltip -->
-                                <div class="fs-tooltip" style="position: absolute; width: 132px; height: 70px; left: 377px; top: 114px; display: flex; flex-direction: column; align-items: center; z-index: 10;">
-                                    <div class="fs-tooltip-box" style="width: 132px; height: 56px; background: #111111; border-radius: 999px; display: flex; justify-content: center; align-items: center;">
-                                        <span style="color: #FFFFFF; font-size: 24px; font-weight: 700;">727,764</span>
+                                    <div class="fs-tooltip" style="left: 337px; bottom: calc(80.8% + 20px); top: auto;">
+                                        <div class="fs-tooltip-box">
+                                            <span>727,764</span>
+                                        </div>
+                                        <div class="fs-tooltip-arrow"></div>
                                     </div>
-                                    <div class="fs-tooltip-arrow" style="width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-top: 14px solid #111111;"></div>
                                 </div>
                             </div>
                             
                             <!-- 영업이익 -->
-                            <div class="fs-graph-box" style="border-color: #D3D3D3;">
-                                <h3 class="fs-graph-title" style="color: #363636;">영업이익</h3>
-                                <div class="fs-chart-area" style="display: flex; flex-direction: column; gap: 70px; height: 330px; position: absolute; width: 466px; left: 40px; top: 134px;">
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 0;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">60,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title" style="width: 160px; white-space: nowrap;">영업이익</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-y-axis">
+                                        <span>60,000</span>
+                                        <span>30,000</span>
+                                        <span>0</span>
+                                        <span>-30,000</span>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 1;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">30,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                                    <div class="fs-grid-lines">
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line dark"></div>
+                                        <div class="fs-line"></div>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 2;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">0</span>
-                                        <div style="width: 372px; border-top: 1px solid #4E4E4E;"></div>
+                                    <div class="fs-bars">
+                                        <div class="fs-bar gray" style="height: 30.1%; left: 117px;"></div>
+                                        <div class="fs-bar gray" style="height: 13.3%; left: 242px;"></div>
+                                        <div class="fs-bar orange" style="height: 7.8%; left: 367px;"></div>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 3;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">-30,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                                    <div class="fs-x-axis">
+                                        <span>2023</span>
+                                        <span>2024</span>
+                                        <span>2025</span>
                                     </div>
-                                    
-                                    <!-- Bars -->
-                                    <div class="fs-bar gray" style="position: absolute; width: 72px; height: 20px; left: 117px; top: 195px; border-radius: 8px 8px 0px 0px; background: #A7A7A7; bottom: auto; z-index: 4;"></div>
-                                    <div class="fs-bar gray" style="position: absolute; width: 72px; height: 76px; left: 242px; top: 215px; border-radius: 0px 0px 8px 8px; background: #A7A7A7; bottom: auto; transform: matrix(1, 0, 0, -1, 0, 0); z-index: 5;"></div>
-                                    <div class="fs-bar orange" style="position: absolute; width: 72px; height: 48px; left: 367px; top: 167px; border-radius: 8px 8px 0px 0px; background: #F27100; bottom: auto; z-index: 6;"></div>
-                                </div>
-                                
-                                <!-- X-axis -->
-                                <div class="fs-x-axis" style="position: absolute; width: 372px; height: 30px; left: 132px; top: 470px; display: flex; gap: 2px;">
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2023</span>
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2024</span>
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2025</span>
-                                </div>
-                            
-                                <!-- Tooltip (hidden) -->
-                                <div class="fs-tooltip hidden" style="position: absolute; width: 132px; height: 70px; left: 377px; top: 93px; display: none; flex-direction: column; align-items: center; visibility: hidden; z-index: 10;">
-                                    <div class="fs-tooltip-box" style="width: 132px; height: 56px; background: #F27100; border-radius: 6px; display: flex; justify-content: center; align-items: center;">
-                                        <span style="color: rgba(255, 255, 255, 0.9); font-size: 24px; font-weight: 700;">658,502</span>
+                                    <div class="fs-tooltip hidden" style="left: 337px; top: 93px;">
+                                        <div class="fs-tooltip-box">
+                                            <span>7,025</span>
+                                        </div>
+                                        <div class="fs-tooltip-arrow"></div>
                                     </div>
-                                    <div class="fs-tooltip-arrow" style="width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-top: 14px solid #F27100;"></div>
                                 </div>
                             </div>
                             
                             <!-- 당기순이익 -->
-                            <div class="fs-graph-box" style="border-color: #D3D3D3;">
-                                <h3 class="fs-graph-title" style="color: #363636; width: 130px; white-space: nowrap;">당기순이익</h3>
-                                <div class="fs-chart-area" style="display: flex; flex-direction: column; gap: 70px; height: 330px; position: absolute; width: 466px; left: 40px; top: 134px;">
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 0;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">60,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title" style="width: 160px; white-space: nowrap;">당기순이익</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-y-axis">
+                                        <span>60,000</span>
+                                        <span>30,000</span>
+                                        <span>0</span>
+                                        <span>-30,000</span>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 1;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">30,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                                    <div class="fs-grid-lines">
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line dark"></div>
+                                        <div class="fs-line"></div>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 2;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">0</span>
-                                        <div style="width: 372px; border-top: 1px solid #4E4E4E;"></div>
+                                    <div class="fs-bars">
+                                        <div class="fs-bar gray" style="height: 22.9%; left: 117px;"></div>
+                                        <div class="fs-bar gray negative" style="height: 32.9%; left: 242px;"></div>
+                                        <div class="fs-bar orange negative" style="height: 12.3%; left: 367px;"></div>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 3;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">-30,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                                    <div class="fs-x-axis">
+                                        <span>2023</span>
+                                        <span>2024</span>
+                                        <span>2025</span>
                                     </div>
-                                    
-                                    <!-- Bars -->
-                                    <div class="fs-bar gray" style="position: absolute; width: 72px; height: 33px; left: 117px; top: 182px; border-radius: 8px 8px 0px 0px; background: #A7A7A7; bottom: auto; z-index: 4;"></div>
-                                    <div class="fs-bar gray" style="position: absolute; width: 72px; height: 76px; left: 242px; top: 215px; border-radius: 8px 8px 0px 0px; background: #A7A7A7; bottom: auto; transform: matrix(1, 0, 0, -1, 0, 0); z-index: 5;"></div>
-                                    <div class="fs-bar orange" style="position: absolute; width: 72px; height: 100px; left: 367px; top: 215px; border-radius: 8px 8px 0px 0px; background: #F27100; bottom: auto; transform: matrix(1, 0, 0, -1, 0, 0); z-index: 6;"></div>
-                                </div>
-                                
-                                <!-- X-axis -->
-                                <div class="fs-x-axis" style="position: absolute; width: 372px; height: 30px; left: 132px; top: 470px; display: flex; gap: 2px;">
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2023</span>
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2024</span>
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2025</span>
-                                </div>
-                            
-                                <!-- Tooltip (hidden) -->
-                                <div class="fs-tooltip hidden" style="position: absolute; width: 132px; height: 70px; left: 377px; top: 93px; display: none; flex-direction: column; align-items: center; visibility: hidden; z-index: 10;">
-                                    <div class="fs-tooltip-box" style="width: 132px; height: 56px; background: #F27100; border-radius: 6px; display: flex; justify-content: center; align-items: center;">
-                                        <span style="color: rgba(255, 255, 255, 0.9); font-size: 24px; font-weight: 700;">658,502</span>
+                                    <div class="fs-tooltip hidden" style="left: 337px; top: 93px;">
+                                        <div class="fs-tooltip-box">
+                                            <span>-11,060</span>
+                                        </div>
+                                        <div class="fs-tooltip-arrow"></div>
                                     </div>
-                                    <div class="fs-tooltip-arrow" style="width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-top: 14px solid #F27100;"></div>
                                 </div>
                             </div>
                         </div>
@@ -613,7 +589,7 @@
                             </div>
                             <!-- 법인세비용차감전순이익 -->
                             <div class="fs-table-row">
-                                <div class="fs-table-cell label">법인세비용차감전순이익</div>
+                                <div class="fs-table-cell label">법인세<br class="m-br">비용차감전순이익</div>
                                 <div class="fs-table-cell">43,742</div>
                                 <div class="fs-table-cell">-678</div>
                                 <div class="fs-table-cell">-36,068</div>
@@ -646,131 +622,107 @@
                         <!-- 그래프 영역 -->
                         <div class="fs-graphs">
                             <!-- 매출액 -->
-                            <div class="fs-graph-box" style="border-color: #D3D3D3;">
-                                <h3 class="fs-graph-title" style="color: #363636;">매출액</h3>
-                                <div class="fs-chart-area" style="display: flex; flex-direction: column; gap: 70px; height: 330px; position: absolute; width: 466px; left: 40px; top: 134px;">
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 0;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">500,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title" style="width: 160px; white-space: nowrap;">매출액</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-y-axis">
+                                        <span>500,000</span>
+                                        <span>300,000</span>
+                                        <span>100,000</span>
+                                        <span>0</span>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 1;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">300,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                                    <div class="fs-grid-lines">
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line dark"></div>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 2;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">100,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                                    <div class="fs-bars">
+                                        <div class="fs-bar gray" style="height: 74.8%; bottom: 0; left: 117px;"></div>
+                                        <div class="fs-bar gray" style="height: 76.8%; bottom: 0; left: 242px;"></div>
+                                        <div class="fs-bar orange" style="height: 74.6%; bottom: 0; left: 367px;"></div>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 3;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">0</span>
-                                        <div style="width: 372px; border-top: 1px solid #4E4E4E;"></div>
+                                    <div class="fs-x-axis">
+                                        <span>2023</span>
+                                        <span>2024</span>
+                                        <span>2025</span>
                                     </div>
-                                    
-                                    <!-- Bars -->
-                                    <div class="fs-bar gray" style="position: absolute; width: 72px; height: 253px; left: 117px; top: 62px; border-radius: 6px 6px 0px 0px; background: #A7A7A7; bottom: auto; z-index: 4;"></div>
-                                    <div class="fs-bar gray" style="position: absolute; width: 72px; height: 260px; left: 242px; top: 55px; border-radius: 6px 6px 0px 0px; background: #A7A7A7; bottom: auto; z-index: 5;"></div>
-                                    <div class="fs-bar orange" style="position: absolute; width: 72px; height: 253px; left: 367px; top: 62px; border-radius: 6px 6px 0px 0px; background: #F27100; bottom: auto; z-index: 6;"></div>
-                                </div>
-                                
-                                <!-- X-axis -->
-                                <div class="fs-x-axis" style="position: absolute; width: 372px; height: 30px; left: 132px; top: 470px; display: flex; gap: 2px;">
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2023</span>
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2024</span>
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2025</span>
-                                </div>
-                                
-                                <!-- Tooltip -->
-                                <div class="fs-tooltip" style="position: absolute; width: 132px; height: 70px; left: 377px; top: 118px; display: flex; flex-direction: column; align-items: center; z-index: 10;">
-                                    <div class="fs-tooltip-box" style="width: 132px; height: 56px; background: #111111; border-radius: 999px; display: flex; justify-content: center; align-items: center;">
-                                        <span style="color: #FFFFFF; font-size: 24px; font-weight: 700;">373,093</span>
+                                    <div class="fs-tooltip" style="left: 337px; bottom: calc(74.6% + 20px); top: auto;">
+                                        <div class="fs-tooltip-box">
+                                            <span>373,093</span>
+                                        </div>
+                                        <div class="fs-tooltip-arrow"></div>
                                     </div>
-                                    <div class="fs-tooltip-arrow" style="width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-top: 14px solid #111111;"></div>
                                 </div>
                             </div>
                             
                             <!-- 영업이익 -->
-                            <div class="fs-graph-box" style="border-color: #D3D3D3;">
-                                <h3 class="fs-graph-title" style="color: #363636;">영업이익</h3>
-                                <div class="fs-chart-area" style="display: flex; flex-direction: column; gap: 70px; height: 330px; position: absolute; width: 466px; left: 40px; top: 134px;">
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 0;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">60,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title" style="width: 160px; white-space: nowrap;">영업이익</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-y-axis">
+                                        <span>60,000</span>
+                                        <span>30,000</span>
+                                        <span>0</span>
+                                        <span>-30,000</span>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 1;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">30,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                                    <div class="fs-grid-lines">
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line dark"></div>
+                                        <div class="fs-line"></div>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 2;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">0</span>
-                                        <div style="width: 372px; border-top: 1px solid #4E4E4E;"></div>
+                                    <div class="fs-bars">
+                                        <div class="fs-bar gray" style="height: 6.7%; left: 117px;"></div>
+                                        <div class="fs-bar gray" style="height: 11.7%; left: 242px;"></div>
+                                        <div class="fs-bar orange negative" style="height: 3.2%; left: 367px;"></div>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 3;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">-30,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                                    <div class="fs-x-axis">
+                                        <span>2023</span>
+                                        <span>2024</span>
+                                        <span>2025</span>
                                     </div>
-                                    
-                                    <!-- Bars -->
-                                    <div class="fs-bar gray" style="position: absolute; width: 72px; height: 15px; left: 117px; top: 200px; border-radius: 8px 8px 0px 0px; background: #A7A7A7; bottom: auto; z-index: 4;"></div>
-                                    <div class="fs-bar gray" style="position: absolute; width: 72px; height: 25px; left: 242px; top: 190px; border-radius: 8px 8px 0px 0px; background: #A7A7A7; bottom: auto; transform: matrix(1, 0, 0, -1, 0, 0); z-index: 5;"></div>
-                                    <div class="fs-bar orange" style="position: absolute; width: 72px; height: 25px; left: 367px; top: 215px; border-radius: 8px 8px 0px 0px; background: #F27100; bottom: auto; transform: matrix(1, 0, 0, -1, 0, 0); z-index: 6;"></div>
-                                </div>
-                                
-                                <!-- X-axis -->
-                                <div class="fs-x-axis" style="position: absolute; width: 372px; height: 30px; left: 132px; top: 470px; display: flex; gap: 2px;">
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2023</span>
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2024</span>
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2025</span>
-                                </div>
-                            
-                                <!-- Tooltip (hidden) -->
-                                <div class="fs-tooltip hidden" style="position: absolute; width: 132px; height: 70px; left: 377px; top: 93px; display: none; flex-direction: column; align-items: center; visibility: hidden; z-index: 10;">
-                                    <div class="fs-tooltip-box" style="width: 132px; height: 56px; background: #F27100; border-radius: 6px; display: flex; justify-content: center; align-items: center;">
-                                        <span style="color: rgba(255, 255, 255, 0.9); font-size: 24px; font-weight: 700;">658,502</span>
+                                    <div class="fs-tooltip hidden" style="left: 337px; top: 93px;">
+                                        <div class="fs-tooltip-box">
+                                            <span>-2,859</span>
+                                        </div>
+                                        <div class="fs-tooltip-arrow"></div>
                                     </div>
-                                    <div class="fs-tooltip-arrow" style="width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-top: 14px solid #F27100;"></div>
                                 </div>
                             </div>
                             
                             <!-- 당기순이익 -->
-                            <div class="fs-graph-box" style="border-color: #D3D3D3;">
-                                <h3 class="fs-graph-title" style="color: #363636; width: 130px; white-space: nowrap;">당기순이익</h3>
-                                <div class="fs-chart-area" style="display: flex; flex-direction: column; gap: 70px; height: 330px; position: absolute; width: 466px; left: 40px; top: 134px;">
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 0;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">60,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title" style="width: 160px; white-space: nowrap;">당기순이익</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-y-axis">
+                                        <span>30,000</span>
+                                        <span>0</span>
+                                        <span>-30,000</span>
+                                        <span>-60,000</span>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 1;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">30,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                                    <div class="fs-grid-lines">
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line dark"></div>
+                                        <div class="fs-line"></div>
+                                        <div class="fs-line"></div>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 2;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">0</span>
-                                        <div style="width: 372px; border-top: 1px solid #4E4E4E;"></div>
+                                    <div class="fs-bars">
+                                        <div class="fs-bar gray" style="height: 11.4%; left: 117px;"></div>
+                                        <div class="fs-bar gray" style="height: 9.2%; left: 242px;"></div>
+                                        <div class="fs-bar orange negative" style="height: 40.3%; left: 367px;"></div>
                                     </div>
-                                    <div class="fs-line-row" style="display: flex; align-items: center; gap: 20px; height: 30px; width: 466px; z-index: 3;">
-                                        <span style="width: 72px; text-align: right; color: #A7A7A7; font-size: 18px; font-weight: 500;">-30,000</span>
-                                        <div style="width: 372px; border-top: 1px solid #E9E9E9;"></div>
+                                    <div class="fs-x-axis">
+                                        <span>2023</span>
+                                        <span>2024</span>
+                                        <span>2025</span>
                                     </div>
-                                    
-                                    <!-- Bars -->
-                                    <div class="fs-bar gray" style="position: absolute; width: 72px; height: 34px; left: 117px; top: 181px; border-radius: 8px 8px 0px 0px; background: #A7A7A7; bottom: auto; z-index: 4;"></div>
-                                    <div class="fs-bar gray" style="position: absolute; width: 72px; height: 28px; left: 242px; top: 187px; border-radius: 8px 8px 0px 0px; background: #A7A7A7; bottom: auto; z-index: 5;"></div>
-                                    <div class="fs-bar orange" style="position: absolute; width: 72px; height: 121px; left: 367px; top: 215px; border-radius: 8px 8px 0px 0px; background: #F27100; bottom: auto; transform: matrix(1, 0, 0, -1, 0, 0); z-index: 6;"></div>
-                                </div>
-                                
-                                <!-- X-axis -->
-                                <div class="fs-x-axis" style="position: absolute; width: 372px; height: 30px; left: 132px; top: 470px; display: flex; gap: 2px;">
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2023</span>
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2024</span>
-                                    <span style="flex: 1; text-align: center; color: #4E4E4E; font-size: 18px; font-weight: 500;">2025</span>
-                                </div>
-                            
-                                <!-- Tooltip (hidden) -->
-                                <div class="fs-tooltip hidden" style="position: absolute; width: 132px; height: 70px; left: 377px; top: 93px; display: none; flex-direction: column; align-items: center; visibility: hidden; z-index: 10;">
-                                    <div class="fs-tooltip-box" style="width: 132px; height: 56px; background: #F27100; border-radius: 6px; display: flex; justify-content: center; align-items: center;">
-                                        <span style="color: rgba(255, 255, 255, 0.9); font-size: 24px; font-weight: 700;">658,502</span>
+                                    <div class="fs-tooltip hidden" style="left: 337px; top: 93px;">
+                                        <div class="fs-tooltip-box">
+                                            <span>-36,237</span>
+                                        </div>
+                                        <div class="fs-tooltip-arrow"></div>
                                     </div>
-                                    <div class="fs-tooltip-arrow" style="width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-top: 14px solid #F27100;"></div>
                                 </div>
                             </div>
                         </div>
@@ -816,7 +768,7 @@
                             </div>
                             <!-- 법인세비용차감전순이익 -->
                             <div class="fs-table-row">
-                                <div class="fs-table-cell label">법인세비용차감전순이익</div>
+                                <div class="fs-table-cell label">법인세<br class="m-br">비용차감전순이익</div>
                                 <div class="fs-table-cell">24,377</div>
                                 <div class="fs-table-cell">13,023</div>
                                 <div class="fs-table-cell">3,697</div>
@@ -842,6 +794,215 @@
                     </div>
                 </div>
                 
+                <style>
+                    /* ===== 손익계산서 탭 그래프 공통 스타일 (데스크톱 & 모바일) ===== */
+                    
+                    /* 0선(X축) 진하게 처리 */
+                    /* 연결 매출액: 4번째(바닥) */
+                    #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(1) .fs-line:nth-child(4),
+                    /* 별도 매출액: 4번째(바닥) */
+                    #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(1) .fs-line:nth-child(4),
+                    /* 연결 영업이익/당기순이익, 별도 영업이익: 3번째 */
+                    #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-line:nth-child(3),
+                    #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-line:nth-child(3),
+                    #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-line:nth-child(3) {
+                        background: #4E4E4E !important;
+                    }
+
+                    /* 0선이 아닌 다른 라인들은 기본색으로 */
+                    #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-line:nth-child(4),
+                    #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-line:nth-child(4),
+                    #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-line:nth-child(4) {
+                        background: #E9E9E9 !important;
+                    }
+
+                    /* 막대 라운드 처리: 시작점은 각지게, 끝점은 둥글게 */
+                    .m-br { display: none; }
+                    @media (max-width: 1023px) {
+                        .m-br { display: block; }
+                        #tab-return .fs-table-cell { text-align: left !important; }
+                    }
+                    #tab-return .fs-bar {
+                        border-radius: 8px 8px 0 0 !important; /* 기본 양수: 상단 둥글게 */
+                        bottom: auto !important;
+                    }
+                    #tab-return .fs-bar.negative {
+                        border-radius: 0 0 8px 8px !important; /* 음수: 하단 둥글게 */
+                    }
+
+                    /* 0선 강조 (Global) */
+                    #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-line:nth-child(2) { background: #4E4E4E !important; }
+
+                    /* 데스크톱 (1920) 막대 위치 고정 (Line 1:15px, 2:115px, 3:215px, 4:315px) */
+                    @media (min-width: 1024px) {
+                        /* 0선이 4번째(315px)인 경우 */
+                        #tab-return .fs-block .fs-graph-box:nth-child(1) .fs-bar { 
+                            top: 315px !important; transform: translateY(-100%) !important; 
+                        }
+
+                        /* 0선이 3번째(215px)인 경우 */
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-bar,
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-bar,
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-bar {
+                            top: 215px !important; transform: translateY(-100%) !important;
+                        }
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-bar.negative,
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-bar.negative,
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-bar.negative {
+                            top: 215px !important; transform: none !important;
+                        }
+
+                        /* 0선이 2번째(115px)인 경우: 별도 당기순이익 */
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-line:nth-child(2) { background: #4E4E4E !important; }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-line:nth-child(3) { background: #E9E9E9 !important; }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-bar { 
+                            top: 115px !important; transform: translateY(-100%) !important; 
+                        }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-bar.negative { 
+                            top: 115px !important; transform: none !important; 
+                        }
+                    }
+
+                    /* 모바일 (1023px 이하) (Line 1:10.5px, 2:71.5px, 3:132.5px, 4:193.5px) */
+                    @media (max-width: 1023px) {
+                        #tab-return .fs-bar { border-radius: 6px 6px 0 0 !important; }
+                        #tab-return .fs-bar.negative { border-radius: 0 0 6px 6px !important; }
+
+                        .fs-graph-box {
+                            border: 0.601852px solid #D3D3D3 !important;
+                        }
+
+                        /* X축 연도 위치 정밀 조정 (막대 중심 109.5, 184.5, 259.5에 맞춤) */
+                        .fs-x-axis {
+                            left: 0 !important; width: 100% !important; justify-content: flex-start !important; gap: 0 !important;
+                        }
+                        .fs-x-axis span { width: 60px !important; text-align: center !important; position: absolute !important; }
+                        .fs-x-axis span:nth-child(1) { left: 79.5px !important; }
+                        .fs-x-axis span:nth-child(2) { left: 154.5px !important; }
+                        .fs-x-axis span:nth-child(3) { left: 229.5px !important; }
+
+                        /* 연결 영업이익 (Block 1, Graph 2) */
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-bar:nth-child(1) { 
+                            height: 15px !important; top: 122px !important; left: 88px !important; transform: translateY(-100%) !important;
+                            border-radius: 6px 6px 0 0 !important;
+                        }
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-bar:nth-child(2) { 
+                            height: 44px !important; top: 122.5px !important; left: 163px !important; transform: none !important;
+                            border-radius: 0 0 6px 6px !important;
+                        }
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-bar:nth-child(3) { 
+                            height: 29px !important; top: 92.5px !important; left: 238px !important; transform: none !important;
+                            border-radius: 6px 6px 0 0 !important;
+                        }
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-tooltip {
+                            left: 233px !important; top: 92.5px !important; transform: translateY(-100%) translateY(-5px) !important;
+                        }
+
+                        /* 연결 당기순이익 (Block 1, Graph 3) */
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-bar:nth-child(1) { 
+                            height: 27px !important; top: 122px !important; left: 88px !important; transform: translateY(-100%) !important;
+                            border-radius: 6px 6px 0 0 !important;
+                        }
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-bar:nth-child(2) { 
+                            height: 43px !important; top: 122.5px !important; left: 163px !important; transform: none !important;
+                            border-radius: 0 0 6px 6px !important;
+                        }
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-bar:nth-child(3) { 
+                            height: 60px !important; top: 122.5px !important; left: 238px !important; transform: none !important;
+                            border-radius: 0 0 6px 6px !important;
+                        }
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-tooltip {
+                            left: 233px !important; top: 122px !important; transform: translateY(-100%) translateY(-5px) !important;
+                        }
+
+                        /* 별도 매출액 (Block 2, Graph 1) */
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(1) .fs-bar:nth-child(1) { 
+                            height: 148px !important; top: 34.5px !important; left: 88px !important; transform: none !important;
+                        }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(1) .fs-bar:nth-child(2) { 
+                            height: 156px !important; top: 26.5px !important; left: 163px !important; transform: none !important;
+                        }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(1) .fs-bar:nth-child(3) { 
+                            height: 148px !important; top: 34.5px !important; left: 238px !important; transform: none !important;
+                        }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(1) .fs-tooltip {
+                            left: 233px !important; top: 34.5px !important; transform: translateY(-100%) translateY(-5px) !important;
+                        }
+
+                        /* 별도 영업이익 (Block 2, Graph 2) */
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-bar:nth-child(1) { 
+                            height: 9px !important; top: 122px !important; left: 88px !important; transform: translateY(-100%) !important;
+                            border-radius: 6px 6px 0 0 !important;
+                        }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-bar:nth-child(2) { 
+                            height: 16px !important; top: 122px !important; left: 163px !important; transform: translateY(-100%) !important;
+                            border-radius: 6px 6px 0 0 !important;
+                        }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-bar:nth-child(3) { 
+                            height: 16px !important; top: 122.5px !important; left: 238px !important; transform: none !important;
+                            border-radius: 0 0 6px 6px !important;
+                        }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-tooltip {
+                            left: 233px !important; top: 122.5px !important; transform: translateY(-100%) translateY(-5px) !important;
+                        }
+
+                        /* 별도 당기순이익 (Block 2, Graph 3) */
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-bar:nth-child(1) { 
+                            height: 27px !important; top: 61px !important; left: 88px !important; transform: translateY(-100%) !important;
+                            border-radius: 6px 6px 0 0 !important;
+                        }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-bar:nth-child(2) { 
+                            height: 18px !important; top: 61.5px !important; left: 163px !important; transform: none !important;
+                            border-radius: 0 0 6px 6px !important;
+                        }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-bar:nth-child(3) { 
+                            height: 76px !important; top: 61.5px !important; left: 238px !important; transform: none !important;
+                            border-radius: 0 0 6px 6px !important;
+                        }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-tooltip {
+                            left: 233px !important; top: 61.5px !important; transform: translateY(-100%) translateY(-5px) !important;
+                        }
+
+                        /* 0선이 4번째(193.5px -> 내부 183px)인 경우: 매출액 */
+                        #tab-return .fs-block .fs-graph-box:nth-child(1) .fs-bar { 
+                            top: 183px !important; transform: translateY(-100%) !important; 
+                        }
+
+                        /* 0선이 3번째(132.5px -> 내부 122px)인 경우: 영업이익, 당기순이익(연결), 영업이익(별도) */
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-bar,
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-bar,
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-bar {
+                            top: 122px !important; transform: translateY(-100%) !important;
+                        }
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-bar.negative,
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-bar.negative,
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-bar.negative {
+                            top: 122px !important; transform: none !important;
+                        }
+
+                        /* 연결 매출액 (Block 1, Graph 1) 특수 보정 - 높이는 HTML과 동일하게 */
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(1) .fs-bar:nth-child(1) { 
+                            top: 183px !important; left: 88px !important; transform: translateY(-100%) !important;
+                        }
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(1) .fs-bar:nth-child(2) { 
+                            top: 183px !important; left: 163px !important; transform: translateY(-100%) !important;
+                        }
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(1) .fs-bar:nth-child(3) { 
+                            top: 183px !important; left: 238px !important; transform: translateY(-100%) !important;
+                        }
+                        #tab-return .fs-block:nth-child(1) .fs-graph-box:nth-child(1) .fs-tooltip {
+                            left: 235px !important; top: 27px !important; transform: translateY(-100%) translateY(-5px) !important;
+                        }
+
+                        /* 별도 당기순이익 (0선 2번째: 71.5px -> 내부 61px) */
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-bar { 
+                            top: 61px !important; transform: translateY(-100%) !important; 
+                        }
+                        #tab-return .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-bar.negative { 
+                            top: 61px !important; transform: none !important; 
+                        }
+                    }
+                </style>
             </div>
         </section>
     </div>
