@@ -15,6 +15,14 @@
     display: none;
 }
 
+/* Tablet (601px ~ 1023px) 자연스러운 줄바꿈을 위해 강제 줄바꿈 해제 */
+@media (max-width: 1023px) and (min-width: 601px) {
+    .mo-only, .mo-br, .desk-br, .pc-br {
+        display: none;
+    }
+}
+
+
 /* ===== Hero Text (sticky scroll-to-color) ===== */
 .hero-text-outer {
     position: relative;
@@ -69,8 +77,7 @@
 }
 
 .hero-image-wrapper {
-    width: 96.875%;
-    max-width: 1860px;
+    width: clamp(328px, calc(100% - 32px), 1860px);
     height: clamp(300px, 28.125vw, 540px);
     border-radius: clamp(15px, 1.56vw, 30px);
     overflow: hidden;
@@ -340,7 +347,7 @@
     justify-content: center;
     align-items: center;
     padding: clamp(60px, 5.2vw, 100px) 6.25vw;
-    gap: clamp(60px, 5.2vw, 100px);
+    gap: clamp(24px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;
     background: #FFFFFF;
@@ -391,30 +398,39 @@
 
 .ph-card {
     position: absolute;
-    width: clamp(180px, 17.3vw, 332px);
-    height: clamp(90px, 8.4vw, 162px);
-    padding: clamp(12px, 1.5vw, 30px);
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    width: clamp(180px, 17.29vw, 332px);
+    height: clamp(90px, 8.43vw, 162px);
+    padding: clamp(12px, 1.56vw, 30px);
+    gap: clamp(6px, 0.625vw, 12px);
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     z-index: 2;
+    transition: all 0.4s ease;
+}
+
+.ph-card.active {
+    transform: scale(1.08);
+    box-shadow: none;
+}
+
+.ph-card.active h3 {
 }
 
 .ph-card h3 {
-    font-family: 'Pretendard';
+    font-size: clamp(28px, 2.6vw, 50px);
     font-weight: 700;
-    font-size: clamp(20px, 1.875vw, 36px);
-    line-height: 150%;
-    color: #1B1B1B;
-    margin: 0;
+    color: #333333;
+    margin-bottom: 0.5vw;
+    line-height: 1.2;
+    transition: color 0.3s ease;
 }
 
-.ph-card h3.highlight {
+.ph-card.active h3 {
     color: #F27100;
 }
 
@@ -425,7 +441,6 @@
     line-height: 150%;
     color: #4E4E4E;
     margin: 0;
-    margin-top: 12px;
 }
 
 /* Card Positions (Percent of 1680x746) */
@@ -444,8 +459,8 @@
 }
 
 .ph-card-bl {
-    left: 7.14%;
-    top: 63.67%;
+    left: 7.14%; /* (120/1680) */
+    top: 63.67%; /* (475/746) */
     align-items: flex-start;
     text-align: left;
 }
@@ -459,31 +474,51 @@
 
 .ph-center-graphic {
     position: absolute;
-    width: clamp(300px, 37vw, 712px);
-    height: clamp(200px, 25.8vw, 496px);
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    width: clamp(300px, 37.08vw, 712px);
+    height: clamp(200px, 25.83vw, 496px);
+    left: 28.63%;
+    top: 18.36%;
     z-index: 1;
 }
 
-.ph-ellipse-main {
-    position: absolute;
+.ph-svg-graphic {
     width: 100%;
     height: 100%;
-    border: 2px solid #E9E9E9;
-    border-radius: 50%;
-    box-sizing: border-box;
+    display: block;
+    overflow: visible;
 }
 
-.ph-ellipse-sub {
-    position: absolute;
-    width: clamp(40px, 5.2vw, 100px);
-    height: 100%;
-    left: 0;
-    border: 2px solid #E9E9E9;
-    border-radius: 50%;
-    box-sizing: border-box;
+.ph-svg-path-orange {
+    stroke-dasharray: 400 3000; /* 선 길이에 비해 충분히 큰 간격 설정 */
+    stroke-dashoffset: 400; /* 기본 상태: 숨김 */
+}
+
+.ph-svg-path-orange.left {
+    animation: flowLeft 10s linear infinite;
+}
+
+.ph-svg-path-orange.right {
+    animation: flowRight 10s linear infinite;
+}
+
+@keyframes flowLeft {
+    0% { stroke-dashoffset: 400; }
+    25% { stroke-dashoffset: -100; }  /* 2.5s 도달 */
+    50% { stroke-dashoffset: -600; }  /* 5.0s 도달 */
+    50.01% { stroke-dashoffset: -1600; }
+    100% { stroke-dashoffset: -1600; }
+}
+
+@keyframes flowRight {
+    0% { stroke-dashoffset: 400; }
+    50% { stroke-dashoffset: 400; }
+    75% { stroke-dashoffset: -100; }  /* 7.5s 도달 */
+    100% { stroke-dashoffset: -600; } /* 10.0s 도달 */
+}
+
+.ph-svg-chip {
+    transition: opacity 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(242, 113, 0, 0.5));
 }
 
 /* Philosophy Detail Section */
@@ -502,7 +537,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(30px, 3.64vw, 70px);
+    gap: clamp(30px, 2.6vw, 50px);
     width: 100%;
     max-width: 1680px;
     padding: 0;
@@ -578,7 +613,6 @@
     flex-direction: row;
     align-items: flex-start;
     gap: 4px;
-    margin-top: 24px;
 }
 
 .footnote-mark {
@@ -736,8 +770,10 @@
     color: #4E4E4E;
     margin: 0;
     word-break: keep-all;
-    width: 226px;
-    height: 72px;
+    width: 100%;
+    max-width: 226px;
+    height: auto;
+    min-height: 72px;
 }
 
 @media (max-width: 1200px) {
@@ -5087,11 +5123,11 @@ body {
 
     /* Hero Section Mobile */
     .hero-text-section {
-        padding: 40px 20px 0;
+        padding: clamp(40px, 11.1vw, 100px) 20px 0;
     }
 
     .hero-text-section h2 {
-        font-size: 24px;
+        font-size: clamp(24px, 6.66vw, 30px);
     }
 
     .hero-image-overlay {
@@ -5103,27 +5139,27 @@ body {
     }
 
     .overlay-text {
-        width: 300px;
-        height: 234px;
-        font-size: 26px;
+        width: 100%;
+        height: auto;
+        font-size: clamp(26px, 4vw, 44px);
     }
 
     /* CEO Message Mobile */
     .product-intro .inner {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: clamp(40px, 11.1vw, 100px);
+        padding-bottom: clamp(40px, 11.1vw, 100px);
         padding-left: 16px;
         padding-right: 16px;
     }
 
     .ceo-msg-content {
         flex-direction: column;
-        gap: 30px;
+        gap: clamp(30px, 8.33vw, 40px);
     }
 
     .ceo-msg-heading {
         max-width: 100%;
-        font-size: 28px;
+        font-size: clamp(28px, 7.77vw, 50px);
     }
 
     .ceo-msg-paragraphs-wrap {
@@ -5132,8 +5168,8 @@ body {
 
     /* Mission Section Mobile */
     .mission-section {
-        padding: 40px 16px;
-        gap: 24px;
+        padding: clamp(40px, 11.1vw, 100px) 16px;
+        gap: clamp(24px, 6.66vw, 40px);
     }
 
     .mission-top {
@@ -5141,107 +5177,176 @@ body {
     }
 
     .mission-label {
-        margin-bottom: 8px;
+        margin-bottom: clamp(8px, 2.22vw, 16px);
     }
 
     .mission-heading {
-        margin-bottom: 20px;
+        margin-bottom: clamp(20px, 5.55vw, 40px);
     }
 
     .mission-cards {
         flex-direction: row;
-        gap: 8px;
+        gap: clamp(8px, 2.22vw, 24px);
         justify-content: center;
     }
 
     .mission-card {
-        width: 159px;
-        height: 120px;
+        flex: 1;
+        max-width: none;
+        height: auto;
+        aspect-ratio: 159 / 120;
     }
 
-    .mission-card.change,
+    .mission-card.change {
+        border-radius: clamp(12px, 3.3vw, 20px) clamp(12px, 3.3vw, 20px) 0 clamp(12px, 3.3vw, 20px);
+    }
+
     .mission-card.innovation {
-        border-radius: 12px;
+        border-radius: 0 clamp(12px, 3.3vw, 20px) clamp(12px, 3.3vw, 20px) clamp(12px, 3.3vw, 20px);
     }
 
     .mission-card h3 {
-        font-size: 24px;
+        font-size: clamp(24px, 6.66vw, 60px);
     }
 
     .mission-desc {
-        font-size: 16px;
+        font-size: clamp(16px, 4.44vw, 24px);
     }
 
     /* Philosophy Section Mobile */
     .philosophy-section {
-        padding: 60px 20px;
-        gap: 40px;
+        padding: 40px 20px;
+        gap: clamp(40px, 11.1vw, 100px);
     }
 
     .ph-card-wrap {
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        background: transparent;
-        overflow: visible;
+        position: relative;
+        width: clamp(328px, 91.11vw, 800px);
+        height: clamp(334px, 92.77vw, 815px);
+        background: #F8F9FB;
+        border-radius: 16px;
+        margin: 0 auto;
+        overflow: hidden;
     }
 
     .ph-card {
-        position: static;
-        width: 100%;
+        position: absolute;
+        width: auto;
         height: auto;
-        padding: 24px;
-        text-align: left;
-        align-items: flex-start;
+        padding: 0;
+        background: transparent;
+        text-align: center;
+        align-items: center;
+        z-index: 2;
     }
 
     .ph-card h3 {
-        font-size: 24px;
+        font-family: 'Pretendard';
+        font-weight: 700;
+        font-size: clamp(14px, 4.44vw, 16px);
+        line-height: 160%;
+        color: #1B1B1B;
+        margin: 0;
+    }
+
+    .ph-card-bl h3 {
+        color: #F27100;
     }
 
     .ph-card p {
-        font-size: 16px;
-        margin-top: 8px;
+        display: none; /* 모바일 요약 디자인에서는 본문 숨김 */
+    }
+
+    .ph-card-tl {
+        left: clamp(20px, 5.55vw, 40px);
+        top: clamp(30px, 8.33vw, 60px);
+        width: clamp(73px, 20.27vw, 120px);
+        height: clamp(26px, 7.22vw, 42px);
+    }
+
+    .ph-card-tr {
+        left: auto;
+        right: clamp(20px, 5.55vw, 40px);
+        top: clamp(30px, 8.33vw, 60px);
+        width: clamp(73px, 20.27vw, 120px);
+        height: clamp(26px, 7.22vw, 42px);
+    }
+
+    .ph-card-bl {
+        left: clamp(6px, 1.66vw, 20px);
+        bottom: clamp(30px, 8.33vw, 60px);
+        top: auto;
+        width: clamp(101px, 28vw, 160px);
+        height: clamp(26px, 7.22vw, 42px);
+    }
+
+    .ph-card-br {
+        left: auto;
+        right: clamp(34px, 9.44vw, 60px);
+        bottom: clamp(30px, 8.33vw, 60px);
+        top: auto;
+        width: clamp(73px, 20.27vw, 120px);
+        height: clamp(26px, 7.22vw, 42px);
+    }
+
+    .ph-card-wrap .ph-card h3 {
+        font-size: clamp(16px, 4.44vw, 24px);
+    }
+
+    .ph-card p {
+        font-size: clamp(16px, 4.44vw, 24px);
+        margin-top: clamp(8px, 2.22vw, 12px);
     }
 
     .ph-center-graphic {
-        display: none;
+        display: block;
+        position: absolute;
+        width: clamp(238.05px, 66.12vw, 476px);
+        height: clamp(165.6px, 46vw, 331px);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+    .ph-svg-graphic {
+        width: 100%;
+        height: 100%;
     }
 
     /* Philosophy Detail Mobile */
     .philosophy-detail-section {
-        padding: 40px 16px;
+        padding: clamp(40px, 11.1vw, 120px) 16px;
     }
 
     .ph-detail-container {
-        gap: 20px;
+        gap: 30px;
     }
 
     .ph-detail-item {
-        gap: 20px;
+        gap: clamp(20px, 5.55vw, 70px);
     }
 
     .ph-detail-content {
         flex-direction: column-reverse;
-        gap: 20px;
+        gap: clamp(20px, 5.55vw, 80px);
     }
 
     .ph-detail-txt {
-        gap: 20px;
+        gap: clamp(20px, 5.55vw, 60px);
         padding-top: 0;
     }
 
     .ph-detail-title {
-        font-size: 24px;
+        font-size: clamp(24px, 6.66vw, 50px);
     }
 
     .ph-detail-motto {
-        font-size: 18px;
+        font-size: clamp(18px, 5vw, 26px);
     }
 
     .ph-detail-desc {
-        font-size: 16px;
+        font-size: clamp(16px, 4.44vw, 22px);
     }
 
     .ph-detail-footnote {
@@ -5257,27 +5362,29 @@ body {
 
     /* Core Values Mobile */
     .core-values-section {
-        padding: 40px 16px;
-        gap: 8px;
+        padding: clamp(40px, 11.1vw, 120px) 16px;
+        gap: clamp(8px, 2.22vw, 50px);
     }
 
     .values-label {
-        font-size: 18px;
+        font-size: clamp(18px, 5vw, 24px);
     }
 
     .values-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        width: 328px;
+        gap: clamp(10px, 2vw, 20px);
+        width: 100%;
+        max-width: none;
         margin: 10px auto 0;
     }
 
     .value-card {
-        width: 159px;
-        height: 182.06px;
-        padding: 16px;
-        gap: 16px;
+        width: 100%;
+        height: auto;
+        min-height: 182.06px;
+        padding: clamp(16px, 3vw, 24px);
+        gap: clamp(16px, 3vw, 24px);
         border-radius: 16px;
         background: #FFFFFF;
         box-sizing: border-box;

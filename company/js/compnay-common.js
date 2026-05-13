@@ -252,3 +252,34 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', initScrollSync);
 });
 
+/* ── 경영이념 섹션 스크롤 애니메이션 ── */
+document.addEventListener('DOMContentLoaded', function () {
+    const phSection = document.querySelector('.philosophy-section');
+    if (!phSection) return;
+
+    const orangePath = phSection.querySelector('.ph-svg-path-orange');
+    const cards = phSection.querySelectorAll('.ph-card');
+    
+    if (!orangePath) return;
+
+    // 카드가 원의 경로에 맞춰 강조되도록 애니메이션 사이클에 맞춤 (총 10초 루프)
+    function syncCardHighlight() {
+        const time = (Date.now() % 10000) / 1000; // 0~10초 반복
+        
+        cards.forEach(card => card.classList.remove('active'));
+
+        if (time < 2.5) {
+            phSection.querySelector('.ph-card-tl')?.classList.add('active');
+        } else if (time < 5) {
+            phSection.querySelector('.ph-card-bl')?.classList.add('active');
+        } else if (time < 7.5) {
+            phSection.querySelector('.ph-card-br')?.classList.add('active');
+        } else {
+            phSection.querySelector('.ph-card-tr')?.classList.add('active');
+        }
+        
+        requestAnimationFrame(syncCardHighlight);
+    }
+
+    syncCardHighlight();
+});

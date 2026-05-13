@@ -27,7 +27,7 @@ body {
 
 @media screen and (max-width: 1023px) {
     .pc-br {
-        display: none !important;
+        display: none;
     }
 }
 
@@ -473,12 +473,12 @@ body {
     }
 
     .colors-intro br.mo-br {
-        display: none !important;
+        display: none;
     }
 
     @media screen and (max-width: 640px) {
         .colors-intro br.mo-br {
-            display: block !important;
+            display: block;
         }
     }
 

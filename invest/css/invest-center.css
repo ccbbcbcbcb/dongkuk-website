@@ -19,28 +19,29 @@ body {
 }
 
 .gnb {
-    position: fixed !important;
+    position: fixed;
     background: transparent;
 }
 
 /* Hero Section */
 .invest-hero {
     position: relative;
-    width: 1920px;
+    width: 100%;
+    max-width: 1920px;
     height: 709px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding: 0;
-    gap: 120px;
+    gap: clamp(40px, 6.25vw, 120px);
     overflow: hidden;
     margin: 0 auto;
     background: url('../assets/invest-center/투자정보센터header.png') no-repeat center/cover;
 }
 
 .invest-hero .gnb {
-    position: relative !important;
+    position: relative;
     z-index: 2;
     width: 100%;
     height: 100px;
@@ -53,7 +54,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: clamp(10px, 1.04vw, 20px);
     width: 100%;
     max-width: 995px;
     height: 289px;
@@ -62,7 +63,7 @@ body {
 }
 
 .invest-hero-subtitle {
-    font-size: 26px;
+    font-size: clamp(18px, 1.35vw, 26px);
     font-weight: 700;
     line-height: 1.5;
     color: #FFFFFF;
@@ -70,7 +71,7 @@ body {
 }
 
 .invest-hero-maintitle {
-    font-size: 80px;
+    font-size: clamp(40px, 4.16vw, 80px);
     font-weight: 700;
     line-height: 1.4;
     color: #FFFFFF;
@@ -107,7 +108,7 @@ body {
     height: auto;
     min-height: 755px;
     margin: 0 auto;
-    padding: 100px 120px; /* Horizontal padding 120px */
+    padding: clamp(60px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -128,7 +129,7 @@ body {
     line-height: 1.2;
     color: #000000;
     margin: 0;
-    margin-bottom: 60px;
+    margin-bottom: clamp(30px, 3.125vw, 60px);
 }
 
 .overview-grid {
@@ -137,16 +138,16 @@ body {
     align-items: stretch;
     gap: 24px;
     width: 100%;
-    max-width: 1680px; /* Fixed width for desktop */
+    max-width: 1680px; /* Max width for desktop */
     height: 435px; /* Fixed height for desktop */
 }
 
 .overview-card {
-    min-height: 435px;
-    border-radius: 30px;
+    min-height: clamp(300px, 22.6vw, 435px);
+    border-radius: clamp(16px, 1.56vw, 30px);
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: clamp(20px, 2.08vw, 40px);
     box-sizing: border-box;
 }
 
@@ -219,11 +220,10 @@ body {
 .stock-label {
     white-space: nowrap;
     width: auto;
-    height: 36px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
+    font-size: clamp(18px, 1.25vw, 24px);
     line-height: 150%;
     color: #363636;
     margin: 0;
@@ -235,9 +235,8 @@ body {
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 24px;
+    gap: clamp(12px, 1.25vw, 24px);
     width: 100%;
-    height: 112px;
 }
 
 /* Frame 2116935947 - Price Area */
@@ -246,33 +245,30 @@ body {
     flex-direction: row;
     align-items: flex-end;
     padding: 0px;
-    gap: 14px;
-    width: 293px; /* Frame 2116935947 width */
-    height: 112px;
+    gap: clamp(8px, 0.73vw, 14px);
+    width: auto;
 }
 
 .price-val {
-    width: 220px;
-    height: 112px;
+    width: auto;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 80px;
+    font-size: clamp(40px, 4.16vw, 80px);
     line-height: 140%;
     color: #000000;
     margin: 0;
 }
 
 .price-unit {
-    width: 72px;
-    height: 59px;
+    width: auto;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 26px;
+    font-size: clamp(18px, 1.35vw, 26px);
     line-height: 150%;
     color: #363636;
-    padding-bottom: 12px;
+    padding-bottom: clamp(6px, 0.625vw, 12px);
 }
 
 /* Frame 2116936065 - Stats Area */
@@ -313,12 +309,11 @@ body {
     align-items: center;
     padding: 2px 0px;
     width: auto;
-    min-width: 52px;
-    height: 36px;
+    min-width: clamp(36px, 2.7vw, 52px);
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: clamp(16px, 1.04vw, 20px);
     line-height: 160%;
     color: #7A7A7A;
 }
@@ -351,7 +346,7 @@ body {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 30px;
+    font-size: clamp(20px, 1.56vw, 30px);
     line-height: 150%;
 }
 
@@ -386,7 +381,8 @@ body {
 
 /* 주주환원 카드 */
 .shareholder-return {
-    width: 484px;
+    width: 28.8%; /* 484px / 1680px at 1920px */
+    min-width: 320px;
     background: #F8F9FB;
     justify-content: space-between;
 }
@@ -394,7 +390,7 @@ body {
 .return-main {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: clamp(20px, 2.6vw, 50px);
 }
 
 .return-header-wrap {
@@ -520,7 +516,8 @@ body {
 
 /* 파트너십 카드 */
 .partnership {
-    width: 320px;
+    width: 19%; /* 320px / 1680px at 1920px */
+    min-width: 280px;
     background: #FCE3CC;
     position: relative;
     overflow: hidden;
@@ -590,6 +587,20 @@ body {
     z-index: 1;
 }
 
+/* Inner circle for desktop to match mobile visual */
+.partnership::after {
+    content: '';
+    position: absolute;
+    width: 144px;
+    height: 144px;
+    right: 44.5px;
+    bottom: -55.5px;
+    background: #FCE2CC;
+    border-radius: 50%;
+    transform: rotate(-90deg);
+    z-index: 1;
+}
+
 /* News Section & Contact Section override */
 .news-container {
     padding-top: 40px;
@@ -598,7 +609,7 @@ body {
 /* Responsive adjustment for Overview Section */
 @media (max-width: 1023px) {
     .investment-overview {
-        padding: 60px 20px;
+        padding: 40px 16px; /* Adjusted to 16px to match 328px width at 360px viewport */
     }
     .overview-title {
         font-family: 'Pretendard';
@@ -614,7 +625,7 @@ body {
     .overview-grid {
         flex-direction: column;
         align-items: stretch;
-        gap: 20px;
+        gap: 10px;
         height: auto;
     }
     .overview-card {
@@ -628,15 +639,18 @@ body {
         align-items: flex-start;
         padding: 0;
         justify-content: space-between;
-        width: 328px;
-        height: 261px;
+        width: 100%;
+        max-width: 328px;
+        height: auto;
+        min-height: 261px;
+        margin-bottom: 20px; /* gap 10px + margin 20px = total 30px gap with next card */
     }
     .stock-info .card-top {
         display: flex;
         flex-direction: row;
         align-items: center;
         padding: 14px 0;
-        width: 328px;
+        width: 100%;
         height: 46px;
     }
     .stock-info .card-title-wrap {
@@ -681,8 +695,9 @@ body {
         flex-direction: column;
         align-items: flex-start;
         padding: 0;
-        width: 328px;
-        height: 185px;
+        width: 100%;
+        height: auto;
+        min-height: 185px;
     }
     .stock-label {
         width: 47px;
@@ -699,7 +714,7 @@ body {
         align-items: flex-start;
         padding: 0;
         gap: 0;
-        width: 328px;
+        width: 100%;
         height: auto;
     }
     .price-row {
@@ -735,8 +750,9 @@ body {
         align-items: flex-start;
         padding: 0;
         gap: 0;
-        width: 328px;
-        height: 86px;
+        width: 100%;
+        height: auto;
+        min-height: 86px;
         margin-top: 0;
     }
     .info-rows-wrap {
@@ -746,7 +762,7 @@ body {
         justify-content: flex-start; /* Left-aligned */
         padding: 0;
         gap: 10px; /* 10px gap on both sides of the zero-width separator box */
-        width: 328px;
+        width: 100%;
         height: 60px;
     }
     .v-line-svg {
@@ -885,8 +901,10 @@ body {
         justify-content: space-between;
         align-items: flex-start;
         padding: 20px;
-        width: 328px;
-        height: 270px;
+        width: 100%;
+        max-width: 328px;
+        height: auto;
+        min-height: 270px;
         background: #F8F9FB;
         border-radius: 16px;
         box-sizing: border-box;
@@ -899,7 +917,7 @@ body {
         justify-content: space-between;
         align-items: center;
         padding: 0;
-        width: 288px;
+        width: 100%;
         height: 30px;
         flex: none;
         align-self: stretch;
@@ -1105,7 +1123,8 @@ body {
         align-items: flex-start;
         padding: 20px;
         isolation: isolate;
-        width: 328px;
+        width: 100%;
+        max-width: 328px;
         height: 270px;
         background: #FCE3CC;
         border-radius: 16px;
@@ -1136,8 +1155,9 @@ body {
         padding: 0px;
         gap: 10px;
         margin: 0;
-        width: 288px;
-        height: 62px;
+        width: 100%;
+        height: auto;
+        min-height: 62px;
         z-index: 2;
     }
 
@@ -1147,7 +1167,7 @@ body {
         justify-content: space-between;
         align-items: center;
         padding: 0px;
-        width: 288px;
+        width: 100%;
         height: 26px;
     }
 
@@ -1231,10 +1251,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 60px 30px;
+    padding: 60px 1.5625%; /* 30px / 1920px */
     gap: 10px;
-    width: 1920px;
-    height: 737px;
+    width: 100%;
+    max-width: 1920px;
+    height: auto;
+    min-height: 737px;
     box-sizing: border-box;
 }
 
@@ -1243,9 +1265,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 60px 90px;
-    width: 1860px;
-    height: 617px;
+    padding: 60px 4.8%; /* 90px / 1860px */
+    width: 100%;
+    height: auto;
+    min-height: 617px;
     background: #F1F3F7;
     border-radius: 30px;
     box-sizing: border-box;
@@ -1258,8 +1281,8 @@ body {
     justify-content: space-between;
     align-items: flex-end;
     padding: 0px;
-    gap: 1055px;
-    width: 1680px;
+    width: 100%;
+    max-width: 1680px;
     height: 60px;
 }
 
@@ -1282,8 +1305,10 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 30px;
-    width: 1670px;
-    height: 377px;
+    width: 100%;
+    max-width: 1670px;
+    height: auto;
+    min-height: 377px;
 }
 
 .notice-col {
@@ -1292,8 +1317,8 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 30px;
-    width: 820px;
-    height: 377px;
+    width: calc((100% - 30px) / 2); /* Exactly 820px at 1670px container */
+    height: auto;
 }
 
 .notice-col-header {
@@ -1302,7 +1327,7 @@ body {
     align-items: center;
     padding: 0;
     gap: 2px;
-    width: 820px;
+    width: 100%;
     height: 46px;
 }
 
@@ -1327,8 +1352,8 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 16px;
-    width: 820px;
-    height: 301px;
+    width: 100%;
+    height: auto;
 }
 
 .notice-card {
@@ -1337,8 +1362,8 @@ body {
     flex-direction: row;
     align-items: center;
     padding: 30px;
-    gap: 70px;
-    width: 262.67px;
+    gap: 20px; /* Reduced gap */
+    width: calc((100% - 32px) / 3); /* Exactly 262.67px at 820px container */
     height: 301px;
     background: #FFFFFF;
     border-radius: 20px;
@@ -1481,18 +1506,25 @@ body {
 /* IR소식 Section */
 .ir-news-section {
     position: relative;
-    width: 1920px;
-    height: 769px;
+    width: 100%;
+    max-width: 1920px;
+    height: auto;
+    min-height: 769px;
     background: #FFFFFF;
     box-sizing: border-box;
-    overflow: hidden;
+}
+
+.ir-news-inner {
+    width: 100%;
+    padding: 120px 6.25% 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 65.73px;
+    box-sizing: border-box;
 }
 
 .ir-news-title-wrap {
-    position: absolute;
-    left: 120px;
-    top: 120px;
-    width: 1680px;
+    width: 100%;
     height: 60px;
     display: flex;
     align-items: flex-end;
@@ -1510,15 +1542,12 @@ body {
 }
 
 .ir-news-cards {
-    position: absolute;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 1680px;
+    width: 100%;
     height: 436px;
-    left: 120px;
-    top: 245.73px;
 }
 
 /* 공통 카드 */
@@ -1527,7 +1556,7 @@ body {
     flex-direction: column;
     padding: 48px 40px;
     isolation: isolate;
-    width: 828px;
+    width: calc((100% - 24px) / 2); /* Exactly 828px at 1680px container */
     height: 436px;
     border-radius: 30px;
     box-sizing: border-box;
@@ -1545,10 +1574,9 @@ body {
     z-index: 1;
 }
 
-/* IR 자료실 - 어두운 카드 */
 .ir-card--dark {
-    /* 카드 본체 배경을 20% 농도로 설정 */
-    background: rgba(69, 32, 0, 0.2);
+    /* 카드 본체 배경을 46% 농도로 설정 */
+    background: rgba(69, 32, 0, 0.46);
 }
 
 .ir-card--dark::before {
@@ -1559,7 +1587,6 @@ body {
     left: calc(50% - 882px/2);
     top: calc(50% - 497px/2 - 0.5px);
     background: linear-gradient(0deg, rgba(69, 32, 0, 0.46), rgba(69, 32, 0, 0.46)), url('../assets/invest-center/IR소식.png') center/cover no-repeat;
-    filter: blur(9.8px);
     z-index: 0;
 }
 
@@ -1575,7 +1602,7 @@ body {
     flex-direction: row;
     align-items: center;
     gap: 2px;
-    width: 748px;
+    width: 100%;
     height: 46px;
 }
 
@@ -1603,7 +1630,7 @@ body {
     flex-direction: row;
     align-items: flex-start;
     gap: 58px;
-    width: 748px;
+    width: 100%;
     height: 234px;
 }
 
@@ -1713,7 +1740,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-    width: 748px;
+    width: 100%;
     height: 244px;
 }
 
@@ -1724,7 +1751,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 0px;
-    width: 748px;
+    width: 100%;
     height: 76px;
     border-bottom: 1px solid #E9E9E9;
 }
@@ -1755,14 +1782,49 @@ body {
 /* Mobile */
 @media (max-width: 1023px) {
     .invest-hero {
-        padding: 0 20px;
-        height: 400px;
+        width: 360px;
+        height: 360px;
+        min-height: 360px;
+        margin: 0 auto;
+        padding: 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../assets/invest-center/투자정보센터header.png') no-repeat center / cover;
     }
-    .invest-hero-title {
-        font-size: 36px;
+    .invest-hero-content {
+        width: 328px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
     }
-    .invest-hero-desc {
-        font-size: 16px;
+    .invest-hero-subtitle {
+        width: 328px;
+        height: 20px;
+        font-family: 'Pretendard';
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 160%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #FFFFFF;
+        margin: 0;
+    }
+    .invest-hero-maintitle {
+        width: 328px;
+        height: 78px;
+        font-family: 'Pretendard';
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 150%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #FFFFFF;
+        margin: 0;
     }
     .invest-section {
         padding: 60px 20px;
@@ -1897,16 +1959,19 @@ body {
         display: flex;
         flex-direction: column;
         padding: 40px 16px;
-        gap: 20px;
         width: 100%;
         height: auto;
     }
+    .ir-news-inner {
+        width: 100%;
+        padding: 0;
+        gap: 20px;
+    }
     .ir-news-title-wrap {
-        position: static;
         width: 100%;
         height: auto;
-        padding: 0;
-        margin: 0;
+        display: flex;
+        align-items: center;
     }
     .ir-news-main-title {
         font-size: 30px;
@@ -1930,7 +1995,7 @@ body {
         justify-content: flex-start;
     }
     .ir-card-content-wrapper {
-        width: 296px;
+        width: 100%;
         height: auto;
         display: flex;
         flex-direction: column;
@@ -1947,6 +2012,7 @@ body {
     }
     .ir-card--dark {
         min-height: 400px;
+        background: rgba(69, 32, 0, 0.46);
     }
     .ir-card--dark::before {
         width: 100%;
@@ -1954,7 +2020,6 @@ body {
         left: 0;
         top: 0;
         background: linear-gradient(0deg, rgba(69, 32, 0, 0.46), rgba(69, 32, 0, 0.46)), url('../assets/invest-center/IR소식.png') center/cover no-repeat;
-        filter: blur(6px);
     }
     .ir-card--light {
         gap: 40px;

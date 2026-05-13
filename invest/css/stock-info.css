@@ -8,11 +8,11 @@
 }
 
 .pc-only {
-    display: inline-block !important;
+    display: inline-block;
 }
 
 .mo-only {
-    display: none !important;
+    display: none;
 }
 
 /* ===== Hero Text (sticky scroll-to-color) ===== */
@@ -605,13 +605,13 @@ img.ic-download {
 }
 
 .spec-grid-row:last-child .spec-value {
-    border-bottom: none !important;
+    border-bottom: none;
 }
 
 /* 💡 만약 HTML에 spec-ann-value-center 클래스가 같이 붙어있다면 이것도 해제해야 합니다 */
 .spec-ann-value-center {
-    justify-content: flex-start !important;
-    padding-left: 24px !important;
+    justify-content: flex-start;
+    padding-left: 24px;
 }
 
 @media (min-width: 1024px) {
@@ -1230,15 +1230,15 @@ img.ic-download {
            ════════════════════════════════════ */
 @media (max-width: 1023px) {
     .pc-only {
-        display: none !important;
+        display: none;
     }
 
     .mo-only {
-        display: inline-block !important;
+        display: inline-block;
     }
 
     body {
-        min-width: 0 !important;
+        min-width: 0;
         width: 100%;
         max-width: 100vw;
         overflow-x: hidden;
@@ -1271,7 +1271,7 @@ img.ic-download {
 
     .fcards-row {
         flex-direction: column;
-        width: 100% !important;
+        width: 100%;
         height: auto;
         gap: 12px;
         padding: 0;
@@ -1280,8 +1280,8 @@ img.ic-download {
     .fcard-premium,
     .fcard-stable,
     .fcard-nextgen {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 100%;
+        max-width: 100%;
         height: 156px;
         border-radius: 16px;
         flex: none;
@@ -1289,15 +1289,15 @@ img.ic-download {
 
     /* 카드1: 피그마 디켈 기준 */
     .fcard-premium {
-        overflow: hidden !important;
+        overflow: hidden;
     }
 
     .fcard-premium .bg-main {
-        width: 100% !important;
-        height: 100% !important;
-        left: 0 !important;
-        top: 0 !important;
-        border-radius: 16px !important;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 16px;
     }
 
     .fcard-premium .bg-circle {
@@ -1306,56 +1306,56 @@ img.ic-download {
         left: unset;
         right: 0;
         top: 50%;
-        border-radius: 50% !important;
+        border-radius: 50%;
     }
 
     .fcard-premium .product-img {
-        width: 157px !important;
+        width: 157px;
         height: 75px;
-        left: auto !important;
-        right: 6px !important;
+        left: auto;
+        right: 6px;
         top: 52%;
-        background-size: contain !important;
-        background-position: center bottom !important;
-        border-radius: 0 0 2.7px 2.7px !important;
+        background-size: contain;
+        background-position: center bottom;
+        border-radius: 0 0 2.7px 2.7px;
     }
 
     .fcard-premium .label-text {
-        left: 16px !important;
-        top: 16px !important;
-        font-size: 16px !important;
-        line-height: 1.6 !important;
-        font-weight: 400 !important;
+        left: 16px;
+        top: 16px;
+        font-size: 16px;
+        line-height: 1.6;
+        font-weight: 400;
         width: auto;
     }
 
     .fcard-premium .title-text {
-        left: 16px !important;
-        top: 98px !important;
+        left: 16px;
+        top: 98px;
         bottom: auto;
-        font-size: 30px !important;
-        line-height: 1.4 !important;
+        font-size: 30px;
+        line-height: 1.4;
     }
 
     /* 카드2, 카드3: flex 전환 */
     .fcard-stable,
     .fcard-nextgen {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        padding: 16px !important;
-        gap: 30px !important;
-        box-sizing: border-box !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 16px;
+        gap: 30px;
+        box-sizing: border-box;
     }
 
     .fcard-stable .label-text,
     .fcard-nextgen .label-text {
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
-        font-size: 16px !important;
-        line-height: 1.6 !important;
-        font-weight: 400 !important;
+        position: relative;
+        left: auto;
+        top: auto;
+        font-size: 16px;
+        line-height: 1.6;
+        font-weight: 400;
         width: auto;
         max-width: 100%;
         margin: 0;
@@ -1363,11 +1363,11 @@ img.ic-download {
 
     .fcard-stable .title-text,
     .fcard-nextgen .title-text {
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
-        font-size: 30px !important;
-        line-height: 1.4 !important;
+        position: relative;
+        left: auto;
+        top: auto;
+        font-size: 30px;
+        line-height: 1.4;
         margin: 0;
     }
 
@@ -1421,8 +1421,8 @@ img.ic-download {
         gap: 20px;
         padding: 0 16px;
         padding-bottom: 20px;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
+        max-width: 100%;
+        box-sizing: border-box;
         overflow: hidden;
     }
 
@@ -1452,10 +1452,10 @@ img.ic-download {
 
     .pi-right {
         order: 2;
-        width: 100% !important;
-        height: 232px !important;
-        aspect-ratio: unset !important;
-        border-radius: 16px !important;
+        width: 100%;
+        height: 232px;
+        aspect-ratio: unset;
+        border-radius: 16px;
         flex-shrink: 0;
         overflow: hidden;
     }
@@ -1466,27 +1466,27 @@ img.ic-download {
 
     .pi-subtitle-group {
         order: 3;
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        box-sizing: border-box !important;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
         overflow-wrap: break-word;
         word-break: keep-all;
-        gap: 20px !important;
+        gap: 20px;
     }
 
     .pi-description-stack {
-        max-width: 100% !important;
-        min-width: 0 !important;
-        box-sizing: border-box !important;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
         overflow-wrap: break-word;
     }
 
     .pi-brochure-section {
         order: 4;
-        width: 100% !important;
-        max-width: 100% !important;
-        gap: 16px !important;
+        width: 100%;
+        max-width: 100%;
+        gap: 16px;
     }
 
     .pi-top-content,
@@ -1495,34 +1495,34 @@ img.ic-download {
     .pi-description-stack,
     .pi-label,
     .pi-desc {
-        width: 100% !important;
+        width: 100%;
     }
 
     /* 피그마: 30px Bold, line-height 1.4 */
     .pi-title {
-        width: 100% !important;
-        font-size: 30px !important;
-        line-height: 1.4 !important;
+        width: 100%;
+        font-size: 30px;
+        line-height: 1.4;
         height: auto;
         white-space: normal;
     }
 
     /* 피그마: 24px Bold, line-height 1.5, color #1B1B1B */
     .pi-subtitle {
-        font-size: 24px !important;
-        line-height: 1.5 !important;
+        font-size: 24px;
+        line-height: 1.5;
         width: 100%;
     }
 
     /* 피그마: Description gap-[8px] */
     .pi-description-stack {
-        gap: 8px !important;
+        gap: 8px;
     }
 
     /* 피그마: 16px Regular, line-height 1.6, color #4E4E4E */
     .pi-desc {
-        font-size: 16px !important;
-        line-height: 1.6 !important;
+        font-size: 16px;
+        line-height: 1.6;
         width: 100%;
     }
 
@@ -1533,8 +1533,8 @@ img.ic-download {
 
     /* 피그마: 브로슈어 라벨 18px Bold */
     .pi-brochure-label {
-        font-size: 18px !important;
-        line-height: 1.6 !important;
+        font-size: 18px;
+        line-height: 1.6;
     }
 
     .pi-right {
@@ -1546,10 +1546,10 @@ img.ic-download {
     }
 
     .pi-brochure-btns {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 100%;
+        max-width: 100%;
         display: flex;
-        flex-wrap: nowrap !important;
+        flex-wrap: nowrap;
         gap: 4px;
         justify-content: flex-start;
     }
@@ -1571,7 +1571,7 @@ img.ic-download {
     }
 
     .pi-brochure-btns {
-        gap: 4px !important;
+        gap: 4px;
     }
 
     .btn-round img.ic-download {
@@ -1590,7 +1590,7 @@ img.ic-download {
     }
 
     .acc-item {
-        width: 100% !important;
+        width: 100%;
     }
 
     .acc-header {
@@ -1627,18 +1627,18 @@ img.ic-download {
     }
 
     .acc-body {
-        width: 100% !important;
+        width: 100%;
     }
 
     .acc-content-box {
-        width: 100% !important;
+        width: 100%;
         padding: 30px 0;
         gap: 30px;
         background: #FFFFFF;
     }
 
     .spec-grid-group {
-        width: 100% !important;
+        width: 100%;
         /* overflow-x 제거하여 타이틀과 범례가 스크롤되지 않도록 함 */
     }
 
@@ -1721,11 +1721,11 @@ img.ic-download {
 
     .scroll-horizontal {
         position: relative;
-        width: 328px !important;
-        height: 30px !important;
-        margin: -12px auto 0 !important;
+        width: 328px;
+        height: 30px;
+        margin: -12px auto 0;
         /* 부모 gap 12px 상쇄하여 표와 밀착 */
-        display: block !important;
+        display: block;
     }
 
     .scroll-track {
@@ -1767,8 +1767,8 @@ img.ic-download {
     }
 
     .usage-left {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 100%;
+        max-width: 100%;
         flex-shrink: 1;
         GAP: 0
     }
@@ -1778,22 +1778,22 @@ img.ic-download {
     }
 
     .umi-desc {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 100%;
+        max-width: 100%;
         margin-left: 0;
         font-size: 16px;
-        height: auto !important;
+        height: auto;
         margin-bottom: 10px;
     }
 
     .usage-right {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
 
     .usage-tab-content.active {
-        position: relative !important;
+        position: relative;
     }
 
     .utc-video {
@@ -1846,42 +1846,42 @@ img.ic-download {
                ═══════════════════════════════════════════════ */
 
     .process-scroll-outer {
-        padding: 0 !important;
-        height: auto !important;
-        overflow: visible !important;
+        padding: 0;
+        height: auto;
+        overflow: visible;
     }
 
     .process-sticky {
-        align-items: stretch !important;
-        display: block !important;
-        height: auto !important;
-        position: relative !important;
+        align-items: stretch;
+        display: block;
+        height: auto;
+        position: relative;
     }
 
     .process-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        padding: 40px 16px 20px !important;
-        border-radius: 0 !important;
-        overflow: visible !important;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 40px 16px 20px;
+        border-radius: 0;
+        overflow: visible;
         display: flex;
         flex-direction: column;
         gap: 60px;
-        transform: none !important;
+        transform: none;
     }
 
     /* ── Header: 타이틀 + 토글 세로 배치 ── */
     .ps-header {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        left: 0 !important;
-        top: 0 !important;
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 0;
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding: 0 !important;
+        padding: 0;
     }
 
     .ps-label {
@@ -1889,44 +1889,44 @@ img.ic-download {
     }
 
     .ps-title {
-        font-size: 30px !important;
-        line-height: 1.5 !important;
+        font-size: 30px;
+        line-height: 1.5;
     }
 
     /* 토글 버튼 – 피그마: 57px, 14px Bold, pill */
     .ps-toggle {
-        width: 100% !important;
-        height: 57px !important;
-        padding: 6px !important;
-        border-radius: 50px !important;
-        gap: 4px !important;
+        width: 100%;
+        height: 57px;
+        padding: 6px;
+        border-radius: 50px;
+        gap: 4px;
     }
 
     .ps-toggle-btn {
-        flex: 1 !important;
-        height: 45px !important;
-        font-size: 14px !important;
-        border-radius: 30px !important;
+        flex: 1;
+        height: 45px;
+        font-size: 14px;
+        border-radius: 30px;
     }
 
     /* ── 데스크탑 다이어그램: 모바일에서 숨김 ── */
     .ps-diagram-area {
-        display: none !important;
+        display: none;
     }
 
     /* ── 말풍선: 모바일에서 숨김 ── */
     .ps-bubble {
-        display: none !important;
+        display: none;
     }
 
     /* ── 기존 Progress bar 숨김 ── */
     .ps-progress {
-        display: none !important;
+        display: none;
     }
 
     /* ═══ 모바일 3줄 다이어그램 ═══ */
     .ps-mobile-diagram {
-        display: block !important;
+        display: block;
         position: relative;
         width: 100%;
         border-radius: 8px;
@@ -2010,7 +2010,7 @@ img.ic-download {
 
     /* ── 모바일 인디케이터 바 ── */
     .ps-mobile-indicators {
-        display: flex !important;
+        display: flex;
         justify-content: space-between;
         gap: 6px;
         padding: 10px 0;
@@ -2048,7 +2048,7 @@ img.ic-download {
 
     /* ── 모바일 설명 카드 ── */
     .ps-mobile-info-card {
-        display: flex !important;
+        display: flex;
         flex-direction: column;
         gap: 10px;
         background: #FFFFFF;
@@ -2063,7 +2063,7 @@ img.ic-download {
     .ps-mobile-indicators.is-hidden,
     .ps-mobile-info-card.is-hidden,
     .ps-mobile-diagram.is-hidden {
-        display: none !important;
+        display: none;
     }
 
     .ps-mobile-info-header {
@@ -2097,8 +2097,8 @@ img.ic-download {
 
 
     .grade-table {
-        width: 100% !important;
-        height: auto !important;
+        width: 100%;
+        height: auto;
         overflow-x: auto;
     }
 
@@ -2112,116 +2112,116 @@ img.ic-download {
 
     /* --- DiKel 스토리 --- */
     .story-section {
-        padding: clamp(32px, 8.9vw, 40px) 0 !important;
+        padding: clamp(32px, 8.9vw, 40px) 0;
     }
 
     .story-section .inner {
-        flex-direction: column !important;
-        width: 100% !important;
-        padding: 0 clamp(16px, 4.4vw, 24px) !important;
-        gap: clamp(24px, 6.7vw, 30px) !important;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 clamp(16px, 4.4vw, 24px);
+        gap: clamp(24px, 6.7vw, 30px);
     }
 
     .story-title {
-        font-size: clamp(24px, 8.3vw, 30px) !important;
+        font-size: clamp(24px, 8.3vw, 30px);
         line-height: 1.4;
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        min-height: auto !important;
-        text-align: left !important;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: auto;
+        text-align: left;
     }
 
     .story-title-mobile {
-        display: block !important;
-        order: -1 !important;
-        width: 100% !important;
+        display: block;
+        order: -1;
+        width: 100%;
     }
 
     .story-title-desktop {
-        display: none !important;
+        display: none;
     }
 
     .story-desc {
-        font-size: clamp(14px, 4.4vw, 16px) !important;
+        font-size: clamp(14px, 4.4vw, 16px);
         line-height: 1.6;
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        min-height: auto !important;
-        display: block !important;
-        text-align: left !important;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: auto;
+        display: block;
+        text-align: left;
     }
 
     .story-desc-sub {
-        max-width: 100% !important;
-        margin-top: 12px !important;
-        text-align: left !important;
+        max-width: 100%;
+        margin-top: 12px;
+        text-align: left;
     }
 
     .story-desc-group {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        gap: 12px !important;
-        align-items: flex-start !important;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        gap: 12px;
+        align-items: flex-start;
     }
 
     /* --- 카드 세로 배치 --- */
     .story-txt {
         order: 1;
-        gap: 20px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        align-items: flex-start !important;
+        gap: 20px;
+        width: 100%;
+        max-width: 100%;
+        align-items: flex-start;
     }
 
     .story-cards {
         order: 0;
-        flex-direction: column !important;
-        gap: 0 !important;
-        align-items: center !important;
-        width: 100% !important;
-        height: auto !important;
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+        width: 100%;
+        height: auto;
     }
 
     .scard-dk,
     .scard-db,
     .scard-nickel {
-        width: clamp(200px, 57.8vw, 208px) !important;
-        height: clamp(72px, 22.2vw, 80px) !important;
+        width: clamp(200px, 57.8vw, 208px);
+        height: clamp(72px, 22.2vw, 80px);
         margin: 0 auto;
     }
 
     .scard-dk {
-        border-radius: clamp(12px, 4.3vw, 15.4px) clamp(12px, 4.3vw, 15.4px) 0 clamp(12px, 4.3vw, 15.4px) !important;
+        border-radius: clamp(12px, 4.3vw, 15.4px) clamp(12px, 4.3vw, 15.4px) 0 clamp(12px, 4.3vw, 15.4px);
     }
 
     .scard-db {
-        border-radius: clamp(12px, 4.3vw, 15.4px) !important;
+        border-radius: clamp(12px, 4.3vw, 15.4px);
     }
 
     .scard-nickel {
-        border-radius: 0 clamp(12px, 4.3vw, 15.4px) clamp(12px, 4.3vw, 15.4px) clamp(12px, 4.3vw, 15.4px) !important;
+        border-radius: 0 clamp(12px, 4.3vw, 15.4px) clamp(12px, 4.3vw, 15.4px) clamp(12px, 4.3vw, 15.4px);
     }
 
     .scard-dk-inner,
     .scard-db-inner,
     .scard-nickel-inner {
-        font-size: clamp(22px, 7.2vw, 26px) !important;
+        font-size: clamp(22px, 7.2vw, 26px);
     }
 
     .scard-plus-1,
     .scard-plus-2 {
-        display: none !important;
+        display: none;
     }
 
     .scard-mobile-plus {
-        display: flex !important;
-        width: 24px !important;
-        height: 24px !important;
-        font-size: 12px !important;
-        margin: -8px auto !important;
+        display: flex;
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+        margin: -8px auto;
     }
 
 
@@ -2293,7 +2293,7 @@ img.ic-download {
     }
 
     .bi-section .mobile-only-label {
-        display: none !important;
+        display: none;
     }
 
     .bi-section .logo-usage-card {
@@ -2303,7 +2303,7 @@ img.ic-download {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #F8F9FB !important;
+        background: #F8F9FB;
     }
 
     .bi-section .logo-usage-card img {
@@ -2353,7 +2353,7 @@ img.ic-download {
     }
 
     .bi-section .mono-logo-subtitle .mobile-label {
-        display: inline !important;
+        display: inline;
     }
 
     .bi-section .mono-grid {
@@ -2380,8 +2380,8 @@ img.ic-download {
     }
 
     .bi-section .dikel-mark img {
-        width: 100% !important;
-        height: 100% !important;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
     }
 
@@ -3542,7 +3542,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: clamp(40px, 3.65vw, 70px) 0;
+    padding: clamp(40px, 3.65vw, 70px) 0 100px;
     width: 100%;
     background: #FFFFFF;
 }
@@ -4570,7 +4570,7 @@ body {
 /* 주황색/어두운 배경 대응: 텍스트 색상 반전 */
 .bsys-circle-orange .bsys-pill-text,
 .bsys-circle-dark .bsys-pill-text {
-    color: #FFFFFF !important;
+    color: #FFFFFF;
 }
 
 /* 화살표 분리 요소 */
@@ -4736,22 +4736,22 @@ body {
            ════════════════════════════════════ */
 @media (max-width: 1023px) {
     body {
-        min-width: 0 !important;
-        width: 100% !important;
+        min-width: 0;
+        width: 100%;
         overflow-x: hidden;
     }
 
     .inner {
-        max-width: 100% !important;
-        padding: 0 16px !important;
+        max-width: 100%;
+        padding: 0 16px;
     }
 
     .mo-br {
-        display: block !important;
+        display: block;
     }
 
     .desk-br {
-        display: none !important;
+        display: none;
     }
 
     /* Brand Resource 탭 패널 */
@@ -4767,198 +4767,198 @@ body {
     .product-list-inner,
     .history-section,
     .history-inner {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 100%;
+        max-width: 100%;
     }
 
     /* 모든 1680px 컨테이너 */
     [class*="grid-group"] {
-        width: 100% !important;
-        max-width: 100% !important;
-        gap: 12px !important;
+        width: 100%;
+        max-width: 100%;
+        gap: 12px;
     }
 
     [class*="section"] .inner,
     [class*="content-box"],
     [class*="card-wrap"] {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 100%;
+        max-width: 100%;
     }
 
     /* 탭 패널 내 큰 컨테이너 */
     .tab-panel .inner {
-        padding: 0 16px !important;
+        padding: 0 16px;
     }
 
     /* 플렉스 컬럼 스택 */
     .brand-card-row,
     .timeline-row {
-        flex-direction: column !important;
-        gap: 16px !important;
+        flex-direction: column;
+        gap: 16px;
     }
 
     /* 이미지/미디어 */
     .brand-card-row img,
     .ci-logo-row img,
     .product-list-img {
-        max-width: 100% !important;
-        height: auto !important;
+        max-width: 100%;
+        height: auto;
     }
 
     /* 모바일 표 텍스트 중앙 정렬 및 세로 스크롤 제거 */
     .spec-value,
     .spec-ann-col .spec-value {
-        justify-content: center !important;
-        text-align: center !important;
-        padding: 0 10px !important;
+        justify-content: center;
+        text-align: center;
+        padding: 0 10px;
     }
 
     .acc-body,
     .acc-content-box,
     .spec-table-container {
-        overflow-y: hidden !important;
-        height: auto !important;
-        max-height: none !important;
+        overflow-y: hidden;
+        height: auto;
+        max-height: none;
     }
 
     /* ── 소둔 열처리 표 모바일 상세 스펙 (Figma 반영) ── */
     .spec-ann-grid-row {
-        display: flex !important;
-        flex-direction: row !important;
-        width: 1049px !important;
-        height: 280px !important;
-        background: #FFFFFF !important;
-        border: none !important;
+        display: flex;
+        flex-direction: row;
+        width: 1049px;
+        height: 280px;
+        background: #FFFFFF;
+        border: none;
     }
 
     /* Columns styling */
     .spec-ann-col {
-        flex: none !important;
-        width: 150px !important;
-        height: auto !important;
-        border-right: 1px solid #D6D6D6 !important;
-        box-sizing: border-box !important;
+        flex: none;
+        width: 150px;
+        height: auto;
+        border-right: 1px solid #D6D6D6;
+        box-sizing: border-box;
     }
 
     .spec-ann-col.wide {
-        width: 448px !important;
-        border-right: none !important;
+        width: 448px;
+        border-right: none;
     }
 
     /* Cell content styling */
     .spec-ann-col .spec-head {
-        box-sizing: border-box !important;
-        width: 100% !important;
-        height: 100px !important;
-        padding: 0 18px !important;
-        background: linear-gradient(0deg, #F9FAFE, #F9FAFE), #FCFDFF !important;
-        border-top: 1px solid #000000 !important;
-        border-bottom: 1px solid #D6D6D6 !important;
-        font-family: 'Pretendard' !important;
-        font-weight: 700 !important;
-        font-size: 18px !important;
-        line-height: 160% !important;
-        color: #000000 !important;
-        justify-content: center !important;
-        text-align: center !important;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100px;
+        padding: 0 18px;
+        background: linear-gradient(0deg, #F9FAFE, #F9FAFE), #FCFDFF;
+        border-top: 1px solid #000000;
+        border-bottom: 1px solid #D6D6D6;
+        font-family: 'Pretendard';
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 160%;
+        color: #000000;
+        justify-content: center;
+        text-align: center;
     }
 
     .spec-ann-col .spec-value {
-        box-sizing: border-box !important;
-        width: 100% !important;
-        height: 90px !important;
-        padding: 14px 18px !important;
-        background: #FFFFFF !important;
-        border-top: none !important;
-        border-bottom: 1px solid #D6D6D6 !important;
-        border-right: none !important;
-        font-family: 'Pretendard' !important;
-        font-weight: 400 !important;
-        font-size: 14px !important;
-        line-height: 150% !important;
-        color: #363636 !important;
-        justify-content: center !important;
-        text-align: center !important;
+        box-sizing: border-box;
+        width: 100%;
+        height: 90px;
+        padding: 14px 18px;
+        background: #FFFFFF;
+        border-top: none;
+        border-bottom: 1px solid #D6D6D6;
+        border-right: none;
+        font-family: 'Pretendard';
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+        color: #363636;
+        justify-content: center;
+        text-align: center;
     }
 
     /* Batch, Continuous 텍스트는 볼드(700) 처리 */
     .spec-ann-col:first-child .spec-value {
-        font-weight: 700 !important;
-        font-size: 18px !important;
-        line-height: 160% !important;
-        color: #000000 !important;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 160%;
+        color: #000000;
     }
 
     /* Wide 컬럼 전용 상단 보더 조정 (중첩 방지) */
     .spec-ann-col.wide .spec-head {
-        height: 50px !important;
-        border-bottom: 1px solid #D6D6D6 !important;
+        height: 50px;
+        border-bottom: 1px solid #D6D6D6;
     }
 
     /* 추가 설비 컬럼 내부 레이아웃 */
     .spec-ann-sub-header-row {
-        display: flex !important;
-        width: 100% !important;
-        height: 50px !important;
-        background: linear-gradient(0deg, #F9FAFE, #F9FAFE), #FCFDFF !important;
-        border-top: none !important;
+        display: flex;
+        width: 100%;
+        height: 50px;
+        background: linear-gradient(0deg, #F9FAFE, #F9FAFE), #FCFDFF;
+        border-top: none;
         /* 상단 헤더와의 중첩 제거 */
     }
 
     .spec-ann-sub-head {
-        flex: 1 !important;
-        width: 149.33px !important;
-        height: 50px !important;
-        padding: 0 18px !important;
-        border-right: 1px solid #D6D6D6 !important;
-        border-top: none !important;
-        border-bottom: 1px solid #D6D6D6 !important;
+        flex: 1;
+        width: 149.33px;
+        height: 50px;
+        padding: 0 18px;
+        border-right: 1px solid #D6D6D6;
+        border-top: none;
+        border-bottom: 1px solid #D6D6D6;
         /* 아래쪽 구분선 복구 */
-        font-size: 18px !important;
-        font-weight: 700 !important;
-        color: #000000 !important;
-        box-sizing: border-box !important;
+        font-size: 18px;
+        font-weight: 700;
+        color: #000000;
+        box-sizing: border-box;
     }
 
     .spec-ann-sub-head:last-child {
-        border-right: none !important;
+        border-right: none;
     }
 
     .spec-ann-value-row {
-        display: flex !important;
-        width: 100% !important;
-        height: 90px !important;
+        display: flex;
+        width: 100%;
+        height: 90px;
     }
 
     .spec-ann-sub-value {
-        flex: 1 !important;
-        width: 149.33px !important;
-        height: 90px !important;
-        padding: 14px 18px !important;
-        border-right: 1px solid #D6D6D6 !important;
-        border-bottom: none !important;
+        flex: 1;
+        width: 149.33px;
+        height: 90px;
+        padding: 14px 18px;
+        border-right: 1px solid #D6D6D6;
+        border-bottom: none;
         /* 최하단 선 제거 */
-        border-top: none !important;
-        font-size: 14px !important;
-        color: #363636 !important;
-        box-sizing: border-box !important;
+        border-top: none;
+        font-size: 14px;
+        color: #363636;
+        box-sizing: border-box;
     }
 
     .spec-ann-sub-value:last-child {
-        border-right: none !important;
+        border-right: none;
     }
 
     /* Wide 컬럼의 Row 1 값 (-) 조정 */
     .spec-ann-col.wide .spec-value {
-        height: 90px !important;
-        border-top: none !important;
-        border-bottom: 1px solid #D6D6D6 !important;
+        height: 90px;
+        border-top: none;
+        border-bottom: 1px solid #D6D6D6;
         /* 얘는 중간선이므로 유지 */
     }
 
     /* 일반 컬럼의 마지막 행 선 제거 */
     .spec-ann-col:not(.wide) .spec-value:last-child {
-        border-bottom: none !important;
+        border-bottom: none;
     }
 }
 
@@ -4993,13 +4993,13 @@ body {
         height: 66px;
         padding: 20px 10px;
         font-size: 16px;
-        border-bottom: 2px solid #E9E9E9 !important;
-        color: #A7A7A7 !important;
+        border-bottom: 2px solid #E9E9E9;
+        color: #A7A7A7;
     }
 
     .tab-item.active {
-        border-bottom: 2px solid #A7A7A7 !important;
-        color: #1B1B1B !important;
+        border-bottom: 2px solid #A7A7A7;
+        color: #1B1B1B;
     }
 
     .hero-bg-decor {
@@ -5009,7 +5009,7 @@ body {
 
     /* foreignObject가 모바일 Safari에서 흰 배경으로 렌더링되는 버그 회피 */
     .hero-bg-decor img {
-        display: none !important;
+        display: none;
     }
 
     .hero-bg-decor::before,
@@ -5041,160 +5041,160 @@ body {
 
     /* ── 히어로: 피그마 MOB h-[700px] 전체너비, 라운딩없음 ── */
     .hero {
-        max-width: 100% !important;
-        width: 100% !important;
-        height: 700px !important;
-        border-radius: 0 !important;
-        margin: 0 !important;
+        max-width: 100%;
+        width: 100%;
+        height: 700px;
+        border-radius: 0;
+        margin: 0;
     }
 
 
 
     .hero-content {
-        width: 100% !important;
-        max-width: 328px !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        padding: 0 !important;
-        gap: 6px !important;
-        height: auto !important;
+        width: 100%;
+        max-width: 328px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0;
+        gap: 6px;
+        height: auto;
     }
 
     .hero-title {
-        flex-direction: column !important;
-        gap: 6px !important;
-        align-items: center !important;
-        height: auto !important;
-        width: 100% !important;
+        flex-direction: column;
+        gap: 6px;
+        align-items: center;
+        height: auto;
+        width: 100%;
     }
 
     .hero-title-left,
     .hero-title-right {
-        gap: 8px !important;
-        height: auto !important;
-        justify-content: center !important;
+        gap: 8px;
+        height: auto;
+        justify-content: center;
     }
 
     .hero-title span {
-        font-size: 50px !important;
-        font-weight: 700 !important;
+        font-size: 50px;
+        font-weight: 700;
     }
 
     .hero-sub {
-        display: block !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        font-size: 16px !important;
-        line-height: 1.6 !important;
-        text-align: center !important;
-        margin: 0 auto !important;
-        word-break: keep-all !important;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: center;
+        margin: 0 auto;
+        word-break: keep-all;
     }
 
     /* ── 새로운 소재: 피그마 38:4175 MOB ── */
     .material-section {
-        padding: 40px 0 !important;
-        overflow: clip !important;
+        padding: 40px 0;
+        overflow: clip;
     }
 
     .material-section .inner {
-        padding: 0 16px !important;
+        padding: 0 16px;
     }
 
     .material-content {
-        gap: 20px !important;
+        gap: 20px;
     }
 
     .material-title {
-        font-size: 30px !important;
-        font-weight: 700 !important;
-        height: auto !important;
-        max-width: 100% !important;
-        line-height: 1.4 !important;
-        text-align: left !important;
+        font-size: 30px;
+        font-weight: 700;
+        height: auto;
+        max-width: 100%;
+        line-height: 1.4;
+        text-align: left;
     }
 
     /* 카드 그리드 → 세로 스택 gap-10 */
     .material-cards {
-        flex-direction: column !important;
-        height: auto !important;
-        gap: 10px !important;
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
     }
 
     .mcard {
-        flex: none !important;
-        width: 328px !important;
-        height: 356px !important;
-        border-radius: 16px !important;
-        padding: 40px 20px !important;
+        flex: none;
+        width: 328px;
+        height: 356px;
+        border-radius: 16px;
+        padding: 40px 20px;
         margin: 0 auto;
-        overflow: hidden !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        gap: 4px !important;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 4px;
     }
 
     /* illus: h-150 w-296 */
     .mcard-illus {
-        max-width: 296px !important;
-        min-width: 155px !important;
-        height: 150px !important;
-        min-height: 130px !important;
-        overflow: hidden !important;
+        max-width: 296px;
+        min-width: 155px;
+        height: 150px;
+        min-height: 130px;
+        overflow: hidden;
     }
 
     .mcard-illus img {
-        height: 100% !important;
-        min-width: 155px !important;
-        min-height: 130px !important;
-        object-fit: contain !important;
+        height: 100%;
+        min-width: 155px;
+        min-height: 130px;
+        object-fit: contain;
     }
 
     /* txt: w-288 gap-20, title 20px/1.5, desc 16px/1.6 #4E4E4E */
     .mcard-txt {
-        width: 100% !important;
-        max-width: 288px !important;
-        gap: 20px !important;
-        align-items: flex-start !important;
+        width: 100%;
+        max-width: 288px;
+        gap: 20px;
+        align-items: flex-start;
     }
 
     .mcard-title {
-        font-size: 20px !important;
-        font-weight: 700 !important;
-        height: auto !important;
-        line-height: 1.5 !important;
-        color: #1B1B1B !important;
+        font-size: 20px;
+        font-weight: 700;
+        height: auto;
+        line-height: 1.5;
+        color: #1B1B1B;
     }
 
     .mcard-desc {
-        font-size: 16px !important;
-        font-weight: 400 !important;
-        height: auto !important;
-        line-height: 1.6 !important;
-        color: #4E4E4E !important;
+        font-size: 16px;
+        font-weight: 400;
+        height: auto;
+        line-height: 1.6;
+        color: #4E4E4E;
     }
 
     /* ── Why DiKel: 피그마 MOB px-[16px] py-[40px] gap-[30px] ── */
     .why-section {
-        padding: 40px 0 !important;
-        overflow: hidden !important;
+        padding: 40px 0;
+        overflow: hidden;
     }
 
     .why-section .inner {
-        padding: 0 16px !important;
+        padding: 0 16px;
     }
 
     .why-label {
-        font-size: 30px !important;
+        font-size: 30px;
     }
 
     .why-desc {
-        font-size: 30px !important;
-        line-height: 1.5 !important;
+        font-size: 30px;
+        line-height: 1.5;
     }
 
     /* ── 지속가능 가치: 피그마 MOB 세로 스택 ── 
@@ -5202,156 +5202,156 @@ body {
                피그마: px-[16px] py-[40px] gap-[20px]
                라벨 18px → 이미지 363px rounded-16 → 텍스트블록 */
     .value-section {
-        height: auto !important;
-        padding: 40px 0 !important;
-        overflow: visible !important;
+        height: auto;
+        padding: 40px 0;
+        overflow: visible;
     }
 
     .value-sticky-wrap {
-        position: relative !important;
-        height: auto !important;
-        overflow: visible !important;
+        position: relative;
+        height: auto;
+        overflow: visible;
     }
 
     .value-inner-box {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        padding: 0 16px !important;
-        gap: 20px !important;
-        box-sizing: border-box !important;
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 0 16px;
+        gap: 20px;
+        box-sizing: border-box;
     }
 
     .value-section-label {
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
-        font-size: 18px !important;
-        height: auto !important;
-        margin-bottom: 0 !important;
-        order: 0 !important;
+        position: relative;
+        left: auto;
+        top: auto;
+        font-size: 18px;
+        height: auto;
+        margin-bottom: 0;
+        order: 0;
     }
 
     /* 1번째 이미지 + 텍스트 */
     .value-img {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        left: auto !important;
-        top: auto !important;
-        border-radius: 16px !important;
-        overflow: hidden !important;
-        opacity: 1 !important;
-        flex-shrink: 0 !important;
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: auto;
+        top: auto;
+        border-radius: 16px;
+        overflow: hidden;
+        opacity: 1;
+        flex-shrink: 0;
     }
 
     .value-img img {
-        width: 100% !important;
-        height: auto !important;
-        display: block !important;
-        object-fit: cover !important;
-        border-radius: 16px !important;
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-radius: 16px;
     }
 
     #value-img-1 {
-        order: 1 !important;
+        order: 1;
     }
 
     #value-img-2 {
-        order: 4 !important;
-        opacity: 1 !important;
+        order: 4;
+        opacity: 1;
     }
 
     /* value-text-mask → display:contents로 자식을 부모 레벨로 올림 */
     .value-text-mask {
-        display: contents !important;
+        display: contents;
     }
 
     #vitem-0 {
-        order: 2 !important;
+        order: 2;
     }
 
     #vitem-1 {
-        order: 3 !important;
-        display: contents !important;
+        order: 3;
+        display: contents;
     }
 
     /* vitem-1 내부 자식들: 이미지(order:4) 뒤에 배치 */
     #vitem-1>.value-item-top,
     #vitem-1>.value-item-divider,
     #vitem-1>.value-item-desc {
-        order: 5 !important;
+        order: 5;
     }
 
     /* ── 가치 섹션 추가 간격 (피그마: txt wrapper py-20 gap-30) ── */
     .value-item {
-        position: relative !important;
-        width: 100% !important;
-        transform: none !important;
-        opacity: 1 !important;
-        top: auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 30px !important;
-        padding: 20px 0 !important;
+        position: relative;
+        width: 100%;
+        transform: none;
+        opacity: 1;
+        top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px 0;
     }
 
     .value-item-top {
-        gap: 12px !important;
+        gap: 12px;
     }
 
     .value-item-tag {
-        font-size: 16px !important;
-        color: #F27100 !important;
+        font-size: 16px;
+        color: #F27100;
     }
 
     .value-item-tag-wrap {
-        height: auto !important;
-        padding: 0 !important;
+        height: auto;
+        padding: 0;
     }
 
     .value-item-title {
-        font-size: 24px !important;
-        line-height: 1.5 !important;
-        height: auto !important;
-        width: 100% !important;
+        font-size: 24px;
+        line-height: 1.5;
+        height: auto;
+        width: 100%;
     }
 
     .value-item-divider {
-        display: none !important;
+        display: none;
     }
 
     .value-item-desc {
-        max-width: 100% !important;
-        width: 100% !important;
-        font-size: 18px !important;
-        color: #7A7A7A !important;
-        font-weight: 500 !important;
-        height: auto !important;
-        line-height: 1.6 !important;
+        max-width: 100%;
+        width: 100%;
+        font-size: 18px;
+        color: #7A7A7A;
+        font-weight: 500;
+        height: auto;
+        line-height: 1.6;
     }
 
     /* 모바일에서 두번째 라벨 표시 */
     .value-label-2 {
-        display: block !important;
-        font-size: 18px !important;
-        font-weight: 700 !important;
-        color: #7A7A7A !important;
-        line-height: 1.6 !important;
-        margin-bottom: 0 !important;
-        order: 3 !important;
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+        color: #7A7A7A;
+        line-height: 1.6;
+        margin-bottom: 0;
+        order: 3;
     }
 
     /* 두번째 이미지: 모바일에서 보이고 순서 조정 */
     #value-img-2 {
-        opacity: 1 !important;
-        display: block !important;
+        opacity: 1;
+        display: block;
     }
 
     .value-indicator {
-        display: none !important;
+        display: none;
     }
 
     /* ══════════════════════════════════════════════════════
@@ -5359,484 +5359,484 @@ body {
                피그마: bg-[#f1f3f7] px-16 py-40 gap-40
                ══════════════════════════════════════════════════════ */
     .battery-section {
-        padding: 40px 0 !important;
-        background: #F1F3F7 !important;
+        padding: 40px 0;
+        background: #F1F3F7;
     }
 
     .battery-section::before,
     .battery-section::after {
-        display: none !important;
+        display: none;
     }
 
     .battery-section .inner {
-        padding: 0 16px !important;
+        padding: 0 16px;
     }
 
     .battery-main-title {
-        font-size: 30px !important;
-        height: auto !important;
-        margin-bottom: 40px !important;
-        line-height: 1.5 !important;
+        font-size: 30px;
+        height: auto;
+        margin-bottom: 40px;
+        line-height: 1.5;
     }
 
     .battery-compare {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 16px !important;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
     }
 
     /* compare-row: 세로 배열, overflow 보이기 */
     .compare-row {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        height: auto !important;
-        overflow: visible !important;
-        gap: 12px !important;
-        padding: 0 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        overflow: visible;
+        gap: 12px;
+        padding: 0;
     }
 
     /* compare-images: 모바일에서 세로 배열 */
     .compare-images {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 12px !important;
-        height: auto !important;
-        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        height: auto;
+        width: 100%;
     }
 
     /* center 래퍼: 모바일에서 전체 너비 (라벨+이미지+태그 세로) */
     .img-box-center-wrap {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 0 !important;
-        width: 100% !important;
-        order: -1 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        width: 100%;
+        order: -1;
     }
 
     /* center 라벨: 모바일 20px */
     .center-label {
-        font-size: 20px !important;
-        margin-bottom: 10px !important;
+        font-size: 20px;
+        margin-bottom: 10px;
     }
 
     /* 원통형 이미지 (피그마 h-338 rounded-16) */
     .img-box-center {
-        position: relative !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        border-radius: 16px !important;
-        overflow: visible !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        z-index: 1 !important;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 16px;
+        overflow: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
     }
 
     /* 모바일 전용: 원통형 배터리를 감싸는 흰색 반원 라인 */
     .img-box-center::before {
-        content: '' !important;
-        position: absolute !important;
-        width: 130vw !important;
-        height: 130vw !important;
-        max-width: 600px !important;
-        max-height: 600px !important;
-        border: 4px solid #FFFFFF !important;
-        border-radius: 50% !important;
-        top: 40px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        z-index: -1 !important;
-        clip-path: inset(0 0 50% 0) !important;
+        content: '';
+        position: absolute;
+        width: 130vw;
+        height: 130vw;
+        max-width: 600px;
+        max-height: 600px;
+        border: 4px solid #FFFFFF;
+        border-radius: 50%;
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+        clip-path: inset(0 0 50% 0);
     }
 
     .img-box-center img {
-        width: auto !important;
-        height: 80% !important;
-        max-width: 259px !important;
-        object-fit: contain !important;
+        width: auto;
+        height: 80%;
+        max-width: 259px;
+        object-fit: contain;
     }
 
     /* 태그 래퍼: 모바일 가로 배열 (피그마 gap-2 h-40) */
     .bat-float-tags {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        gap: 4px !important;
-        width: 100% !important;
-        justify-content: space-between !important;
-        height: auto !important;
-        align-items: center !important;
-        margin-top: 10px !important;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 4px;
+        width: 100%;
+        justify-content: space-between;
+        height: auto;
+        align-items: center;
+        margin-top: 10px;
     }
 
     .bat-float-tag {
-        padding: 8px 0 !important;
-        font-size: clamp(14px, 2.6vw, 14px) !important;
-        font-weight: 700 !important;
-        border-radius: 685px !important;
-        box-shadow: none !important;
-        flex: 1 !important;
-        text-align: center !important;
-        white-space: nowrap !important;
+        padding: 8px 0;
+        font-size: clamp(14px, 2.6vw, 14px);
+        font-weight: 700;
+        border-radius: 685px;
+        box-shadow: none;
+        flex: 1;
+        text-align: center;
+        white-space: nowrap;
     }
 
     /* side 이미지 (피그마 flex-1 h-158 rounded-800 bg-white) – 가로 배열 */
     .img-box-side {
-        flex: none !important;
-        width: calc(50% - 6px) !important;
-        height: auto !important;
-        aspect-ratio: 1 / 1 !important;
-        border-radius: 50% !important;
-        background: #fff !important;
-        overflow: hidden !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 0 !important;
-        gap: 8px !important;
+        flex: none;
+        width: calc(50% - 6px);
+        height: auto;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        background: #fff;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        gap: 8px;
     }
 
     .img-box-side img {
-        width: auto !important;
-        height: auto !important;
-        max-height: 45% !important;
-        max-width: 80% !important;
-        object-fit: contain !important;
-        margin: 0 auto !important;
+        width: auto;
+        height: auto;
+        max-height: 45%;
+        max-width: 80%;
+        object-fit: contain;
+        margin: 0 auto;
     }
 
     /* side 라벨: 모바일 14px */
     .side-label {
-        margin: 0 !important;
-        font-size: clamp(14px, 3.12vw, 14px) !important;
-        color: #4E4E4E !important;
-        line-height: 1.5 !important;
-        white-space: normal !important;
-        text-align: center !important;
+        margin: 0;
+        font-size: clamp(14px, 3.12vw, 14px);
+        color: #4E4E4E;
+        line-height: 1.5;
+        white-space: normal;
+        text-align: center;
     }
 
     /* side 이미지가 가로 배열되도록 래퍼 구조 조정 */
     .compare-images {
-        flex-wrap: wrap !important;
-        flex-direction: row !important;
+        flex-wrap: wrap;
+        flex-direction: row;
     }
 
     .img-box-center-wrap {
-        flex: 0 0 100% !important;
+        flex: 0 0 100%;
     }
 
     /* 하단 제목/설명 (피그마: gap-20 text-center) */
     .battery-head {
-        gap: 20px !important;
+        gap: 20px;
     }
 
     .battery-sub-title {
-        font-size: 24px !important;
-        height: auto !important;
-        text-align: center !important;
-        line-height: 1.5 !important;
+        font-size: 24px;
+        height: auto;
+        text-align: center;
+        line-height: 1.5;
     }
 
     .battery-sub-desc {
-        font-size: 18px !important;
-        height: auto !important;
-        text-align: center !important;
-        font-weight: 500 !important;
-        color: #7A7A7A !important;
-        line-height: 1.6 !important;
+        font-size: 18px;
+        height: auto;
+        text-align: center;
+        font-weight: 500;
+        color: #7A7A7A;
+        line-height: 1.6;
     }
 
     /* ── 배터리 시스템: 모바일 세로 배열 ── */
     .battery-system {
-        height: auto !important;
-        padding: 0 !important;
-        margin-top: 16px !important;
-        gap: 30px !important;
+        height: auto;
+        padding: 0;
+        margin-top: 16px;
+        gap: 30px;
     }
 
     .bsys-card {
         width: unset;
-        height: auto !important;
-        border-radius: 200px !important;
-        background: #fff !important;
-        padding: 16px 16px !important;
+        height: auto;
+        border-radius: 200px;
+        background: #fff;
+        padding: 16px 16px;
     }
 
     .bsys-items {
-        width: 100% !important;
-        height: auto !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        padding: 0 !important;
-        gap: 0 !important;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        gap: 0;
     }
 
     /* 각 아이템: 세로 배열 */
     .bsys-item {
-        width: 100% !important;
-        height: auto !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        background: transparent !important;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        background: transparent;
     }
 
     /* 원형 배경: 모바일 296px (반응형) */
     .bsys-circle {
-        width: 296px !important;
-        height: 296px !important;
-        max-width: 100% !important;
-        max-height: 80vw !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        gap: 12px !important;
+        width: 296px;
+        height: 296px;
+        max-width: 100%;
+        max-height: 80vw;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
     }
 
     .bsys-img {
-        max-width: 60% !important;
-        max-height: 60% !important;
-        transform: none !important;
+        max-width: 60%;
+        max-height: 60%;
+        transform: none;
     }
 
     .bsys-circle-orange .bsys-img {
-        position: absolute !important;
-        top: 32px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: 108px !important;
-        height: 181px !important;
+        position: absolute;
+        top: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 108px;
+        height: 181px;
     }
 
     .bsys-circle-gray .bsys-img {
-        position: absolute !important;
-        top: 42px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
+        position: absolute;
+        top: 42px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .bsys-circle-dark .bsys-img {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        width: 219px !important;
-        height: 164px !important;
-        object-fit: fill !important;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 219px;
+        height: 164px;
+        object-fit: fill;
     }
 
     /* pill 라벨: 모바일 스타일 */
     .bsys-pill-label {
-        position: absolute !important;
-        bottom: 40px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        margin-top: 0 !important;
-        padding: 0 !important;
-        gap: 8px !important;
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 0;
+        padding: 0;
+        gap: 8px;
     }
 
     .bsys-pill-num {
-        width: 40px !important;
-        height: 40px !important;
-        background: #F1F3F7 !important;
-        font-size: 20px !important;
+        width: 40px;
+        height: 40px;
+        background: #F1F3F7;
+        font-size: 20px;
     }
 
     .bsys-circle-gray .bsys-pill-num {
-        background: #FFFFFF !important;
+        background: #FFFFFF;
     }
 
     .bsys-pill-text {
-        font-size: 20px !important;
+        font-size: 20px;
     }
 
     /* 화살표 분리: 모바일에서 세로(↓) */
     .bsys-arrow-sep {
-        width: 100% !important;
-        height: 40px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        width: 100%;
+        height: 40px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .bsys-arrow-sep img {
-        display: none !important;
+        display: none;
     }
 
     .bsys-arrow-sep::after {
-        content: '' !important;
-        display: block !important;
-        width: 18px !important;
-        height: 18px !important;
-        border-top: 0 !important;
-        border-left: 0 !important;
-        border-right: 3px solid #999999 !important;
-        border-bottom: 3px solid #999999 !important;
-        transform: rotate(45deg) !important;
-        margin: -10px 0 0 0 !important;
+        content: '';
+        display: block;
+        width: 18px;
+        height: 18px;
+        border-top: 0;
+        border-left: 0;
+        border-right: 3px solid #999999;
+        border-bottom: 3px solid #999999;
+        transform: rotate(45deg);
+        margin: -10px 0 0 0;
     }
 
     /* 기존 bsys-arrow 숨김 */
     .bsys-arrow {
-        display: none !important;
+        display: none;
     }
 
     .bsys-labels {
-        display: none !important;
+        display: none;
     }
 
     .bsys-head {
-        text-align: center !important;
-        align-items: center !important;
+        text-align: center;
+        align-items: center;
     }
 
     /* ── 갤러리(디켈경쟁력): 피그마 MOB px-[16px] py-[40px] gap-[50px] ── */
     .gallery-section {
-        padding: 40px 0 !important;
-        overflow: hidden !important;
+        padding: 40px 0;
+        overflow: hidden;
     }
 
     .gallery-section .inner {
-        padding: 0 16px !important;
+        padding: 0 16px;
     }
 
     .gallery-title {
-        font-size: 30px !important;
-        padding: 0 16px !important;
-        line-height: 1.5 !important;
-        margin-bottom: 40px !important;
+        font-size: 30px;
+        padding: 0 16px;
+        line-height: 1.5;
+        margin-bottom: 40px;
     }
 
     /* 피그마 MOB: 데스크탑 디자인 반영 (비율 및 특수 라운드 조정) */
     .gallery-scroll {
-        overflow: hidden !important;
-        padding: 20px 0 !important;
-        gap: 16px !important;
+        overflow: hidden;
+        padding: 20px 0;
+        gap: 16px;
         /* 데스크탑의 24px/19px을 고려한 모바일 간격 */
     }
 
     .gallery-img {
-        width: 220px !important;
-        height: 220px !important;
-        min-width: 220px !important;
-        border-radius: 30px !important;
-        margin-right: 0 !important;
+        width: 220px;
+        height: 220px;
+        min-width: 220px;
+        border-radius: 30px;
+        margin-right: 0;
     }
 
     /* 데스크탑 특수 디자인 모바일 이식 */
     .gallery-scroll .gallery-img:nth-child(1),
     .gallery-scroll .gallery-img:nth-child(7) {
-        border-top-left-radius: 0 !important;
+        border-top-left-radius: 0;
     }
 
     .gallery-scroll .gallery-img:nth-child(2),
     .gallery-scroll .gallery-img:nth-child(8) {
-        width: 154px !important;
+        width: 154px;
         /* 데스크탑 322px 비율 (322/460 * 220) */
-        min-width: 154px !important;
+        min-width: 154px;
     }
 
     .gallery-scroll .gallery-img:nth-child(3),
     .gallery-scroll .gallery-img:nth-child(9) {
-        border-bottom-right-radius: 0 !important;
+        border-bottom-right-radius: 0;
     }
 
     .gallery-scroll .gallery-img:nth-child(5),
     .gallery-scroll .gallery-img:nth-child(11) {
-        border-top-right-radius: 0 !important;
+        border-top-right-radius: 0;
     }
 
     .gallery-scroll .gallery-img:nth-child(6),
     .gallery-scroll .gallery-img:nth-child(12) {
-        border-bottom-right-radius: 0 !important;
+        border-bottom-right-radius: 0;
     }
 
     /* ── 활용분야 ── */
     .usage-section {
-        padding: 40px 0 !important;
+        padding: 40px 0;
     }
 
     .usage-section .inner {
-        padding: 0 16px !important;
+        padding: 0 16px;
     }
 
     .umi-icon {
-        height: 30px !important;
+        height: 30px;
     }
 
     .umi-header {
-        gap: 0 !important;
+        gap: 0;
     }
 
     .usage-menu-item {
-        gap: 12px !important;
+        gap: 12px;
     }
 
     .usage-menu-item .umi-desc {
-        display: none !important;
+        display: none;
     }
 
     .usage-menu-item.active .umi-desc {
-        display: block !important;
+        display: block;
     }
 
     /* ── 고객지원: 피그마 MOB py-[40px] px-[16px] round-[16px] ── */
     .support-section {
-        padding: 40px 16px !important;
+        padding: 40px 16px;
     }
 
     /* 불필요한 고정 너비와 flex 강제 오버라이드를 제거하여 common.css의 반응형 Grid 레이아웃을 살림 */
     .support-banner {
-        width: 100% !important;
-        padding: 24px 10px !important;
-        border-radius: 16px !important;
-        box-sizing: border-box !important;
+        width: 100%;
+        padding: 24px 10px;
+        border-radius: 16px;
+        box-sizing: border-box;
     }
 
     .support-info h3 {
-        font-size: 24px !important;
-        line-height: 1.5 !important;
-        white-space: pre-wrap !important;
+        font-size: 24px;
+        line-height: 1.5;
+        white-space: pre-wrap;
     }
 
     .support-info p {
-        font-size: 16px !important;
-        line-height: 1.6 !important;
-        padding: 0 16px !important;
-        box-sizing: border-box !important;
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 0 16px;
+        box-sizing: border-box;
     }
 
     /* 화살표 버튼 숨기기 (MOB에선 없음) */
     .btn-arrow-right {
-        display: none !important;
+        display: none;
     }
 
     /* ── 문의 CTA ── */
     .inquiry-section .inner {
-        padding: 0 16px !important;
-        flex-direction: column !important;
-        gap: 20px !important;
+        padding: 0 16px;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .inquiry-section .inquiry-card {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 100%;
+        max-width: 100%;
     }
 
     /* ── BI: 로고여백 블록 ── */
     .logo-margin-block {
-        gap: 16px !important;
+        gap: 16px;
     }
 
     /* ── BI: color-values 아래 텍스트 라이트 ── */
     .color-val-text,
     .color-values {
-        font-weight: 300 !important;
+        font-weight: 300;
     }
 
     /* --- BI 섹션 (데스크톱 스타일 오버라이드) --- */
@@ -5851,11 +5851,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 100px 120px;
-    gap: 40px;
+    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
+    gap: clamp(30px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;
-    height: 971px;
     background: #FFFFFF;
     margin: 0 auto;
     box-sizing: border-box;
@@ -5863,11 +5862,10 @@ body {
 }
 
 .stock-rt-title {
-    width: 1680px;
-    height: 70px;
+    width: 100%;
     font-family: 'Pretendard', sans-serif;
     font-weight: 700;
-    font-size: 50px;
+    font-size: clamp(30px, 2.6vw, 50px);
     line-height: 140%;
     display: flex;
     align-items: center;
@@ -5881,8 +5879,7 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 24px;
-    width: 1680px;
-    height: 287px;
+    width: 100%;
 }
 
 /* 주가 영역 */
@@ -5891,11 +5888,10 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 40px 30px;
+    padding: clamp(0px, 2.08vw, 40px) clamp(10px, 1.56vw, 30px);
     gap: 20px;
-    width: 1680px;
-    height: 287px;
-    border-radius: 30px;
+    width: 100%;
+    border-radius: clamp(16px, 1.56vw, 30px);
     box-sizing: border-box;
     background: #FFFFFF;
 }
@@ -5913,7 +5909,7 @@ body {
 .stock-pb-name {
     font-family: 'Pretendard', sans-serif;
     font-weight: 700;
-    font-size: 24px;
+    font-size: clamp(20px, 1.25vw, 24px);
     line-height: 150%;
     color: #363636;
 }
@@ -5923,13 +5919,13 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 6px 12px;
+    padding: clamp(4px, 0.31vw, 6px) clamp(8px, 0.625vw, 12px);
     gap: 10px;
     border: 1px solid #F27100;
     border-radius: 6px;
     font-family: 'Pretendard', sans-serif;
     font-weight: 500;
-    font-size: 20px;
+    font-size: clamp(16px, 1.04vw, 20px);
     line-height: 24px;
     color: #F27100;
     box-sizing: border-box;
@@ -5940,9 +5936,8 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 30px;
-    width: 670px;
-    height: 207px;
+    gap: clamp(20px, 1.56vw, 30px);
+    width: 100%;
 }
 
 .stock-pb-price {
@@ -5950,9 +5945,8 @@ body {
     flex-direction: row;
     align-items: flex-end;
     padding: 0px;
-    gap: 20px;
-    width: 670px;
-    height: 112px;
+    gap: clamp(10px, 1.04vw, 20px);
+    width: 100%;
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -5973,11 +5967,10 @@ body {
 }
 
 .stock-pb-price-num {
-    width: 226px;
-    height: 112px;
+    width: auto;
     font-family: 'Pretendard', sans-serif;
     font-weight: 700;
-    font-size: 80px;
+    font-size: clamp(40px, 4.16vw, 80px);
     line-height: 140%;
     color: #000000;
     display: flex;
@@ -6066,7 +6059,7 @@ body {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: clamp(16px, 1.04vw, 20px);
     line-height: 160%;
     color: #7A7A7A;
 }
@@ -6227,12 +6220,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0px;
-    gap: 30px;
-    width: 1680px;
-    height: 334px;
+    padding: clamp(20px, 1.56vw, 30px);
+    gap: clamp(20px, 1.56vw, 30px);
+    width: 100%;
     background: #F8F9FB;
-    border-radius: 30px;
+    border-radius: clamp(16px, 1.56vw, 30px);
     box-sizing: border-box;
 }
 
@@ -6240,10 +6232,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px 30px;
-    width: 1680px;
-    height: 119px;
-    border-radius: 30px;
+    padding: 0 clamp(16px, 1.56vw, 30px);
+    width: 100%;
+    border-radius: clamp(16px, 1.56vw, 30px);
     box-sizing: border-box;
 }
 
@@ -6253,9 +6244,8 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0px;
-    gap: 30px;
-    width: 1620px;
-    height: 100%;
+    gap: clamp(15px, 1.56vw, 30px);
+    width: 100%;
 }
 
 .stock-ib-item {
@@ -6264,14 +6254,13 @@ body {
     align-items: flex-start;
     justify-content: center;
     padding: 0px;
-    width: 359.25px;
-    height: 102px;
+    width: 100%;
 }
 
 .stock-ib-label {
     font-family: 'Pretendard', sans-serif;
     font-weight: 500;
-    font-size: 20px;
+    font-size: clamp(16px, 1.04vw, 20px);
     line-height: 160%;
     color: #4E4E4E;
     text-align: center;
@@ -6284,16 +6273,15 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 8px 0px;
+    padding: clamp(4px, 0.42vw, 8px) 0px;
     gap: 4px;
-    width: 359.25px;
-    height: 70px;
+    width: 100%;
 }
 
 .stock-ib-val {
     font-family: 'Pretendard', sans-serif;
     font-weight: 700;
-    font-size: 36px;
+    font-size: clamp(24px, 1.875vw, 36px);
     line-height: 150%;
     color: #1B1B1B;
 }
@@ -6335,11 +6323,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 120px;
-    gap: 40px;
+    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
+    gap: clamp(30px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;
-    height: 1410px;
     background: #FFFFFF;
     box-sizing: border-box;
     margin: 0 auto;
@@ -6350,9 +6337,8 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 40px;
-    width: 1680px;
-    height: 1210px;
+    gap: clamp(30px, 2.08vw, 40px);
+    width: 100%;
 }
 
 .stock-daily-title-wrap {
@@ -6369,16 +6355,21 @@ body {
     font-family: 'Pretendard', sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 50px;
+    font-size: clamp(30px, 2.6vw, 50px);
     line-height: 140%;
     color: #000000;
     margin: 0;
 }
 
 .stock-table-wrap {
-    width: 1680px;
-    height: 1100px;
+    width: 100%;
     border-bottom: 1px solid #000000;
+    overflow-x: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.stock-table-wrap::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
 }
 
 .stock-daily-table {
@@ -6389,9 +6380,9 @@ body {
 
 .stock-daily-table th,
 .stock-daily-table td {
-    height: 100px;
+    height: clamp(60px, 5.21vw, 100px);
     box-sizing: border-box;
-    padding: 18px 24px;
+    padding: clamp(12px, 1.25vw, 18px) clamp(16px, 1.25vw, 24px);
 }
 
 .stock-daily-table thead th {
@@ -6547,14 +6538,14 @@ body {
         width: 100%;
         height: auto;
         justify-content: flex-start;
-        gap: 20px;
+        gap: 30px;
     }
 
     /* 가격 + 등락률 행 */
     .stock-pb-price {
         flex-direction: column;
         height: auto;
-        gap: 10px;
+        gap: 0;
         width: 100%;
     }
 
@@ -6588,12 +6579,21 @@ body {
     /* 등락률 / 전일대비 행 */
     .stock-pb-bot {
         height: auto;
+        padding: 0;
         gap: 10px;
         width: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
+    }
+
+    .stock-daily-scroll-wrap {
+        display: block;
+        width: 100%;
+        height: 16px;
+        margin: 0 auto;
+        position: relative;
     }
 
     .stock-pb-rate-group, .stock-pb-diff-group {
@@ -6863,8 +6863,35 @@ body {
 }
 
 /* ── 커스텀 스크롤바 (모바일 전용) ── */
-.stock-daily-scroll-wrap {
-    display: none; /* 데스크탑에서는 숨김 */
+@media (max-width: 1919px) {
+    .stock-daily-scroll-wrap {
+        display: block;
+        width: 100%;
+        height: 16px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .stock-daily-scroll-track {
+        position: absolute;
+        width: calc(100% - 4px);
+        height: 4px;
+        left: 2px;
+        top: 6px;
+        background: rgba(211, 211, 211, 0.3);
+        border-radius: 2px;
+    }
+
+    .stock-daily-scroll-thumb {
+        position: absolute;
+        width: 50%;
+        height: 4px;
+        left: 2px;
+        top: 6px;
+        background: #D3D3D3;
+        border-radius: 2px;
+        transition: left 0.1s ease-out;
+    }
 }
 
 @media (max-width: 1023px) {
@@ -6872,39 +6899,7 @@ body {
         display: none;
     }
     
-    .stock-daily-scroll-wrap {
-        display: block;
-        width: 328px;
-        height: 16px;
-        margin: 0px auto 0;
-        position: relative;
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-    }
-
-    .stock-daily-scroll-track {
-        position: absolute;
-        width: 324px;
-        height: 4px;
-        left: 2px;
-        top: 6px;
-        background: rgba(211, 211, 211, 0.3);
-        border-radius: 2px;
-        box-sizing: border-box;
-    }
-
-    .stock-daily-scroll-thumb {
-        position: absolute;
-        width: 164px;
-        height: 4px;
-        left: 2px;
-        top: 6px;
-        background: #D3D3D3;
-        border-radius: 2px;
-        box-sizing: border-box;
-        transition: left 0.1s ease-out;
-    }
+    /* Custom scrollbar styles moved to 1919px query above */
 }
 
 /* ===== 주주환원 (Shareholder Return) ===== */
@@ -6913,11 +6908,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 100px 120px;
-    gap: 40px;
+    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
+    gap: clamp(20px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;
-    height: 415px;
     background: #FFFFFF;
     margin: 0 auto;
     box-sizing: border-box;
@@ -6925,11 +6919,10 @@ body {
 
 .dividend-policy-title {
     width: auto;
-    height: 70px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 50px;
+    font-size: clamp(30px, 2.6vw, 50px);
     line-height: 140%;
     display: flex;
     align-items: center;
@@ -6938,15 +6931,15 @@ body {
 }
 
 .dividend-policy-desc {
-    width: 1407px;
+    width: 100%;
+    max-width: 1407px;
     height: auto;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 400;
-    font-size: 22px;
+    font-size: clamp(16px, 1.15vw, 22px);
     line-height: 160%;
-    display: flex;
-    align-items: center;
+    display: block;
     color: #4E4E4E;
     margin: 0;
 }
@@ -6955,11 +6948,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 100px 120px;
-    gap: 40px;
+    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
+    gap: clamp(20px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;
-    height: 1022px;
     background: #FFFFFF;
     margin: 0 auto;
     box-sizing: border-box;
@@ -6967,11 +6959,10 @@ body {
 
 .dividend-status-title {
     width: auto;
-    height: 70px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 50px;
+    font-size: clamp(30px, 2.6vw, 50px);
     line-height: 140%;
     display: flex;
     align-items: center;
@@ -6980,7 +6971,7 @@ body {
 }
 
 .dividend-table-area {
-    width: 1680px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -6989,10 +6980,43 @@ body {
 .dividend-table-wrap {
     width: 100%;
     height: auto;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.dividend-table-wrap::-webkit-scrollbar {
+    display: none;
 }
 
-.dividend-scroll-wrap {
-    display: none;
+@media (max-width: 1919px) {
+    .dividend-scroll-wrap {
+        display: block;
+        width: 100%;
+        height: 16px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .dividend-scroll-track {
+        position: absolute;
+        width: calc(100% - 4px);
+        height: 4px;
+        left: 2px;
+        top: 6px;
+        background: rgba(211, 211, 211, 0.3);
+        border-radius: 2px;
+    }
+
+    .dividend-scroll-thumb {
+        position: absolute;
+        width: 50%;
+        height: 4px;
+        left: 2px;
+        top: 6px;
+        background: #D3D3D3;
+        border-radius: 2px;
+        transition: left 0.1s ease-out;
+    }
 }
 
 .dividend-table {
@@ -7137,9 +7161,9 @@ body {
         padding: 16px;
     }
     .dividend-caption {
-        width: 328px;
+        width: 100%;
         gap: 8px;
-        padding: 20px 0;
+        padding: 12px 0 0;
     }
     .caption-text {
         font-size: 14px;
@@ -7148,32 +7172,7 @@ body {
     .caption-dot {
         font-size: 14px;
     }
-    .dividend-scroll-wrap {
-        display: block;
-        width: 328px;
-        height: 16px;
-        margin: 0px auto 0;
-        position: relative;
-    }
-    .dividend-scroll-track {
-        position: absolute;
-        width: 324px;
-        height: 4px;
-        left: 2px;
-        top: 6px;
-        background: rgba(211, 211, 211, 0.3);
-        border-radius: 2px;
-    }
-    .dividend-scroll-thumb {
-        position: absolute;
-        width: 164px;
-        height: 4px;
-        left: 2px;
-        top: 6px;
-        background: #D3D3D3;
-        border-radius: 2px;
-        transition: left 0.1s ease-out;
-    }
+    /* Custom scrollbar styles moved to 1919px query above */
 }
 
 /* ===== 주요 투자강점 (Investment Strengths) ===== */
@@ -7182,23 +7181,21 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 120px;
-    gap: 40px;
+    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
+    gap: clamp(30px, 2.08vw, 40px);
     width: 100%;
     max-width: 1920px;
-    height: 748px;
     background: #F1F3F7;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
 .strengths-title {
-    width: 1680px;
-    height: 70px;
+    width: 100%;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 50px;
+    font-size: clamp(30px, 2.6vw, 50px);
     line-height: 140%;
     display: flex;
     align-items: center;
@@ -7211,9 +7208,8 @@ body {
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 24px;
-    width: 1680px;
-    height: 438px;
+    gap: clamp(16px, 1.25vw, 24px);
+    width: 100%;
 }
 
 .strength-card {
@@ -7395,14 +7391,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 119px;
+    padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.2vw, 119px);
     background: #FFFFFF;
+    width: 100%;
 }
 
 .fs-content {
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: clamp(60px, 5.21vw, 100px);
+    width: 100%;
 }
 
 .fs-block {
@@ -7410,15 +7408,15 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 40px;
-    width: 1680px;
+    gap: clamp(20px, 2.08vw, 40px);
+    width: 100%;
 }
 
 .fs-title {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 50px;
+    font-size: clamp(30px, 2.6vw, 50px);
     line-height: 140%;
     color: #000000;
     margin: 0;
@@ -7430,7 +7428,7 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 0px;
-    width: 1680px;
+    width: 100%;
 }
 
 /* 그래프 영역 */
@@ -7447,23 +7445,23 @@ body {
 .fs-graph-box {
     position: relative;
     box-sizing: border-box;
-    width: 544px;
-    height: 540px;
+    width: 100%;
+    max-width: clamp(328px, 28.3vw, 544px);
+    height: clamp(328px, 28.125vw, 540px);
     background: #FFFFFF;
-    border: 1px solid #E9E9E9;
-    border-radius: 30px;
+    border: clamp(0.6px, 0.05vw, 1px) solid #E9E9E9;
+    border-radius: clamp(16px, 1.56vw, 30px);
 }
 
 .fs-graph-title {
     position: absolute;
-    width: 104px;
-    height: 45px;
-    left: 40px;
-    top: 40px;
+    width: auto;
+    left: clamp(16px, 2.08vw, 40px);
+    top: clamp(16px, 2.08vw, 40px);
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: 30px;
+    font-size: clamp(18px, 1.56vw, 30px);
     line-height: 150%;
     color: #363636;
     margin: 0;
@@ -7472,26 +7470,35 @@ body {
 .fs-chart-area {
     position: absolute;
     width: 466px;
-    height: 366px;
+    height: 405.27px;
     left: 40px;
     top: 134px;
 }
 
-.fs-y-axis {
+/* Grid Rows */
+.fs-grid-rows {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 70px;
-    position: absolute;
-    width: 72px;
+    justify-content: space-between;
+    width: 100%;
     height: 330px;
-    left: 0;
+    position: absolute;
     top: 0;
+    left: 0;
 }
 
-.fs-y-axis span {
-    width: 72px;
+.fs-chart-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
     height: 30px;
+}
+
+.fs-chart-row span {
+    width: 72px;
+    height: 29px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 500;
@@ -7501,72 +7508,79 @@ body {
     color: #D3D3D3;
 }
 
-.fs-grid-lines {
-    position: absolute;
-    width: 372px;
-    height: 301px;
-    left: 92px;
-    top: 15px;
-}
-
 .fs-line {
-    position: absolute;
-    width: 372px;
-    height: 1px;
-    background: #E9E9E9;
-    left: 0;
+    flex: 1;
+    height: 0;
+    border-top: 1px solid #E9E9E9;
 }
 
-.fs-line:nth-child(1) { top: 0px; }
-.fs-line:nth-child(2) { top: 100px; }
-.fs-line:nth-child(3) { top: 200px; }
-.fs-line:nth-child(4) { top: 300px; background: #4E4E4E; }
+.fs-line.dark {
+    border-top: 1px solid #4E4E4E;
+}
 
-.fs-bars {
+/* Bar Columns Container */
+.fs-bar-columns {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0px;
     position: absolute;
-    width: 466px;
-    height: 315px;
-    left: 0;
-    top: 0;
+    width: 372px;
+    height: 300px; /* Corrected to 300px so it perfectly aligns between the top and bottom grid lines */
+    left: 92px;
+    top: 15px; /* Align text center with grid lines */
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.fs-chart-column {
+    display: flex;
+    flex-direction: column;
+    width: 123px;
+    height: 100%;
+    position: relative;
 }
 
 .fs-bar {
-    position: absolute;
     width: 72px;
     border-radius: 8px 8px 0px 0px;
-    bottom: 0px;
-}
-
-.fs-bar.gray {
     background: #A7A7A7;
-}
-
-.fs-bar.orange {
-    background: #F27100;
-}
-
-.fs-x-axis {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 2px;
     position: absolute;
-    width: 372px;
-    height: 30px;
-    left: 92px;
-    bottom: 0px;
+    bottom: 0; /* Default base line for Balance Sheet */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.fs-x-axis span {
-    flex: 1;
+.fs-bar.orange { background: #F27100; }
+.fs-bar.gray { background: #A7A7A7; }
+
+/* 0-line at the middle for Income Statement charts (Operating Profit & Net Income only) */
+#tab-return .fs-graph-box:nth-child(n+2) .fs-bar {
+    bottom: 150px; /* Mid-point of 300px grid */
+}
+
+#tab-return .fs-graph-box:nth-child(n+2) .fs-bar.negative {
+    bottom: auto;
+    top: 150px;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.fs-year {
+    width: 100%;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 160%;
     text-align: center;
-    color: #7A7A7A;
+    color: #7A7A7A; /* Changed from #363636 to #7A7A7A per Figma specs */
+    position: absolute;
+    bottom: -44px; /* Adjust below grid */
 }
 
 .fs-tooltip {
@@ -7575,6 +7589,11 @@ body {
     align-items: center;
     position: absolute;
     width: 132px;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px; /* Gap between tooltip arrow and the bar */
+    z-index: 10;
 }
 
 .fs-tooltip.hidden {
@@ -7636,8 +7655,14 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    width: 1680px;
+    width: 100%;
     border-bottom: 1px solid #000000;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.fs-table-wrap::-webkit-scrollbar {
+    display: none;
 }
 
 .fs-table-row {
@@ -7660,7 +7685,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0px 24px;
+    padding: 0 clamp(16px, 1.25vw, 24px);
     gap: 20px;
     width: 280px;
     height: 100px;
@@ -7725,8 +7750,35 @@ body {
 .fs-unit.unit-bottom {
 }
 
-.fs-scroll-wrap {
-    display: none;
+@media (max-width: 1919px) {
+    .fs-scroll-wrap {
+        display: block;
+        width: 100%;
+        height: 16px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .fs-scroll-track {
+        position: absolute;
+        width: calc(100% - 4px);
+        height: 4px;
+        left: 2px;
+        top: 6px;
+        background: rgba(211, 211, 211, 0.3);
+        border-radius: 4px;
+    }
+
+    .fs-scroll-thumb {
+        position: absolute;
+        width: 50%;
+        height: 4px;
+        left: 2px;
+        top: 6px;
+        background: #D3D3D3;
+        border-radius: 4px;
+        transition: left 0.1s ease-out;
+    }
 }
 
 /* ==========================================================================
@@ -7805,120 +7857,100 @@ body {
         height: 204px;
         left: 16px;
         top: 75px;
+        position: absolute;
     }
 
-    /* Y축 */
-    .fs-y-axis {
-        gap: 40px; /* 40px gap + 21px height = 61px interval */
-        height: 204px;
-        width: 60px;
+    /* Grid Rows */
+    .fs-grid-rows {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 183px;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
-    .fs-y-axis span {
-        width: 60px;
+    .fs-chart-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
         height: 21px;
+    }
+
+    .fs-chart-row span {
+        width: 60px;
         font-size: 14px;
         line-height: 150%;
-    }
-
-    /* Grid lines */
-    .fs-grid-lines {
-        width: 224px;
-        height: 183px; /* 0 to 183 */
-        left: 72px; /* 60px + 12px gap */
-        top: 10.5px; /* Center of the 21px text */
+        text-align: right;
+        color: #D3D3D3;
     }
 
     .fs-line {
-        width: 224px;
+        flex: 1;
+        height: 1px;
+        background: #E9E9E9;
     }
 
-    .fs-line:nth-child(1) { top: 0px; }
-    .fs-line:nth-child(2) { top: 61px; }
-    .fs-line:nth-child(3) { top: 122px; }
-    .fs-line:nth-child(4) { top: 183px; }
+    .fs-line.dark {
+        background: #4E4E4E;
+    }
 
-    /* Bars */
-    .fs-bars {
-        width: 296px;
-        height: 183px;
-        left: 0;
-        top: 10.5px; /* Match grid lines */
+    /* Bar Columns Container */
+    .fs-bar-columns {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 32px;
+        position: absolute;
+        width: 224px;
+        height: 162px; /* Distance between top and bottom grid lines (183px - 21px) */
+        left: 72px;
+        top: 10.5px;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .fs-chart-column {
+        display: flex;
+        flex-direction: column;
+        width: 43px;
+        height: 100%;
+        position: relative;
     }
 
     .fs-bar {
         width: 43px;
         border-radius: 6px 6px 0px 0px;
+        background: #A7A7A7;
+        position: absolute;
+        bottom: 0;
     }
 
-    /* Bar positions for mobile */
-    /* 자산총계 (연결) */
-    .fs-block:nth-child(1) .fs-graph-box:nth-child(1) .fs-bar:nth-child(1) { height: 133px !important; left: 88px !important; }
-    .fs-block:nth-child(1) .fs-graph-box:nth-child(1) .fs-bar:nth-child(2) { height: 151px !important; left: 163px !important; }
-    .fs-block:nth-child(1) .fs-graph-box:nth-child(1) .fs-bar:nth-child(3) { height: 169px !important; left: 238px !important; }
-
-    /* 부채총계 (연결) */
-    .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-bar:nth-child(1) { height: 133px !important; left: 88px !important; }
-    .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-bar:nth-child(2) { height: 157px !important; left: 163px !important; }
-    .fs-block:nth-child(1) .fs-graph-box:nth-child(2) .fs-bar:nth-child(3) { height: 144px !important; left: 238px !important; }
-
-    /* 자본총계 (연결) */
-    .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-bar:nth-child(1) { height: 133px !important; left: 88px !important; }
-    .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-bar:nth-child(2) { height: 99px !important; left: 163px !important; }
-    .fs-block:nth-child(1) .fs-graph-box:nth-child(3) .fs-bar:nth-child(3) { height: 111px !important; left: 238px !important; }
-
-    /* 자산총계 (별도) */
-    .fs-block:nth-child(2) .fs-graph-box:nth-child(1) .fs-bar:nth-child(1) { height: 133px !important; left: 88px !important; }
-    .fs-block:nth-child(2) .fs-graph-box:nth-child(1) .fs-bar:nth-child(2) { height: 151px !important; left: 163px !important; }
-    .fs-block:nth-child(2) .fs-graph-box:nth-child(1) .fs-bar:nth-child(3) { height: 169px !important; left: 238px !important; }
-    
-    /* 부채총계 (별도) */
-    .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-bar:nth-child(1) { height: 133px !important; left: 88px !important; }
-    .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-bar:nth-child(2) { height: 157px !important; left: 163px !important; }
-    .fs-block:nth-child(2) .fs-graph-box:nth-child(2) .fs-bar:nth-child(3) { height: 144px !important; left: 238px !important; }
-
-    /* 자본총계 (별도) */
-    .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-bar:nth-child(1) { height: 133px !important; left: 88px !important; }
-    .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-bar:nth-child(2) { height: 99px !important; left: 163px !important; }
-    .fs-block:nth-child(2) .fs-graph-box:nth-child(3) .fs-bar:nth-child(3) { height: 111px !important; left: 238px !important; }
-
-    /* X-axis */
-    .fs-x-axis {
-        width: 223px;
-        height: 21px;
-        left: 89px;
-        bottom: -29px; /* Top is 276px inside 328px box -> 276 - 75(chart top) = 201px. Chart is 204px height. Bottom -21px + some? Let's just use top */
-        top: 201px; /* 276px - 75px */
-        gap: 16px;
-        justify-content: center;
+    /* 0-line at the middle for Income Statement charts (Operating Profit & Net Income only) */
+    #tab-return .fs-graph-box:nth-child(n+2) .fs-bar {
+        bottom: 81px; /* Mid-point of 162px column area */
     }
 
-    .fs-x-axis span {
-        width: 60px;
-        height: 21px;
+    #tab-return .fs-graph-box:nth-child(n+2) .fs-bar.negative {
+        bottom: auto;
+        top: 81px;
+        border-radius: 0px 0px 6px 6px;
+    }
+
+    .fs-year {
+        width: 100%;
         font-size: 14px;
         line-height: 150%;
-        flex: none;
-    }
-
-    /* Tooltip */
-    .fs-tooltip {
-        width: 86px;
-        height: 46px;
-    }
-
-    .fs-tooltip-box {
-        width: 86px;
-        height: 38px;
-        padding: 6px 10px;
-        gap: 6px;
-        border-radius: 601px;
-    }
-
-    .fs-tooltip-box span {
-        font-size: 16px;
-        line-height: 160%;
-        height: 26px;
+        text-align: center;
+        color: #363636;
+        position: absolute;
+        bottom: -32px;
+        white-space: nowrap;
     }
 
     .fs-tooltip-arrow {
@@ -7927,19 +7959,7 @@ body {
         border-top: 8px solid #111111;
     }
 
-    /* Tooltip overrides for mobile based on new bar heights */
-    /* 연결 자산총계 */
-    .fs-block:nth-child(1) .fs-graph-box:nth-child(1) .fs-tooltip {
-        left: 216px !important;
-        top: -26px !important;
-    }
-    
-    /* 별도 자산총계 */
-    .fs-block:nth-child(2) .fs-graph-box:nth-child(1) .fs-tooltip {
-        left: 216px !important;
-        top: -26px !important;
-    }
-
+    /* Removed obsolete Tooltip overrides for mobile */
     /* Table */
     .fs-table-wrap {
         width: 100%;
@@ -7977,12 +7997,13 @@ body {
 
     .fs-scroll-thumb {
         position: absolute;
-        width: 164px;
+        width: 50%;
         height: 4px;
         left: 2px;
         top: 6px;
         background: #D3D3D3;
         border-radius: 4px;
+        transition: left 0.1s ease-out;
     }
 
     .fs-table-row {
