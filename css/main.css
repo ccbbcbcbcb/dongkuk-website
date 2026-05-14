@@ -2153,7 +2153,7 @@ body {
   }
 
   .support-card-arrow {
-    margin-left: 8px;
+    display: none !important;
   }
 
   /* ── Footer (Figma MOB 기준) ── */
