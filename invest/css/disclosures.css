@@ -416,6 +416,7 @@
             flex-direction: column;
             padding: 24px 0;
             align-items: flex-start;
+            gap: 16px;
         }
 
         .ds-cell {
