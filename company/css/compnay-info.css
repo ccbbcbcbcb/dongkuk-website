@@ -17,7 +17,11 @@
 
 /* Tablet (601px ~ 1023px) 자연스러운 줄바꿈을 위해 강제 줄바꿈 해제 */
 @media (max-width: 1023px) and (min-width: 601px) {
-    .mo-only, .mo-br, .desk-br, .pc-br {
+
+    .mo-only,
+    .mo-br,
+    .desk-br,
+    .pc-br {
         display: none;
     }
 }
@@ -96,7 +100,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(10px, 1.56vw, 30px);
+    gap: 30px;
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: 1;
@@ -390,8 +394,9 @@
 .ph-card-wrap {
     background: #F8F9FB;
     border-radius: 30px;
+    position: relative;
     width: 100%;
-    height: clamp(500px, 45.3vw, 870px);
+    height: clamp(500px, 38.85vw, 746px);
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -413,13 +418,9 @@
     gap: clamp(4px, 0.4vw, 8px);
     box-sizing: border-box;
     z-index: 2;
-    transition: all 0.4s ease, opacity 0.5s ease;
-    opacity: 0.45;
 }
 
-.ph-card.active {
-    opacity: 1;
-}
+.ph-card.active {}
 
 .ph-card h3 {
     font-size: clamp(20px, 1.875vw, 36px);
@@ -472,15 +473,15 @@
     text-align: right;
 }
 
-/* 캔버스: 그리드 전체 영역 중앙 오버랩 */
+/* 캔버스: wrap 전체 영역 중앙 (패딩 무시) */
 .ph-center-graphic {
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
-    justify-self: center;
-    align-self: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     max-width: 850px;
-    height: 100%;
+    height: calc(100% - 4px);
     z-index: 1;
 }
 
@@ -744,7 +745,6 @@
     width: 100%;
     max-width: 226px;
     height: auto;
-    min-height: 72px;
 }
 
 @media (max-width: 1200px) {
@@ -5346,4 +5346,12 @@ body {
         flex-direction: column;
         gap: 8.06px;
         width: 100%;
+    }
+
+    .value-txt h3 {
+        font-size: 24px;
+    }
+
+    .value-txt p {
+        font-size: 14px;
     }

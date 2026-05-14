@@ -7,7 +7,8 @@
 
 .hero-text-inner {
     position: sticky;
-    top: 100px; /* Aligned with GNB */
+    top: 100px;
+    /* Aligned with GNB */
     width: 100%;
     height: 284px;
     background: #fff;
@@ -82,7 +83,7 @@
 /* Timeline Line */
 .history-line-wrapper {
     position: absolute;
-    left: clamp(400px, 41vw, 788px); 
+    left: clamp(400px, 41vw, 788px);
     top: 100px;
     bottom: 100px;
     width: 24px;
@@ -115,11 +116,11 @@
     position: absolute;
     left: 50%;
     top: 0;
-    width: 24px;
-    height: 24px;
+    width: 10px;
+    height: 10px;
     background: #F27100;
-    border: 4px solid #fff;
-    box-shadow: 0 0 0 2px #F27100;
+    border: 5px solid #fff;
+    box-shadow: 0 0 0 8px #F27100;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
@@ -221,7 +222,6 @@
     aspect-ratio: 500 / 300;
     border-radius: 50px 0px;
     overflow: hidden;
-    background: #F1EDEA;
     flex-shrink: 0;
     box-sizing: border-box;
 }
@@ -333,6 +333,7 @@
     .history-line-wrapper {
         left: clamp(16px, 11.2vw - 104px, 40px);
     }
+
     .history-inner {
         padding-left: clamp(60px, 11vw - 40px, 100px);
     }
@@ -392,7 +393,7 @@
         padding-left: clamp(60px, 4vw + 45px, 100px);
         padding-right: clamp(16px, 4.4vw + 1px, 60px);
     }
-    
+
     .history-line-wrapper {
         left: clamp(16px, 2.4vw + 7px, 40px);
     }
@@ -428,7 +429,8 @@
         gap: 16px;
     }
 
-    .history-month-label, .history-desc-item {
+    .history-month-label,
+    .history-desc-item {
         font-size: 20px;
     }
 

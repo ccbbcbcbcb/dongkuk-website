@@ -214,12 +214,6 @@ body {
     justify-content: center;
     align-items: center;
     border: 1px solid transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.mono-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .mono-box.bg-white {
@@ -249,11 +243,6 @@ body {
 .mono-box img {
     height: clamp(19.6px, 2.56vw, 49px);
     width: auto;
-    transition: transform 0.3s ease;
-}
-
-.mono-box:hover img {
-    transform: scale(1.05);
 }
 
 /* Corporate Colors */
@@ -286,7 +275,7 @@ body {
 .colors-flex {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(40px, 13.54vw, 260px);
+    gap: 260px;
     width: 100%;
     padding: 45px 0;
 }
@@ -295,12 +284,7 @@ body {
     display: flex;
     align-items: center;
     gap: clamp(24px, 2.08vw, 40px);
-    transition: transform 0.3s ease;
     width: 100%;
-}
-
-.color-info-card:hover {
-    transform: translateX(10px);
 }
 
 .color-circle {
@@ -460,10 +444,7 @@ body {
         position: relative;
     }
 
-    .mono-box:hover {
-        transform: none;
-        box-shadow: none;
-    }
+
 
     .mono-box img {
         height: 19.6px;
@@ -507,19 +488,17 @@ body {
         align-items: center;
     }
 
-    .color-info-card:hover {
-        transform: none;
-    }
+
 
     .color-circle {
-        width: clamp(80px, 22.2vw, 100px);
-        height: clamp(80px, 22.2vw, 100px);
+        width: 100px;
+        height: 100px;
         flex-shrink: 0;
     }
 
     .color-circle::after {
-        width: 33px;
-        height: 33px;
+        width: 32px;
+        height: 32px;
     }
 
     .color-name {

@@ -45,7 +45,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 12px 24px;
+    padding: 12px 20px;
     height: clamp(42px, 2.5vw, 48px);
     background: transparent;
     border: 1px solid #D3D3D3;
@@ -266,7 +266,6 @@
     line-height: 160%;
     color: #363636;
     transition: all 0.2s ease;
-    margin-top: 20px;
 }
 
 .ds-btn-more:hover {
@@ -300,12 +299,13 @@
         padding-bottom: 4px;
         -webkit-overflow-scrolling: touch;
     }
+
     .ds-filter-bar::-webkit-scrollbar {
         display: none;
     }
 
     .ds-filter-btn {
-        padding: 8px 20px;
+        padding: 8px 16px;
         font-size: 16px;
         height: 42px;
     }
@@ -354,7 +354,14 @@
     .ds-cell.ds-cell-title {
         flex: 1;
         width: auto !important;
+        min-width: 0;
         align-items: center;
+        overflow: hidden;
+    }
+
+    .ds-cell.ds-cell-submitter,
+    .ds-header-cell.ds-cell-submitter {
+        display: none;
     }
 
     .ds-cell.ds-cell-date,
@@ -376,7 +383,7 @@
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        word-break: keep-all;
+        word-break: break-all;
     }
 
     .ds-download-label {
@@ -438,7 +445,7 @@
         .ds-meta-submitter,
         .ds-meta-date {
             font-family: 'Pretendard';
-            font-size: 14px;
+            font-size: 16px;
             color: #7A7A7A;
             line-height: 1;
         }
