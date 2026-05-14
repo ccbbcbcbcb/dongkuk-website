@@ -37,7 +37,7 @@ body {
     gap: clamp(40px, 6.25vw, 120px);
     overflow: hidden;
     margin: 0 auto;
-    background: url('../assets/invest-center/투자정보센터header.png') no-repeat center/cover;
+    background: url('../assets/invest-center/invest_center_header.png') no-repeat center/cover;
 }
 
 .invest-hero .gnb {
@@ -1586,7 +1586,7 @@ body {
     height: 497px;
     left: calc(50% - 882px/2);
     top: calc(50% - 497px/2 - 0.5px);
-    background: linear-gradient(0deg, rgba(69, 32, 0, 0.46), rgba(69, 32, 0, 0.46)), url('../assets/invest-center/IR소식.png') center/cover no-repeat;
+    background: linear-gradient(0deg, rgba(69, 32, 0, 0.46), rgba(69, 32, 0, 0.46)), url('../assets/invest-center/ir_news.png') center/cover no-repeat;
     z-index: 0;
 }
 
@@ -1787,7 +1787,7 @@ body {
         min-height: 360px;
         margin: 0 auto;
         padding: 0;
-        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../assets/invest-center/투자정보센터header.png') no-repeat center / cover;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../assets/invest-center/invest_center_header.png') no-repeat center / cover;
     }
     .invest-hero-content {
         width: 328px;
@@ -2019,7 +2019,7 @@ body {
         height: 100%;
         left: 0;
         top: 0;
-        background: linear-gradient(0deg, rgba(69, 32, 0, 0.46), rgba(69, 32, 0, 0.46)), url('../assets/invest-center/IR소식.png') center/cover no-repeat;
+        background: linear-gradient(0deg, rgba(69, 32, 0, 0.46), rgba(69, 32, 0, 0.46)), url('../assets/invest-center/ir_news.png') center/cover no-repeat;
     }
     .ir-card--light {
         gap: 40px;
