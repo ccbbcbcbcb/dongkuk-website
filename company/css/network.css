@@ -194,6 +194,12 @@
     margin: 0; word-break: keep-all;
 }
 
+.title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .info-card-bottom {
     display: flex;
     flex-direction: column;
@@ -411,6 +417,10 @@
         object-position: 37.47% center;
     }
 
+    .pc-br {
+        display: none;
+    }
+
     .network-section .inner {
         padding: 0 16px;
     }
@@ -477,6 +487,10 @@
     .card-title {
         font-size: 30px;
         line-height: 150%;
+    }
+
+    .title-group {
+        gap: 8px;
     }
 
     .type-badge {
