@@ -5186,7 +5186,7 @@ body {
 
     /* Philosophy Section Mobile */
     .philosophy-section {
-        padding: 40px 20px;
+        padding: 30px 16px;
         gap: clamp(40px, 11.1vw, 100px);
     }
 

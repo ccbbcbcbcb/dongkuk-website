@@ -726,8 +726,9 @@ body {
         margin: 0;
     }
 
-    .btn-arrow-right {
-        display: none;
+    .btn-arrow-right,
+    .support-card-arrow {
+        display: none !important;
     }
 
     /* ── BTN TOP ── */
