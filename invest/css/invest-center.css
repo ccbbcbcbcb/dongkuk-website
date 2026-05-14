@@ -300,7 +300,6 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 8px;
-    width: 376px;
     height: 100px;
 }
 
@@ -310,7 +309,6 @@ body {
     align-items: center;
     padding: 0px;
     gap: 20px;
-    width: 376px;
     height: 60px;
 }
 

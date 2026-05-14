@@ -7846,6 +7846,10 @@ body {
     background: transparent;
 }
 
+#tab-stock .sum-row .fs-table-cell:not(.highlight-bg-strong) {
+    background: #F8F9FB;
+}
+
 .fs-table-cell.label {
     justify-content: flex-start;
     padding-left: 24px;
