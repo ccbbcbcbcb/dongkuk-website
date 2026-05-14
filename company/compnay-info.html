@@ -130,51 +130,31 @@
                     동국산업</h2>
             </div>
             <div class="philosophy-content">
-                <div class="ph-card-wrap">
+                <div class="ph-card-wrap" id="ph-torus-wrap">
                     <!-- 인재와 기회 -->
-                    <div class="ph-card ph-card-tl">
+                    <div class="ph-card ph-card-tl" id="ph-lbl-tl">
                         <h3>인재와 기회</h3>
                         <p>미래를 주도하는 동국인</p>
                     </div>
                     <!-- 혁신과 품질 -->
-                    <div class="ph-card ph-card-tr">
+                    <div class="ph-card ph-card-tr" id="ph-lbl-tr">
                         <h3>혁신과 품질</h3>
                         <p>변화를 주도하는 기술력</p>
                     </div>
                     <!-- 사회와 문화 -->
-                    <div class="ph-card ph-card-br">
+                    <div class="ph-card ph-card-br" id="ph-lbl-br">
                         <h3>사회와 문화</h3>
                         <p>삶의 질을 높이는 문화 창달</p>
                     </div>
                     <!-- 사회환원과 책임 -->
-                    <div class="ph-card ph-card-bl">
+                    <div class="ph-card ph-card-bl" id="ph-lbl-bl">
                         <h3>사회환원과 책임</h3>
                         <p>상생과 투명한 책임경영</p>
                     </div>
 
-                    <!-- 중앙 그래픽 영역 -->
-                    <div class="ph-center-graphic">
-                        <svg width="714" height="498" viewBox="0 0 714 498" fill="none" xmlns="http://www.w3.org/2000/svg" class="ph-svg-graphic">
-                            <!-- 배경 회색 선 -->
-                            <path d="M101.257 1C39.1959 65.1656 1 152.616 1 249C1 345.384 39.1959 432.834 101.257 497M612.743 1C674.804 65.1656 713 152.616 713 249C713 338.92 679.756 421.064 624.904 483.779" stroke="#E9E9E9" stroke-width="2" stroke-linecap="round"/>
-                            
-                            <!-- 왼쪽 주황색 선 (위에서 아래로) -->
-                            <path class="ph-svg-path-orange left" d="M101.257 1C39.1959 65.1656 1 152.616 1 249C1 345.384 39.1959 432.834 101.257 497" stroke="url(#paint_left)" stroke-width="2" stroke-linecap="round"/>
-                            
-                            <!-- 오른쪽 주황색 선 (아래에서 위로) -->
-                            <path class="ph-svg-path-orange right" d="M624.904 483.779C679.756 421.064 713 338.92 713 249C713 152.616 674.804 65.1656 612.743 1" stroke="url(#paint_right)" stroke-width="2" stroke-linecap="round"/>
-
-                            <defs>
-                                <linearGradient id="paint_left" x1="51" y1="1" x2="51" y2="497" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0.1" stop-color="#F27100" stop-opacity="0"/>
-                                    <stop offset="0.9" stop-color="#F27100"/>
-                                </linearGradient>
-                                <linearGradient id="paint_right" x1="660" y1="483" x2="660" y2="1" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0.1" stop-color="#F27100" stop-opacity="0"/>
-                                    <stop offset="0.9" stop-color="#F27100"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
+                    <!-- 중앙 3D 토러스 -->
+                    <div class="ph-center-graphic" id="ph-torus-container">
+                        <canvas id="ph-torus-canvas"></canvas>
                     </div>
                 </div>
             </div>
@@ -325,6 +305,272 @@
     <script src="../js/components.js"></script>
     <script src="js/compnay-common.js"></script>
     <script src="../js/gnb.js"></script>
+
+    <!-- 경영이념 3D 토러스 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+    (function(){
+      'use strict';
+
+      const container = document.getElementById('ph-torus-container');
+      const canvas = document.getElementById('ph-torus-canvas');
+      if (!container || !canvas) return;
+
+      /* ═══════════ 설정 ═══════════ */
+      const DISC_COUNT   = 28;
+      const TORUS_R      = 3.6;
+      const DISC_RADIUS  = 1.15;
+      const TILT         = 0.85;
+      const LOOP_SPEED   = 8;
+      const WAVE_SCALE   = 0.08;
+      const WAVE_TILT    = 0.59;
+
+      let ORANGE_DEEP  = new THREE.Color(0xff3d00);
+      let ORANGE_MID   = new THREE.Color(0xff9d67);
+      let ORANGE_LIGHT = new THREE.Color(0xffffff);
+      let ORANGE_PALE  = new THREE.Color(0xFADFC9);
+
+      // 문구 라벨 (좌상=135°, 좌하=225°, 우하=315°, 우상=45°)
+      // 라벨 각도: 호가 커버하는 영역만 4등분
+      // 왼쪽 호: 130.5°~229.5° → TL(155°), BL(205°)
+      // 오른쪽 호: 310.5°~49.5° → BR(335°), TR(25°)
+      const LABEL_THRESHOLD = Math.PI * 0.155; // ~28° — 호 밖 갭 구간이면 비활성화
+      const labels = [
+        { el: document.getElementById('ph-lbl-tl'), angle: Math.PI * 0.861 },  // 155°
+        { el: document.getElementById('ph-lbl-bl'), angle: Math.PI * 1.139 },  // 205°
+        { el: document.getElementById('ph-lbl-br'), angle: Math.PI * 1.861 },  // 335°
+        { el: document.getElementById('ph-lbl-tr'), angle: Math.PI * 0.139 },  // 25°
+      ];
+
+      /* ═══════════ 씬 / 카메라 / 렌더러 ═══════════ */
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xF8F9FB);
+
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+
+      const camera = new THREE.PerspectiveCamera(40, w / h, 0.1, 100);
+      camera.position.set(0, 0, 16);
+      camera.lookAt(0, 0, 0);
+
+      const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+      renderer.setSize(w, h);
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.1;
+
+      /* ═══════════ 조명 ═══════════ */
+      scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+      const keyLight = new THREE.DirectionalLight(0xffffff, 0.9);
+      keyLight.position.set(3, 5, 8);
+      scene.add(keyLight);
+      const fillLight = new THREE.DirectionalLight(0xE8E0FF, 0.4);
+      fillLight.position.set(-5, 3, -3);
+      scene.add(fillLight);
+      const rimLight = new THREE.DirectionalLight(0xFFF5E6, 0.6);
+      rimLight.position.set(0, -2, -5);
+      scene.add(rimLight);
+      const topLight = new THREE.DirectionalLight(0xffffff, 0.3);
+      topLight.position.set(0, 10, 0);
+      scene.add(topLight);
+
+      /* ═══════════ 디스크 지오메트리 ═══════════ */
+      function createLatheDisc(radius) {
+        const halfH = 0.05, bevel = 0.04, pts = [];
+        pts.push(new THREE.Vector2(0, halfH));
+        pts.push(new THREE.Vector2(radius - bevel, halfH));
+        for (let i = 0; i <= 8; i++) {
+          const a = (i / 8) * Math.PI * 0.5;
+          pts.push(new THREE.Vector2(radius - bevel + Math.sin(a) * bevel, halfH * Math.cos(a)));
+        }
+        for (let i = 8; i >= 0; i--) {
+          const a = (i / 8) * Math.PI * 0.5;
+          pts.push(new THREE.Vector2(radius - bevel + Math.sin(a) * bevel, -halfH * Math.cos(a)));
+        }
+        pts.push(new THREE.Vector2(0, -halfH));
+        return new THREE.LatheGeometry(pts, 64);
+      }
+
+      const discGeo = createLatheDisc(DISC_RADIUS);
+      discGeo.rotateX(-Math.PI / 2);
+
+      /* ═══════════ 디스크 그룹 ═══════════ */
+      const discGroup = new THREE.Group();
+      const discs = [];
+
+      for (let i = 0; i < DISC_COUNT; i++) {
+        const angle = (i / DISC_COUNT) * Math.PI * 2;
+        const mat = new THREE.MeshStandardMaterial({
+          color: ORANGE_PALE.clone(),
+          metalness: 0.05,
+          roughness: 0.35,
+          side: THREE.DoubleSide,
+        });
+        const mesh = new THREE.Mesh(discGeo, mat);
+        mesh.position.set(Math.cos(angle) * TORUS_R, Math.sin(angle) * TORUS_R, 0);
+        mesh.rotation.set(0, 0, angle);
+        mesh.rotateX(TILT);
+        discs.push({ mesh, mat, angle, index: i, scale: 1, velocity: 0, tiltOffset: 0, tiltVel: 0 });
+        discGroup.add(mesh);
+      }
+      scene.add(discGroup);
+
+      /* ═══════════ 호(arc) 2개 — ShaderMaterial ═══════════ */
+      const ARC_R = TORUS_R + DISC_RADIUS + 1.1;
+      const ARC_W = 0.018;
+
+      const arcVert = `
+        varying vec2 vPos;
+        void main() {
+          vPos = position.xy;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }`;
+      const arcFrag = `
+        uniform float uFocus;
+        uniform vec3 uColorHL;
+        uniform vec3 uColorBase;
+        varying vec2 vPos;
+        void main() {
+          float angle = atan(vPos.y, vPos.x);
+          float diff = angle - uFocus;
+          diff = mod(diff + 3.14159265, 6.28318530) - 3.14159265;
+          float t;
+          if (diff > 0.0) { t = 1.0 - step(0.03, diff); }
+          else { t = 1.0 - smoothstep(0.0, 1.2, abs(diff)); }
+          vec3 col = mix(uColorBase, uColorHL, t);
+          float alpha = mix(0.28, 0.9, t);
+          gl_FragColor = vec4(col, alpha);
+        }`;
+
+      function createArcMat() {
+        return new THREE.ShaderMaterial({
+          uniforms: {
+            uFocus: { value: 0 },
+            uColorHL: { value: new THREE.Color(0xF27100) },
+            uColorBase: { value: new THREE.Color(0xD8D8D8) },
+          },
+          vertexShader: arcVert,
+          fragmentShader: arcFrag,
+          side: THREE.DoubleSide,
+          transparent: true,
+        });
+      }
+
+      const arc1Mat = createArcMat();
+      const arc1 = new THREE.Mesh(
+        new THREE.RingGeometry(ARC_R - ARC_W, ARC_R + ARC_W, 128, 1, Math.PI * 0.725, Math.PI * 0.55),
+        arc1Mat
+      );
+      arc1.position.z = -0.15;
+      scene.add(arc1);
+
+      const arc2Mat = createArcMat();
+      const arc2 = new THREE.Mesh(
+        new THREE.RingGeometry(ARC_R - ARC_W, ARC_R + ARC_W, 128, 1, Math.PI * 1.725, Math.PI * 0.55),
+        arc2Mat
+      );
+      arc2.position.z = -0.15;
+      scene.add(arc2);
+
+      /* ═══════════ 포커스 회전 ═══════════ */
+      let focusAngle = Math.PI * 0.75;
+
+      function angleDist(a, b) {
+        let d = ((b - a) % (Math.PI * 2) + Math.PI * 3) % (Math.PI * 2) - Math.PI;
+        return Math.abs(d);
+      }
+
+      function updateFocus(time) {
+        focusAngle = (Math.PI * 0.75 + (time / LOOP_SPEED) * Math.PI * 2) % (Math.PI * 2);
+
+        const groupRot = discGroup.rotation.z;
+        discs.forEach((d) => {
+          const visualAngle = (d.angle + groupRot) % (Math.PI * 2);
+          const dist = angleDist(visualAngle, focusAngle);
+          const t = dist / Math.PI;
+
+          let color;
+          if (t < 0.5) {
+            color = ORANGE_DEEP.clone().lerp(ORANGE_MID, t / 0.5);
+          } else {
+            color = ORANGE_MID.clone().lerp(ORANGE_LIGHT, (t - 0.5) / 0.5);
+          }
+          d.mat.color.copy(color);
+          d.mat.metalness = 0.05 + (1 - t) * 0.05;
+          d.mat.roughness = 0.35 - (1 - t) * 0.05;
+
+          const wave = Math.max(0, 1 - dist / (Math.PI * 0.35));
+          const targetScale = 1 + wave * WAVE_SCALE;
+          const dt = 0.016;
+          const scaleForce = (targetScale - d.scale) * 180;
+          d.velocity += (scaleForce - d.velocity * 8) * dt;
+          d.scale += d.velocity * dt;
+          d.mesh.scale.set(d.scale, d.scale, d.scale);
+
+          const targetTilt = -wave * WAVE_TILT;
+          const tiltForce = (targetTilt - d.tiltOffset) * 120;
+          d.tiltVel += (tiltForce - d.tiltVel * 7) * dt;
+          d.tiltOffset += d.tiltVel * dt;
+          d.mesh.rotation.set(0, 0, d.angle);
+          d.mesh.rotateX(TILT + d.tiltOffset);
+        });
+
+        // 라벨 활성화 (갭 구간이면 전부 비활성)
+        let closestIdx = -1, closestDist = Infinity;
+        labels.forEach((lbl, i) => {
+          const dist = angleDist(lbl.angle, focusAngle);
+          if (dist < closestDist) { closestDist = dist; closestIdx = i; }
+        });
+        // 갭 구간 체크: 가장 가까운 라벨도 threshold 밖이면 비활성
+        if (closestDist > LABEL_THRESHOLD) closestIdx = -1;
+        labels.forEach((lbl, i) => {
+          if (i === closestIdx) { lbl.el.classList.add('active'); }
+          else { lbl.el.classList.remove('active'); }
+        });
+
+        arc1Mat.uniforms.uFocus.value = focusAngle;
+        arc2Mat.uniforms.uFocus.value = focusAngle;
+      }
+
+      /* ═══════════ 렌더 루프 ═══════════ */
+      let rafId = null;
+      let isVisible = false;
+
+      function animate() {
+        rafId = requestAnimationFrame(animate);
+        const time = performance.now() / 1000;
+        discGroup.rotation.z += (Math.PI * 2) / (LOOP_SPEED * 60 * 130 / 8);
+        updateFocus(time);
+        renderer.render(scene, camera);
+      }
+
+      /* ═══════════ IntersectionObserver (성능 최적화) ═══════════ */
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !isVisible) {
+            isVisible = true;
+            animate();
+          } else if (!entry.isIntersecting && isVisible) {
+            isVisible = false;
+            if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(container);
+
+      /* ═══════════ 리사이즈 ═══════════ */
+      const ro = new ResizeObserver(() => {
+        const cw = container.clientWidth;
+        const ch = container.clientHeight;
+        if (cw === 0 || ch === 0) return;
+        camera.aspect = cw / ch;
+        camera.updateProjectionMatrix();
+        renderer.setSize(cw, ch);
+      });
+      ro.observe(container);
+
+    })();
+    </script>
 
 </body>
 
