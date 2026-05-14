@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주가 정보 - 동국산업</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/gnb.css">
+    <link rel="stylesheet" href="css/stock-info.css">
+</head>
+
+<body data-page="stock-info">
+
+    <!-- GNB -->
+    <header class="gnb">
+        <div class="gnb-logo">
+            <a href="../index.html"><img src="../assets/common/logo.svg" alt="동국산업 로고"></a>
+        </div>
+        <div class="gnb-utils">
+            <div class="gnb-utils-links">
+                <a href="#">문의</a>
+
+                <a href="#">KR</a>
+            </div>
+            <span class="gnb-divider"></span>
+            <button class="gnb-menu-btn" aria-label="메뉴"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+
+    <section class="page-header">
+        <h1>주식정보</h1>
+    </section>
+
+    <nav class="tab-nav">
+        <div class="tab-item active" data-tab="tab-stock">주가현황</div>
+        <div class="tab-item" data-tab="tab-return">주주환원</div>
+    </nav>
+
+    <div id="tab-stock" class="tab-panel active">
+        <!-- 실시간 주가 섹션 -->
+        <section class="stock-realtime-section">
+            <h2 class="stock-rt-title">실시간 주가</h2>
+            
+            <div class="stock-rt-card">
+                <div class="stock-price-block">
+                    <div class="stock-pb-info-wrap">
+                        <!-- 상단 -->
+                        <div class="stock-pb-top">
+                            <span class="stock-pb-name">동국산업</span>
+                            <span class="stock-pb-code">005160</span>
+                        </div>
+                    
+                        <!-- 중간 (가격 정보) -->
+                        <div class="stock-pb-price">
+                            <div class="stock-pb-price-wrap">
+                                <span class="stock-pb-price-num">3,390</span>
+                                <span class="stock-pb-currency">원</span>
+                            </div>
+                        
+                            <!-- 하단 정보 -->
+                            <div class="stock-pb-bot">
+                                <!-- 등락률 -->
+                                <div class="stock-pb-rate-group">
+                                    <div class="stock-pb-label-wrap">
+                                        <span class="stock-pb-label">등락률</span>
+                                    </div>
+                                    <div class="stock-pb-val-wrap">
+                                        <img src="assets/stock/up.svg" alt="상승" class="stock-pb-icon">
+                                        <span class="stock-pb-val-red">1.50</span>
+                                        <span class="stock-pb-percent">%</span>
+                                    </div>
+                                </div>
+                                <div class="stock-pb-divider-v">
+                                    <svg width="1" height="20" viewBox="0 0 1 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="0.5" y1="0" x2="0.5" y2="20" stroke="#D3D3D3"/>
+                                    </svg>
+                                </div>
+                                <!-- 전일대비 -->
+                                <div class="stock-pb-diff-group">
+                                    <div class="stock-pb-label-wrap">
+                                        <span class="stock-pb-label">전일대비</span>
+                                    </div>
+                                    <div class="stock-pb-val-wrap">
+                                        <img src="assets/stock/up.svg" alt="상승" class="stock-pb-icon">
+                                        <span class="stock-pb-val-red">50</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 구분선 (모바일용) -->
+                    <div class="stock-pb-divider-h"></div>
+
+                    <!-- 시가총액 정보 (하나의 박스 안으로 이동) -->
+                    <div class="stock-mc-info">
+                        <div class="stock-mc-inner">
+                            <span class="stock-mc-label">시가총액</span>
+                            <div class="stock-mc-val-wrap">
+                                <span class="stock-mc-price">1,800</span>
+                                <span class="stock-mc-currency">억 원</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 당일 거래 지표&추가 투자 정보 -->
+            <div class="stock-info-board">
+                <!-- 당일 거래 지표 영역 -->
+                <div class="stock-ib-row">
+                    <div class="stock-ib-items">
+                        <div class="stock-ib-item">
+                            <span class="stock-ib-label">시가</span>
+                            <div class="stock-ib-val-group">
+                                <span class="stock-ib-val">3,360</span>
+                            </div>
+                        </div>
+                        <div class="stock-ib-divider"></div>
+                        <div class="stock-ib-item">
+                            <span class="stock-ib-label">고가(원)</span>
+                            <div class="stock-ib-val-group">
+                                <span class="stock-ib-val val-red">3,430</span>
+                            </div>
+                        </div>
+                        <div class="stock-ib-divider"></div>
+                        <div class="stock-ib-item">
+                            <span class="stock-ib-label">저가(원)</span>
+                            <div class="stock-ib-val-group">
+                                <span class="stock-ib-val val-blue">3,340</span>
+                            </div>
+                        </div>
+                        <div class="stock-ib-divider"></div>
+                        <div class="stock-ib-item">
+                            <span class="stock-ib-label">거래량(주)</span>
+                            <div class="stock-ib-val-group">
+                                <span class="stock-ib-val">154,501</span>
+                            </div>
+                        </div>
+                        <div class="stock-ib-divider m-only"></div>
+                    </div>
+                </div>
+
+                <!-- 추가 투자 정보 영역 -->
+                <div class="stock-ib-row">
+                    <div class="stock-ib-items">
+                        <div class="stock-ib-item">
+                            <span class="stock-ib-label">자본금(억 원)</span>
+                            <div class="stock-ib-val-group">
+                                <span class="stock-ib-val">542</span>
+                            </div>
+                        </div>
+                        <div class="stock-ib-divider"></div>
+                        <div class="stock-ib-item">
+                            <span class="stock-ib-label">액면가(원)</span>
+                            <div class="stock-ib-val-group">
+                                <span class="stock-ib-val">1,000</span>
+                            </div>
+                        </div>
+                        <div class="stock-ib-divider"></div>
+                        <div class="stock-ib-item item-stacked">
+                            <span class="stock-ib-label">52주 최고/최저(원)</span>
+                            <div class="stock-ib-val-group">
+                                <div class="stock-ib-val-split">
+                                    <span class="stock-ib-val">4,126</span>
+                                    <span class="stock-ib-slash"></span>
+                                    <span class="stock-ib-val">2,430</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stock-ib-divider"></div>
+                        <div class="stock-ib-item item-stacked">
+                            <span class="stock-ib-label">상장 주식수(주)</span>
+                            <div class="stock-ib-val-group">
+                                <span class="stock-ib-val">54,244,482</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- 제품소개 -->
+        <!-- 일자별 주가 -->
+        <section class="stock-daily-section">
+            <div class="stock-daily-inner">
+                <div class="stock-daily-title-wrap">
+                    <h2 class="stock-daily-title">일자별 주가</h2>
+                </div>
+                
+                <div class="stock-table-wrap">
+                    <table class="stock-daily-table">
+                        <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>종가(원)</th>
+                                <th>전일대비(원)</th>
+                                <th>등락률(%)</th>
+                                <th>시가(원)</th>
+                                <th>고가(원)</th>
+                                <th>저가(원)</th>
+                                <th>거래량(주)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2026.03.10</td>
+                                <td>2,735</td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">75</span></div></td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">2.74</span></div></td>
+                                <td>2,715</td>
+                                <td>2,735</td>
+                                <td>2,675</td>
+                                <td>67,884</td>
+                            </tr>
+                            <tr>
+                                <td>2026.03.09</td>
+                                <td>2,660</td>
+                                <td><div class="table-val-wrap"><img src="assets/invest-center/down.svg" alt="하락" class="table-icon"><span class="table-val-down">160</span></div></td>
+                                <td><div class="table-val-wrap"><img src="assets/invest-center/down.svg" alt="하락" class="table-icon"><span class="table-val-down">6.01</span></div></td>
+                                <td>2,800</td>
+                                <td>2,800</td>
+                                <td>2,595</td>
+                                <td>154,203</td>
+                            </tr>
+                            <tr>
+                                <td>2026.03.06</td>
+                                <td>2,820</td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">90</span></div></td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">3.19</span></div></td>
+                                <td>2,710</td>
+                                <td>2,835</td>
+                                <td>2,700</td>
+                                <td>59,936</td>
+                            </tr>
+                            <tr>
+                                <td>2026.03.05</td>
+                                <td>2,730</td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">230</span></div></td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">8.42</span></div></td>
+                                <td>2,675</td>
+                                <td>2,675</td>
+                                <td>2,585</td>
+                                <td>124,738</td>
+                            </tr>
+                            <tr>
+                                <td>2026.03.04</td>
+                                <td>2,500</td>
+                                <td><div class="table-val-wrap"><img src="assets/invest-center/down.svg" alt="하락" class="table-icon"><span class="table-val-down">340</span></div></td>
+                                <td><div class="table-val-wrap"><img src="assets/invest-center/down.svg" alt="하락" class="table-icon"><span class="table-val-down">13.6</span></div></td>
+                                <td>2,820</td>
+                                <td>2,820</td>
+                                <td>2,430</td>
+                                <td>315,340</td>
+                            </tr>
+                            <tr>
+                                <td>2026.03.03</td>
+                                <td>2,840</td>
+                                <td><div class="table-val-wrap"><img src="assets/invest-center/down.svg" alt="하락" class="table-icon"><span class="table-val-down">160</span></div></td>
+                                <td><div class="table-val-wrap"><img src="assets/invest-center/down.svg" alt="하락" class="table-icon"><span class="table-val-down">5.63</span></div></td>
+                                <td>2,950</td>
+                                <td>3,010</td>
+                                <td>2,825</td>
+                                <td>166,409</td>
+                            </tr>
+                            <tr>
+                                <td>2026.02.27</td>
+                                <td>3,000</td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">80</span></div></td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">2.66</span></div></td>
+                                <td>2,915</td>
+                                <td>3,020</td>
+                                <td>2,820</td>
+                                <td>366,209</td>
+                            </tr>
+                            <tr>
+                                <td>2026.02.26</td>
+                                <td>2,920</td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">80</span></div></td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">2.73</span></div></td>
+                                <td>3,000</td>
+                                <td>3,025</td>
+                                <td>2,850</td>
+                                <td>370,544</td>
+                            </tr>
+                            <tr>
+                                <td>2026.02.25</td>
+                                <td>3,000</td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">70</span></div></td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">2.33</span></div></td>
+                                <td>2,945</td>
+                                <td>3,020</td>
+                                <td>2,920</td>
+                                <td>298,970</td>
+                            </tr>
+                            <tr>
+                                <td>2026.02.24</td>
+                                <td>2,930</td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">20</span></div></td>
+                                <td><div class="table-val-wrap"><img src="assets/stock/up.svg" alt="상승" class="table-icon"><span class="table-val-up">0.68</span></div></td>
+                                <td>2,910</td>
+                                <td>2,930</td>
+                                <td>2,880</td>
+                                <td>133,299</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 커스텀 스크롤바 추가 -->
+                <div class="stock-daily-scroll-wrap">
+                    <div class="stock-daily-scroll-track"></div>
+                    <div class="stock-daily-scroll-thumb"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TAB: 주주환원 -->
+    <div id="tab-return" class="tab-panel">
+        <!-- Section 1: 배당정책 -->
+        <section class="dividend-policy-section">
+            <h2 class="dividend-policy-title">배당정책</h2>
+            <p class="dividend-policy-desc">
+                동국산업은 주주 권익 보호와 기업가치 제고를 위해 안정적인 배당 정책을 지향하고 있습니다.<br><br>
+                배당은 회사의 경영 실적, 투자 계획 및 재무 건전성 등을 종합적으로 고려하여 결정하고 있으며, 매년 12월 31일을 배당 기준일로 하는 결산 배당을 실시하고 있습니다.<br><br>
+                당사는 지속적인 주주 환원을 통해 장기적인 기업가치 제고에 노력하고 있습니다.
+            </p>
+        </section>
+
+        <!-- Section 2: 배당현황 -->
+        <section class="dividend-status-section">
+            <h2 class="dividend-status-title">배당현황</h2>
+            <div class="dividend-table-area">
+                <div class="dividend-table-wrap">
+                    <table class="dividend-table">
+                        <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>2021년</th>
+                                <th>2022년</th>
+                                <th>2023년</th>
+                                <th>2024년</th>
+                                <th>2025년</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>배당종류</td>
+                                <td>현금배당</td>
+                                <td>현금배당</td>
+                                <td>현금배당</td>
+                                <td>현금배당</td>
+                                <td>현금배당</td>
+                            </tr>
+                            <tr>
+                                <td>1주당 배당금(원)</td>
+                                <td>130</td>
+                                <td>130</td>
+                                <td>130</td>
+                                <td>130</td>
+                                <td>145</td>
+                            </tr>
+                            <tr>
+                                <td>배당금 총액(원)</td>
+                                <td>6,698,173,430</td>
+                                <td>6,698,173,430</td>
+                                <td>6,698,173,430</td>
+                                <td>6,698,173,430</td>
+                                <td>7,471,039,595</td>
+                            </tr>
+                            <tr>
+                                <td>배당성향(%)</td>
+                                <td>28.4</td>
+                                <td>25.9</td>
+                                <td>22.1</td>
+                                <td>24.3</td>
+                                <td>30.7</td>
+                            </tr>
+                            <tr>
+                                <td>배당 수익률(%)</td>
+                                <td>3.57</td>
+                                <td>3.36</td>
+                                <td>2.70</td>
+                                <td>2.87</td>
+                                <td>4.82</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 커스텀 스크롤바 추가 (스크롤 영역 외부로 이동) -->
+                <div class="dividend-scroll-wrap">
+                    <div class="dividend-scroll-track"></div>
+                    <div class="dividend-scroll-thumb"></div>
+                </div>
+                <div class="dividend-caption">
+                    <div class="caption-row">
+                        <span class="caption-dot">*</span>
+                        <p class="caption-text">배당금 총액은 발행주식 총수에서 당사가 보유한 자사주를 제외한 실배당 주식수를 기준으로 계산되었습니다.</p>
+                    </div>
+                    <div class="caption-row">
+                        <span class="caption-dot">*</span>
+                        <p class="caption-text gray">2025년 수치는 예상입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: 주요 투자강점 -->
+        <section class="investment-strengths-section">
+            <h2 class="strengths-title">주요 투자강점</h2>
+            <div class="strengths-cards">
+                <!-- 주주환원 -->
+                <div class="strength-card">
+                    <div class="strength-img-box">
+                        <img src="assets/stock/ic_주주환원.svg" alt="주주환원" class="strength-icon">
+                    </div>
+                    <div class="strength-content">
+                        <p class="strength-label">주주환원</p>
+                        <div class="strength-text-group">
+                            <h3 class="strength-main-title">지속적 현금 배당</h3>
+                            <p class="strength-desc">지속 가능한 주주환원</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 수익성 -->
+                <div class="strength-card">
+                    <div class="strength-img-box">
+                        <img src="assets/stock/ic_수익성.svg" alt="수익성" class="strength-icon">
+                    </div>
+                    <div class="strength-content">
+                        <p class="strength-label">수익성</p>
+                        <div class="strength-text-group">
+                            <h3 class="strength-main-title">안정적 영업 이익 기반</h3>
+                            <p class="strength-desc">지속적인 수익 창출 구조</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 성장성 -->
+                <div class="strength-card">
+                    <div class="strength-img-box">
+                        <img src="assets/stock/ic_성장성.svg" alt="성장성" class="strength-icon">
+                    </div>
+                    <div class="strength-content">
+                        <p class="strength-label">성장성</p>
+                        <div class="strength-text-group">
+                            <h3 class="strength-main-title">신사업 기반 성장 동력</h3>
+                            <p class="strength-desc">중장기 성장 전략 추진</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 기술 경쟁력 -->
+                <div class="strength-card">
+                    <div class="strength-img-box">
+                        <img src="assets/stock/ic_기술경쟁력.svg" alt="기술 경쟁력" class="strength-icon">
+                    </div>
+                    <div class="strength-content">
+                        <p class="strength-label">기술 경쟁력</p>
+                        <div class="strength-text-group">
+                            <h3 class="strength-main-title">니켈도금강판 제조 기술</h3>
+                            <p class="strength-desc">차별화된 생산 기술력</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="support-placeholder"></div>
+    <div id="footer-placeholder"></div>
+    <div id="btn-top-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+
+    <script>
+        // 📍 탭 전환 로직
+        document.querySelectorAll('.tab-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const targetTab = item.getAttribute('data-tab');
+                
+                // 탭 버튼 상태 업데이트
+                document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll(`.tab-item[data-tab="${targetTab}"]`).forEach(t => t.classList.add('active'));
+                
+                // 패널 가시성 업데이트
+                document.querySelectorAll('.tab-panel').forEach(panel => {
+                    panel.classList.remove('active');
+                    if (panel.id === targetTab) {
+                        panel.classList.add('active');
+                    }
+                });
+            });
+        });
+
+
+        // 📍 일자별 주가 커스텀 스크롤 연동
+        const tableWrap = document.querySelector('.stock-table-wrap');
+        const scrollThumb = document.querySelector('.stock-daily-scroll-thumb');
+        const scrollTrack = document.querySelector('.stock-daily-scroll-track');
+
+        if (tableWrap && scrollThumb && scrollTrack) {
+            tableWrap.addEventListener('scroll', () => {
+                const scrollLeft = tableWrap.scrollLeft;
+                const scrollWidth = tableWrap.scrollWidth - tableWrap.clientWidth;
+                const trackWidth = scrollTrack.clientWidth - scrollThumb.clientWidth;
+                
+                if (scrollWidth > 0) {
+                    const ratio = scrollLeft / scrollWidth;
+                    // thumb 위치 계산 (여유값 2px 반영)
+                    scrollThumb.style.left = (ratio * trackWidth + 2) + 'px';
+                }
+            });
+        }
+
+        // 📍 배당현황 커스텀 스크롤 연동
+        const divTableWrap = document.querySelector('.dividend-table-wrap');
+        const divScrollThumb = document.querySelector('.dividend-scroll-thumb');
+        const divScrollTrack = document.querySelector('.dividend-scroll-track');
+
+        if (divTableWrap && divScrollThumb && divScrollTrack) {
+            divTableWrap.addEventListener('scroll', () => {
+                const scrollLeft = divTableWrap.scrollLeft;
+                const scrollWidth = divTableWrap.scrollWidth - divTableWrap.clientWidth;
+                const trackWidth = divScrollTrack.clientWidth - divScrollThumb.clientWidth;
+                
+                if (scrollWidth > 0) {
+                    const ratio = scrollLeft / scrollWidth;
+                    divScrollThumb.style.left = (ratio * trackWidth + 2) + 'px';
+                }
+            });
+        }
+
+
+        /* ── Process Auto-Play (니켈도금강판: 모드 대응형) ── */
+        const TOTAL_STEPS_BULK = 8;
+        const TOTAL_STEPS_SPECIAL = 7;
+        let currentStep = 0;
+        let currentMode = 'bulk'; /* 'bulk' | 'special' */
+        let autoTimer = null;
+
+        /* 대량생산 공정 데이터 */
+        const BULK_STEPS_DATA = [
+            { num: '01', name: '냉연코일 세팅', desc: '니켈도금강판 공정의 원재료를 준비합니다.' },
+            { num: '02', name: '탈지라인', desc: '불순물을 제거하고 표면을 깨끗하게 만들어, <br> 도금층의 품질을 확보하는 전처리 공정입니다.' },
+            { num: '03', name: '전해 니켈 도금', desc: '강판을 니켈 이온 용액에 담그고 전기를 가하여, 표면의 내식성과 전기 안정성을 향상시킵니다.' },
+            { num: '04', name: '연속소둔', desc: '코일을 펼친 상태로 가열과 냉각을 반복하여, <br> 니켈과 강판을 균일하게 합금합니다.' },
+            { num: '05', name: '표면마감', desc: '소둔 후 표면 상태를 정리하는 과정으로, <br> 균일하고 매끄러운 품질을 완성합니다.' },
+            { num: '06', name: '장력 형상 조정', desc: '강판을 롤 사이로 통과시켜 당기는 과정으로, <br> 표면을 평탄하게 교정합니다.' },
+            { num: '07', name: '정밀컷팅', desc: '고객이 요구한 규격에 맞게 소재를 절단합니다.' },
+            { num: '08', name: '포장정리', desc: '완성된 제품을 보호 포장합니다.' }
+        ];
+
+        /* 특수대응 공정 데이터 */
+        const SPECIAL_STEPS_DATA = [
+            { num: '01', name: '냉연코일 세팅', desc: '니켈도금강판 공정의 원재료를 준비합니다.' },
+            { num: '02', name: '탈지라인', desc: '불순물을 제거하고 표면을 깨끗하게 만들어, <br> 도금층의 품질을 확보하는 전처리 공정입니다.' },
+            { num: '03', name: '전해 니켈 도금', desc: '강판을 니켈 이온 용액에 담그고 전기를 가하여, 표면의 내식성과 전기 안정성을 향상시킵니다.' },
+            { num: '04', name: '배치형 소둔', desc: '코일이 말린 상태로 상온 압연하는 과정으로, <br> 특수한 스펙이나 강종에 대응이 가능합니다.' },
+            { num: '05', name: '표면마감', desc: '소둔 후 표면 상태를 정리하는 과정으로, <br> 균일하고 매끄러운 품질을 완성합니다.' },
+            { num: '06', name: '정밀컷팅', desc: '고객이 요구한 규격에 맞게 소재를 절단합니다.' },
+            { num: '07', name: '포장정리', desc: '완성된 제품을 보호 포장합니다.' }
+        ];
+
+        function activateStep(idx) {
+            const totalSteps = (currentMode === 'bulk') ? TOTAL_STEPS_BULK : TOTAL_STEPS_SPECIAL;
+            const stepsBarId = (currentMode === 'bulk') ? 'ps-steps-bar' : 'ps-steps-bar-special';
+            const diagramId = (currentMode === 'bulk') ? 'diagram-bulk' : 'diagram-special';
+
+            // 범위 보정 및 순환 처리
+            if (idx < 0) idx = 0;
+            if (idx >= totalSteps) idx = 0;
+            currentStep = idx;
+
+            /* 1. 현재 모드에 맞는 Progress bar 업데이트 */
+            const stepEls = document.querySelectorAll('#' + stepsBarId + ' .ps-step');
+
+            // 1. 클래스 제거 (초기화)
+            stepEls.forEach(el => el.classList.remove('active', 'done'));
+
+            // 2. 리플로우 트리거 (0%부터 다시 시작되도록 보장)
+            if (stepEls[idx]) void stepEls[idx].offsetWidth;
+
+            // 3. 클래스 재적용
+            stepEls.forEach((el, i) => {
+                if (i < idx) el.classList.add('done');
+                if (i === idx) el.classList.add('active');
+            });
+
+            /* 2. 현재 모드에 맞는 이미지(SVG) 업데이트 */
+            document.querySelectorAll('#' + diagramId + ' .ps-step-img').forEach((el, i) => {
+                el.classList.toggle('visible', i === idx);
+            });
+
+            /* 3. 현재 모드에 맞는 말풍선(Tooltip) 업데이트 */
+            document.querySelectorAll('#' + diagramId + ' .ps-bubble').forEach((el, i) => {
+                el.classList.toggle('visible', i === idx);
+            });
+
+            /* 4. 모바일 인디케이터 dot 업데이트 */
+            const dotsId = (currentMode === 'bulk') ? 'ps-mobile-dots-bulk' : 'ps-mobile-dots-special';
+            const dotsContainer = document.getElementById(dotsId);
+            if (dotsContainer) {
+                const dotEls = dotsContainer.querySelectorAll('.ps-mobile-dot');
+                // 1. 클래스 제거 (초기화)
+                dotEls.forEach(dot => dot.classList.remove('active', 'done'));
+
+                // 2. 리플로우 트리거 (0%부터 다시 시작되도록 보장)
+                if (dotEls[idx]) void dotEls[idx].offsetWidth;
+
+                // 3. 클래스 재적용
+                dotEls.forEach((dot, i) => {
+                    if (i < idx) dot.classList.add('done');
+                    if (i === idx) dot.classList.add('active');
+                });
+            }
+
+            /* 5. 모바일 설명 카드 업데이트 */
+            const cardId = (currentMode === 'bulk') ? 'ps-mobile-card-bulk' : 'ps-mobile-card-special';
+            const stepsData = (currentMode === 'bulk') ? BULK_STEPS_DATA : SPECIAL_STEPS_DATA;
+            const card = document.getElementById(cardId);
+            if (card && stepsData[idx]) {
+                card.querySelector('.ps-mobile-info-num').textContent = stepsData[idx].num;
+                card.querySelector('.ps-mobile-info-name').textContent = stepsData[idx].name;
+                card.querySelector('.ps-mobile-info-desc').innerHTML = stepsData[idx].desc;
+            }
+
+            /* 6. 모바일 3줄 다이어그램 step overlay 업데이트 */
+            const mobileDiagramId = (currentMode === 'bulk') ? 'ps-mobile-diagram-bulk' : 'ps-mobile-diagram-special';
+            const mobileDiagram = document.getElementById(mobileDiagramId);
+            if (mobileDiagram) {
+                mobileDiagram.querySelectorAll('.ps-step-img').forEach(img => {
+                    const step = parseInt(img.dataset.mobileStep);
+                    img.classList.toggle('visible', step === idx);
+                });
+                mobileDiagram.querySelectorAll('.ps-mobile-step-label').forEach(label => {
+                    const step = parseInt(label.dataset.mobileStep);
+                    label.classList.toggle('visible', step === idx);
+                });
+            }
+        }
+
+        /* 자동 재생 시작 */
+        function startAutoPlay() {
+            if (autoTimer) clearInterval(autoTimer);
+            autoTimer = setInterval(() => {
+                const totalSteps = (currentMode === 'bulk') ? TOTAL_STEPS_BULK : TOTAL_STEPS_SPECIAL;
+                const next = (currentStep + 1) % totalSteps;
+                activateStep(next);
+            }, 3000);
+        }
+
+        /* 초기 실행 및 이벤트 연결 */
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /* ═══ 모바일 3줄 다이어그램 동적 생성 ═══ */
+            /* 각 row는 원본 1860×486 이미지의 특정 영역을 crop해서 보여줌 */
+            const BULK_ROW_CONFIG = [
+                { // Row 1: Steps 0,1,2 (냉연코일, 탈지라인, 전해니켈도금)
+                    cropX: 80, cropY: 50, cropW: 880, cropH: 220,
+                    steps: [0, 1, 2],
+                    defaultSrc: 'assets/dikel/nickel-mass-default.svg',
+                    stepSrcs: {
+                        0: { src: 'assets/dikel/1.cold-coil-setup.svg', w: 72, h: 93, l: 146, t: 84 },
+                        1: { src: 'assets/dikel/2.degreasing-line.svg', w: 446, h: 134, l: 224, t: 90 },
+                        2: { src: 'assets/dikel/3.electrolytic-nickel.svg', w: 288, h: 147, l: 667, t: 116 }
+                    },
+                    covers: []
+                },
+                { // Row 2: Steps 3,4,5 (연속소둔, 표면마감, 장력형상조정)
+                    cropX: 960, cropY: 140, cropW: 760, cropH: 195,
+                    steps: [3, 4, 5],
+                    defaultSrc: 'assets/dikel/nickel-mass-default.svg',
+                    stepSrcs: {
+                        3: { src: 'assets/dikel/4.continuous-annealing.svg', w: 394, h: 139, l: 972, t: 154 },
+                        4: { src: 'assets/dikel/5.surface-finish.svg', w: 103, h: 117, l: 1366, t: 185 },
+                        5: { src: 'assets/dikel/6.tension-leveling.svg', w: 258, h: 135, l: 1450, t: 196 }
+                    },
+                    covers: [
+                        // 왼쪽 아래 겹침 가림 (최소한만)
+                        { left: '0', bottom: '0', width: '10%', height: '25%' }
+                    ]
+                },
+                { // Row 3: Steps 6,7 (정밀컷팅, 포장정리)
+                    cropX: 540, cropY: 278, cropW: 620, cropH: 208,
+                    steps: [6, 7],
+                    defaultSrc: 'assets/dikel/nickel-mass-default.svg',
+                    stepSrcs: {
+                        6: { src: 'assets/dikel/7.precision-cutting.svg', w: 251, h: 116, l: 609, t: 287 },
+                        7: { src: 'assets/dikel/8.packaging.svg', w: 260, h: 154, l: 872, t: 327 }
+                    },
+                    covers: [
+                        // 오른쪽 위 겹침 가림
+                        { right: '0', top: '0', width: '18%', height: '25%' },
+                        // 왼쪽 위 겹침 가림 (얇은 선)
+                        { left: '0', top: '0', width: '10%', height: '12%' }
+                    ]
+                }
+            ];
+
+            const SPECIAL_ROW_CONFIG = [
+                { // Row 1: Steps 0,1,2
+                    cropX: 180, cropY: 50, cropW: 900, cropH: 220,
+                    steps: [0, 1, 2],
+                    defaultSrc: 'assets/dikel/nickel-special.png',
+                    stepSrcs: {
+                        0: { src: 'assets/dikel/1.cold-coil-setup.svg', w: 72, h: 94, l: 258, t: 86 },
+                        1: { src: 'assets/dikel/2.degreasing-line.svg', w: 449, h: 132, l: 336, t: 94 },
+                        2: { src: 'assets/dikel/3.electrolytic-nickel.svg', w: 288, h: 148, l: 785, t: 120 }
+                    },
+                    covers: []
+                },
+                { // Row 2: Steps 3,4 (배치형소둔, 표면마감)
+                    cropX: 960, cropY: 130, cropW: 700, cropH: 200,
+                    steps: [3, 4],
+                    defaultSrc: 'assets/dikel/nickel-special.png',
+                    stepSrcs: {
+                        3: { src: 'assets/dikel/4.batch-annealing.svg', w: 161, h: 162, l: 1091, t: 141 },
+                        4: { src: 'assets/dikel/5.surface-finish1.svg', w: 227, h: 146, l: 1294, t: 180 }
+                    },
+                    covers: [
+                        { left: '0', top: '0', width: '16%', height: '100%' }
+                    ]
+                },
+                { // Row 3: Steps 5,6 (정밀컷팅, 포장정리)
+                    cropX: 440, cropY: 278, cropW: 720, cropH: 208,
+                    steps: [5, 6],
+                    defaultSrc: 'assets/dikel/nickel-special.png',
+                    stepSrcs: {
+                        5: { src: 'assets/dikel/7.precision-cutting.svg', w: 249, h: 115, l: 521, t: 287 },
+                        6: { src: 'assets/dikel/8.packaging.svg', w: 260, h: 154, l: 782, t: 327 }
+                    },
+                    covers: [
+                        { right: '0', top: '0', width: '18%', height: '20%' }
+                    ]
+                }
+            ];
+
+            function buildMobileRows(containerId, rowConfig, stepsData) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+
+                // 기존 라벨 모두 제거 (중복 방지)
+                container.querySelectorAll('.ps-mobile-step-label').forEach(el => el.remove());
+
+                const rows = container.querySelectorAll('.ps-mobile-row');
+                const containerWidth = container.clientWidth || (window.innerWidth - 32);
+
+                rowConfig.forEach((cfg, rowIdx) => {
+                    const row = rows[rowIdx];
+                    if (!row) return;
+
+                    const scale = containerWidth / cfg.cropW;
+                    const rowHeight = cfg.cropH * scale;
+                    row.style.height = rowHeight + 'px';
+
+                    // 내부 래퍼 (1860×486 좌표계)
+                    const inner = document.createElement('div');
+                    inner.className = 'ps-row-inner';
+                    inner.style.transform = `scale(${scale})`;
+                    inner.style.transformOrigin = '0 0';
+                    inner.style.left = (-cfg.cropX * scale) + 'px';
+                    inner.style.top = (-cfg.cropY * scale) + 'px';
+
+
+
+                    // 각 step의 focus 오버레이 SVG
+                    cfg.steps.forEach(stepIdx => {
+                        const stepCfg = cfg.stepSrcs[stepIdx];
+                        if (!stepCfg) return;
+
+                        const stepImg = document.createElement('img');
+                        stepImg.className = 'ps-step-img';
+                        stepImg.dataset.mobileStep = stepIdx;
+                        stepImg.src = stepCfg.src;
+                        stepImg.alt = '';
+                        stepImg.style.cssText = `width:${stepCfg.w}px;height:${stepCfg.h}px;left:${stepCfg.l}px;top:${stepCfg.t}px;position:absolute;pointer-events:auto;cursor:pointer;`;
+                        // 클릭 시 해당 스텝으로 이동
+                        stepImg.addEventListener('click', () => {
+                            clearInterval(autoTimer);
+                            activateStep(stepIdx);
+                            startAutoPlay();
+                        });
+                        inner.appendChild(stepImg);
+                    });
+
+                    row.innerHTML = '';
+                    row.appendChild(inner);
+
+                    // 각 step 위에 공정 이름 라벨 생성 (순수 수학 계산, DOM 의존 없음)
+                    // 이 row의 top 위치를 수학적으로 계산 (padding-top 30px + 이전 row들의 높이 + margin 30px)
+                    let rowTop = 30; // container padding-top
+                    for (let r = 0; r < rowIdx; r++) {
+                        const prevScale = containerWidth / rowConfig[r].cropW;
+                        rowTop += rowConfig[r].cropH * prevScale + 30; // row height + margin-bottom
+                    }
+
+                    cfg.steps.forEach(stepIdx => {
+                        const stepCfg = cfg.stepSrcs[stepIdx];
+                        if (!stepCfg) return;
+                        const stepName = (stepsData && stepsData[stepIdx]) ? stepsData[stepIdx].name : '';
+                        if (!stepName) return;
+
+                        const label = document.createElement('div');
+                        label.className = 'ps-mobile-step-label';
+                        label.dataset.mobileStep = stepIdx;
+
+                        const nameSpan = document.createElement('span');
+                        nameSpan.textContent = stepName;
+                        label.appendChild(nameSpan);
+
+                        const arrow = document.createElement('div');
+                        arrow.className = 'label-arrow';
+                        label.appendChild(arrow);
+
+                        // 위치: 순수 수학 계산 (DOM offsetTop 사용 안 함)
+                        const centerX = (stepCfg.l - cfg.cropX + stepCfg.w / 2) * scale;
+                        const imgTop = (stepCfg.t - cfg.cropY) * scale;
+                        label.style.left = centerX + 'px';
+                        label.style.top = (rowTop + imgTop - 4) + 'px';
+                        label.style.transform = 'translateX(-50%) translateY(-100%)';
+
+                        container.appendChild(label);
+                    });
+
+                    // 겹침 가림용 커버 div 생성
+                    if (cfg.covers && cfg.covers.length > 0) {
+                        cfg.covers.forEach(cover => {
+                            const coverDiv = document.createElement('div');
+                            coverDiv.style.cssText = 'position:absolute;background:#f1edea;z-index:5;';
+                            if (cover.left !== undefined) coverDiv.style.left = cover.left;
+                            if (cover.right !== undefined) coverDiv.style.right = cover.right;
+                            if (cover.top !== undefined) coverDiv.style.top = cover.top;
+                            if (cover.bottom !== undefined) coverDiv.style.bottom = cover.bottom;
+                            coverDiv.style.width = cover.width;
+                            coverDiv.style.height = cover.height;
+                            row.appendChild(coverDiv);
+                        });
+                    }
+                });
+            }
+
+            // 모바일 3줄 다이어그램 생성
+            buildMobileRows('ps-mobile-diagram-bulk', BULK_ROW_CONFIG, BULK_STEPS_DATA);
+            buildMobileRows('ps-mobile-diagram-special', SPECIAL_ROW_CONFIG, SPECIAL_STEPS_DATA);
+
+            // 리사이즈 시 재생성
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    buildMobileRows('ps-mobile-diagram-bulk', BULK_ROW_CONFIG, BULK_STEPS_DATA);
+                    buildMobileRows('ps-mobile-diagram-special', SPECIAL_ROW_CONFIG, SPECIAL_STEPS_DATA);
+                    activateStep(currentStep); // 현재 상태 복원
+                }, 200);
+            });
+
+            activateStep(0);
+            startAutoPlay();
+
+            // 1. 진행 바 클릭 시 타이머 리셋 로직
+            document.querySelectorAll('.ps-steps .ps-step').forEach((el) => {
+                el.addEventListener('click', function () {
+                    const stepIdx = parseInt(this.getAttribute('data-step'));
+                    clearInterval(autoTimer);
+                    activateStep(stepIdx);
+                    startAutoPlay();
+                });
+            });
+
+            // 2. 대량생산 다이어그램 이미지 클릭
+            document.querySelectorAll('#diagram-bulk .ps-step-img').forEach((el, i) => {
+                el.style.pointerEvents = 'auto';
+                el.style.cursor = 'pointer';
+                el.addEventListener('click', () => {
+                    if (currentMode !== 'bulk') return;
+                    clearInterval(autoTimer);
+                    activateStep(i);
+                    startAutoPlay();
+                });
+            });
+
+            // 3. 특수스펙 다이어그램 이미지 클릭
+            document.querySelectorAll('#diagram-special .ps-step-img').forEach((el, i) => {
+                el.style.pointerEvents = 'auto';
+                el.style.cursor = 'pointer';
+                el.addEventListener('click', () => {
+                    if (currentMode !== 'special') return;
+                    clearInterval(autoTimer);
+                    activateStep(i);
+                    startAutoPlay();
+                });
+            });
+
+            // 4. 모바일 인디케이터 dot 클릭
+            document.querySelectorAll('.ps-mobile-dot').forEach((dot) => {
+                dot.addEventListener('click', function () {
+                    const stepIdx = parseInt(this.getAttribute('data-step'));
+                    clearInterval(autoTimer);
+                    activateStep(stepIdx);
+                    startAutoPlay();
+                });
+                dot.style.cursor = 'pointer';
+            });
+        });
+
+        /* 모드 전환 버튼 (Toggle) 로직 – is-hidden 클래스 기반 */
+        document.querySelectorAll('.ps-toggle-btn').forEach((btn, index) => {
+            btn.addEventListener('click', function () {
+                if (this.classList.contains('active')) return;
+
+                document.querySelectorAll('.ps-toggle-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                clearInterval(autoTimer);
+                currentStep = 0;
+
+                if (index === 0) {
+                    currentMode = 'bulk';
+                    document.getElementById('diagram-bulk').style.display = '';
+                    document.getElementById('diagram-special').style.display = 'none';
+                    document.getElementById('ps-steps-bar').closest('.ps-progress').style.display = '';
+                    document.getElementById('ps-progress-special').style.display = 'none';
+                    // 모바일 요소: is-hidden 토글
+                    document.getElementById('ps-mobile-diagram-bulk').classList.remove('is-hidden');
+                    document.getElementById('ps-mobile-diagram-special').classList.add('is-hidden');
+                    document.getElementById('ps-mobile-dots-bulk').classList.remove('is-hidden');
+                    document.getElementById('ps-mobile-dots-special').classList.add('is-hidden');
+                    document.getElementById('ps-mobile-card-bulk').classList.remove('is-hidden');
+                    document.getElementById('ps-mobile-card-special').classList.add('is-hidden');
+                } else {
+                    currentMode = 'special';
+                    document.getElementById('diagram-bulk').style.display = 'none';
+                    document.getElementById('diagram-special').style.display = '';
+                    document.getElementById('ps-steps-bar').closest('.ps-progress').style.display = 'none';
+                    document.getElementById('ps-progress-special').style.display = '';
+                    // 모바일 요소: is-hidden 토글
+                    document.getElementById('ps-mobile-diagram-bulk').classList.add('is-hidden');
+                    document.getElementById('ps-mobile-diagram-special').classList.remove('is-hidden');
+                    document.getElementById('ps-mobile-dots-bulk').classList.add('is-hidden');
+                    document.getElementById('ps-mobile-dots-special').classList.remove('is-hidden');
+                    document.getElementById('ps-mobile-card-bulk').classList.add('is-hidden');
+                    document.getElementById('ps-mobile-card-special').classList.remove('is-hidden');
+                }
+
+                activateStep(0);
+                startAutoPlay();
+            });
+        });
+
+
+
+        // 📍 가치 섹션 실시간 패럴랙스
+        (function () {
+            const section = document.getElementById('value-section');
+            const img1 = document.getElementById('value-img-1');
+            const img2 = document.getElementById('value-img-2');
+            const item0 = document.getElementById('vitem-0');
+            const item1 = document.getElementById('vitem-1');
+            const fill = document.getElementById('value-fill');
+            const label = document.getElementById('value-label');
+
+            if (!section) return;
+
+            function updateScroll() {
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                const scrollDistance = rect.height - windowHeight;
+                let progress = -rect.top / scrollDistance;
+                progress = Math.max(0, Math.min(1, progress));
+
+                img1.style.opacity = (1 - progress).toFixed(3);
+                img2.style.opacity = progress.toFixed(3);
+
+                item0.style.transform = `translateY(${progress * -500}px)`;
+                item0.style.opacity = (1 - (progress * 0.8)).toFixed(3);
+
+                item1.style.transform = `translateY(${(1 - progress) * 1000}px)`;
+                item1.style.opacity = (0.0 + (progress * 0.8)).toFixed(3);
+
+                fill.style.transform = `translateY(${progress * 230}px)`;
+
+                if (progress >= 0.5) {
+                    label.textContent = 'DiKel이 열어갈 미래의 가치';
+                } else {
+                    label.textContent = 'DiKel이 만드는 지속가능한 가치';
+                }
+            }
+
+            window.addEventListener('scroll', function () {
+                window.requestAnimationFrame(updateScroll);
+            });
+            updateScroll();
+        })();
+
+        // 📍 갤러리 무한 스크롤
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollContainer = document.querySelector('.gallery-scroll');
+            if (!scrollContainer) return;
+
+            const items = Array.from(scrollContainer.children);
+
+            items.forEach(child => {
+                scrollContainer.appendChild(child.cloneNode(true));
+            });
+
+            const item3 = items[2];
+            const containerCenter = scrollContainer.clientWidth / 2;
+            const item3Center = item3.offsetLeft + (item3.offsetWidth / 2);
+
+            let scrollPos = item3Center - containerCenter;
+            if (scrollPos < 0) scrollPos = 0;
+
+            scrollContainer.scrollLeft = scrollPos;
+
+            function autoScroll() {
+                scrollPos += 1;
+                const halfWidth = scrollContainer.scrollWidth / 2;
+
+                if (scrollPos >= halfWidth) {
+                    scrollPos -= halfWidth;
+                }
+
+                scrollContainer.scrollLeft = scrollPos;
+                requestAnimationFrame(autoScroll);
+            }
+
+            requestAnimationFrame(autoScroll);
+        });
+
+    </script>
+    <script src="../js/gnb.js"></script>
+
+
+</body>
+
+</html>

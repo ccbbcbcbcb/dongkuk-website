@@ -1,0 +1,467 @@
+/* ============================================================
+   disclosures.css  —  공시 및 공고 / IR자료실 전용 스타일
+   1920px 기준 / 360px 모바일 반응형 완벽 대응
+   ============================================================ */
+
+/* ===== 전체 컨텐츠 래퍼 ===== */
+.ds-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(60px, 5.2vw, 100px) clamp(16px, 6.2vw, 120px);
+    gap: clamp(60px, 5.2vw, 100px);
+    width: 100%;
+    box-sizing: border-box;
+    background: #FFFFFF;
+}
+
+/* ===== 내부 프레임 (1680px) ===== */
+.ds-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    gap: clamp(30px, 2.08vw, 40px);
+    width: 100%;
+    max-width: 1680px;
+}
+
+/* ===== 카테고리 필터 탭 바 ===== */
+.ds-filter-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: 8px;
+    width: 100%;
+    height: auto;
+    min-height: 48px;
+    flex-shrink: 0;
+}
+
+.ds-filter-btn {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
+    height: clamp(42px, 2.5vw, 48px);
+    background: transparent;
+    border: 1px solid #D3D3D3;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+    font-size: clamp(16px, 1.04vw, 20px);
+    line-height: 120%;
+    color: #4E4E4E;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.ds-filter-btn:hover {
+    border-color: #A7A7A7;
+    color: #1B1B1B;
+}
+
+.ds-filter-btn.active {
+    background: #F27100;
+    border-color: #F27100;
+    color: #FFFFFF;
+}
+
+/* ===== 테이블 영역 ===== */
+.ds-table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    width: 100%;
+}
+
+.ds-board-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    width: 100%;
+    background: #FFFFFF;
+    border-bottom: 1px solid #D3D3D3;
+}
+
+/* ===== 헤더 행 ===== */
+.ds-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.ds-header-cell {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 24px;
+    height: 100px;
+    background: #F8F9FB;
+    border-top: 1px solid #363636;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    color: #363636;
+    flex-shrink: 0;
+}
+
+.ds-header-cell.ds-cell-title {
+    flex: 1;
+    justify-content: flex-start;
+}
+
+/* 제출인/등록일자/첨부파일 열 공통 너비 */
+.ds-header-cell.ds-cell-submitter,
+.ds-header-cell.ds-cell-date,
+.ds-header-cell.ds-cell-attachment {
+    width: 280px;
+    justify-content: center;
+}
+
+/* ===== 리스트 영역 ===== */
+.ds-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    width: 100%;
+}
+
+/* ===== 개별 행 ===== */
+.ds-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    height: 100px;
+    cursor: pointer;
+    transition: background 0.15s;
+    flex-shrink: 0;
+}
+
+.ds-row:hover {
+    background: #FAFAFA;
+}
+
+/* ===== 셀 공통 ===== */
+.ds-cell {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 18px 24px;
+    height: 100px;
+    background: #FFFFFF;
+    border-top: 1px solid #D3D3D3;
+    flex-shrink: 0;
+    transition: background 0.15s;
+}
+
+.ds-row:hover .ds-cell {
+    background: #FAFAFA;
+}
+
+/* 제목 셀 */
+.ds-cell.ds-cell-title {
+    flex: 1;
+    gap: 8px;
+    overflow: hidden;
+}
+
+.ds-title-text {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 160%;
+    color: #1B1B1B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 일반 셀 (제출인, 날짜 등) */
+.ds-cell.ds-cell-submitter,
+.ds-cell.ds-cell-date {
+    width: 280px;
+    justify-content: center;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 160%;
+    color: #4E4E4E;
+}
+
+/* 첨부파일 셀 */
+.ds-cell.ds-cell-attachment {
+    width: 280px;
+    justify-content: center;
+    gap: 6px;
+}
+
+.ds-download-label {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 160%;
+    color: #4E4E4E;
+}
+
+.ds-icon-download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.ds-icon-download img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 새창 아이콘 */
+.ds-icon-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+/* ===== 더보기 버튼 ===== */
+.ds-btn-more {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    gap: 8px;
+    width: 166px;
+    height: 60px;
+    background: transparent;
+    border: 1px solid #D3D3D3;
+    border-radius: 14px;
+    cursor: pointer;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 160%;
+    color: #363636;
+    transition: all 0.2s ease;
+    margin-top: 20px;
+}
+
+.ds-btn-more:hover {
+    border-color: #A7A7A7;
+    color: #1B1B1B;
+    background: #F8F9FB;
+}
+
+/* ===== 모바일 메타 (데스크톱 숨김) ===== */
+.ds-meta {
+    display: none;
+}
+
+/* ============================================================
+   모바일 반응형 (≤ 1023px)
+   ============================================================ */
+@media (max-width: 1023px) {
+
+    .ds-content {
+        padding: 40px 16px;
+        gap: 30px;
+    }
+
+    .ds-inner {
+        gap: 24px;
+    }
+
+    /* 필터 바 가로 스크롤 가능하게 */
+    .ds-filter-bar {
+        overflow-x: auto;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .ds-filter-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ds-filter-btn {
+        padding: 8px 20px;
+        font-size: 16px;
+        height: 42px;
+    }
+
+    /* 테이블 레이아웃 유지 (500px 이상) */
+    .ds-header {
+        display: flex;
+        height: 60px;
+    }
+
+    .ds-header-cell {
+        height: 60px;
+        font-size: 18px;
+        padding: 0 12px;
+    }
+
+    .ds-header-cell.ds-cell-date,
+    .ds-header-cell.ds-cell-attachment {
+        width: clamp(140px, 20%, 280px);
+        justify-content: center;
+    }
+
+    .ds-board-list {
+        border-top: 1px solid #000000;
+    }
+
+    .ds-row {
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        min-height: 80px;
+        padding: 0;
+        border-bottom: 1px solid #D3D3D3;
+        align-items: stretch;
+    }
+
+    .ds-cell {
+        height: auto;
+        min-height: 80px;
+        padding: 12px;
+        border-top: none;
+        background: transparent;
+        justify-content: flex-start;
+    }
+
+    .ds-cell.ds-cell-title {
+        flex: 1;
+        width: auto !important;
+        align-items: center;
+    }
+
+    .ds-cell.ds-cell-date,
+    .ds-cell.ds-cell-attachment {
+        display: flex;
+        width: clamp(140px, 20%, 280px) !important;
+        justify-content: center;
+        font-size: 16px;
+        color: #4E4E4E;
+    }
+
+    .ds-title-text {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 150%;
+        color: #000000;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        word-break: keep-all;
+    }
+
+    .ds-download-label {
+        font-size: 16px;
+    }
+
+    /* 모바일 전용 메타 정보 숨김 (500px 이상) */
+    .ds-meta {
+        display: none;
+    }
+
+    /* 더보기 버튼 전체 너비 */
+    .ds-btn-more {
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 16px;
+        margin-top: 0;
+    }
+
+    /* ============================================================
+       모바일 카드 레이아웃 (500px 미만)
+       ============================================================ */
+    @media (max-width: 499px) {
+        .ds-header {
+            display: none;
+        }
+
+        .ds-row {
+            flex-direction: column;
+            padding: 24px 0;
+            align-items: flex-start;
+        }
+
+        .ds-cell {
+            width: 100% !important;
+            padding: 0;
+            min-height: unset;
+        }
+
+        .ds-cell.ds-cell-title {
+            margin-bottom: 12px;
+        }
+
+        .ds-cell.ds-cell-date,
+        .ds-cell.ds-cell-attachment {
+            display: none;
+        }
+
+        .ds-meta {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        .ds-meta-submitter,
+        .ds-meta-date {
+            font-family: 'Pretendard';
+            font-size: 14px;
+            color: #7A7A7A;
+            line-height: 1;
+        }
+
+        .ds-meta-divider {
+            width: 1px;
+            height: 10px;
+            background: #D3D3D3;
+        }
+
+        .ds-meta-download {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Pretendard';
+            font-size: 14px;
+            color: #7A7A7A;
+            cursor: pointer;
+        }
+
+        .ds-meta-download img {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}

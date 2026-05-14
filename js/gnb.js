@@ -26,11 +26,11 @@
       title: '회사정보',
       img: 'gnb/img_company.png',
       items: [
-        { text: '회사소개', href: '#', key: '' },
-        { text: '연혁', href: '#', key: '' },
-        { text: '네트워크', href: '#', key: '' },
-        { text: 'CI', href: '#', key: '' },
-        { text: '뉴스', href: '#', key: '' }
+        { text: '회사소개', href: B + 'company/compnay-info.html', key: 'company-info' },
+        { text: '연혁', href: B + 'company/history.html', key: 'history' },
+        { text: '네트워크', href: B + 'company/network.html', key: 'network' },
+        { text: 'CI', href: B + 'company/ci.html', key: 'ci' },
+        { text: '뉴스', href: B + 'company/news.html', key: 'news' }
       ]
     },
     {
@@ -48,11 +48,11 @@
       title: '투자정보',
       img: 'gnb/img_invest.png',
       items: [
-        { text: '투자정보 센터', href: '#', key: '' },
-        { text: '주식정보', href: '#', key: '' },
-        { text: '재무정보', href: '#', key: '' },
-        { text: '공시 및 공고', href: '#', key: '' },
-        { text: 'IR 자료실', href: '#', key: '' }
+        { text: '투자정보 센터', href: B + 'invest/invest-center.html', key: 'invest-center' },
+        { text: '주식정보', href: B + 'invest/stock-info.html', key: 'stock-info' },
+        { text: '재무정보', href: B + 'invest/finance-info.html', key: 'finance-info' },
+        { text: '공시 및 공고', href: B + 'invest/disclosures.html', key: 'disclosures' },
+        { text: 'IR 자료실', href: B + 'invest/ir.html', key: 'ir' }
       ]
     },
     {

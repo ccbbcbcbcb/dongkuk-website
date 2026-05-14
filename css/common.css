@@ -179,29 +179,29 @@ body {
 /* 메뉴 열렸을 때: 투명 → 흰 배경 + 다크 텍스트 */
 .gnb.gnb-menu-active,
 .header.gnb-menu-active {
-    background: #fff !important;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06) !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 100% !important;
-    max-width: 1920px !important;
-    z-index: 100 !important;
+    background: #fff;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1920px;
+    z-index: 100;
 }
 
 .gnb.gnb-menu-active .gnb-utils a,
 .header.gnb-menu-active .utils-text a {
-    color: #4E4E4E !important;
+    color: #4E4E4E;
 }
 
 .gnb.gnb-menu-active .gnb-divider,
 .header.gnb-menu-active .divider {
-    background: #D3D3D3 !important;
+    background: #D3D3D3;
 }
 
 .gnb.gnb-menu-active .gnb-menu-btn span {
-    background: #4E4E4E !important;
+    background: #4E4E4E;
 }
 
 /* 메뉴 열렸을 때: 햄버거 → X 변환 */
@@ -223,7 +223,7 @@ body {
 }
 
 .gnb.gnb-menu-active .gnb-logo img {
-    filter: none !important;
+    filter: none;
 }
 
 
@@ -595,12 +595,12 @@ body {
 
     .mo-br,
     .m-br {
-        display: block !important;
+        display: block;
     }
 
     body {
-        min-width: 0 !important;
-        width: 100% !important;
+        min-width: 0;
+        width: 100%;
         overflow-x: clip;
         padding-top: 72px;
         /* 모바일 GNB 높이 보정 */
@@ -734,7 +734,7 @@ body {
     .btn-top {
         width: 52px;
         height: 52px;
-        right: 16px;
+        right: 16px; /* Ensure it stays within mobile viewport */
     }
 
     /* ── Footer ── */
@@ -762,12 +762,12 @@ body {
     }
 
     .footer-btn {
-        width: 100% !important;
-        font-size: 16px !important;
-        font-weight: 400 !important;
-        padding: 10px 18px 9px !important;
-        border-radius: 6px !important;
-        justify-content: center !important;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 10px 18px 9px;
+        border-radius: 6px;
+        justify-content: center;
     }
 
     .footer-divider {

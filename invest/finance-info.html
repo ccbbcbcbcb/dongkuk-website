@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재무정보 - 동국산업</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/gnb.css">
+    <link rel="stylesheet" href="css/stock-info.css">
+</head>
+
+<body data-page="finance-info">
+
+    <!-- GNB -->
+    <header class="gnb">
+        <div class="gnb-logo">
+            <a href="../index.html"><img src="../assets/common/logo.svg" alt="동국산업 로고"></a>
+        </div>
+        <div class="gnb-utils">
+            <div class="gnb-utils-links">
+                <a href="#">문의</a>
+
+                <a href="#">KR</a>
+            </div>
+            <span class="gnb-divider"></span>
+            <button class="gnb-menu-btn" aria-label="메뉴"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+
+    <section class="page-header">
+        <h1>재무정보</h1>
+    </section>
+
+    <nav class="tab-nav">
+        <div class="tab-item active" data-tab="tab-stock">재무상태표</div>
+        <div class="tab-item" data-tab="tab-return">손익계산서</div>
+    </nav>
+
+    <div id="tab-stock" class="tab-panel active">
+        <section class="finance-status-section">
+            <div class="fs-content">
+                
+                <!-- 연결 재무상태표 -->
+                <div class="fs-block">
+                    <h2 class="fs-title">연결 재무상태표</h2>
+                    <div class="fs-body">
+                        <!-- 그래프 영역 -->
+                        <div class="fs-graphs">
+                            <!-- 자산총계 -->
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title">자산총계</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-grid-rows">
+                                        <div class="fs-chart-row"><span>900,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>600,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>300,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>0</span><div class="fs-line dark"></div></div>
+                                    </div>
+                                    <div class="fs-bar-columns">
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 74.33%;"></div>
+                                            <span class="fs-year">2023</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 78.33%;"></div>
+                                            <span class="fs-year">2024</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar orange" style="height: 72.67%;">
+                                                <div class="fs-tooltip">
+                                                    <div class="fs-tooltip-box">
+                                                        <span>872,020</span>
+                                                    </div>
+                                                    <div class="fs-tooltip-arrow"></div>
+                                                </div>
+                                            </div>
+                                            <span class="fs-year">2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 부채총계 -->
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title">부채총계</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-grid-rows">
+                                        <div class="fs-chart-row"><span>600,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>400,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>200,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>0</span><div class="fs-line dark"></div></div>
+                                    </div>
+                                    <div class="fs-bar-columns">
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 40%;"></div>
+                                            <span class="fs-year">2023</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 56.67%;"></div>
+                                            <span class="fs-year">2024</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar orange" style="height: 50%;"></div>
+                                            <span class="fs-year">2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 자본총계 -->
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title">자본총계</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-grid-rows">
+                                        <div class="fs-chart-row"><span>600,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>400,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>200,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>0</span><div class="fs-line dark"></div></div>
+                                    </div>
+                                    <div class="fs-bar-columns">
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 69.33%;"></div>
+                                            <span class="fs-year">2023</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 61%;"></div>
+                                            <span class="fs-year">2024</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar orange" style="height: 58.67%;"></div>
+                                            <span class="fs-year">2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="fs-unit">단위 : 백만원</div>
+                        
+                        <!-- 테이블 -->
+                        <div class="fs-table-wrap">
+                            <div class="fs-table-row fs-table-header">
+                                <div class="fs-table-cell">구분</div>
+                                <div class="fs-table-cell">2021년</div>
+                                <div class="fs-table-cell">2022년</div>
+                                <div class="fs-table-cell">2023년</div>
+                                <div class="fs-table-cell">2024년</div>
+                                <div class="fs-table-cell highlight-text">2025년</div>
+                            </div>
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">자산총계</div>
+                                <div class="fs-table-cell">809,139</div>
+                                <div class="fs-table-cell">874,777</div>
+                                <div class="fs-table-cell">892,651</div>
+                                <div class="fs-table-cell">942,821</div>
+                                <div class="fs-table-cell highlight-bg-strong">872,020</div>
+                            </div>
+                            <div class="fs-table-row">
+                                <div class="fs-table-cell sub-label">유동자산</div>
+                                <div class="fs-table-cell">461,386</div>
+                                <div class="fs-table-cell">409,370</div>
+                                <div class="fs-table-cell">409,196</div>
+                                <div class="fs-table-cell">426,794</div>
+                                <div class="fs-table-cell highlight-bg-light">358,527</div>
+                            </div>
+                            <div class="fs-table-row">
+                                <div class="fs-table-cell sub-label">비유동자산</div>
+                                <div class="fs-table-cell">347,753</div>
+                                <div class="fs-table-cell">465,407</div>
+                                <div class="fs-table-cell">465,407</div>
+                                <div class="fs-table-cell">516,027</div>
+                                <div class="fs-table-cell highlight-bg-light">513,493</div>
+                            </div>
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">부채총계</div>
+                                <div class="fs-table-cell">251,783</div>
+                                <div class="fs-table-cell">320,290</div>
+                                <div class="fs-table-cell">320,290</div>
+                                <div class="fs-table-cell">454,513</div>
+                                <div class="fs-table-cell highlight-bg-strong">400,978</div>
+                            </div>
+                            <div class="fs-table-row">
+                                <div class="fs-table-cell sub-label">유동부채</div>
+                                <div class="fs-table-cell">210,024</div>
+                                <div class="fs-table-cell">282,582</div>
+                                <div class="fs-table-cell">282,582</div>
+                                <div class="fs-table-cell">346,437</div>
+                                <div class="fs-table-cell highlight-bg-light">281,144</div>
+                            </div>
+                            <div class="fs-table-row">
+                                <div class="fs-table-cell sub-label">비부채총계</div>
+                                <div class="fs-table-cell">41,760</div>
+                                <div class="fs-table-cell">37,708</div>
+                                <div class="fs-table-cell">37,708</div>
+                                <div class="fs-table-cell">108,076</div>
+                                <div class="fs-table-cell highlight-bg-light">119,834</div>
+                            </div>
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">자본총계</div>
+                                <div class="fs-table-cell">557,356</div>
+                                <div class="fs-table-cell">554,487</div>
+                                <div class="fs-table-cell">554,487</div>
+                                <div class="fs-table-cell">488,308</div>
+                                <div class="fs-table-cell highlight-bg-strong">471,042</div>
+                            </div>
+                        </div>
+                        <!-- 커스텀 스크롤바 -->
+                        <div class="fs-scroll-wrap">
+                            <div class="fs-scroll-track"></div>
+                            <div class="fs-scroll-thumb"></div>
+                        </div>
+                        <div class="fs-unit unit-bottom">단위 : 백만원</div>
+                    </div>
+                </div>
+
+                <!-- 별도 재무상태표 -->
+                <div class="fs-block">
+                    <h2 class="fs-title">별도 재무상태표</h2>
+                    <div class="fs-body">
+                        <!-- 그래프 영역 -->
+                        <div class="fs-graphs">
+                            <!-- 자산총계 -->
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title">자산총계</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-grid-rows">
+                                        <div class="fs-chart-row"><span>450,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>300,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>150,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>0</span><div class="fs-line dark"></div></div>
+                                    </div>
+                                    <div class="fs-bar-columns">
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 94.67%;"></div>
+                                            <span class="fs-year">2023</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 109.67%;"></div>
+                                            <span class="fs-year">2024</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar orange" style="height: 103%;">
+                                                <div class="fs-tooltip">
+                                                    <div class="fs-tooltip-box">
+                                                        <span>618,972</span>
+                                                    </div>
+                                                    <div class="fs-tooltip-arrow"></div>
+                                                </div>
+                                            </div>
+                                            <span class="fs-year">2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 부채총계 -->
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title">부채총계</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-grid-rows">
+                                        <div class="fs-chart-row"><span>300,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>200,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>100,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>0</span><div class="fs-line dark"></div></div>
+                                    </div>
+                                    <div class="fs-bar-columns">
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 38.67%;"></div>
+                                            <span class="fs-year">2023</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 60.67%;"></div>
+                                            <span class="fs-year">2024</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar orange" style="height: 61.33%;"></div>
+                                            <span class="fs-year">2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 자본총계 -->
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title">자본총계</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-grid-rows">
+                                        <div class="fs-chart-row"><span>450,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>300,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>150,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>0</span><div class="fs-line dark"></div></div>
+                                    </div>
+                                    <div class="fs-bar-columns">
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 68.67%;"></div>
+                                            <span class="fs-year">2023</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 69%;"></div>
+                                            <span class="fs-year">2024</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar orange" style="height: 62%;"></div>
+                                            <span class="fs-year">2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="fs-unit">단위 : 백만원</div>
+                        
+                        <!-- 테이블 -->
+                        <div class="fs-table-wrap">
+                            <div class="fs-table-row fs-table-header">
+                                <div class="fs-table-cell">구분</div>
+                                <div class="fs-table-cell">2021년</div>
+                                <div class="fs-table-cell">2022년</div>
+                                <div class="fs-table-cell">2023년</div>
+                                <div class="fs-table-cell">2024년</div>
+                                <div class="fs-table-cell highlight-text">2025년</div>
+                            </div>
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">자산총계</div>
+                                <div class="fs-table-cell">523,746</div>
+                                <div class="fs-table-cell">525,037</div>
+                                <div class="fs-table-cell">569,439</div>
+                                <div class="fs-table-cell">658,502</div>
+                                <div class="fs-table-cell highlight-bg-strong">618,972</div>
+                            </div>
+                            <div class="fs-table-row">
+                                <div class="fs-table-cell sub-label">유동자산</div>
+                                <div class="fs-table-cell">203,208</div>
+                                <div class="fs-table-cell">203,754</div>
+                                <div class="fs-table-cell">203,944</div>
+                                <div class="fs-table-cell">200,685</div>
+                                <div class="fs-table-cell highlight-bg-light">188,885</div>
+                            </div>
+                            <div class="fs-table-row">
+                                <div class="fs-table-cell sub-label">비유동자산</div>
+                                <div class="fs-table-cell">320,538</div>
+                                <div class="fs-table-cell">321,283</div>
+                                <div class="fs-table-cell">365,495</div>
+                                <div class="fs-table-cell">457,817</div>
+                                <div class="fs-table-cell highlight-bg-light">430,087</div>
+                            </div>
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">부채총계</div>
+                                <div class="fs-table-cell">121,261</div>
+                                <div class="fs-table-cell">113,476</div>
+                                <div class="fs-table-cell">155,614</div>
+                                <div class="fs-table-cell">243,626</div>
+                                <div class="fs-table-cell highlight-bg-strong">246,530</div>
+                            </div>
+                            <div class="fs-table-row">
+                                <div class="fs-table-cell sub-label">유동부채</div>
+                                <div class="fs-table-cell">86,535</div>
+                                <div class="fs-table-cell">81,018</div>
+                                <div class="fs-table-cell">99,545</div>
+                                <div class="fs-table-cell">135,394</div>
+                                <div class="fs-table-cell highlight-bg-light">126,838</div>
+                            </div>
+                            <div class="fs-table-row">
+                                <div class="fs-table-cell sub-label">비부채총계</div>
+                                <div class="fs-table-cell">34,726</div>
+                                <div class="fs-table-cell">32,458</div>
+                                <div class="fs-table-cell">56,069</div>
+                                <div class="fs-table-cell">108,076</div>
+                                <div class="fs-table-cell highlight-bg-light">119,691</div>
+                            </div>
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">자본총계</div>
+                                <div class="fs-table-cell">402,486</div>
+                                <div class="fs-table-cell">411,561</div>
+                                <div class="fs-table-cell">413,825</div>
+                                <div class="fs-table-cell">414,876</div>
+                                <div class="fs-table-cell highlight-bg-strong">372,442</div>
+                            </div>
+                        </div>
+                        <!-- 커스텀 스크롤바 -->
+                        <div class="fs-scroll-wrap">
+                            <div class="fs-scroll-track"></div>
+                            <div class="fs-scroll-thumb"></div>
+                        </div>
+                        <div class="fs-unit unit-bottom">단위 : 백만원</div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+    </div>
+
+    <div id="tab-return" class="tab-panel">
+        <section class="finance-status-section">
+            <div class="fs-content">
+                
+                <!-- 연결 손익계산서 -->
+                <div class="fs-block">
+                    <h2 class="fs-title">연결 손익계산서</h2>
+                    <div class="fs-body">
+                        <!-- 그래프 영역 -->
+                        <div class="fs-graphs">
+                            <!-- 매출액 -->
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title" style="width: 160px; white-space: nowrap;">매출액</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-grid-rows">
+                                        <div class="fs-chart-row"><span>800,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>600,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>400,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>200,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>0</span><div class="fs-line dark"></div></div>
+                                    </div>
+                                    <div class="fs-bar-columns">
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 94.33%;"></div>
+                                            <span class="fs-year">2023</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 98.67%;"></div>
+                                            <span class="fs-year">2024</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar orange" style="height: 90.67%;">
+                                                <div class="fs-tooltip">
+                                                    <div class="fs-tooltip-box">
+                                                        <span>727,764</span>
+                                                    </div>
+                                                    <div class="fs-tooltip-arrow"></div>
+                                                </div>
+                                            </div>
+                                            <span class="fs-year">2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 영업이익 -->
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title" style="width: 160px; white-space: nowrap;">영업이익</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-grid-rows">
+                                        <div class="fs-chart-row"><span>60,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>30,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>0</span><div class="fs-line dark"></div></div>
+                                        <div class="fs-chart-row"><span>-30,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>-60,000</span><div class="fs-line"></div></div>
+                                    </div>
+                                    <div class="fs-bar-columns">
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray negative" style="height: 22.67%;"></div>
+                                            <span class="fs-year">2023</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 10%;"></div>
+                                            <span class="fs-year">2024</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar orange" style="height: 6%;"></div>
+                                            <span class="fs-year">2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 당기순이익 -->
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title" style="width: 160px; white-space: nowrap;">당기순이익</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-grid-rows">
+                                        <div class="fs-chart-row"><span>60,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>30,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>0</span><div class="fs-line dark"></div></div>
+                                        <div class="fs-chart-row"><span>-30,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>-60,000</span><div class="fs-line"></div></div>
+                                    </div>
+                                    <div class="fs-bar-columns">
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray negative" style="height: 17.33%;"></div>
+                                            <span class="fs-year">2023</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray negative" style="height: 24.67%;"></div>
+                                            <span class="fs-year">2024</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar orange negative" style="height: 9.33%;"></div>
+                                            <span class="fs-year">2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="fs-unit">단위 : 백만원</div>
+                        
+                        <!-- 테이블 -->
+                        <div class="fs-table-wrap">
+                            <div class="fs-table-row fs-table-header">
+                                <div class="fs-table-cell">구분</div>
+                                <div class="fs-table-cell">2021년</div>
+                                <div class="fs-table-cell">2022년</div>
+                                <div class="fs-table-cell">2023년</div>
+                                <div class="fs-table-cell">2024년</div>
+                                <div class="fs-table-cell highlight-text">2025년</div>
+                            </div>
+                            <!-- 매출액 -->
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">매출액</div>
+                                <div class="fs-table-cell">729,136</div>
+                                <div class="fs-table-cell">860,530</div>
+                                <div class="fs-table-cell">757,010</div>
+                                <div class="fs-table-cell">790,288</div>
+                                <div class="fs-table-cell highlight-bg-strong">727,764</div>
+                            </div>
+                            <!-- 매출총이익 -->
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">매출총이익</div>
+                                <div class="fs-table-cell">98,491</div>
+                                <div class="fs-table-cell">70,754</div>
+                                <div class="fs-table-cell">57,058</div>
+                                <div class="fs-table-cell">75,043</div>
+                                <div class="fs-table-cell highlight-bg-strong">62,488</div>
+                            </div>
+                            <!-- 영업이익 -->
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">영업이익</div>
+                                <div class="fs-table-cell">34,930</div>
+                                <div class="fs-table-cell">1,178</div>
+                                <div class="fs-table-cell">-27,109</div>
+                                <div class="fs-table-cell">11,982</div>
+                                <div class="fs-table-cell highlight-bg-strong">7,025</div>
+                            </div>
+                            <!-- 법인세비용차감전순이익 -->
+                            <div class="fs-table-row">
+                                <div class="fs-table-cell label">법인세<br class="m-br">비용차감전순이익</div>
+                                <div class="fs-table-cell">43,742</div>
+                                <div class="fs-table-cell">-678</div>
+                                <div class="fs-table-cell">-36,068</div>
+                                <div class="fs-table-cell">-24,844</div>
+                                <div class="fs-table-cell highlight-bg-light">-9,708</div>
+                            </div>
+                            <!-- 당기순이익 -->
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">당기순이익</div>
+                                <div class="fs-table-cell">37,321</div>
+                                <div class="fs-table-cell">2,243</div>
+                                <div class="fs-table-cell">-20,641</div>
+                                <div class="fs-table-cell">-29,633</div>
+                                <div class="fs-table-cell highlight-bg-strong">-11,060</div>
+                            </div>
+                        </div>
+                        <!-- 커스텀 스크롤바 -->
+                        <div class="fs-scroll-wrap">
+                            <div class="fs-scroll-track"></div>
+                            <div class="fs-scroll-thumb"></div>
+                        </div>
+                        <div class="fs-unit unit-bottom">단위 : 백만원</div>
+                    </div>
+                </div>
+
+                <!-- 별도 손익계산서 -->
+                <div class="fs-block">
+                    <h2 class="fs-title">별도 손익계산서</h2>
+                    <div class="fs-body">
+                        <!-- 그래프 영역 -->
+                        <div class="fs-graphs">
+                            <!-- 매출액 -->
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title" style="width: 160px; white-space: nowrap;">매출액</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-grid-rows">
+                                        <div class="fs-chart-row"><span>400,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>300,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>200,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>100,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>0</span><div class="fs-line dark"></div></div>
+                                    </div>
+                                    <div class="fs-bar-columns">
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 93.33%;"></div>
+                                            <span class="fs-year">2023</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 96%;"></div>
+                                            <span class="fs-year">2024</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar orange" style="height: 93.33%;">
+                                                <div class="fs-tooltip">
+                                                    <div class="fs-tooltip-box">
+                                                        <span>522,693</span>
+                                                    </div>
+                                                    <div class="fs-tooltip-arrow"></div>
+                                                </div>
+                                            </div>
+                                            <span class="fs-year">2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 영업이익 -->
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title" style="width: 160px; white-space: nowrap;">영업이익</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-grid-rows">
+                                        <div class="fs-chart-row"><span>60,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>30,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>0</span><div class="fs-line dark"></div></div>
+                                        <div class="fs-chart-row"><span>-30,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>-60,000</span><div class="fs-line"></div></div>
+                                    </div>
+                                    <div class="fs-bar-columns">
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 5%;"></div>
+                                            <span class="fs-year">2023</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 8.67%;"></div>
+                                            <span class="fs-year">2024</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar orange negative" style="height: 2.33%;"></div>
+                                            <span class="fs-year">2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 당기순이익 -->
+                            <div class="fs-graph-box">
+                                <h3 class="fs-graph-title" style="width: 160px; white-space: nowrap;">당기순이익</h3>
+                                <div class="fs-chart-area">
+                                    <div class="fs-grid-rows">
+                                        <div class="fs-chart-row"><span>60,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>30,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>0</span><div class="fs-line dark"></div></div>
+                                        <div class="fs-chart-row"><span>-30,000</span><div class="fs-line"></div></div>
+                                        <div class="fs-chart-row"><span>-60,000</span><div class="fs-line"></div></div>
+                                    </div>
+                                    <div class="fs-bar-columns">
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 8.33%;"></div>
+                                            <span class="fs-year">2023</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar gray" style="height: 6.67%;"></div>
+                                            <span class="fs-year">2024</span>
+                                        </div>
+                                        <div class="fs-chart-column">
+                                            <div class="fs-bar orange negative" style="height: 30%;"></div>
+                                            <span class="fs-year">2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="fs-unit">단위 : 백만원</div>
+                        
+                        <!-- 테이블 -->
+                        <div class="fs-table-wrap">
+                            <div class="fs-table-row fs-table-header">
+                                <div class="fs-table-cell">구분</div>
+                                <div class="fs-table-cell">2021년</div>
+                                <div class="fs-table-cell">2022년</div>
+                                <div class="fs-table-cell">2023년</div>
+                                <div class="fs-table-cell">2024년</div>
+                                <div class="fs-table-cell highlight-text">2025년</div>
+                            </div>
+                            <!-- 매출액 -->
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">매출액</div>
+                                <div class="fs-table-cell">348,630</div>
+                                <div class="fs-table-cell">381,295</div>
+                                <div class="fs-table-cell">373,991</div>
+                                <div class="fs-table-cell">384,242</div>
+                                <div class="fs-table-cell highlight-bg-strong">373,093</div>
+                            </div>
+                            <!-- 매출총이익 -->
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">매출총이익</div>
+                                <div class="fs-table-cell">42,532</div>
+                                <div class="fs-table-cell">39,445</div>
+                                <div class="fs-table-cell">31,706</div>
+                                <div class="fs-table-cell">40,508</div>
+                                <div class="fs-table-cell highlight-bg-strong">25,107</div>
+                            </div>
+                            <!-- 영업이익 -->
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">영업이익</div>
+                                <div class="fs-table-cell">16,255</div>
+                                <div class="fs-table-cell">12,496</div>
+                                <div class="fs-table-cell">6,017</div>
+                                <div class="fs-table-cell">10,537</div>
+                                <div class="fs-table-cell highlight-bg-strong">-2,859</div>
+                            </div>
+                            <!-- 법인세비용차감전순이익 -->
+                            <div class="fs-table-row">
+                                <div class="fs-table-cell label">법인세<br class="m-br">비용차감전순이익</div>
+                                <div class="fs-table-cell">24,377</div>
+                                <div class="fs-table-cell">13,023</div>
+                                <div class="fs-table-cell">3,697</div>
+                                <div class="fs-table-cell">8,072</div>
+                                <div class="fs-table-cell highlight-bg-light">-35,912</div>
+                            </div>
+                            <!-- 당기순이익 -->
+                            <div class="fs-table-row sum-row">
+                                <div class="fs-table-cell label">당기순이익</div>
+                                <div class="fs-table-cell">19,209</div>
+                                <div class="fs-table-cell">11,958</div>
+                                <div class="fs-table-cell">10,216</div>
+                                <div class="fs-table-cell">8,284</div>
+                                <div class="fs-table-cell highlight-bg-strong">-36,237</div>
+                            </div>
+                        </div>
+                        <!-- 커스텀 스크롤바 -->
+                        <div class="fs-scroll-wrap">
+                            <div class="fs-scroll-track"></div>
+                            <div class="fs-scroll-thumb"></div>
+                        </div>
+                                                <div class="fs-unit unit-bottom">단위 : 백만원</div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </div>
+
+    <div id="support-placeholder"></div>
+    <div id="footer-placeholder"></div>
+    <div id="btn-top-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+
+    <script>
+        // 📍 탭 전환 로직
+        document.querySelectorAll('.tab-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const targetTab = item.getAttribute('data-tab');
+                
+                // 탭 버튼 상태 업데이트
+                document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll(`.tab-item[data-tab="${targetTab}"]`).forEach(t => t.classList.add('active'));
+                
+                // 패널 가시성 업데이트
+                document.querySelectorAll('.tab-panel').forEach(panel => {
+                    panel.classList.remove('active');
+                    if (panel.id === targetTab) {
+                        panel.classList.add('active');
+                    }
+                });
+            });
+        });
+
+
+        // 📍 재무정보 표 커스텀 스크롤 연동
+        const fsTableWraps = document.querySelectorAll('.fs-table-wrap');
+        fsTableWraps.forEach(wrap => {
+            const scrollWrap = wrap.nextElementSibling;
+            if (scrollWrap && scrollWrap.classList.contains('fs-scroll-wrap')) {
+                const scrollThumb = scrollWrap.querySelector('.fs-scroll-thumb');
+                const scrollTrack = scrollWrap.querySelector('.fs-scroll-track');
+                
+                if (scrollThumb && scrollTrack) {
+                    wrap.addEventListener('scroll', () => {
+                        const scrollLeft = wrap.scrollLeft;
+                        const scrollWidth = wrap.scrollWidth - wrap.clientWidth;
+                        const trackWidth = scrollTrack.clientWidth - scrollThumb.clientWidth;
+                        
+                        if (scrollWidth > 0) {
+                            const ratio = scrollLeft / scrollWidth;
+                            // thumb 위치 계산 (여유값 2px 반영)
+                            scrollThumb.style.left = (ratio * trackWidth + 2) + 'px';
+                        }
+                    });
+                }
+            }
+        });
+
+    </script>
+    <script src="../js/gnb.js"></script>
+
+
+</body>
+
+</html>

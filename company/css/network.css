@@ -1,0 +1,532 @@
+/* Using utility classes from common.css (.mo-br, .m-br, etc.) */
+
+
+/* ===== Page Header ===== */
+.page-header {
+    width: 100%;
+    height: clamp(100px, 12.5vw, 240px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.page-header h1 {
+    font-size: clamp(30px, 3.125vw, 60px);
+    font-weight: 700;
+    color: #1b1b1b;
+    margin: 0; word-break: keep-all;
+}
+
+/* ===== Hero Text Section (Subtitle Specs) ===== */
+.hero-text-outer {
+    position: relative;
+    min-height: 180vh;
+    padding-bottom: 0;
+    background: #FFFFFF;
+}
+
+.hero-text-inner {
+    position: sticky;
+    top: 100px;
+    background: #fff;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(40px, 5.2vw, 100px) clamp(16px, 1.5vw, 30px);
+    gap: clamp(24px, 3.125vw, 60px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero-text-section {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.hero-text-section h2 {
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(24px, 2.3vw + 15.7px, 60px);
+    line-height: 140%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #E9E9E9; /* Base color for animation */
+    margin: 0; word-break: keep-all;
+    word-break: keep-all;
+}
+
+.hero-text-section h2 .char {
+    display: inline-block;
+    white-space: pre;
+    transition: color 0.15s ease;
+}
+
+.hero-text-section h2 .char.active {
+    color: #363636;
+}
+
+.hero-image-section {
+    width: 100%;
+    max-width: 1860px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image-wrapper {
+    width: clamp(328px, 98.2vw - 25.5px, 1860px);
+    height: clamp(448px, 5.9vw + 426.7px, 540px);
+    border-radius: clamp(16px, 1.56vw, 30px);
+    overflow: hidden;
+    position: relative;
+    flex: none;
+}
+
+#expand-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== Network Sections Common ===== */
+.network-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(40px, 5.2vw, 100px) 0;
+    box-sizing: border-box;
+}
+
+.network-section .inner {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 1.56vw, 30px);
+    padding: 0 clamp(20px, 6.25vw, 120px);
+    box-sizing: border-box;
+}
+
+.section-label {
+    font-family: 'Pretendard';
+    font-weight: 700;
+    font-size: clamp(24px, 1.35vw, 26px);
+    line-height: 150%;
+    color: #4E4E4E;
+}
+
+.cards-row {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(12px, 1.25vw, 24px);
+    width: 100%;
+}
+
+/* ===== HQ Section (본사) ===== */
+.hq-section {
+    background: #FFFFFF;
+}
+
+.hq-cards-row {
+    align-items: flex-start;
+}
+
+.hq-img-card {
+    width: clamp(328px, 20.26vw, 389px);
+    height: clamp(156px, 24.9vw, 479px);
+    border-radius: clamp(16px, 1.56vw, 30px);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.hq-img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-card {
+    flex: 1;
+    height: clamp(308px, 24.9vw, 479px);
+    background: #F8F9FB;
+    border-radius: clamp(16px, 1.56vw, 30px);
+    padding: clamp(20px, 2.29vw, 44px) clamp(16px, 2.08vw, 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: relative;
+    min-width: 0;
+}
+
+.info-card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.location-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: clamp(16px, 1.04vw, 20px);
+    color: #7A7A7A;
+}
+
+.location-tag .divider {
+    width: 1px;
+    height: 12px;
+    background: #A7A7A7;
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: clamp(30px, 1.875vw, 36px);
+    color: #1B1B1B;
+    margin: 0; word-break: keep-all;
+}
+
+.title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-card-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 1.66vw, 32px);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 1.04vw, 20px);
+}
+
+.address-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+}
+
+.address-text {
+    font-weight: 500;
+    font-size: clamp(16px, 1.04vw, 20px);
+    color: #4E4E4E;
+    width: fit-content;
+    word-break: keep-all;
+}
+
+.map-link {
+    font-weight: 500;
+    font-size: clamp(16px, 0.937vw, 18px);
+    color: #7A7A7A;
+    text-decoration: underline;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-icon {
+    width: clamp(20px, 1.25vw, 24px);
+    height: clamp(20px, 1.25vw, 24px);
+}
+
+.contact-text {
+    font-weight: 500;
+    font-size: clamp(16px, 1.04vw, 20px);
+    color: #1B1B1B;
+}
+
+.type-badge {
+    position: absolute;
+    top: clamp(20px, 2.08vw, 40px);
+    right: clamp(16px, 1.875vw, 36px);
+    padding: 6px 12px;
+    background: #FCE3CC;
+    border-radius: 1000px;
+    font-weight: 500;
+    font-size: clamp(16px, 1.04vw, 20px);
+    color: #F27100;
+}
+
+/* ===== Factory/Office Section (공장/영업소) ===== */
+.factory-office-section {
+    background: #F1F3F7;
+}
+
+.factory-office-section .inner {
+    gap: clamp(30px, 3.125vw, 60px);
+}
+
+.factory-office-section .info-card-bottom {
+    gap: clamp(20px, 1.667vw, 32px);
+}
+
+.factory-office-section .info-item {
+    gap: clamp(16px, 1.042vw, 20px);
+}
+
+.sub-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.combined-card {
+    flex: 1;
+    height: clamp(464px, 24.9vw, 479px);
+    display: flex;
+    flex-direction: row;
+    background: #FFFFFF;
+    border-radius: clamp(16px, 1.56vw, 30px);
+    overflow: hidden;
+    min-width: 0;
+}
+
+.combined-card .card-img {
+    width: clamp(328px, 20.26vw, 389px);
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.combined-card .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.combined-card .info-card {
+    background: transparent;
+    border-radius: 0;
+}
+
+.combined-card .type-badge {
+    background: rgba(0, 53, 146, 0.1);
+    color: #003592;
+}
+
+.combined-card .type-badge.office {
+    background: #E9E9E9;
+    color: #4E4E4E;
+}
+
+/* ===== Overseas Section (해외) ===== */
+.overseas-section {
+    background: #FFFFFF;
+}
+
+.overseas-card {
+    flex: 1;
+    height: clamp(308px, 25.5vw, 490px);
+    border-radius: clamp(16px, 1.56vw, 30px);
+    padding: clamp(20px, 2.29vw, 44px) clamp(16px, 2.08vw, 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: #FFFFFF;
+    min-width: 0;
+}
+
+.overseas-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: clamp(16px, 1.56vw, 30px);
+    z-index: 0;
+}
+
+.overseas-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.overseas-card .location-tag, 
+.overseas-card .card-title, 
+.overseas-card .address-text, 
+.overseas-card .contact-text {
+    color: #FFFFFF;
+}
+
+.overseas-card .map-link {
+    color: #D3D3D3;
+}
+
+.established-text {
+    font-weight: 500;
+    font-size: clamp(14px, 1.04vw, 20px);
+    color: #D3D3D3;
+}
+
+@media (max-width: 1023px) {
+
+
+    .hero-text-outer {
+        min-height: 200vh;
+    }
+
+    .hero-text-inner {
+        top: 72px;
+        padding: 40px 16px;
+        gap: 24px;
+        background: #fff;
+    }
+
+    .hero-text-section h2 {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        min-height: 72px;
+        font-weight: 700;
+        font-size: clamp(24px, 2.3vw + 15.7px, 30px);
+        line-height: 150%;
+        color: #E9E9E9;
+        text-align: center;
+        display: block;
+        letter-spacing: -0.05em;
+        margin: 0; word-break: keep-all;
+    }
+
+    .hero-text-section h2 .char.active {
+        color: #363636; /* specificity handles this, removed !important */
+    }
+
+    .hero-image-wrapper img {
+        object-position: 37.47% center;
+    }
+
+    .pc-br {
+        display: none;
+    }
+
+    .network-section .inner {
+        padding: 0 16px;
+    }
+
+    .cards-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hq-img-card, .info-card, .combined-card, .combined-card .card-img, .combined-card .info-card, .overseas-card {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        word-break: keep-all;
+    }
+
+    .info-card, .overseas-card {
+        padding: 20px 16px;
+        height: 308px;
+        gap: 100px;
+        border-radius: 16px;
+    }
+
+    .overseas-card {
+        gap: 54px;
+    }
+
+    .info-card {
+        background: #F8F9FB;
+    }
+
+    .established-text {
+        font-size: 14px;
+        line-height: 150%;
+        opacity: 0.8;
+    }
+
+    .combined-card {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .combined-card .card-img {
+        width: 100%;
+        height: 200px; /* Providing a reasonable height for mobile if not specified */
+    }
+
+    .combined-card .info-card {
+        background: #FFFFFF;
+        border-radius: 0 0 16px 16px;
+        height: 308px;
+        gap: 67px;
+    }
+
+    .info-card-top {
+        gap: 16px;
+    }
+
+    .location-tag {
+        gap: 8px;
+        font-size: 16px;
+    }
+
+    .card-title {
+        font-size: 30px;
+        line-height: 150%;
+    }
+
+    .title-group {
+        gap: 8px;
+    }
+
+    .type-badge {
+        top: 20px;
+        right: 16px;
+        padding: 6px 12px;
+        font-size: 16px;
+    }
+
+    .info-card-bottom {
+        gap: 20px;
+    }
+
+    .info-item {
+        gap: 16px;
+    }
+
+    .address-row {
+        gap: 10px;
+    }
+
+    .address-text,
+    .map-link,
+    .contact-text {
+        font-size: 16px;
+        line-height: 160%;
+        font-weight: 400;
+    }
+
+    .contact-row {
+        gap: 16px;
+    }
+
+    .hero-image-wrapper {
+        width: 100%;
+        max-width: 100%;
+        height: clamp(448px, 13vw + 400px, 540px);
+    }
+}
