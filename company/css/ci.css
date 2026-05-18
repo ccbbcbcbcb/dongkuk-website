@@ -346,27 +346,28 @@ body {
 /* Responsive (Mobile 360px) */
 @media screen and (max-width: 1023px) {
     .page-header {
-        padding: 40px 16px 30px;
-        gap: 20px;
+        padding: 20px 16px 30px 16px;
+        height: auto;
+        justify-content: center;
     }
 
     .page-header .page-label {
         font-size: 14px;
     }
 
-    .page-header {
-        padding: 0;
-        gap: 20px;
-        height: 176px;
-        justify-content: center;
-    }
-
     .page-header h1 {
+        width: 100%;
+        max-width: 328px;
+        height: 54px;
         font-size: 30px;
         font-weight: 700;
         line-height: 140%;
         color: #000;
         margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 
     .bi-section {

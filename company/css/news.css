@@ -558,9 +558,24 @@ a {
 
 /* Specific Design Parity Enforcement for 360px */
 @media (max-width: 360px) {
-    .page-header { height: 176px; padding-bottom: 30px; gap: 20px; }
-    .page-header h1 { font-size: 30px; }
-    .news-main { padding: 40px 16px; gap: 30px; }
+    .page-header {
+        padding: 20px 16px 30px 16px;
+        height: auto;
+        justify-content: center;
+        gap: 0;
+    }
+    .page-header h1 {
+        width: 100%;
+        max-width: 328px;
+        height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 30px;
+        margin: 0;
+    }
+    .news-main { padding: 40px 16px; gap: 80px; }
     .video-box { height: 184px; }
     .featured-content { height: 275px; padding: 16px 20px; }
     .featured-title { font-size: 18px; }

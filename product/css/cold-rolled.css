@@ -2826,6 +2826,7 @@
                 background: #D6D6D6; /* Gap visibility */
                 border: 1px solid #D6D6D6;
                 border-left: none;
+                border-top: 1px solid #000000;
                 box-sizing: border-box;
             }
             

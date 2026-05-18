@@ -4987,6 +4987,7 @@ body {
     .tab-nav {
         margin-top: 0;
         height: 66px;
+        border-bottom: 2px solid #E9E9E9;
     }
 
     .tab-item {
@@ -4997,6 +4998,7 @@ body {
         font-size: 16px;
         border-bottom: 2px solid #E9E9E9;
         color: #A7A7A7;
+        margin-bottom: -2px;
     }
 
     .tab-item.active {
@@ -5999,7 +6001,7 @@ body {
     align-items: center;
     padding: 0px 0px 6px;
     gap: 20px;
-    width: 382px;
+    width: auto;
     height: 66px;
     flex: none;
     order: 1;
@@ -6012,7 +6014,7 @@ body {
     align-items: center;
     padding: 0px;
     gap: 8px;
-    width: 172px;
+    width: auto;
     height: 60px;
     flex: none;
     order: 0;
@@ -6026,7 +6028,7 @@ body {
     align-items: center;
     padding: 0px;
     gap: 8px;
-    width: 170px;
+    width: auto;
     height: 60px;
     flex: none;
     order: 2;
@@ -6073,8 +6075,8 @@ body {
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 12px;
-    width: 112px;
+    gap: 6px;
+    width: auto;
     height: 60px;
     flex: none;
     order: 1;
@@ -6086,8 +6088,8 @@ body {
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 12px;
-    width: 52px;
+    gap: 6px;
+    width: auto;
     height: 60px;
     flex: none;
     order: 1;
@@ -6470,8 +6472,8 @@ body {
 }
 
 .table-icon {
-    width: 20px;
-    height: 16px;
+    width: 16px;
+    height: 12px;
     object-fit: contain;
 }
 
@@ -6538,10 +6540,10 @@ body {
 
     .stock-pb-divider-h {
         display: block;
-        width: 288px;
+        width: 100%;
         height: 1px;
         background: #E9E9E9;
-        margin: 20px auto;
+        margin: 20px 0;
     }
 
     .stock-mc-info {
@@ -6594,7 +6596,7 @@ body {
         align-items: flex-end;
         width: auto;
         height: auto;
-        gap: 10px;
+        gap: 14px;
     }
 
     .stock-pb-price-num {
@@ -6612,7 +6614,8 @@ body {
         font-size: 24px;
         line-height: 150%;
         display: flex;
-        align-items: flex-end;
+        align-self: flex-start;
+        margin-top: 20px;
     }
 
     /* 등락률 / 전일대비 행 */
@@ -6726,6 +6729,9 @@ body {
         height: auto;
         font-size: 24px;
         line-height: 150%;
+        display: flex;
+        align-self: flex-start;
+        margin-top: 16px;
     }
 
     /* 당일 거래 지표 + 추가 투자정보 블록 (세로 목록) */
@@ -6920,8 +6926,8 @@ body {
     }
 
     .table-icon {
-        width: 13.83px;
-        height: 11.06px;
+        width: 16px;
+        height: 12px;
     }
 
     .table-val-up,
@@ -7424,6 +7430,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
+        background: none;
     }
 
     .strength-icon {
@@ -7586,6 +7593,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    pointer-events: none;
 }
 
 .fs-chart-row {
@@ -7658,6 +7666,7 @@ body {
 
 .fs-bar.orange {
     background: #F27100;
+    z-index: 2;
 }
 
 .fs-bar.gray {
@@ -7707,6 +7716,14 @@ body {
     margin-bottom: 8px;
     /* Gap between tooltip arrow and the bar */
     z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.fs-bar:hover .fs-tooltip {
+    opacity: 1;
+    visibility: visible;
 }
 
 .fs-tooltip.hidden {
@@ -8097,6 +8114,12 @@ body {
         border-top: 8px solid #111111;
     }
 
+    /* Orange bar tooltip is always visible on mobile */
+    .fs-bar.orange .fs-tooltip {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
     /* Removed obsolete Tooltip overrides for mobile */
     /* Table */
     .fs-table-wrap {
@@ -8200,4 +8223,8 @@ body {
         content: "";
         margin-top: 0;
     }
+}
+
+.fs-bar:hover {
+    z-index: 5 !important;
 }

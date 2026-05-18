@@ -1228,3 +1228,17 @@ body {
         height: 52px;
     }
 }
+
+/* =================================================================
+   1920 Viewport Only: Sticking Title and Description to Top Wall
+   ================================================================= */
+@media (min-width: 1920px) {
+    .product-card:hover .pc-title-small,
+    .product-card.expanded .pc-title-small {
+        bottom: 724px; /* Sticking top of pc-title-small (84px tall) to card top (808px tall) */
+    }
+    .product-card:hover .pc-expanded-content,
+    .product-card.expanded .pc-expanded-content {
+        top: 94px; /* Title height (84px) + Gap (10px) = 94px */
+    }
+}

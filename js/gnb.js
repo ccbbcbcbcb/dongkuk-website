@@ -30,7 +30,7 @@
         { text: '연혁', href: B + 'company/history.html', key: 'history' },
         { text: '네트워크', href: B + 'company/network.html', key: 'network' },
         { text: 'CI', href: B + 'company/ci.html', key: 'ci' },
-        { text: '뉴스', href: B + 'company/news.html', key: 'news' }
+        { text: '뉴스룸', href: B + 'company/news.html', key: 'news' }
       ]
     },
     {
@@ -40,7 +40,7 @@
         { text: '제품정보 센터', href: B + 'product/product-center.html', key: 'product-center' },
         { text: '니켈도금강판: DiKel', href: B + 'product/dikel.html', key: 'dikel' },
         { text: '냉연강판', href: B + 'product/cold-rolled.html', key: 'cold-rolled' },
-        { text: 'Q/T 열처리 강판', href: B + 'product/heat-treated.html', key: 'heat-treated' },
+        { text: 'Q/T 열처리강판', href: B + 'product/heat-treated.html', key: 'heat-treated' },
         { text: '연구개발', href: B + 'product/rnd.html', key: 'rnd' }
       ]
     },
@@ -296,7 +296,19 @@ document.addEventListener('DOMContentLoaded', function () {
       const footerTop = footer.offsetTop;
       const overlap = scrollBottom - footerTop;
       const isMobile = window.innerWidth <= 1023;
-      const baseBottom = 16;
+      const hasProductTabs = !!document.querySelector('.product-tabs');
+      const hasHistoryFab = !!document.querySelector('.history-fab');
+      
+      let baseBottom = 16;
+      if (isMobile) {
+        if (hasProductTabs) {
+          baseBottom = 83; // 53px (tabs height) + 30px (gap) = 83px
+        } else if (hasHistoryFab) {
+          baseBottom = 83; // 0px (fab bottom) + 53px (fab height) + 30px (gap) = 83px
+        } else {
+          baseBottom = 16;
+        }
+      }
 
       if (overlap > 0) {
         btnTop.style.bottom = `${overlap + baseBottom}px`;

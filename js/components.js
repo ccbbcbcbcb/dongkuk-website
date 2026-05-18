@@ -76,7 +76,7 @@
                     <div class="bar"></div>
                     <a href="#">서울특별시 중구 다동길 46</a>
                 </div>
-                <p class="footer-copy">Copyright(C) 2015 DONGKUK INDUSTRIES All rights Reserved.</p>
+                <p class="footer-copy">Copyright@ 2015 DONGKUK INDUSTRIES All rights Reserved.</p>
             </div>
         </div>
     </footer>`;

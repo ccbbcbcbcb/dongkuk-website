@@ -320,7 +320,7 @@
 
             .section-label {
                 font-size: 18px;
-                margin-bottom: 30px;
+                margin-bottom: 20px;
             }
 
             .story-rows {
@@ -333,6 +333,7 @@
                 width: 100% !important;
                 height: auto;
                 gap: 10px;
+                align-items: flex-start !important;
             }
 
             /* 모바일에서 텍스트-왼쪽 행의 순서 반전 (이미지가 먼저 오도록) */
@@ -355,7 +356,7 @@
             }
 
             .story-text {
-                width: 296px !important;
+                width: 100% !important;
                 max-width: 100% !important;
                 flex: none;
                 height: auto;
@@ -364,7 +365,7 @@
             }
 
             .story-text.lab3-text {
-                height: 225px;
+                height: auto !important;
                 padding-top: 20px;
                 padding-bottom: 0;
             }

@@ -97,7 +97,11 @@ body {
         min-height: 400px;
         padding: 100px 20px 60px;
         gap: 40px;
-        background-size: cover;
+        background: url('../assets/invest-center/투자정보센터header_m.png') no-repeat center/cover;
+    }
+
+    .invest-hero .gnb {
+        height: 72px;
     }
 
     .invest-hero-maintitle {
@@ -608,8 +612,8 @@ body {
     position: absolute;
     width: 433px;
     height: 433px;
-    right: -100px;
-    bottom: -200px;
+    right: -55px;
+    bottom: -210px;
     background: linear-gradient(180deg, rgba(250, 198, 153, 0.8) 10%, rgba(250, 198, 153, 0) 90%);
     border-radius: 50%;
     transform: rotate(-90deg);
@@ -622,8 +626,8 @@ body {
     position: absolute;
     width: 144px;
     height: 144px;
-    right: 44.5px;
-    bottom: -55.5px;
+    right: 89.5px;
+    bottom: -65.5px;
     background: #FCE2CC;
     border-radius: 50%;
     transform: rotate(-90deg);
@@ -1498,17 +1502,20 @@ body {
     width: 46px;
     height: 46px;
     flex: none;
+    background: #FCE3CC;
+    border-radius: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .notice-icon-box img {
-    width: 46px;
-    height: 46px;
-    background: #FCE3CC;
-    border-radius: 700px;
+    width: 24px;
+    height: 24px;
     object-fit: contain;
-    padding: 11px;
-    box-sizing: border-box;
     display: block;
+    transform: translate(1.25px, -1.25px);
 }
 
 .notice-card-info {
@@ -1903,7 +1910,7 @@ body {
         min-height: 360px;
         margin: 0 auto;
         padding: 0;
-        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../assets/invest-center/invest_center_header.png') no-repeat center / cover;
+        background: url('../assets/invest-center/투자정보센터header_m.png') no-repeat center / cover;
     }
 
     .invest-hero-content {
@@ -2058,13 +2065,22 @@ body {
         width: 26px;
         height: 26px;
         padding: 0;
+        background: #FCE3CC;
+        border-radius: 409px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
     }
 
     .notice-icon-box img {
-        width: 26px;
-        height: 26px;
-        padding: 6px;
-        border-radius: 409px;
+        width: 14px;
+        height: 14px;
+        object-fit: contain;
+        display: block;
+        background: transparent;
+        transform: translate(0.7px, -0.7px);
+        box-sizing: border-box;
     }
 
     .notice-card-info {
@@ -2160,7 +2176,7 @@ body {
 
     .ir-card--dark {
         min-height: 400px;
-        background: rgba(69, 32, 0, 0.46);
+        background: transparent;
     }
 
     .ir-card--dark::before {
@@ -2168,7 +2184,7 @@ body {
         height: 100%;
         left: 0;
         top: 0;
-        background: linear-gradient(0deg, rgba(69, 32, 0, 0.46), rgba(69, 32, 0, 0.46)), url('../assets/invest-center/ir_news.png') center/cover no-repeat;
+        background: url('../assets/invest-center/IR자료실_m.png') center/cover no-repeat;
     }
 
     .ir-card--light {

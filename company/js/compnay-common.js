@@ -102,51 +102,131 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function onScroll() {
         const rect = outer.getBoundingClientRect();
-        const scrollRoom = outer.offsetHeight - outer.querySelector('.hero-text-inner').offsetHeight;
+        const inner = outer.querySelector('.hero-text-inner');
+        const scrollRoom = outer.offsetHeight - inner.offsetHeight;
         const scrolled = -rect.top;
 
         let progress = Math.max(0, Math.min(1, scrolled / Math.max(scrollRoom, 1)));
 
-        const activeCount = Math.floor(progress * chars.length);
-        chars.forEach((c, i) => c.classList.toggle('active', i < activeCount));
-
-        // 이미지 확장 효과 추가 (네트워크 페이지는 제외)
+        // 이미지 확장용 wrapper가 있는지 확인
         const imgWrapper = document.querySelector('.hero-image-wrapper');
-        if (imgWrapper && document.body.dataset.page !== 'network') {
-            // 기준 너비(1920) 대비 현재 윈도우 너비의 비율 계산 (반응형 대응)
-            const baseW = 1920;
-            const screenW = window.innerWidth;
-            const scale = screenW / baseW;
+        const isCompanyInfo = imgWrapper && document.body.dataset.page === 'company-info';
 
-            // 초기 사이즈 및 최종 사이즈를 현재 화면 스케일에 맞춰 변환
-            const startW = (screenW < 1024) ? 328 : (1860 * scale);
-            const endW = 1920 * scale;
-            const startH = (screenW < 1024) ? 448 : (540 * scale);
-            const endH = (screenW < 1024) ? 740 : (1190 * scale);
+        if (isCompanyInfo) {
+            // ─── 회사소개 (company-info) 전용 고성능 2단계 인터랙션 ───
+            // 1단계: 텍스트 컬러 전환 (전체 스크롤의 0% ~ 40%)
+            let textProgress = Math.max(0, Math.min(1, progress / 0.4));
             
+            // 2단계: 이미지 확장 및 풀프레임 전환 (전체 스크롤의 40% ~ 100%)
+            let imageProgress = 0;
+            if (progress > 0.4) {
+                imageProgress = Math.max(0, Math.min(1, (progress - 0.4) / 0.6));
+            }
+
+            // 1) 텍스트 캐릭터 활성화
+            const activeCount = Math.floor(textProgress * chars.length);
+            chars.forEach((c, i) => c.classList.toggle('active', i < activeCount));
+
+            // 2) 텍스트 영역 페이드아웃 및 위로 슬라이드
+            const textSection = outer.querySelector('.hero-text-section');
+            if (textSection) {
+                textSection.style.opacity = 1 - imageProgress;
+                textSection.style.transform = `translateY(${-80 * imageProgress}px)`;
+            }
+
+            // 3) GNB 상단 헤더 페이드아웃 (풀프레임 몰입도 극대화)
+            const gnb = document.querySelector('.gnb');
+            if (gnb) {
+                gnb.style.opacity = 1 - imageProgress;
+                gnb.style.pointerEvents = (imageProgress > 0.85) ? 'none' : 'auto';
+            }
+
+            // 4) 이미지 프레임 확장 및 100vw/100vh 꽉 채움 제어
+            const screenW = window.innerWidth;
+            const screenH = window.innerHeight;
+            const scale = screenW / 1920;
+
+            // 모바일 360/태블릿 해상도에서는 모바일 전용 헤더 이미지 사용
+            const img = imgWrapper.querySelector('#expand-image');
+            if (img) {
+                const targetSrc = (screenW < 1024) ? 'assets/companyinfo/company_header_m.png' : 'assets/companyinfo/company_header.png';
+                if (img.getAttribute('src') !== targetSrc) {
+                    img.setAttribute('src', targetSrc);
+                }
+            }
+
+            // 반응형 시작 크기 정의
+            const startW = (screenW < 1024) ? (screenW - 32) : (1860 * scale);
+            const startH = (screenW < 1024) ? Math.min(448, screenH * 0.55) : (540 * scale);
             const startRadius = (screenW < 1024) ? 20 : (30 * scale);
-            const endRadius = 0;
-            
-            const currentW = startW + (endW - startW) * progress;
-            const currentH = startH + (endH - startH) * progress;
-            const currentRadius = startRadius + (endRadius - startRadius) * progress;
-            
+
+            // 텍스트 아래 이미지 시작 Y좌표 계산
+            let startTop = (screenW < 1024) ? 140 : (260 * scale);
+            if (textSection) {
+                const imgSec = document.querySelector('.hero-image-section');
+                const padTop = imgSec ? parseFloat(window.getComputedStyle(imgSec).paddingTop) : 0;
+                startTop = textSection.offsetHeight + padTop;
+            }
+
+            // imageProgress에 따른 선형 보간 (Lerp)
+            const currentW = startW + (screenW - startW) * imageProgress;
+            const currentH = startH + (screenH - startH) * imageProgress;
+            const currentTop = startTop * (1 - imageProgress);
+            const currentRadius = startRadius * (1 - imageProgress);
+
+            imgWrapper.style.position = 'absolute';
+            imgWrapper.style.left = '50%';
+            imgWrapper.style.transform = 'translateX(-50%)';
+            imgWrapper.style.top = currentTop + 'px';
             imgWrapper.style.width = currentW + 'px';
             imgWrapper.style.height = currentH + 'px';
             imgWrapper.style.borderRadius = currentRadius + 'px';
-            // max-width 해제하여 확장 가능하게 함
             imgWrapper.style.maxWidth = 'none';
 
+            // 5) 이미지 내부 오버레이 텍스트 노출
             const overlay = imgWrapper.querySelector('.hero-image-overlay');
             if (overlay) {
-                // 이미지가 거의 다 펼쳐질 때(progress > 0.6) 텍스트가 서서히 나타나도록 설정
-                let overlayOpacity = Math.max(0, (progress - 0.6) / 0.4);
+                let overlayOpacity = Math.max(0, (imageProgress - 0.4) / 0.6);
                 overlay.style.opacity = overlayOpacity;
+            }
+        } else {
+            // ─── 일반 페이지 (연혁 등) 용 기본 1단계 텍스트 전환 인터랙션 ───
+            const activeCount = Math.floor(progress * chars.length);
+            chars.forEach((c, i) => c.classList.toggle('active', i < activeCount));
+
+            if (imgWrapper && document.body.dataset.page !== 'network') {
+                const baseW = 1920;
+                const screenW = window.innerWidth;
+                const scale = screenW / baseW;
+
+                const startW = (screenW < 1024) ? 328 : (1860 * scale);
+                const endW = 1920 * scale;
+                const startH = (screenW < 1024) ? 448 : (540 * scale);
+                const endH = (screenW < 1024) ? 740 : (1190 * scale);
+                
+                const startRadius = (screenW < 1024) ? 20 : (30 * scale);
+                const endRadius = 0;
+                
+                const currentW = startW + (endW - startW) * progress;
+                const currentH = startH + (endH - startH) * progress;
+                const currentRadius = startRadius + (endRadius - startRadius) * progress;
+                
+                imgWrapper.style.width = currentW + 'px';
+                imgWrapper.style.height = currentH + 'px';
+                imgWrapper.style.borderRadius = currentRadius + 'px';
+                imgWrapper.style.maxWidth = 'none';
+
+                const overlay = imgWrapper.querySelector('.hero-image-overlay');
+                if (overlay) {
+                    let overlayOpacity = Math.max(0, (progress - 0.6) / 0.4);
+                    overlay.style.opacity = overlayOpacity;
+                }
             }
         }
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
     onScroll();
 });
 

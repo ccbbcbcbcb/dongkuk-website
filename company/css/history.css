@@ -1,3 +1,12 @@
+/* Breakpoint Helper Classes */
+.desk-br {
+    display: block;
+}
+.mo-br,
+.m-br {
+    display: none;
+}
+
 /* Hero Scroll Effect (Text Only) */
 .hero-text-outer {
     position: relative;
@@ -124,7 +133,6 @@
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
-    transition: top 0.1s ease-out;
 }
 
 /* Year Row */
@@ -187,6 +195,7 @@
     line-height: 150%;
     color: #A7A7A7;
     white-space: nowrap;
+    transition: color 0.3s ease;
 }
 
 .history-month-item.active .history-month-label {
@@ -209,6 +218,7 @@
     line-height: 150%;
     color: #A7A7A7;
     margin: 0;
+    transition: color 0.3s ease;
 }
 
 .history-month-item.active .history-desc-item {
@@ -340,6 +350,14 @@
 }
 
 @media (max-width: 1023px) {
+    .desk-br {
+        display: none;
+    }
+    .mo-br,
+    .m-br {
+        display: block;
+    }
+
     .history-year-row {
         flex-direction: column;
         gap: 30px;
@@ -365,12 +383,31 @@
     }
 
     .history-fab {
-        width: calc(100% - 40px);
-        bottom: 20px;
-        height: 66px;
-        overflow-x: auto;
-        justify-content: flex-start;
-        scrollbar-width: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 6px;
+        box-sizing: border-box;
+        width: 100%;
+        height: 53px;
+        background: rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        filter: drop-shadow(0px 2px 16px rgba(0, 0, 0, 0.12));
+        border-radius: 0px;
+        z-index: 100;
+        overflow: hidden;
+        justify-content: space-between;
+        gap: 0;
     }
 
     .history-fab::-webkit-scrollbar {
@@ -378,12 +415,44 @@
     }
 
     .fab-btn {
-        height: 46px;
-        padding: 0 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 12px;
+        gap: 2px;
+        width: 87px;
+        height: 41px;
+        border-radius: 10px;
+        flex: 1;
+        background: transparent;
+        border: none;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+
+    .fab-btn.active {
+        background: #000000;
     }
 
     .fab-btn span {
+        width: 100%;
+        height: auto;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
         font-size: 14px;
+        line-height: 150%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #363636;
+        white-space: nowrap;
+    }
+
+    .fab-btn.active span {
+        color: #FFFFFF;
     }
 }
 
@@ -405,6 +474,11 @@
 
 /* Mobile 360 Optimized */
 @media (max-width: 480px) {
+    .hero-text-inner {
+        padding: 0;
+        min-height: auto;
+    }
+
     .history-inner {
         padding: clamp(60px, 16vw, 100px) 16px clamp(60px, 16vw, 100px) 60px;
         gap: clamp(80px, 27vw, 160px);
@@ -418,10 +492,6 @@
 
     .history-year-heading h2 {
         font-size: clamp(30px, 10vw, 36px);
-    }
-
-    .history-year-row[data-year="2023"] .history-year-heading h2 {
-        font-size: 50px;
     }
 
     .history-month-item {
