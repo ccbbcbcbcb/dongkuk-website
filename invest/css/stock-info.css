@@ -6156,7 +6156,7 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 20px;
-    width: 360px;
+    width: 374.25px;
     height: 207px;
     border-radius: 30px;
     flex: none;
@@ -7889,7 +7889,9 @@ body {
     font-weight: 700;
 }
 
-.fs-unit.unit-bottom {}
+.fs-unit.unit-bottom {
+    padding-right: 0;
+}
 
 @media (max-width: 1919px) {
     .fs-scroll-wrap {
