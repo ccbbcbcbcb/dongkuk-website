@@ -354,15 +354,18 @@ body {
 }
 
 .info-val-wrap.down .arrow-icon {
-    width: 16px;
-    height: 12px;
+    width: 14px;
+    height: 9px;
     object-fit: contain;
 }
 
 .arrow-wrap {
+    width: 16px;
+    height: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: translateY(2px);
 }
 
 .info-val-wrap .val {
