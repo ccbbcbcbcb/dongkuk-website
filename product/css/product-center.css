@@ -656,12 +656,16 @@ body {
 .pc-text-group {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 50px;
 }
 
 .pc-text-group h3 {
-    display: none;
-    /* pc-title-small이 움직여서 올라오므로 중복 방지를 위해 숨김 */
+    font-size: 3.125vw;
+    /* 60px / 1920px */
+    font-weight: 700;
+    line-height: 140%;
+    color: #FFFFFF;
+    margin: 0;
 }
 
 .pc-text-group p {
@@ -718,15 +722,13 @@ body {
     cursor: pointer;
 }
 
-/* 카드가 확장되면 -> 작은 타이틀이 674px 위로 쭈욱 올라가며 60px로 커짐! */
+/* 카드가 확장되면 -> 작은 타이틀이 674px 위로 올라가며 60px로 커짐! */
 .product-card:hover .pc-title-small,
 .product-card.expanded .pc-title-small {
     bottom: 674px;
-    /* 📍 바뀐 위치: 박스 바닥에서 무려 674px 위로 솟구침! (여기가 위로 올라가는 핵심입니다) */
     left: 50px;
-    /* 📍 바뀐 위치: 왼쪽으로 살짝(10px) 더 이동 */
     font-size: 60px;
-    /* 📍 바뀐 크기: 글씨도 60px로 커짐 */
+    opacity: 0;
 }
 
 .product-card:hover .pc-expanded-content,

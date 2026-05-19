@@ -761,7 +761,33 @@
 
             if (!lineWrapper) return;
 
+            const updateLineWrapperHeight = () => {
+                const inner = document.querySelector('.history-inner');
+                if (!inner || yearRows.length === 0) return;
+                
+                const lastRow = yearRows[yearRows.length - 1];
+                let targetEl = lastRow.querySelector('.history-year-heading h2');
+                const lastMonthItems = lastRow.querySelectorAll('.history-month-item');
+                if (lastMonthItems.length > 0) {
+                    targetEl = lastMonthItems[lastMonthItems.length - 1].querySelector('.history-month-label');
+                }
+                
+                if (targetEl) {
+                    const innerRect = inner.getBoundingClientRect();
+                    const targetRect = targetEl.getBoundingClientRect();
+                    const targetCenterY = targetRect.top - innerRect.top + targetRect.height / 2;
+                    
+                    const wrapperStyle = window.getComputedStyle(lineWrapper);
+                    const topOffset = parseFloat(wrapperStyle.top) || 100; // default 100px from css
+                    
+                    lineWrapper.style.bottom = 'auto';
+                    lineWrapper.style.height = `${targetCenterY - topOffset}px`;
+                }
+            };
+
             const updateTimeline = () => {
+                updateLineWrapperHeight(); // Ensure height is correct on scroll/resize in case of layout shifts
+
                 const lineRect = lineWrapper.getBoundingClientRect();
                 const focalPoint = window.innerHeight / 2;
                 
@@ -823,7 +849,7 @@
                         const h2Rect = h2.getBoundingClientRect();
                         const h2Center = h2Rect.top + h2Rect.height / 2;
                         // 지나갔거나 현재 보이는 행: active 유지
-                        if (h2Center <= dotY) {
+                        if (h2Center <= dotY + 2) { // Add a tiny 2px buffer to ensure it triggers when exact
                             row.classList.add('active');
                         } else {
                             row.classList.remove('active');
@@ -837,7 +863,7 @@
                         const labelRect = label.getBoundingClientRect();
                         const labelCenter = labelRect.top + labelRect.height / 2;
                         // 지나갔거나 현재 포커스 근처: active 유지
-                        if (labelCenter <= dotY) {
+                        if (labelCenter <= dotY + 2) { // Tiny buffer
                             item.classList.add('active');
                         } else {
                             item.classList.remove('active');
@@ -860,8 +886,13 @@
                 });
             };
 
+            // Call once initially to set the correct layout before scroll event
+            updateLineWrapperHeight();
             window.addEventListener('scroll', updateTimeline, { passive: true });
-            window.addEventListener('resize', updateTimeline);
+            window.addEventListener('resize', () => {
+                updateLineWrapperHeight();
+                updateTimeline();
+            });
             updateTimeline();
         };
 

@@ -1933,7 +1933,7 @@
                 overflow: visible !important;
                 display: flex;
                 flex-direction: column;
-                gap: 60px;
+                gap: 20px;
                 transform: none !important;
             }
 
@@ -2021,21 +2021,30 @@
 
             /* 2행: 5-소둔라인, 6-표면마감, 7-포장정리 */
             .ps-mob-icon[data-step="4"] {
-                left: 0%;
-                top: 57%;
+                left: 4px;
+                top: calc(57% - 31px);
                 width: 30%;
+                max-height: calc(43% - 5px);
+                object-fit: contain;
+                object-position: top;
             }
 
             .ps-mob-icon[data-step="5"] {
                 left: 28%;
-                top: 56%;
+                top: calc(56% - 30px);
                 width: 26%;
+                max-height: calc(44% - 5px);
+                object-fit: contain;
+                object-position: top;
             }
 
             .ps-mob-icon[data-step="6"] {
-                left: 59%;
-                top: 49%;
+                left: calc(59% - 10px);
+                top: calc(49% - 20px);
                 width: 47%;
+                max-height: calc(51% - 15px);
+                object-fit: contain;
+                object-position: top;
             }
 
             /* 활성 공정 라벨 (공정 이름 + 화살표) */
@@ -2082,32 +2091,41 @@
 
             .ps-mobile-step-label[data-step="1"] {
                 left: 34.5%;
-                top: 20%;
+                top: calc(20% + 10px);
             }
 
             .ps-mobile-step-label[data-step="2"] {
-                left: 58%;
+                left: calc(58% + 6px);
                 top: 22%;
             }
 
             .ps-mobile-step-label[data-step="3"] {
                 left: 83.5%;
-                top: 22%;
+                top: calc(22% + 10px);
             }
 
             .ps-mobile-step-label[data-step="4"] {
                 left: 19%;
-                top: 57%;
+                top: calc(57% - 6px);
             }
 
             .ps-mobile-step-label[data-step="5"] {
                 left: 38%;
-                top: 71%;
+                top: calc(71% - 22px);
             }
 
             .ps-mobile-step-label[data-step="6"] {
-                left: 80%;
-                top: 75%;
+                left: calc(80% - 10px);
+                top: calc(75% - 30px);
+            }
+
+            /* ── 모바일 하단 조절 영역 래퍼 ── */
+            .ps-mobile-bottom-group {
+                display: flex;
+                flex-direction: column;
+                gap: 60px;
+                width: 100%;
+                box-sizing: border-box;
             }
 
             /* ── 모바일 인디케이터 바 ── */

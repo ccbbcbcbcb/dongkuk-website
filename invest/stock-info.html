@@ -762,43 +762,7 @@
                 }
             ];
 
-            const SPECIAL_ROW_CONFIG = [
-                { // Row 1: Steps 0,1,2
-                    cropX: 180, cropY: 50, cropW: 900, cropH: 220,
-                    steps: [0, 1, 2],
-                    defaultSrc: 'assets/dikel/nickel-special.png',
-                    stepSrcs: {
-                        0: { src: 'assets/dikel/1.cold-coil-setup.svg', w: 72, h: 94, l: 258, t: 86 },
-                        1: { src: 'assets/dikel/2.degreasing-line.svg', w: 449, h: 132, l: 336, t: 94 },
-                        2: { src: 'assets/dikel/3.electrolytic-nickel.svg', w: 288, h: 148, l: 785, t: 120 }
-                    },
-                    covers: []
-                },
-                { // Row 2: Steps 3,4 (배치형소둔, 표면마감)
-                    cropX: 960, cropY: 130, cropW: 700, cropH: 200,
-                    steps: [3, 4],
-                    defaultSrc: 'assets/dikel/nickel-special.png',
-                    stepSrcs: {
-                        3: { src: 'assets/dikel/4.batch-annealing.svg', w: 161, h: 162, l: 1091, t: 141 },
-                        4: { src: 'assets/dikel/5.surface-finish1.svg', w: 227, h: 146, l: 1294, t: 180 }
-                    },
-                    covers: [
-                        { left: '0', top: '0', width: '16%', height: '100%' }
-                    ]
-                },
-                { // Row 3: Steps 5,6 (정밀컷팅, 포장정리)
-                    cropX: 440, cropY: 278, cropW: 720, cropH: 208,
-                    steps: [5, 6],
-                    defaultSrc: 'assets/dikel/nickel-special.png',
-                    stepSrcs: {
-                        5: { src: 'assets/dikel/7.precision-cutting.svg', w: 249, h: 115, l: 521, t: 287 },
-                        6: { src: 'assets/dikel/8.packaging.svg', w: 260, h: 154, l: 782, t: 327 }
-                    },
-                    covers: [
-                        { right: '0', top: '0', width: '18%', height: '20%' }
-                    ]
-                }
-            ];
+            const SPECIAL_ROW_CONFIG = [];
 
             function buildMobileRows(containerId, rowConfig, stepsData) {
                 const container = document.getElementById(containerId);
