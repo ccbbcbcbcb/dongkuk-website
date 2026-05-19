@@ -1871,7 +1871,7 @@ img.ic-download {
         overflow: visible !important;
         display: flex;
         flex-direction: column;
-        gap: 60px;
+        gap: 20px; /* gap을 60px에서 20px로 수정 */
         transform: none !important;
     }
 
@@ -1935,7 +1935,6 @@ img.ic-download {
         width: 100%;
         border-radius: 8px;
         overflow: hidden;
-        padding-top: 30px;
     }
 
     .ps-mobile-row {
@@ -1945,8 +1944,37 @@ img.ic-download {
         margin-bottom: 30px;
     }
 
+    .ps-mobile-row:first-child {
+        margin-top: 30px;
+    }
+
     .ps-mobile-row:last-child {
         margin-bottom: 0;
+    }
+
+    .ps-mobile-row:nth-child(2) {
+        margin-top: -20px;
+    }
+
+    .ps-mobile-row:nth-child(3) {
+        margin-top: -10px; /* 3행 이미지(정밀컷팅, 포장정리)를 위로 10px 이동 */
+    }
+
+    /* ── 2행 공정 라벨 (연속소둔, 표면마감, 장력형상조정) 위로 20px 이동 ── */
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="3"],
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="4"],
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="5"],
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="3"],
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="4"] {
+        margin-top: -20px;
+    }
+
+    /* ── 3행 공정 라벨 (정밀컷팅, 포장정리) 위로 35px 이동 (5px 아래로 조정) ── */
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="6"],
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="7"],
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="5"],
+    #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="6"] {
+        margin-top: -35px; /* 원래 -40px에서 아래로 5px 이동하여 -35px 적용 */
     }
 
     /* 각 row 내부의 원본 이미지 컨테이너 (1860×486 좌표계 유지) */
@@ -2010,6 +2038,15 @@ img.ic-download {
         border-left: 5.5px solid transparent;
         border-right: 5.5px solid transparent;
         border-top: 9px solid #F27100;
+    }
+
+    /* ── 모바일 하단 조절 영역 래퍼 (순수 구조적 그룹화, 기존 gap: 60px 레이아웃 유지) ── */
+    .ps-mobile-bottom-group {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     /* ── 모바일 인디케이터 바 ── */

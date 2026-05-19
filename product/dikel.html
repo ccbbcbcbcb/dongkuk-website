@@ -786,45 +786,51 @@
                         <div class="ps-mobile-row" id="ps-mob-row3-special"></div>
                     </div>
 
-                    <!-- 모바일 전용: 인디케이터 (대량생산) -->
-                    <div class="ps-mobile-indicators" id="ps-mobile-dots-bulk">
-                        <div class="ps-mobile-dot" data-step="0"></div>
-                        <div class="ps-mobile-dot" data-step="1"></div>
-                        <div class="ps-mobile-dot" data-step="2"></div>
-                        <div class="ps-mobile-dot" data-step="3"></div>
-                        <div class="ps-mobile-dot" data-step="4"></div>
-                        <div class="ps-mobile-dot" data-step="5"></div>
-                        <div class="ps-mobile-dot" data-step="6"></div>
-                        <div class="ps-mobile-dot" data-step="7"></div>
-                    </div>
-
-                    <!-- 모바일 전용: 인디케이터 (특수대응) -->
-                    <div class="ps-mobile-indicators is-hidden" id="ps-mobile-dots-special">
-                        <div class="ps-mobile-dot" data-step="0"></div>
-                        <div class="ps-mobile-dot" data-step="1"></div>
-                        <div class="ps-mobile-dot" data-step="2"></div>
-                        <div class="ps-mobile-dot" data-step="3"></div>
-                        <div class="ps-mobile-dot" data-step="4"></div>
-                        <div class="ps-mobile-dot" data-step="5"></div>
-                        <div class="ps-mobile-dot" data-step="6"></div>
-                    </div>
-
-                    <!-- 모바일 전용: 설명 카드 (대량생산) -->
-                    <div class="ps-mobile-info-card" id="ps-mobile-card-bulk">
-                        <div class="ps-mobile-info-header">
-                            <span class="ps-mobile-info-num">01</span>
-                            <span class="ps-mobile-info-name">냉연코일 세팅</span>
+                    <!-- 모바일 전용: 하단 조절 영역 (대량생산) -->
+                    <div class="ps-mobile-bottom-group" id="ps-mobile-bottom-bulk">
+                        <!-- 모바일 전용: 인디케이터 (대량생산) -->
+                        <div class="ps-mobile-indicators" id="ps-mobile-dots-bulk">
+                            <div class="ps-mobile-dot" data-step="0"></div>
+                            <div class="ps-mobile-dot" data-step="1"></div>
+                            <div class="ps-mobile-dot" data-step="2"></div>
+                            <div class="ps-mobile-dot" data-step="3"></div>
+                            <div class="ps-mobile-dot" data-step="4"></div>
+                            <div class="ps-mobile-dot" data-step="5"></div>
+                            <div class="ps-mobile-dot" data-step="6"></div>
+                            <div class="ps-mobile-dot" data-step="7"></div>
                         </div>
-                        <p class="ps-mobile-info-desc">니켈도금강판 공정의 원재료를 준비합니다.</p>
+
+                        <!-- 모바일 전용: 설명 카드 (대량생산) -->
+                        <div class="ps-mobile-info-card" id="ps-mobile-card-bulk">
+                            <div class="ps-mobile-info-header">
+                                <span class="ps-mobile-info-num">01</span>
+                                <span class="ps-mobile-info-name">냉연코일 세팅</span>
+                            </div>
+                            <p class="ps-mobile-info-desc">니켈도금강판 공정의 원재료를 준비합니다.</p>
+                        </div>
                     </div>
 
-                    <!-- 모바일 전용: 설명 카드 (특수대응) -->
-                    <div class="ps-mobile-info-card is-hidden" id="ps-mobile-card-special">
-                        <div class="ps-mobile-info-header">
-                            <span class="ps-mobile-info-num">01</span>
-                            <span class="ps-mobile-info-name">냉연코일 세팅</span>
+                    <!-- 모바일 전용: 하단 조절 영역 (특수대응) -->
+                    <div class="ps-mobile-bottom-group is-hidden" id="ps-mobile-bottom-special">
+                        <!-- 모바일 전용: 인디케이터 (특수대응) -->
+                        <div class="ps-mobile-indicators is-hidden" id="ps-mobile-dots-special">
+                            <div class="ps-mobile-dot" data-step="0"></div>
+                            <div class="ps-mobile-dot" data-step="1"></div>
+                            <div class="ps-mobile-dot" data-step="2"></div>
+                            <div class="ps-mobile-dot" data-step="3"></div>
+                            <div class="ps-mobile-dot" data-step="4"></div>
+                            <div class="ps-mobile-dot" data-step="5"></div>
+                            <div class="ps-mobile-dot" data-step="6"></div>
                         </div>
-                        <p class="ps-mobile-info-desc">니켈도금강판 공정의 원재료를 준비합니다.</p>
+
+                        <!-- 모바일 전용: 설명 카드 (특수대응) -->
+                        <div class="ps-mobile-info-card is-hidden" id="ps-mobile-card-special">
+                            <div class="ps-mobile-info-header">
+                                <span class="ps-mobile-info-num">01</span>
+                                <span class="ps-mobile-info-name">냉연코일 세팅</span>
+                            </div>
+                            <p class="ps-mobile-info-desc">니켈도금강판 공정의 원재료를 준비합니다.</p>
+                        </div>
                     </div>
 
                 </div><!-- /process-card -->
@@ -1517,8 +1523,12 @@
                     const row = rows[rowIdx];
                     if (!row) return;
 
-                    const scale = containerWidth / cfg.cropW;
-                    const rowHeight = cfg.cropH * scale;
+                    let scale = containerWidth / cfg.cropW;
+                    let rowHeight = cfg.cropH * scale;
+                    if (rowIdx === 2) {
+                        rowHeight -= 20;
+                        scale = rowHeight / cfg.cropH;
+                    }
                     row.style.height = rowHeight + 'px';
 
                     // 내부 래퍼 (1860×486 좌표계)
@@ -1528,6 +1538,13 @@
                     inner.style.transformOrigin = '0 0';
                     inner.style.left = (-cfg.cropX * scale) + 'px';
                     inner.style.top = (-cfg.cropY * scale) + 'px';
+
+                    // 기본 흑백 이미지 추가 (누락 복원)
+                    const defaultImg = document.createElement('img');
+                    defaultImg.className = 'ps-diagram-default';
+                    defaultImg.src = cfg.defaultSrc;
+                    defaultImg.alt = '';
+                    inner.appendChild(defaultImg);
 
 
 
@@ -1691,6 +1708,8 @@
                     // 모바일 요소: is-hidden 토글
                     document.getElementById('ps-mobile-diagram-bulk').classList.remove('is-hidden');
                     document.getElementById('ps-mobile-diagram-special').classList.add('is-hidden');
+                    document.getElementById('ps-mobile-bottom-bulk').classList.remove('is-hidden');
+                    document.getElementById('ps-mobile-bottom-special').classList.add('is-hidden');
                     document.getElementById('ps-mobile-dots-bulk').classList.remove('is-hidden');
                     document.getElementById('ps-mobile-dots-special').classList.add('is-hidden');
                     document.getElementById('ps-mobile-card-bulk').classList.remove('is-hidden');
@@ -1704,6 +1723,8 @@
                     // 모바일 요소: is-hidden 토글
                     document.getElementById('ps-mobile-diagram-bulk').classList.add('is-hidden');
                     document.getElementById('ps-mobile-diagram-special').classList.remove('is-hidden');
+                    document.getElementById('ps-mobile-bottom-bulk').classList.add('is-hidden');
+                    document.getElementById('ps-mobile-bottom-special').classList.remove('is-hidden');
                     document.getElementById('ps-mobile-dots-bulk').classList.add('is-hidden');
                     document.getElementById('ps-mobile-dots-special').classList.remove('is-hidden');
                     document.getElementById('ps-mobile-card-bulk').classList.add('is-hidden');
