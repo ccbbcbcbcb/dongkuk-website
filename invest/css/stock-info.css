@@ -3551,7 +3551,7 @@ body {
 .page-header h1 {
     width: 100%;
     max-width: 948px;
-    height: auto;
+    height: 106px;
     margin: 0;
     /* bottom: 30px / 1920px */
     padding: 0 16px;
@@ -5908,7 +5908,7 @@ body {
     padding: 0px;
     /* Vertical padding removed */
     gap: 10px;
-    height: 64px;
+    height: auto;
     box-sizing: border-box;
 }
 
@@ -5941,8 +5941,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
+    align-self: stretch;
     padding: 0px;
-    gap: clamp(20px, 1.56vw, 30px);
     width: 100%;
 }
 
@@ -5951,7 +5952,7 @@ body {
     flex-direction: row;
     align-items: flex-end;
     padding: 0px;
-    gap: clamp(10px, 1.04vw, 20px);
+    gap: 45px;
     width: 100%;
     flex: none;
     order: 1;
@@ -6100,6 +6101,9 @@ body {
     width: 16px;
     height: 12px;
     object-fit: contain;
+    padding-top: 4px;
+    padding-bottom: 7px;
+    box-sizing: content-box;
 }
 
 .stock-pb-rate-group .stock-pb-val-red {
@@ -6557,7 +6561,7 @@ body {
 
     /* 상단 (종목명 + 코드) */
     .stock-pb-top {
-        height: 29px;
+        height: auto;
         gap: 10px;
         padding: 0;
     }
@@ -6579,6 +6583,7 @@ body {
         width: 100%;
         height: auto;
         justify-content: flex-start;
+        align-self: auto;
         gap: 30px;
     }
 
@@ -7721,7 +7726,8 @@ body {
     transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.fs-bar:hover .fs-tooltip {
+.fs-bar:hover .fs-tooltip,
+.fs-bar.orange:hover .fs-tooltip {
     opacity: 1;
     visibility: visible;
 }
@@ -7769,7 +7775,7 @@ body {
     width: 100%;
     max-width: 1680px;
     height: auto;
-    padding: 20px 20px 60px 0px;
+    padding: 20px 20px 20px 0px;
     box-sizing: border-box;
     font-family: 'Pretendard';
     font-style: normal;
@@ -8116,11 +8122,7 @@ body {
         border-top: 8px solid #111111;
     }
 
-    /* Orange bar tooltip is always visible on mobile */
-    .fs-bar.orange .fs-tooltip {
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
+
 
     /* Removed obsolete Tooltip overrides for mobile */
     /* Table */

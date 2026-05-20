@@ -259,7 +259,7 @@
 
 .product-intro .accordion {
     width: 100%;
-    margin-top: 60px;
+    margin-top: 40px;
     padding: 40px 0 100px;
 }
 
@@ -1009,7 +1009,6 @@ img.ic-download {
     width: 100%;
     height: 100%;
     object-fit: fill;
-    filter: grayscale(1);
 }
 
 /* Each step's SVG – always visible, faded grayscale by default, color when active */
@@ -1434,7 +1433,7 @@ img.ic-download {
 
     .product-intro .accordion {
         padding: 0;
-        margin: 0;
+        margin-top: 40px;
     }
 
     .pi-left {
@@ -1452,12 +1451,17 @@ img.ic-download {
 
     .pi-right {
         order: 2;
-        width: 100% !important;
-        height: 232px !important;
-        aspect-ratio: unset !important;
-        border-radius: 16px !important;
-        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 232px;
+        aspect-ratio: unset;
+        border-radius: 16px;
+        flex: none;
         overflow: hidden;
+    }
+
+    .pi-right img {
+        object-position: center bottom;
     }
 
     .pi-main-texts {
@@ -1863,16 +1867,16 @@ img.ic-download {
     }
 
     .process-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        padding: 40px 16px 20px !important;
-        border-radius: 0 !important;
-        overflow: visible !important;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 40px 16px 40px;
+        border-radius: 0;
+        overflow: visible;
         display: flex;
         flex-direction: column;
-        gap: 20px; /* gap을 60px에서 20px로 수정 */
-        transform: none !important;
+        gap: 40px;
+        transform: none;
     }
 
     /* ── Header: 타이틀 + 토글 세로 배치 ── */
@@ -1934,7 +1938,16 @@ img.ic-download {
         position: relative;
         width: 100%;
         border-radius: 8px;
-        overflow: hidden;
+        overflow: visible; /* 라벨 등이 잘리지 않도록 visible 설정 */
+    }
+
+    #ps-mobile-diagram-bulk {
+        background-color: #F1EDEA;
+        width: 328px;
+        height: 277px;
+        margin: 0 auto;
+        overflow: visible; /* 라벨 등이 잘리지 않도록 visible 설정 */
+        position: relative;
     }
 
     #ps-mobile-diagram-special {
@@ -1994,7 +2007,7 @@ img.ic-download {
     #ps-mobile-diagram-special .ps-mobile-step-label {
         position: absolute;
         transform: translateX(-50%);
-        z-index: 10;
+        z-index: 20; /* 10 -> 20 (가장 앞으로 오도록 설정) */
     }
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="0"] {
         left: 35px; top: -6px; margin-top: 0;
@@ -2006,7 +2019,7 @@ img.ic-download {
         left: 265.26px; top: 4px; margin-top: 0;
     }
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="3"] {
-        left: 122.54px; top: 103px; margin-top: 0;
+        left: 112.54px; top: 103px; margin-top: 0;
     }
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="4"] {
         left: 195.96px; top: 110px; margin-top: 0;
@@ -2022,11 +2035,12 @@ img.ic-download {
         position: relative;
         width: 100%;
         overflow: hidden;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
     .ps-mobile-row:first-child {
-        margin-top: 30px;
+        margin-top: 25px; /* 아래로 10px 이동 (15px + 10px) */
+        left: -10px;      /* 왼쪽으로 10px 이동 */
     }
 
     .ps-mobile-row:last-child {
@@ -2034,28 +2048,48 @@ img.ic-download {
     }
 
     .ps-mobile-row:nth-child(2) {
-        margin-top: -20px;
+        margin-top: -7px; /* 위로 2px 이동 (-5px - 2px) */
+        left: 20px; /* 오른쪽으로 20px 이동 */
+        width: calc(100% - 20px); /* 360px 모바일 화면 이탈 방지 */
     }
 
     .ps-mobile-row:nth-child(3) {
-        margin-top: -10px; /* 3행 이미지(정밀컷팅, 포장정리)를 위로 10px 이동 */
+        margin-top: -9px; /* 위로 2px 올라간 영향을 상쇄하고(+2px) 아래로 7px 이동하기 위해 -18px에서 -9px로 조정 */
+        left: 16px;        /* 오른쪽으로 16px 이동 */
+        width: calc(100% - 16px); /* 360px 모바일 화면 이탈 방지 */
     }
 
-    /* ── 2행 공정 라벨 (연속소둔, 표면마감, 장력형상조정) 위로 20px 이동 ── */
+    /* ── 1행 공정 라벨 ── */
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="0"],
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="1"],
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="2"] {
+        margin-top: -5px;   /* 아래로 10px 이동 (-15px + 10px) */
+        margin-left: -10px; /* 왼쪽으로 10px 이동 */
+    }
+
+    /* ── 2행 공정 라벨 ── */
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="3"],
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="4"],
-    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="5"],
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="5"] {
+        margin-top: -22px; /* 위로 2px 이동 (-20px - 2px) */
+        margin-left: 20px; /* 오른쪽으로 20px 이동 */
+    }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="3"],
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="4"] {
         margin-top: -20px;
     }
 
-    /* ── 3행 공정 라벨 (정밀컷팅, 포장정리) 위로 35px 이동 (5px 아래로 조정) ── */
+    /* ── 3행 공정 라벨 ── */
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="6"],
-    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="7"],
+    #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="7"] {
+        margin-top: -48px;  /* 아래로 7px 이동 (-55px + 7px) */
+        margin-left: 16px;  /* 오른쪽으로 16px 이동 */
+    }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="5"],
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="6"] {
-        margin-top: -35px; /* 원래 -40px에서 아래로 5px 이동하여 -35px 적용 */
+        margin-top: -35px;
     }
 
     /* 각 row 내부의 원본 이미지 컨테이너 (1860×486 좌표계 유지) */
@@ -2076,7 +2110,7 @@ img.ic-download {
 
     .ps-row-inner .ps-step-img {
         position: absolute;
-        opacity: 0.25;
+        opacity: 0; /* 비활성 시 완전히 숨김 (0.25 -> 0) */
         filter: grayscale(1);
         transition: filter 0.4s ease, opacity 0.4s ease;
         pointer-events: none;
@@ -2097,7 +2131,7 @@ img.ic-download {
         opacity: 0;
         transition: opacity 0.4s ease;
         pointer-events: none;
-        z-index: 10;
+        z-index: 20; /* 10 -> 20 (가장 앞으로 오도록 설정) */
     }
 
     .ps-mobile-step-label.visible {
@@ -2133,19 +2167,20 @@ img.ic-download {
     /* ── 모바일 인디케이터 바 ── */
     .ps-mobile-indicators {
         display: flex !important;
-        justify-content: space-between;
+        justify-content: center;
         gap: 6px;
         padding: 10px 0;
         width: 100%;
     }
 
     .ps-mobile-dot {
-        flex: 1;
+        width: 34px;
         height: 6px;
         border-radius: 3px;
         background: #D3D3D3;
         position: relative;
         overflow: hidden;
+        flex: none;
     }
 
     .ps-mobile-dot::after {
@@ -2183,7 +2218,8 @@ img.ic-download {
     /* is-hidden 클래스로 모바일 요소 숨김 제어 */
     .ps-mobile-indicators.is-hidden,
     .ps-mobile-info-card.is-hidden,
-    .ps-mobile-diagram.is-hidden {
+    .ps-mobile-diagram.is-hidden,
+    .ps-mobile-bottom-group.is-hidden {
         display: none !important;
     }
 
@@ -3672,9 +3708,9 @@ body {
 .page-header h1 {
     width: 100%;
     max-width: 948px;
-    height: auto;
-    margin: 70px auto 1.5625vw;
-    /* bottom: 30px / 1920px */
+    height: 106px;
+    margin: 70px auto 5.2083vw;
+    /* bottom: 100px / 1920px */
     padding: 0 16px;
     font-family: 'Pretendard', sans-serif;
     font-size: clamp(30px, 4.16vw, 80px);

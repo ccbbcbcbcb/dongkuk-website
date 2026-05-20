@@ -55,7 +55,7 @@ body {
 .page-header h1 {
     width: 100%;
     max-width: 948px;
-    height: auto;
+    height: 106px;
     font-weight: 700;
     font-size: clamp(30px, 4.17vw, 80px);
     line-height: 140%;
@@ -284,7 +284,8 @@ body {
     display: flex;
     align-items: center;
     gap: clamp(24px, 2.08vw, 40px);
-    width: auto;
+    width: 28.125vw;
+    /* 540px / 1920px */
 }
 
 .color-circle {
@@ -487,6 +488,7 @@ body {
     .color-info-card {
         gap: clamp(16px, 4.16vw, 30px);
         align-items: center;
+        width: auto;
     }
 
 

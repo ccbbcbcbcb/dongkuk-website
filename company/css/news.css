@@ -56,12 +56,16 @@ a {
 }
 
 .page-header h1 {
+    height: 106px;
     font-weight: 700;
     font-size: clamp(30px, 4.16vw, 80px);
     line-height: 140%;
     text-align: center;
     color: #000000;
     margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Main Content */

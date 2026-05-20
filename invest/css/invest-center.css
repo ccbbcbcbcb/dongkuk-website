@@ -272,6 +272,7 @@ body {
     padding: 0px;
     gap: clamp(8px, 0.73vw, 14px);
     width: auto;
+    height: 112px;
 }
 
 .price-val {
@@ -287,13 +288,15 @@ body {
 
 .price-unit {
     width: auto;
+    height: 59px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
     font-size: clamp(18px, 1.35vw, 26px);
     line-height: 150%;
     color: #363636;
-    padding-bottom: clamp(6px, 0.625vw, 12px);
+    display: flex;
+    align-items: flex-start;
 }
 
 /* Frame 2116936065 - Stats Area */
@@ -353,15 +356,16 @@ body {
     color: #2063F3;
 }
 
-.info-val-wrap.down .arrow-icon {
-    width: 14px;
-    height: 9px;
+.info-val-wrap .arrow-icon {
+    width: 16px;
+    height: 12px;
     object-fit: contain;
+    padding-top: 4px;
+    padding-bottom: 7px;
+    box-sizing: content-box;
 }
 
 .arrow-wrap {
-    width: 16px;
-    height: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -387,7 +391,7 @@ body {
 }
 
 .v-line-svg {
-    width: 20px;
+    width: 1px;
     height: 20px;
     flex: none;
 }
@@ -895,8 +899,6 @@ body {
         align-items: center;
         padding: 0;
         gap: 0;
-        width: 16px;
-        height: 12px;
     }
 
     .arrow-icon {
@@ -1913,6 +1915,7 @@ body {
         min-height: 360px;
         margin: 0 auto;
         padding: 0;
+        gap: 60px;
         background: url('../assets/invest-center/투자정보센터header_m.png') no-repeat center / cover;
     }
 
@@ -1923,7 +1926,7 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 20px;
+        gap: 12px;
     }
 
     .invest-hero-subtitle {

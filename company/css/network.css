@@ -173,8 +173,8 @@
     .info-card {
         height: auto;
         min-height: 479px;
-        justify-content: flex-start;
-        gap: 143px;
+        justify-content: space-between;
+        gap: 0;
     }
     
     .info-card-top {

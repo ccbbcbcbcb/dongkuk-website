@@ -881,6 +881,52 @@
             });
         });
 
+        // 📍 차트 툴팁 호버 및 터치(클릭) 이벤트 제어
+        document.querySelectorAll('.fs-bar').forEach(bar => {
+            const tooltip = bar.querySelector('.fs-tooltip');
+            if (!tooltip) return;
+
+            // 마우스 호버 (mouseenter / mouseleave)
+            bar.addEventListener('mouseenter', () => {
+                tooltip.style.opacity = '1';
+                tooltip.style.visibility = 'visible';
+            });
+            bar.addEventListener('mouseleave', () => {
+                tooltip.style.opacity = '';
+                tooltip.style.visibility = '';
+            });
+
+            // 모바일 터치 및 클릭 대응
+            bar.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                // 다른 모든 툴팁 숨기기
+                document.querySelectorAll('.fs-tooltip').forEach(t => {
+                    if (t !== tooltip) {
+                        t.style.opacity = '';
+                        t.style.visibility = '';
+                    }
+                });
+
+                // 현재 툴팁 상태 토글
+                const isVisible = window.getComputedStyle(tooltip).visibility === 'visible';
+                if (isVisible) {
+                    tooltip.style.opacity = '0';
+                    tooltip.style.visibility = 'hidden';
+                } else {
+                    tooltip.style.opacity = '1';
+                    tooltip.style.visibility = 'visible';
+                }
+            });
+        });
+
+        // 배경 클릭 시 모든 툴팁 숨기기 (모바일 대응)
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.fs-tooltip').forEach(t => {
+                t.style.opacity = '';
+                t.style.visibility = '';
+            });
+        });
 
         // 📍 재무정보 표 커스텀 스크롤 연동
         const fsTableWraps = document.querySelectorAll('.fs-table-wrap');

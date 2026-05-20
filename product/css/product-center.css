@@ -82,7 +82,7 @@ body {
 
 /* GNB: 히어로 위 투명 오버레이 (index.html과 동일) */
 .gnb {
-    position: fixed !important;
+    position: fixed;
     background: transparent;
 }
 
@@ -145,6 +145,7 @@ body {
     background-color: transparent;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     opacity: 1;
     cursor: pointer;
     overflow: hidden;
@@ -152,16 +153,43 @@ body {
     z-index: 5;
 }
 
-.no-transition,
-.no-transition * {
-    transition: none !important;
+.card-large-scale {
+    background-image: url('../assets/product-center/large-scale.png');
+    --active-icon: url('../assets/product-center/large-scale1.svg');
+}
+
+.card-global-market {
+    background-image: url('../assets/product-center/global-market.png');
+    --active-icon: url('../assets/product-center/global-market1.svg');
+}
+
+.card-quality {
+    background-image: url('../assets/product-center/quality.png');
+    --active-icon: url('../assets/product-center/quality1.svg');
+}
+
+.card-by-industry {
+    background-image: url('../assets/product-center/by-industry.png');
+    --active-icon: url('../assets/product-center/by-industry1.svg');
+}
+
+.card-experience {
+    background-image: url('../assets/product-center/experience.png');
+    --active-icon: url('../assets/product-center/experience1.svg');
+}
+
+body .no-transition,
+body .no-transition *,
+#sliderTrack.no-transition,
+#sliderTrack.no-transition * {
+    transition: none;
 }
 
 /* ===== 궤도 원 ===== */
 .orb-wrapper {
     position: absolute;
-    top: 22.7083vw;
-    /* 436px / 1920px */
+    top: 20.1041vw;
+    /* 386px / 1920px */
     left: 50%;
     transform: translateX(-50%);
     width: 166.9791vw;
@@ -225,9 +253,10 @@ body {
 /* 카드 내부 — 비활성 */
 .card-icon {
     position: absolute;
-    top: 2.0833vw;
-    /* 40px / 1920px */
-    left: 2.0833vw;
+    top: 1.5625vw;
+    /* 30px / 1920px */
+    left: 1.5625vw;
+    /* 30px / 1920px */
     width: 2.6041vw;
     /* 50px / 1920px */
     height: 2.6041vw;
@@ -240,6 +269,10 @@ body {
 }
 
 .standard-card.active .card-icon {
+    top: 2.0833vw;
+    /* 40px / 1920px */
+    left: 2.0833vw;
+    /* 40px / 1920px */
     width: 4.5833vw;
     /* 88px / 1920px */
     height: 4.5833vw;
@@ -250,7 +283,8 @@ body {
     position: absolute;
     top: 13.0208vw;
     /* 250px / 1920px */
-    left: 2.0833vw;
+    left: 1.5625vw;
+    /* 30px / 1920px */
     display: flex;
     flex-direction: column;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -284,7 +318,8 @@ body {
     /* 716px / 1920px */
     height: 29.1666vw;
     /* 560px / 1920px */
-    background: #F27100 !important;
+    background-color: #F27100;
+    background-image: none;
     opacity: 1;
 }
 
@@ -379,6 +414,7 @@ body {
     gap: 10px;
     justify-content: center;
     width: auto;
+    --swiper-pagination-bullet-horizontal-gap: 0px;
 }
 
 .standards-swiper .swiper-pagination-bullet {
@@ -386,7 +422,6 @@ body {
     height: 10px;
     background: #E9E9E9;
     opacity: 1;
-    margin: 0 !important;
 }
 
 .standards-swiper .swiper-pagination-bullet-active {
@@ -623,10 +658,11 @@ body {
     left: 2.0833vw;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* 두 박스(타이틀과 설명글)의 간격 20px */
+    gap: 20px;
+    /* 두 박스(타이틀과 설명글)의 간격 20px */
     z-index: 10;
     transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* 카드가 확장되면 -> 위쪽 50px, 왼쪽 50px 간격 설정 */
@@ -660,14 +696,14 @@ body {
     line-height: 150%;
     color: #FFFFFF;
     margin: 0;
-    
+
     /* 닫혀있을 때 숨김 설정 */
     opacity: 0;
     pointer-events: none;
     height: 0;
     overflow: hidden;
     transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.3s ease;
+        opacity 0.3s ease;
 }
 
 /* 버튼 그룹: 우측 하단 */
@@ -716,11 +752,12 @@ body {
 
 /* 카드가 확장되면 -> 설명글 노출 */
 .product-card.expanded .pc-desc {
-    height: 2.0312vw; /* ~39px at 1920px */
+    height: 2.0312vw;
+    /* ~39px at 1920px */
     opacity: 0.8;
     pointer-events: auto;
     transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.3s ease 0.2s;
+        opacity 0.3s ease 0.2s;
 }
 
 /* 버튼: 기본 숨김 및 클릭 방지 */
@@ -737,6 +774,53 @@ body {
     opacity: 1;
     pointer-events: auto;
     transition: opacity 0.3s ease 0.2s;
+}
+
+/* =================================================================
+   Desktop Hover Accordion (CSS Fallback / JS Enhancement)
+   ================================================================= */
+@media (min-width: 1024px) {
+    /* 마우스가 컨테이너에 들어오면, 일단 모든 카드를 축소 상태로 만듦 */
+    .products-container:hover .product-card {
+        flex: 329;
+    }
+    .products-container:hover .product-card .pc-text-block {
+        top: calc(42.0833vw - 2.0833vw - 50px);
+        left: 2.0833vw;
+    }
+    .products-container:hover .product-card .pc-title-small {
+        font-size: 1.875vw;
+    }
+    .products-container:hover .product-card .pc-desc {
+        height: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .products-container:hover .product-card .pc-btn-group {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* 마우스가 올려진 특정 카드만 확장 상태로 만듦 */
+    .products-container:hover .product-card:hover {
+        flex: 974;
+    }
+    .products-container:hover .product-card:hover .pc-text-block {
+        top: 50px;
+        left: 50px;
+    }
+    .products-container:hover .product-card:hover .pc-title-small {
+        font-size: 60px;
+    }
+    .products-container:hover .product-card:hover .pc-desc {
+        height: 2.0312vw;
+        opacity: 0.8;
+        pointer-events: auto;
+    }
+    .products-container:hover .product-card:hover .pc-btn-group {
+        opacity: 1;
+        pointer-events: auto;
+    }
 }
 
 
@@ -774,11 +858,11 @@ body {
 
 @media (max-width: 1023px) {
     .desk-br {
-        display: none !important;
+        display: none;
     }
 
     .mob-br {
-        display: inline !important;
+        display: inline;
     }
 }
 
@@ -825,7 +909,7 @@ body {
 @media (max-width: 1023px) {
     body {
         padding-top: 0;
-        min-width: 0 !important;
+        min-width: 0;
         width: 100%;
         overflow-x: hidden;
     }
@@ -1116,15 +1200,15 @@ body {
     }
 
     .product-card {
-        flex: 1 !important;
-        height: auto !important;
+        flex: 1;
+        height: auto;
         border-radius: 12px;
         transition: none;
     }
 
     .product-card.expanded {
-        flex: 1 !important;
-        height: auto !important;
+        flex: 1;
+        height: auto;
     }
 
     /* 모바일에서는 확장/축소 없이 모두 동일 */
@@ -1138,8 +1222,10 @@ body {
         gap: 8px;
     }
 
-    /* 모바일 호버 시 위치 변동 방지 */
-    .product-card:hover .pc-text-block {
+    /* 모바일 호버 및 확장 시 위치 변동 방지 */
+    .product-card:hover .pc-text-block,
+    .product-card.expanded .pc-text-block {
+        position: relative;
         top: auto;
         left: auto;
         bottom: auto;
@@ -1157,7 +1243,8 @@ body {
         opacity: 1;
     }
 
-    .product-card:hover .pc-title-small {
+    .product-card:hover .pc-title-small,
+    .product-card.expanded .pc-title-small {
         bottom: auto;
         left: auto;
         font-size: 20px;
@@ -1182,13 +1269,15 @@ body {
         pointer-events: auto;
     }
 
-    /* 모바일 호버 시 설명글 스타일 유지 */
-    .product-card:hover .pc-desc {
+    /* 모바일 호버 및 확장 시 설명글 스타일 유지 */
+    .product-card:hover .pc-desc,
+    .product-card.expanded .pc-desc {
         height: auto;
         opacity: 1;
     }
 
-    .pc-btn-group {
+    .pc-btn-group,
+    .product-card.expanded .pc-btn-group {
         display: none;
     }
 
@@ -1223,19 +1312,5 @@ body {
         bottom: 16px;
         width: 52px;
         height: 52px;
-    }
-}
-
-/* =================================================================
-   1920 Viewport Only: Sticking Title and Description to Top Wall
-   ================================================================= */
-@media (min-width: 1920px) {
-    .product-card:hover .pc-title-small,
-    .product-card.expanded .pc-title-small {
-        bottom: 724px; /* Sticking top of pc-title-small (84px tall) to card top (808px tall) */
-    }
-    .product-card:hover .pc-expanded-content,
-    .product-card.expanded .pc-expanded-content {
-        top: 94px; /* Title height (84px) + Gap (10px) = 94px */
     }
 }

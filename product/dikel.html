@@ -1479,7 +1479,7 @@
                     covers: []
                 },
                 { // Row 2: Steps 3,4,5 (연속소둔, 표면마감, 장력형상조정)
-                    cropX: 960, cropY: 140, cropW: 760, cropH: 195,
+                    cropX: 960, cropY: 140, cropW: 760, cropH: 190,
                     steps: [3, 4, 5],
                     defaultSrc: 'assets/dikel/nickel-mass-default.svg',
                     stepSrcs: {
@@ -1502,7 +1502,7 @@
                     },
                     covers: [
                         // 오른쪽 위 겹침 가림
-                        { right: '0', top: '0', width: '18%', height: '25%' },
+                        { right: '0', top: '-5px', width: '18%', height: '25%' },
                         // 왼쪽 위 겹침 가림 (얇은 선)
                         { left: '0', top: '0', width: '10%', height: '12%' }
                     ]
@@ -1528,8 +1528,12 @@
 
                     let scale = containerWidth / cfg.cropW;
                     let rowHeight = cfg.cropH * scale;
+                    if (rowIdx === 1) {
+                        rowHeight -= 7;
+                        scale = rowHeight / cfg.cropH;
+                    }
                     if (rowIdx === 2) {
-                        rowHeight -= 20;
+                        rowHeight -= 30;
                         scale = rowHeight / cfg.cropH;
                     }
                     row.style.height = rowHeight + 'px';

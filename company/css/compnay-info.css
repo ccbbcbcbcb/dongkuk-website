@@ -2793,7 +2793,7 @@ body {
 .page-header h1 {
     width: 100%;
     max-width: 948px;
-    height: auto;
+    height: 106px;
     margin: 70px auto 1.5625vw;
     /* bottom: 30px / 1920px */
     padding: 0 16px;
