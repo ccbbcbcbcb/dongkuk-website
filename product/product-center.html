@@ -160,12 +160,9 @@
                 <div class="product-card expanded" data-href="dikel.html"
                     style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), url('assets/product-center/nickel-plate.png');">
                     <div class="pc-content">
-                        <h3 class="pc-title-small">니켈도금강판</h3>
-                        <div class="pc-expanded-content">
-                            <div class="pc-text-group">
-                                <h3>니켈도금강판</h3>
-                                <p>차세대 에너지 산업을 위한 고기능 소재</p>
-                            </div>
+                        <div class="pc-text-block">
+                            <h3 class="pc-title-small">니켈도금강판</h3>
+                            <p class="pc-desc">차세대 에너지 산업을 위한 고기능 소재</p>
                         </div>
                         <div class="pc-btn-group" onclick="location.href='dikel.html'" style="cursor: pointer;">
                             <button class="pc-btn-text">더 알아보기</button>
@@ -183,12 +180,9 @@
                 <div class="product-card" data-href="cold-rolled.html"
                     style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), url('assets/product-center/cold-rolled.png');">
                     <div class="pc-content">
-                        <h3 class="pc-title-small">냉연강판</h3>
-                        <div class="pc-expanded-content">
-                            <div class="pc-text-group">
-                                <h3>냉연강판</h3>
-                                <p>정밀 공정에 최적화된 고품질 강판</p>
-                            </div>
+                        <div class="pc-text-block">
+                            <h3 class="pc-title-small">냉연강판</h3>
+                            <p class="pc-desc">정밀 공정에 최적화된 고품질 강판</p>
                         </div>
                         <div class="pc-btn-group" onclick="location.href='cold-rolled.html'" style="cursor: pointer;">
                             <button class="pc-btn-text">더 알아보기</button>
@@ -206,12 +200,9 @@
                 <div class="product-card" data-href="heat-treated.html"
                     style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), url('assets/product-center/heat-treated-plate.png');">
                     <div class="pc-content">
-                        <h3 class="pc-title-small">Q/T 열처리강판</h3>
-                        <div class="pc-expanded-content">
-                            <div class="pc-text-group">
-                                <h3>Q/T 열처리강판</h3>
-                                <p>강도와 내구성을 고루 갖춘 산업용 소재</p>
-                            </div>
+                        <div class="pc-text-block">
+                            <h3 class="pc-title-small">Q/T 열처리강판</h3>
+                            <p class="pc-desc">강도와 내구성을 고루 갖춘 산업용 소재</p>
                         </div>
                         <div class="pc-btn-group" onclick="location.href='heat-treated.html'"
                             style="cursor: pointer;">
@@ -384,23 +375,35 @@
 
         // 🌟 제품 카드 확장 아코디언 🌟
         const productCards = document.querySelectorAll('.product-card');
-        const isMobileDevice = window.innerWidth <= 1023;
+        const productsContainer = document.querySelector('.products-container');
+
         productCards.forEach(card => {
             card.addEventListener('click', () => {
-                if (isMobileDevice && card.dataset.href) {
+                const isMobile = window.innerWidth <= 1023;
+                if (isMobile && card.dataset.href) {
                     location.href = card.dataset.href;
                     return;
                 }
-                productCards.forEach(c => c.classList.remove('expanded'));
-                card.classList.add('expanded');
             });
-            if (!isMobileDevice) {
-                card.addEventListener('mouseenter', () => {
+
+            card.addEventListener('mouseenter', () => {
+                const isMobile = window.innerWidth <= 1023;
+                if (!isMobile) {
                     productCards.forEach(c => c.classList.remove('expanded'));
                     card.classList.add('expanded');
-                });
-            }
+                }
+            });
         });
+
+        if (productsContainer) {
+            productsContainer.addEventListener('mouseleave', () => {
+                const isMobile = window.innerWidth <= 1023;
+                if (!isMobile) {
+                    productCards.forEach(c => c.classList.remove('expanded'));
+                    productCards[0].classList.add('expanded');
+                }
+            });
+        }
 
         // 🌐 글로벌 비즈니스 섹션 🌐
         (function() {

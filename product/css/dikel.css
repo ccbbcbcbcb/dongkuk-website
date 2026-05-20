@@ -2121,11 +2121,11 @@ img.ic-download {
         border-top: 9px solid #F27100;
     }
 
-    /* ── 모바일 하단 조절 영역 래퍼 (순수 구조적 그룹화, 기존 gap: 60px 레이아웃 유지) ── */
+    /* ── 모바일 하단 조절 영역 래퍼 (순수 구조적 그룹화, 기존 gap: 10px 레이아웃 유지) ── */
     .ps-mobile-bottom-group {
         display: flex;
         flex-direction: column;
-        gap: 60px;
+        gap: 10px;
         width: 100%;
         box-sizing: border-box;
     }
@@ -2178,7 +2178,6 @@ img.ic-download {
         padding: 16px 20px;
         width: 100%;
         box-sizing: border-box;
-        margin-top: -50px;
     }
 
     /* is-hidden 클래스로 모바일 요소 숨김 제어 */

@@ -1142,6 +1142,7 @@ body {
         line-height: 1.5;
         padding: 0;
         transition: none;
+        opacity: 1;
     }
 
     .product-card:hover .pc-title-small,
@@ -1150,6 +1151,7 @@ body {
         left: auto;
         font-size: 20px;
         transform: none;
+        opacity: 1;
     }
 
     .pc-content {

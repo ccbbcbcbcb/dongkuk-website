@@ -615,12 +615,28 @@ body {
     z-index: 2;
 }
 
+/* 타이틀과 설명글을 함께 감싸는 텍스트 박스 */
+.pc-text-block {
+    position: absolute;
+    /* 닫혀있을 때: 바닥에서 40px(2.0833vw) 띄우고, 타이틀의 예상 높이(50px)만큼 top 계산하여 아래쪽에 배치 */
+    top: calc(42.0833vw - 2.0833vw - 50px);
+    left: 2.0833vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 두 박스(타이틀과 설명글)의 간격 20px */
+    z-index: 10;
+    transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 카드가 확장되면 -> 위쪽 50px, 왼쪽 50px 간격 설정 */
+.product-card.expanded .pc-text-block {
+    top: 50px;
+    left: 50px;
+}
+
 /* 닫혀있을 때 하단 타이틀 */
 .pc-title-small {
-    position: absolute;
-    bottom: 2.0833vw;
-    /* 40px / 1920px */
-    left: 2.0833vw;
     font-size: 1.875vw;
     /* 36px / 1920px */
     font-weight: 700;
@@ -628,54 +644,30 @@ body {
     color: #FFFFFF;
     margin: 0;
     white-space: nowrap;
-    z-index: 10;
-
-    transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        left 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        font-size 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: font-size 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 열렸을 때 상단 왼쪽 텍스트 그룹 */
-.pc-expanded-content {
-    position: absolute;
-    top: 7.5vw;
-    /* 144px / 1920px */
-    left: 2.6041vw;
-    /* 50px / 1920px */
-    right: 2.0833vw;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5208vw;
-    /* 10px / 1920px */
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.05s ease;
+/* 카드가 확장되면 -> 타이틀이 60px로 커짐 */
+.product-card.expanded .pc-title-small {
+    font-size: 60px;
 }
 
-/* 텍스트 그룹 */
-.pc-text-group {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-}
-
-.pc-text-group h3 {
-    font-size: 3.125vw;
-    /* 60px / 1920px */
-    font-weight: 700;
-    line-height: 140%;
-    color: #FFFFFF;
-    margin: 0;
-}
-
-.pc-text-group p {
+/* 설명글 스타일 (타이틀 아래) */
+.pc-desc {
     font-size: 1.3541vw;
     /* 26px / 1920px */
     font-weight: 700;
     line-height: 150%;
     color: #FFFFFF;
-    opacity: 0.8;
     margin: 0;
+    
+    /* 닫혀있을 때 숨김 설정 */
+    opacity: 0;
+    pointer-events: none;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease;
 }
 
 /* 버튼 그룹: 우측 하단 */
@@ -722,21 +714,13 @@ body {
     cursor: pointer;
 }
 
-/* 카드가 확장되면 -> 작은 타이틀이 674px 위로 올라가며 60px로 커짐! */
-.product-card:hover .pc-title-small,
-.product-card.expanded .pc-title-small {
-    bottom: 674px;
-    left: 50px;
-    font-size: 60px;
-    opacity: 0;
-}
-
-.product-card:hover .pc-expanded-content,
-.product-card.expanded .pc-expanded-content {
-    opacity: 1;
+/* 카드가 확장되면 -> 설명글 노출 */
+.product-card.expanded .pc-desc {
+    height: 2.0312vw; /* ~39px at 1920px */
+    opacity: 0.8;
     pointer-events: auto;
-    transition: opacity 0.3s ease 0.2s;
-    /* 열릴 때: 지연 시간 단축 */
+    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease 0.2s;
 }
 
 /* 버튼: 기본 숨김 및 클릭 방지 */
@@ -748,12 +732,11 @@ body {
     /* 닫힐 때: 즉시 사라짐 */
 }
 
-/* 💡 핵심 수정: :hover 부분을 지우고 .expanded일 때만 활성화합니다 */
+/* 카드가 확장되면 -> 버튼 활성화 */
 .product-card.expanded .pc-btn-group {
     opacity: 1;
     pointer-events: auto;
     transition: opacity 0.3s ease 0.2s;
-    /* 열릴 때: 지연 시간 단축 */
 }
 
 
@@ -1145,6 +1128,23 @@ body {
     }
 
     /* 모바일에서는 확장/축소 없이 모두 동일 */
+    .pc-text-block {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* 모바일 호버 시 위치 변동 방지 */
+    .product-card:hover .pc-text-block {
+        top: auto;
+        left: auto;
+        bottom: auto;
+    }
+
     .pc-title-small {
         position: relative;
         bottom: auto;
@@ -1154,14 +1154,15 @@ body {
         line-height: 1.5;
         padding: 0;
         transition: none;
+        opacity: 1;
     }
 
-    .product-card:hover .pc-title-small,
-    .product-card.expanded .pc-title-small {
+    .product-card:hover .pc-title-small {
         bottom: auto;
         left: auto;
         font-size: 20px;
         transform: none;
+        opacity: 1;
     }
 
     .pc-content {
@@ -1172,24 +1173,18 @@ body {
         padding: 20px 16px;
     }
 
-    .pc-expanded-content {
-        position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        opacity: 1;
-        pointer-events: auto;
-        transition: none;
-    }
-
-    .pc-text-group h3 {
-        display: none;
-    }
-
-    .pc-text-group p {
+    .pc-desc {
         font-size: 16px;
         font-weight: 400;
         line-height: 1.6;
+        opacity: 1;
+        height: auto;
+        pointer-events: auto;
+    }
+
+    /* 모바일 호버 시 설명글 스타일 유지 */
+    .product-card:hover .pc-desc {
+        height: auto;
         opacity: 1;
     }
 

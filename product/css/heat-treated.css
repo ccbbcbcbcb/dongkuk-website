@@ -1909,38 +1909,38 @@
 
             /* ── 공정: 데스크탑 요소 숨김 ── */
             .process-scroll-outer {
-                padding: 0 !important;
-                overflow: visible !important;
+                padding: 0;
+                overflow: visible;
             }
 
             .process-sticky {
-                display: block !important;
-                height: auto !important;
-                position: relative !important;
-                padding: 0 !important;
+                display: block;
+                height: auto;
+                position: relative;
+                padding: 0;
             }
 
             .process-card {
-                width: 100% !important;
-                max-width: 100% !important;
-                height: auto !important;
-                padding: 40px 16px 20px !important;
-                border-radius: 0 !important;
-                overflow: visible !important;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                padding: 40px 16px 20px;
+                border-radius: 0;
+                overflow: visible;
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
-                transform: none !important;
+                transform: none;
             }
 
             .ps-header {
-                position: relative !important;
-                width: 100% !important;
-                height: auto !important;
-                left: 0 !important;
-                top: 0 !important;
-                padding: 0 !important;
-                box-sizing: border-box !important;
+                position: relative;
+                width: 100%;
+                height: auto;
+                left: 0;
+                top: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
 
             .ps-label {
@@ -1948,25 +1948,25 @@
             }
 
             .ps-title {
-                font-size: 30px !important;
-                line-height: 1.5 !important;
+                font-size: 30px;
+                line-height: 1.5;
             }
 
             .ps-diagram-area {
-                display: none !important;
+                display: none;
             }
 
             .ps-bubble {
-                display: none !important;
+                display: none;
             }
 
             .ps-progress {
-                display: none !important;
+                display: none;
             }
 
             /* ── 모바일 전용 공정 다이어그램 ── */
             .ps-mobile-diagram {
-                display: block !important;
+                display: block;
                 width: 100%;
                 position: relative;
                 aspect-ratio: 328 / 160;
@@ -2081,7 +2081,7 @@
             .ps-mobile-bottom-group {
                 display: flex;
                 flex-direction: column;
-                gap: 60px;
+                gap: 10px;
                 width: 100%;
                 box-sizing: border-box;
             }
@@ -2136,7 +2136,6 @@
                 background: #FFFFFF;
                 border-radius: 16px;
                 box-sizing: border-box;
-                margin-top: -50px;
             }
 
             .ps-mobile-info-header {
