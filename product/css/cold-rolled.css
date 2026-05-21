@@ -497,13 +497,18 @@
             font-size: 18px;
             font-weight: 700;
             text-decoration: none;
-            transition: opacity 0.2s;
+            transition: background 0.2s ease, opacity 0.2s ease;
             border: none;
             cursor: pointer;
         }
 
         .btn-round:hover {
             opacity: 0.9;
+        }
+
+        .pi-brochure-btns .btn-round:hover {
+            background: #C15A00;
+            opacity: 1;
         }
 
         .btn-round .btn-label {
@@ -1401,6 +1406,7 @@
 
             .hero-text-outer {
                 min-height: 200vh;
+                padding-bottom: 40px;
             }
 
             .hero-text-inner {
@@ -1709,6 +1715,12 @@
                 flex: none;
                 flex-grow: 0;
                 border: none;
+                transition: background 0.2s ease;
+            }
+
+            .pi-brochure-btns .btn-round:hover {
+                background: #C15A00;
+                opacity: 1;
             }
 
             .pi-brochure-btns .btn-round:nth-child(1) { width: 106px; }

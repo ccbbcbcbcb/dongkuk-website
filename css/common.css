@@ -26,7 +26,6 @@ body {
     background: #fff;
     color: #111;
     min-width: 0;
-    max-width: 1920px;
     margin: 0 auto;
     overflow-x: clip;
     /* hidden은 position:sticky를 무력화하므로 clip 사용 */
@@ -183,10 +182,10 @@ body {
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    transform: none;
     width: 100%;
-    max-width: 1920px;
+    max-width: none;
     z-index: 100;
 }
 
@@ -235,7 +234,7 @@ body {
     padding: 40px 0 30px;
     gap: 4.375rem;
     width: 100%;
-    max-width: 1920px;
+    max-width: none;
     background: #FFFFFF;
     margin: 0 auto;
 }
@@ -264,7 +263,7 @@ body {
     align-items: flex-end;
     padding: 0;
     width: 100%;
-    max-width: 1920px;
+    max-width: none;
     height: 70px;
     margin-top: 30px;
     background: #FFFFFF;
@@ -423,6 +422,40 @@ body {
     color: #4E4E4E;
     margin: 0;
     word-break: keep-all;
+}
+
+/* 화살표 버튼 (공통 – components.js support 배너 포함) */
+.support-card-arrow {
+    width: 64px;
+    height: 64px;
+    border-radius: 100000px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 13px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.support-banner:hover .support-card-arrow,
+.support-card:hover .support-card-arrow {
+    background: #dbdbdb;
+}
+
+.support-arrow-inner {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+}
+
+.support-arrow-svg {
+    width: 26px;
+    height: 26px;
 }
 
 /* 화살표 버튼 – ic_Chevron Right */
@@ -733,8 +766,8 @@ body {
 
     /* ── BTN TOP ── */
     .btn-top {
-        width: 52px;
-        height: 52px;
+        width: clamp(52px, calc(36.8px + 4.22vw), 80px);
+        height: clamp(52px, calc(36.8px + 4.22vw), 80px);
         right: 16px;
         /* Ensure it stays within mobile viewport */
     }

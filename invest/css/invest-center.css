@@ -13,8 +13,6 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
     position: relative;
 }
 
@@ -27,7 +25,6 @@ body {
 .invest-hero {
     position: relative;
     width: 100%;
-    max-width: 1920px;
     height: 709px;
     display: flex;
     flex-direction: column;
@@ -1375,6 +1372,7 @@ body {
     gap: 10px;
     width: 100%;
     max-width: 1920px;
+    margin: 0 auto;
     height: auto;
     min-height: 737px;
     box-sizing: border-box;
@@ -1515,6 +1513,10 @@ body {
     box-sizing: border-box;
 }
 
+.notice-icon-box.disclosure {
+    background: #D0E1FF;
+}
+
 .notice-icon-box img {
     width: 24px;
     height: 24px;
@@ -1635,6 +1637,7 @@ body {
     position: relative;
     width: 100%;
     max-width: 1920px;
+    margin: 0 auto;
     height: auto;
     min-height: 769px;
     background: #FFFFFF;
@@ -2077,6 +2080,10 @@ body {
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
+    }
+
+    .notice-icon-box.disclosure {
+        background: #D0E1FF;
     }
 
     .notice-icon-box img {

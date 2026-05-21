@@ -107,12 +107,22 @@ document.addEventListener('DOMContentLoaded', function () {
         let progress = Math.max(0, Math.min(1, scrolled / Math.max(scrollRoom * 0.6, 1)));
 
         const activeCount = Math.floor(progress * chars.length);
-        chars.forEach((c, i) => c.classList.toggle('active', i < activeCount));
+
+        // 한 번 active가 된 글자는 되돌리지 않음 (one-way)
+        chars.forEach((c, i) => {
+            if (i < activeCount) c.classList.add('active');
+        });
+
+        // 모든 글자가 활성화되면 리스너 제거 (성능 최적화)
+        if (activeCount >= chars.length) {
+            window.removeEventListener('scroll', onScroll);
+        }
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 });
+
 
 /* ── 탭 패널 전환 (디켈 가치/제품/브랜드 탭) ── */
 document.querySelectorAll('.tab-item[data-tab]').forEach(function (tab) {

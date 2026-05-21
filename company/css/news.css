@@ -94,7 +94,7 @@ a {
     height: auto;
     aspect-ratio: 1005 / 565;
     position: relative;
-    border-radius: clamp(16px, 1.56vw, 30px);
+    border-radius: 30px;
     overflow: hidden;
 }
 

@@ -36,7 +36,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: clamp(60px, 5.21vw, 100px) 0;
+    padding: 70px 0 100px;
     gap: clamp(40px, 3.65vw, 70px);
     width: 100%;
     max-width: 1920px;
@@ -150,10 +150,111 @@ body {
     height: auto;
 }
 
+.signature-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+}
+
 /* Signature */
 .signature {
-    gap: clamp(24px, 2.08vw, 40px);
+    display: flex;
+    flex-direction: column;
     width: 100%;
+}
+
+.sig-txt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 40px;
+    width: 100%;
+    max-width: 1680px;
+    min-height: 180px;
+    height: auto;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.sig-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+    width: 100%;
+    max-width: 1680px;
+    min-height: 70px;
+    height: auto;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.signature h2 {
+    width: auto;
+    min-width: 173px;
+    min-height: 70px;
+    height: auto;
+    font-family: 'Pretendard', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(30px, 2.6vw, 50px);
+    line-height: 140%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    margin: 0;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.sig-desc-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: clamp(40px, 41.87vw, 804px);
+    width: 100%;
+    max-width: 1680px;
+    min-height: 70px;
+    height: auto;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.sig-intro {
+    width: 100%;
+    max-width: 1140px;
+    min-height: 70px;
+    height: auto;
+    font-family: 'Pretendard', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: clamp(16px, 1.15vw, 22px);
+    line-height: 160%;
+    display: flex;
+    align-items: center;
+    color: #4E4E4E;
+    margin: 0;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+.signature-images {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .sig-grid {
@@ -410,6 +511,45 @@ body {
         max-width: 118px;
     }
 
+    .signature-container {
+        gap: 0;
+    }
+
+    .bi-item.signature-images {
+        padding-top: 0;
+    }
+
+    .sig-txt {
+        gap: 20px;
+        min-height: auto;
+        width: 100%;
+    }
+
+    .sig-title {
+        gap: 0;
+        min-height: auto;
+        width: 100%;
+    }
+
+    .sig-title h2 {
+        min-height: auto;
+        height: auto;
+    }
+
+    .sig-desc-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        min-height: auto;
+        width: 100%;
+    }
+
+    .sig-intro {
+        max-width: 100%;
+        min-height: auto;
+        height: auto;
+    }
+
     .sig-grid {
         display: flex;
         flex-direction: column;
@@ -417,9 +557,6 @@ body {
         width: 100%;
     }
 
-    .bi-item.signature {
-        padding-bottom: 0;
-    }
 
     .sig-img-box {
         height: 174px;

@@ -383,13 +383,18 @@
     font-size: 18px;
     font-weight: 700;
     text-decoration: none;
-    transition: opacity 0.2s;
+    transition: background 0.2s ease, opacity 0.2s ease;
     border: none;
     cursor: pointer;
 }
 
 .btn-round:hover {
     opacity: 0.9;
+}
+
+.pi-brochure-btns .btn-round:hover {
+    background: #C15A00;
+    opacity: 1;
 }
 
 .btn-round .btn-label {
@@ -1247,7 +1252,7 @@ img.ic-download {
 
     .hero-text-outer {
         min-height: 200vh;
-        padding-bottom: 46px;
+        padding-bottom: 40px;
     }
 
     .hero-text-inner {
@@ -1572,6 +1577,12 @@ img.ic-download {
         font-size: 16px;
         gap: 4px;
         box-sizing: border-box;
+        transition: background 0.2s ease;
+    }
+
+    .btn-round:hover {
+        background: #C15A00;
+        opacity: 1;
     }
 
     .btn-round .btn-label {
@@ -1938,7 +1949,8 @@ img.ic-download {
         position: relative;
         width: 100%;
         border-radius: 8px;
-        overflow: visible; /* 라벨 등이 잘리지 않도록 visible 설정 */
+        overflow: visible;
+        /* 라벨 등이 잘리지 않도록 visible 설정 */
     }
 
     #ps-mobile-diagram-bulk {
@@ -1946,7 +1958,8 @@ img.ic-download {
         width: 328px;
         height: 277px;
         margin: 0 auto;
-        overflow: visible; /* 라벨 등이 잘리지 않도록 visible 설정 */
+        overflow: visible;
+        /* 라벨 등이 잘리지 않도록 visible 설정 */
         position: relative;
     }
 
@@ -1976,59 +1989,109 @@ img.ic-download {
         cursor: pointer;
         pointer-events: auto;
     }
+
     #ps-mobile-diagram-special .ps-step-img.visible {
         opacity: 1;
         filter: grayscale(0);
     }
 
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="0"] {
-        left: 13px; top: 14px; width: 34px; height: 58px;
+        left: 13px;
+        top: 14px;
+        width: 34px;
+        height: 58px;
     }
+
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="1"] {
-        left: 43px; top: 14px; width: 176.76px; height: 71.87px;
+        left: 43px;
+        top: 14px;
+        width: 176.76px;
+        height: 71.87px;
     }
+
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="2"] {
-        left: 210.26px; top: 14px; width: 110px; height: 86px;
+        left: 210.26px;
+        top: 14px;
+        width: 110px;
+        height: 86px;
     }
+
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="3"] {
-        left: 90.16px; top: 114px; width: 64.75px; height: 66px;
+        left: 90.16px;
+        top: 114px;
+        width: 64.75px;
+        height: 66px;
     }
+
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="4"] {
-        left: 154.91px; top: 126.58px; width: 82.1px; height: 53.43px;
+        left: 154.91px;
+        top: 126.58px;
+        width: 82.1px;
+        height: 53.43px;
     }
+
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="5"] {
-        left: 35px; top: 201px; width: 104.84px; height: 75.32px;
+        left: 35px;
+        top: 201px;
+        width: 104.84px;
+        height: 75.32px;
     }
+
     #ps-mobile-diagram-special .ps-step-img[data-mobile-step="6"] {
-        left: 139.84px; top: 201px; width: 110.9px; height: 75.32px;
+        left: 139.84px;
+        top: 201px;
+        width: 110.9px;
+        height: 75.32px;
     }
 
     /* 특수대응 7개 공정 라벨 위치 세팅 */
     #ps-mobile-diagram-special .ps-mobile-step-label {
         position: absolute;
         transform: translateX(-50%);
-        z-index: 20; /* 10 -> 20 (가장 앞으로 오도록 설정) */
+        z-index: 20;
+        /* 10 -> 20 (가장 앞으로 오도록 설정) */
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="0"] {
-        left: 35px; top: -6px; margin-top: 0;
+        left: 35px;
+        top: -6px;
+        margin-top: 0;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="1"] {
-        left: 131.38px; top: -6px; margin-top: 0;
+        left: 131.38px;
+        top: -6px;
+        margin-top: 0;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="2"] {
-        left: 265.26px; top: 4px; margin-top: 0;
+        left: 265.26px;
+        top: 4px;
+        margin-top: 0;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="3"] {
-        left: 112.54px; top: 103px; margin-top: 0;
+        left: 112.54px;
+        top: 103px;
+        margin-top: 0;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="4"] {
-        left: 195.96px; top: 110px; margin-top: 0;
+        left: 195.96px;
+        top: 110px;
+        margin-top: 0;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="5"] {
-        left: 92.42px; top: 199px; margin-top: 0;
+        left: 92.42px;
+        top: 199px;
+        margin-top: 0;
     }
+
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="6"] {
-        left: 191.29px; top: 214px; margin-top: 0;
+        left: 191.29px;
+        top: 214px;
+        margin-top: 0;
     }
 
     .ps-mobile-row {
@@ -2039,8 +2102,10 @@ img.ic-download {
     }
 
     .ps-mobile-row:first-child {
-        margin-top: 25px; /* 아래로 10px 이동 (15px + 10px) */
-        left: -10px;      /* 왼쪽으로 10px 이동 */
+        margin-top: 25px;
+        /* 아래로 10px 이동 (15px + 10px) */
+        left: -10px;
+        /* 왼쪽으로 10px 이동 */
     }
 
     .ps-mobile-row:last-child {
@@ -2048,31 +2113,41 @@ img.ic-download {
     }
 
     .ps-mobile-row:nth-child(2) {
-        margin-top: -7px; /* 위로 2px 이동 (-5px - 2px) */
-        left: 20px; /* 오른쪽으로 20px 이동 */
-        width: calc(100% - 20px); /* 360px 모바일 화면 이탈 방지 */
+        margin-top: -7px;
+        /* 위로 2px 이동 (-5px - 2px) */
+        left: 20px;
+        /* 오른쪽으로 20px 이동 */
+        width: calc(100% - 20px);
+        /* 360px 모바일 화면 이탈 방지 */
     }
 
     .ps-mobile-row:nth-child(3) {
-        margin-top: -9px; /* 위로 2px 올라간 영향을 상쇄하고(+2px) 아래로 7px 이동하기 위해 -18px에서 -9px로 조정 */
-        left: 16px;        /* 오른쪽으로 16px 이동 */
-        width: calc(100% - 16px); /* 360px 모바일 화면 이탈 방지 */
+        margin-top: -9px;
+        /* 위로 2px 올라간 영향을 상쇄하고(+2px) 아래로 7px 이동하기 위해 -18px에서 -9px로 조정 */
+        left: 16px;
+        /* 오른쪽으로 16px 이동 */
+        width: calc(100% - 16px);
+        /* 360px 모바일 화면 이탈 방지 */
     }
 
     /* ── 1행 공정 라벨 ── */
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="0"],
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="1"],
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="2"] {
-        margin-top: -5px;   /* 아래로 10px 이동 (-15px + 10px) */
-        margin-left: -10px; /* 왼쪽으로 10px 이동 */
+        margin-top: -5px;
+        /* 아래로 10px 이동 (-15px + 10px) */
+        margin-left: -10px;
+        /* 왼쪽으로 10px 이동 */
     }
 
     /* ── 2행 공정 라벨 ── */
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="3"],
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="4"],
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="5"] {
-        margin-top: -22px; /* 위로 2px 이동 (-20px - 2px) */
-        margin-left: 20px; /* 오른쪽으로 20px 이동 */
+        margin-top: -22px;
+        /* 위로 2px 이동 (-20px - 2px) */
+        margin-left: 20px;
+        /* 오른쪽으로 20px 이동 */
     }
 
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="3"],
@@ -2083,8 +2158,10 @@ img.ic-download {
     /* ── 3행 공정 라벨 ── */
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="6"],
     #ps-mobile-diagram-bulk .ps-mobile-step-label[data-mobile-step="7"] {
-        margin-top: -48px;  /* 아래로 7px 이동 (-55px + 7px) */
-        margin-left: 16px;  /* 오른쪽으로 16px 이동 */
+        margin-top: -48px;
+        /* 아래로 7px 이동 (-55px + 7px) */
+        margin-left: 16px;
+        /* 오른쪽으로 16px 이동 */
     }
 
     #ps-mobile-diagram-special .ps-mobile-step-label[data-mobile-step="5"],
@@ -2110,7 +2187,8 @@ img.ic-download {
 
     .ps-row-inner .ps-step-img {
         position: absolute;
-        opacity: 0; /* 비활성 시 완전히 숨김 (0.25 -> 0) */
+        opacity: 0;
+        /* 비활성 시 완전히 숨김 (0.25 -> 0) */
         filter: grayscale(1);
         transition: filter 0.4s ease, opacity 0.4s ease;
         pointer-events: none;
@@ -2131,7 +2209,8 @@ img.ic-download {
         opacity: 0;
         transition: opacity 0.4s ease;
         pointer-events: none;
-        z-index: 20; /* 10 -> 20 (가장 앞으로 오도록 설정) */
+        z-index: 20;
+        /* 10 -> 20 (가장 앞으로 오도록 설정) */
     }
 
     .ps-mobile-step-label.visible {
@@ -2702,7 +2781,6 @@ img.ic-download {
 
 .story-desc-sub {
     display: block;
-    margin-top: 20px;
     font-weight: 400;
     /* second part width was 1026px in Figma, we can constrain it if needed */
     max-width: 1026px;
@@ -5281,58 +5359,58 @@ body {
     }
 
     .mcard {
-        flex: none !important;
-        width: 328px !important;
-        height: 356px !important;
-        border-radius: 16px !important;
-        padding: 40px 20px !important;
+        flex: none;
+        width: 328px;
+        height: 356px;
+        border-radius: 16px;
+        padding: 40px 20px;
         margin: 0 auto;
-        overflow: hidden !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        gap: 4px !important;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
     }
 
     /* illus: h-150 w-296 */
     .mcard-illus {
-        max-width: 296px !important;
-        min-width: 155px !important;
-        height: 150px !important;
-        min-height: 130px !important;
-        overflow: hidden !important;
+        max-width: 296px;
+        min-width: 155px;
+        height: 150px;
+        min-height: 130px;
+        overflow: hidden;
     }
 
     .mcard-illus img {
-        height: 100% !important;
-        min-width: 155px !important;
-        min-height: 130px !important;
-        object-fit: contain !important;
+        height: 100%;
+        min-width: 155px;
+        min-height: 130px;
+        object-fit: contain;
     }
 
     /* txt: w-288 gap-20, title 20px/1.5, desc 16px/1.6 #4E4E4E */
     .mcard-txt {
-        width: 100% !important;
-        max-width: 288px !important;
-        gap: 20px !important;
-        align-items: flex-start !important;
+        width: 100%;
+        max-width: 288px;
+        gap: 20px;
+        align-items: flex-start;
     }
 
     .mcard-title {
-        font-size: 20px !important;
-        font-weight: 700 !important;
-        height: auto !important;
-        line-height: 1.5 !important;
-        color: #1B1B1B !important;
+        font-size: 20px;
+        font-weight: 700;
+        height: auto;
+        line-height: 1.5;
+        color: #1B1B1B;
     }
 
     .mcard-desc {
-        font-size: 16px !important;
-        font-weight: 400 !important;
-        height: auto !important;
-        line-height: 1.6 !important;
-        color: #4E4E4E !important;
+        font-size: 16px;
+        font-weight: 400;
+        height: auto;
+        line-height: 1.6;
+        color: #4E4E4E;
     }
 
     /* ── Why DiKel: 피그마 MOB px-[16px] py-[40px] gap-[30px] ── */
@@ -5452,7 +5530,7 @@ body {
         display: flex !important;
         flex-direction: column !important;
         gap: 30px !important;
-        padding: 20px 0 !important;
+        padding: 20px 0 40px 0 !important;
     }
 
     .value-item-top {

@@ -6185,11 +6185,11 @@ body {
 }
 
 .stock-mc-label {
-    width: 63px;
-    height: 29px;
+    width: auto;
+    height: auto;
     font-family: 'Pretendard', sans-serif;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 160%;
     color: #4E4E4E;
 }
@@ -7501,6 +7501,8 @@ body {
     padding: clamp(40px, 5.21vw, 100px) clamp(16px, 6.2vw, 119px);
     background: #FFFFFF;
     width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 .fs-content {

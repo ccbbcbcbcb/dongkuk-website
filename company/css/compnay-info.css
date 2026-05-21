@@ -733,8 +733,13 @@
     font-weight: 700;
     font-size: clamp(30px, 2.6vw, 50px);
     line-height: 140%;
-    color: #000000;
+    color: #CFCFCF;
     margin: 0;
+    transition: color 0.6s ease;
+}
+
+.value-card.revealed .value-txt h3 {
+    color: #000000;
 }
 
 .value-txt p {
@@ -5272,6 +5277,10 @@ body {
         gap: 4px;
     }
 
+    .ph-detail-footnote p {
+        font-size: 16px;
+    }
+
     .ph-detail-img {
         width: 100%;
         height: auto;
@@ -5316,13 +5325,20 @@ body {
         justify-content: flex-start;
     }
 
-    .value-icon,
-    .circle-outer {
-        width: 30px;
-        height: 30px;
+    .value-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .value-icon img {
+        width: 42px;
+        height: 42px;
+        display: block;
     }
 
     .circle-outer {
+        width: 30px;
+        height: 30px;
         background: #F27100;
     }
 

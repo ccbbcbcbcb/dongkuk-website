@@ -4,11 +4,13 @@
 /* ===== Page Header ===== */
 .page-header {
     width: 100%;
-    height: clamp(100px, 12.5vw, 240px);
     display: flex;
     align-items: center;
     justify-content: center;
     background: #fff;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
 }
 
 .page-header h1 {

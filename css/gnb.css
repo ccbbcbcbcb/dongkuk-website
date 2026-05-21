@@ -24,10 +24,10 @@
 .gnb-menu {
   position: fixed;
   top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  transform: none;
   width: 100%;
-  max-width: 1920px;
+  max-width: none;
   max-height: 0;
   z-index: 99;
   background: #fff;
@@ -251,10 +251,10 @@
 .gnb {
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    transform: none;
     width: 100%;
-    max-width: 1920px;
+    max-width: none;
     z-index: 1000;
     transition: top 0.3s ease-in-out;
 }

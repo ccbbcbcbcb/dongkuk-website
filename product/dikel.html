@@ -134,12 +134,12 @@
 
                 <!-- Accordion Section (Product Specs & Range) -->
                 <div class="accordion">
-                    <!-- 1. 제품사양 -->
+                    <!-- 1. 대응규격 -->
                     <div class="acc-item">
                         <div class="acc-header" onclick="toggleAcc(this)">
                             <div class="acc-header-left">
                                 <div class="acc-dot"></div>
-                                <span class="acc-title">제품사양</span>
+                                <span class="acc-title">대응규격</span>
                             </div>
                             <div class="acc-dropdown-icon">
                                 <img src="../assets/common/ic-dropdown.svg" class="plus" alt="열기">
@@ -251,7 +251,7 @@
                                             </div>
                                             <div class="spec-grid-col">
                                                 <div class="spec-head">투입 폭</div>
-                                                <div class="spec-value">750~1,219mm</div>
+                                                <div class="spec-value">25~1,219mm</div>
                                             </div>
                                         </div>
                                     </div>
@@ -275,7 +275,8 @@
                                             </div>
                                             <div class="spec-grid-col">
                                                 <div class="spec-head">Capa.</div>
-                                                <div class="spec-value">80,000 Ton/年<br class="mo-br"> (130,000까지 확충 예정)
+                                                <div class="spec-value">80,000(Ton/年)<br class="mo-br"> (130,000까지 확충
+                                                    예정)
                                                 </div>
                                             </div>
                                         </div>
@@ -304,7 +305,7 @@
                                             </div>
                                             <div class="spec-grid-col">
                                                 <div class="spec-head">Capa.</div>
-                                                <div class="spec-value">130,000 Ton/年
+                                                <div class="spec-value">130,000(Ton/年)
                                                 </div>
                                             </div>
                                         </div>
@@ -341,7 +342,7 @@
                                             <div class="spec-ann-col">
                                                 <div class="spec-head">Capa.</div>
                                                 <div class="spec-value">-</div>
-                                                <div class="spec-value">80,000 Ton/年<br>(130,000까지 확충 예정)
+                                                <div class="spec-value">80,000 (Ton/年)<br>(130,000까지 확충 예정)
                                                 </div>
                                             </div>
                                             <!-- Col 5: 추가 설비 (Wide) -->
@@ -357,7 +358,7 @@
                                                 <div class="spec-ann-value-row">
                                                     <div class="spec-ann-sub-value">0.2~1.0mm</div>
                                                     <div class="spec-ann-sub-value">750~1,219mm</div>
-                                                    <div class="spec-ann-sub-value">130,000<br>Ton/年</div>
+                                                    <div class="spec-ann-sub-value">130,000<br>(Ton/年)</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -781,13 +782,20 @@
 
                     <!-- 모바일 전용: 3줄 다이어그램 (특수대응) -->
                     <div class="ps-mobile-diagram is-hidden" id="ps-mobile-diagram-special">
-                        <img class="ps-step-img" data-mobile-step="0" src="assets/dikel/1.냉연코일 세팅.svg" alt="" onclick="clearInterval(autoTimer); activateStep(0); startAutoPlay();">
-                        <img class="ps-step-img" data-mobile-step="1" src="assets/dikel/2.탈지라인.svg" alt="" onclick="clearInterval(autoTimer); activateStep(1); startAutoPlay();">
-                        <img class="ps-step-img" data-mobile-step="2" src="assets/dikel/3.전해니켈도금.svg" alt="" onclick="clearInterval(autoTimer); activateStep(2); startAutoPlay();">
-                        <img class="ps-step-img" data-mobile-step="3" src="assets/dikel/4.배치형 소둔.svg" alt="" onclick="clearInterval(autoTimer); activateStep(3); startAutoPlay();">
-                        <img class="ps-step-img" data-mobile-step="4" src="assets/dikel/5.표면마감.svg" alt="" onclick="clearInterval(autoTimer); activateStep(4); startAutoPlay();">
-                        <img class="ps-step-img" data-mobile-step="5" src="assets/dikel/7.정밀컷팅.svg" alt="" onclick="clearInterval(autoTimer); activateStep(5); startAutoPlay();">
-                        <img class="ps-step-img" data-mobile-step="6" src="assets/dikel/8.포장정리.svg" alt="" onclick="clearInterval(autoTimer); activateStep(6); startAutoPlay();">
+                        <img class="ps-step-img" data-mobile-step="0" src="assets/dikel/1.냉연코일 세팅.svg" alt=""
+                            onclick="clearInterval(autoTimer); activateStep(0); startAutoPlay();">
+                        <img class="ps-step-img" data-mobile-step="1" src="assets/dikel/2.탈지라인.svg" alt=""
+                            onclick="clearInterval(autoTimer); activateStep(1); startAutoPlay();">
+                        <img class="ps-step-img" data-mobile-step="2" src="assets/dikel/3.전해니켈도금.svg" alt=""
+                            onclick="clearInterval(autoTimer); activateStep(2); startAutoPlay();">
+                        <img class="ps-step-img" data-mobile-step="3" src="assets/dikel/4.배치형 소둔.svg" alt=""
+                            onclick="clearInterval(autoTimer); activateStep(3); startAutoPlay();">
+                        <img class="ps-step-img" data-mobile-step="4" src="assets/dikel/5.표면마감.svg" alt=""
+                            onclick="clearInterval(autoTimer); activateStep(4); startAutoPlay();">
+                        <img class="ps-step-img" data-mobile-step="5" src="assets/dikel/7.정밀컷팅.svg" alt=""
+                            onclick="clearInterval(autoTimer); activateStep(5); startAutoPlay();">
+                        <img class="ps-step-img" data-mobile-step="6" src="assets/dikel/8.포장정리.svg" alt=""
+                            onclick="clearInterval(autoTimer); activateStep(6); startAutoPlay();">
 
                         <!-- 단계별 이름 및 아래 화살표 라벨 -->
                         <div class="ps-mobile-step-label" data-mobile-step="0">
@@ -893,7 +901,8 @@
                         <p class="story-desc">
                             DiKel은 <b>Dongkuk</b>과 <b>Nickel</b>의 결합에서 탄생한 동국산업의 니켈도금강판 브랜드입니다.<br>
                             <span class="story-desc-sub"><b>D</b>는 탈탄소화(Decarbonize)를 향한 방향성을,<br class="mo-br">
-                                <b>The</b> Nickel의 <b>디</b>(The)는<br class="pc-only"> 동국산업이 완성한<br class="mo-br"> <b>단 하나의 니켈</b>이라는 기술적
+                                <b>The</b> Nickel의 <b>디</b>(The)는<br class="pc-only"> 동국산업이 완성한<br class="mo-br"> <b>단
+                                    하나의 니켈</b>이라는 기술적
                                 차별성과 브랜드<br class="mo-br"> 자신감을 담고 있습니다.</span>
                         </p>
                     </div>
@@ -1064,7 +1073,7 @@
                         <div class="bi-color-card">
                             <div class="color-circle dk-blue"></div>
                             <div class="color-info-group">
-                                <h4 class="color-name">DK Blue</h4>
+                                <h4 class="color-name">Dongkuk Blue</h4>
                                 <div class="color-values">
                                     <div class="color-val-row"><span class="color-val-text">#003592</span></div>
                                     <div class="color-val-row"><span class="color-val-text">R0 G53 B146</span></div>
@@ -1076,7 +1085,7 @@
                         <div class="bi-color-card">
                             <div class="color-circle dk-orange"></div>
                             <div class="color-info-group">
-                                <h4 class="color-name">DK Orange</h4>
+                                <h4 class="color-name">Dongkuk Orange</h4>
                                 <div class="color-values">
                                     <div class="color-val-row"><span class="color-val-text">#EE7826</span></div>
                                     <div class="color-val-row"><span class="color-val-text">R238 G120 B38</span></div>
@@ -1088,7 +1097,7 @@
                         <div class="bi-color-card">
                             <div class="color-circle dk-grey"></div>
                             <div class="color-info-group">
-                                <h4 class="color-name">DK Grey</h4>
+                                <h4 class="color-name">DongKuk Grey</h4>
                                 <div class="color-values">
                                     <div class="color-val-row"><span class="color-val-text">#9DA6A8</span></div>
                                     <div class="color-val-row"><span class="color-val-text">R157 G166 B168</span></div>

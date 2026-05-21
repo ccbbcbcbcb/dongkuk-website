@@ -18,8 +18,6 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
     position: relative;
 }
 
@@ -90,7 +88,7 @@ body {
 .standards-section {
     position: relative;
     width: 100%;
-    max-width: 100vw;
+    max-width: 1920px;
     height: 69.427vw;
     /* 1333px / 1920px */
     margin: 0 auto;
@@ -613,6 +611,9 @@ body .no-transition *,
     background: #FFFFFF;
     display: flex;
     justify-content: center;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 .products-container {
@@ -748,6 +749,12 @@ body .no-transition *,
     color: #ffffff;
     align-items: center;
     cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.pc-btn-group:hover .pc-btn-icon {
+    background-color: #F27100;
+    border-color: #F27100;
 }
 
 /* 카드가 확장되면 -> 설명글 노출 */
@@ -780,22 +787,27 @@ body .no-transition *,
    Desktop Hover Accordion (CSS Fallback / JS Enhancement)
    ================================================================= */
 @media (min-width: 1024px) {
+
     /* 마우스가 컨테이너에 들어오면, 일단 모든 카드를 축소 상태로 만듦 */
     .products-container:hover .product-card {
         flex: 329;
     }
+
     .products-container:hover .product-card .pc-text-block {
         top: calc(42.0833vw - 2.0833vw - 50px);
         left: 2.0833vw;
     }
+
     .products-container:hover .product-card .pc-title-small {
         font-size: 1.875vw;
     }
+
     .products-container:hover .product-card .pc-desc {
         height: 0;
         opacity: 0;
         pointer-events: none;
     }
+
     .products-container:hover .product-card .pc-btn-group {
         opacity: 0;
         pointer-events: none;
@@ -805,18 +817,22 @@ body .no-transition *,
     .products-container:hover .product-card:hover {
         flex: 974;
     }
+
     .products-container:hover .product-card:hover .pc-text-block {
         top: 50px;
         left: 50px;
     }
+
     .products-container:hover .product-card:hover .pc-title-small {
         font-size: 60px;
     }
+
     .products-container:hover .product-card:hover .pc-desc {
         height: 2.0312vw;
         opacity: 0.8;
         pointer-events: auto;
     }
+
     .products-container:hover .product-card:hover .pc-btn-group {
         opacity: 1;
         pointer-events: auto;

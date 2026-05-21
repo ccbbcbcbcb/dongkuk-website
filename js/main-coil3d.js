@@ -1100,8 +1100,8 @@
       /* 모바일: 초기 높이 캐시 — 브라우저 바 토글 시 리사이즈 방지 */
       var cachedMobileVh = null;
       function resize3d() {
-        var vw = window.innerWidth;
-        var vh = window.innerHeight;
+        var vw = fixedWrap ? fixedWrap.clientWidth : window.innerWidth;
+        var vh = fixedWrap ? fixedWrap.clientHeight : window.innerHeight;
         /* 모바일에서는 최초 높이 또는 너비 변경 시에만 높이 업데이트 */
         if (vw <= 1023) {
           if (cachedMobileVh === null) cachedMobileVh = vh;

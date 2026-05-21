@@ -189,7 +189,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  margin: 0 auto;
   width: 100%;
+  max-width: 1920px;
   height: 100svh;
   height: 100vh;
   height: 100svh;
@@ -200,6 +203,9 @@ body {
 #coil-3d-fixed.coil-fixed {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   z-index: 4;
 }
 
@@ -373,6 +379,8 @@ body {
   /* 👇 제품소개 카드도 양옆 30px 띄우기 위해 wrapper에 패딩 부여 */
   padding: 0 30px;
   box-sizing: border-box;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 .product-sticky {
@@ -593,6 +601,7 @@ body {
   color: #fff;
   line-height: 1.5;
   margin-bottom: 0;
+  white-space: nowrap;
 }
 
 .mouse-icon-box {
@@ -650,7 +659,7 @@ body {
   color: #000;
   background: #fff;
   line-height: 1.6;
-  border-radius: 16px;
+  border-radius: 14px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -658,7 +667,7 @@ body {
 .product-detail-btn .circle-arrow {
   width: clamp(40px, 3.177vw, 61px);
   height: clamp(40px, 3.177vw, 61px);
-  border-radius: 16px;
+  border-radius: 14px;
   border: 1.5px solid #fff;
   background: none;
   display: flex;
@@ -669,8 +678,10 @@ body {
   transition: all 0.3s ease;
 }
 
+.product-detail-btn:hover .circle-arrow,
 .product-detail-btn .circle-arrow:hover {
-  background: rgba(255, 255, 255, 0.01);
+  background: #C15A00;
+  border-color: #C15A00;
 }
 
 .product-detail-btn .orb-inner-box {
@@ -1251,6 +1262,8 @@ body {
   position: relative;
   z-index: 1;
   height: clamp(560px, 46.875vw, 900px);
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 .support-sticky {
@@ -1324,30 +1337,10 @@ body {
   color: #1B1B1B;
 }
 
-.support-card-arrow {
-  width: clamp(40px, 3.33vw, 64px);
-  height: clamp(40px, 3.33vw, 64px);
-  border-radius: 16px;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-  margin-left: 20px;
-}
-
-.support-arrow-inner {
-  width: clamp(16px, 1.35vw, 26px);
-  height: clamp(16px, 1.35vw, 26px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.support-arrow-svg {
-  width: 26px;
-  height: 26px;
+/* support-card-arrow, support-arrow-inner, support-arrow-svg
+   는 common.css에서 공통 정의됨 */
+.support-card-title-row:hover .support-card-arrow {
+  background: #dbdbdb;
 }
 
 .support-card-desc {
@@ -1824,7 +1817,7 @@ body {
     height: auto;
     font-size: 14px;
     font-weight: 400;
-    border-radius: 10px;
+    border-radius: 14px;
     background: #fff !important;
     color: #000 !important;
   }
@@ -1833,7 +1826,7 @@ body {
     width: 42px;
     height: 42px;
     padding: 11px;
-    border-radius: 10px;
+    border-radius: 14px;
     border-color: #fff !important;
   }
 

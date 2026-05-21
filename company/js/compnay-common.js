@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function onScroll() {
         const rect = outer.getBoundingClientRect();
         const inner = outer.querySelector('.hero-text-inner');
+        if (!inner) return;
         const scrollRoom = outer.offsetHeight - inner.offsetHeight;
         const scrolled = -rect.top;
 
@@ -123,9 +124,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 imageProgress = Math.max(0, Math.min(1, (progress - 0.4) / 0.6));
             }
 
-            // 1) 텍스트 캐릭터 활성화
+            // 1) 텍스트 캐릭터 활성화 (한 번 활성화되면 유지)
             const activeCount = Math.floor(textProgress * chars.length);
-            chars.forEach((c, i) => c.classList.toggle('active', i < activeCount));
+            chars.forEach((c, i) => { if (i < activeCount) c.classList.add('active'); });
 
             // 2) 텍스트 영역 페이드아웃 및 위로 슬라이드
             const textSection = outer.querySelector('.hero-text-section');
@@ -192,7 +193,8 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             // ─── 일반 페이지 (연혁 등) 용 기본 1단계 텍스트 전환 인터랙션 ───
             const activeCount = Math.floor(progress * chars.length);
-            chars.forEach((c, i) => c.classList.toggle('active', i < activeCount));
+            // 한 번 active가 된 글자는 되돌리지 않음 (one-way)
+            chars.forEach((c, i) => { if (i < activeCount) c.classList.add('active'); });
 
             if (imgWrapper && document.body.dataset.page !== 'network') {
                 const baseW = 1920;
@@ -362,4 +364,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     syncCardHighlight();
+});
+
+/* ── 핵심가치 카드 스크롤 reveal (한번 활성화 후 유지) ── */
+document.addEventListener('DOMContentLoaded', function () {
+    const valueCards = document.querySelectorAll('.value-card');
+    if (!valueCards.length) return;
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                // 한 번 보이면 영구적으로 revealed 클래스 추가
+                entry.target.classList.add('revealed');
+                // 더 이상 관찰 불필요 — 해제
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.25   // 카드의 25%가 보이면 활성화
+    });
+
+    valueCards.forEach(function (card) {
+        observer.observe(card);
+    });
 });
