@@ -17,7 +17,7 @@
     <div class="container">
 
         <section class="hero-section">
-            <header class="gnb gnb-transparent" data-gnb-transparent>
+            <header class="gnb">
                 <div class="gnb-logo">
                     <a href="../index.html"><img src="../assets/common/logo.svg" alt="동국산업 로고"></a>
                 </div>
@@ -265,8 +265,9 @@
             // 데스크톱: 비율 기반 (1920px 기준)
             // 카드 25.9375vw + 간격 1.5625vw = 27.5vw
             // 활성카드 37.2916vw / 2 = 18.6458vw
-            const cardFullWidth = isMobile ? 320 : (winWidth * 0.275);
-            const activeHalfWidth = isMobile ? 155 : (winWidth * 0.186458);
+            // 1920px 초과 시 고정값 사용 (498px + 30px = 528px, 716px / 2 = 358px)
+            const cardFullWidth = isMobile ? 320 : Math.min(winWidth * 0.275, 528);
+            const activeHalfWidth = isMobile ? 155 : Math.min(winWidth * 0.186458, 358);
 
             return (wrapperWidth / 2) - (index * cardFullWidth + activeHalfWidth);
         }

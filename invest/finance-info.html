@@ -862,29 +862,49 @@
     <script src="../js/components.js"></script>
 
     <script>
-        // 📍 탭 전환 로직
+        function activateInvestTab(targetTab, shouldUpdateHash) {
+            if (!targetTab) return;
+
+            const panel = document.getElementById(targetTab);
+            if (!panel) return;
+
+            document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll(`.tab-item[data-tab="${targetTab}"]`).forEach(t => t.classList.add('active'));
+
+            document.querySelectorAll('.tab-panel').forEach(panelItem => {
+                panelItem.classList.remove('active');
+                if (panelItem.id === targetTab) {
+                    panelItem.classList.add('active');
+                }
+            });
+
+            if (shouldUpdateHash && window.location.hash !== '#' + targetTab) {
+                history.replaceState(null, '', '#' + targetTab);
+            }
+        }
+
         document.querySelectorAll('.tab-item').forEach(item => {
             item.addEventListener('click', () => {
-                const targetTab = item.getAttribute('data-tab');
-
-                // 탭 버튼 상태 업데이트
-                document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll(`.tab-item[data-tab="${targetTab}"]`).forEach(t => t.classList.add('active'));
-
-                // 패널 가시성 업데이트
-                document.querySelectorAll('.tab-panel').forEach(panel => {
-                    panel.classList.remove('active');
-                    if (panel.id === targetTab) {
-                        panel.classList.add('active');
-                    }
-                });
+                activateInvestTab(item.getAttribute('data-tab'), true);
             });
         });
+
+        function restoreInvestTab() {
+            const hashTab = window.location.hash ? window.location.hash.slice(1) : '';
+            if (hashTab) {
+                activateInvestTab(hashTab, false);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', restoreInvestTab);
+        window.addEventListener('pageshow', restoreInvestTab);
+        window.addEventListener('hashchange', restoreInvestTab);
 
         // 📍 차트 툴팁 호버 및 터치(클릭) 이벤트 제어
         document.querySelectorAll('.fs-bar').forEach(bar => {
             const tooltip = bar.querySelector('.fs-tooltip');
             if (!tooltip) return;
+            const isAlwaysVisibleOrangeTooltip = () => window.innerWidth <= 360 && bar.classList.contains('orange');
 
             // 마우스 호버 (mouseenter / mouseleave)
             bar.addEventListener('mouseenter', () => {
@@ -892,12 +912,14 @@
                 tooltip.style.visibility = 'visible';
             });
             bar.addEventListener('mouseleave', () => {
+                if (isAlwaysVisibleOrangeTooltip()) return;
                 tooltip.style.opacity = '';
                 tooltip.style.visibility = '';
             });
 
             // 모바일 터치 및 클릭 대응
             bar.addEventListener('click', (e) => {
+                if (isAlwaysVisibleOrangeTooltip()) return;
                 e.stopPropagation();
                 
                 // 다른 모든 툴팁 숨기기
@@ -923,6 +945,7 @@
         // 배경 클릭 시 모든 툴팁 숨기기 (모바일 대응)
         document.addEventListener('click', () => {
             document.querySelectorAll('.fs-tooltip').forEach(t => {
+                if (window.innerWidth <= 360 && t.closest('.fs-bar.orange')) return;
                 t.style.opacity = '';
                 t.style.visibility = '';
             });
@@ -937,17 +960,32 @@
                 const scrollTrack = scrollWrap.querySelector('.fs-scroll-track');
 
                 if (scrollThumb && scrollTrack) {
-                    wrap.addEventListener('scroll', () => {
-                        const scrollLeft = wrap.scrollLeft;
-                        const scrollWidth = wrap.scrollWidth - wrap.clientWidth;
-                        const trackWidth = scrollTrack.clientWidth - scrollThumb.clientWidth;
+                    function updateTableScrollbar() {
+                        const overflowWidth = wrap.scrollWidth - wrap.clientWidth;
 
-                        if (scrollWidth > 0) {
-                            const ratio = scrollLeft / scrollWidth;
-                            // thumb 위치 계산 (여유값 2px 반영)
-                            scrollThumb.style.left = (ratio * trackWidth + 2) + 'px';
+                        if (window.innerWidth > 1919 || overflowWidth <= 0) {
+                            scrollWrap.style.display = 'none';
+                            scrollThumb.style.left = '2px';
+                            return;
                         }
+
+                        scrollWrap.style.display = 'block';
+
+                        const trackWidth = scrollTrack.clientWidth || wrap.clientWidth;
+                        const thumbWidth = Math.max(48, (wrap.clientWidth / wrap.scrollWidth) * trackWidth);
+                        scrollThumb.style.width = `${Math.min(thumbWidth, trackWidth)}px`;
+
+                        const maxThumbTravel = trackWidth - scrollThumb.clientWidth;
+                        const ratio = overflowWidth > 0 ? wrap.scrollLeft / overflowWidth : 0;
+                        scrollThumb.style.left = (ratio * maxThumbTravel + 2) + 'px';
+                    }
+
+                    wrap.addEventListener('scroll', () => {
+                        updateTableScrollbar();
                     });
+
+                    window.addEventListener('resize', updateTableScrollbar);
+                    updateTableScrollbar();
                 }
             }
         });

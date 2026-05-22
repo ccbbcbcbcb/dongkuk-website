@@ -848,11 +848,14 @@ img.ic-download {
     display: flex;
     gap: 9px;
     justify-content: center;
+    width: 100%;
+    height: auto;
 }
 
 .utc-part-box {
-    width: 135px;
-    height: 135px;
+    flex: 1;
+    max-width: 135px;
+    aspect-ratio: 1 / 1;
     background: #ECEDF0;
     border-radius: 16px;
     display: flex;
@@ -862,8 +865,8 @@ img.ic-download {
 }
 
 .utc-part-box img {
-    width: 94px;
-    height: 94px;
+    width: 80%;
+    height: 80%;
     object-fit: contain;
 }
 
@@ -1678,69 +1681,38 @@ img.ic-download {
 
     .spec-grid-row {
         width: max-content;
+        min-width: 100%;
         display: flex;
     }
 
-    .spec-grid-col,
-    .spec-ann-col {
-        width: 150px;
-        flex: none;
+    .spec-grid-col {
+        flex: 1 1 auto;
+        min-width: 150px;
     }
+
 
     .spec-grid-label {
         font-size: 20px;
     }
 
     .spec-head {
-        width: 150px;
+        width: 100%;
         height: 100px;
         box-sizing: border-box;
         font-size: 18px;
     }
 
     .spec-value {
-        width: 150px;
+        width: 100%;
         height: 90px;
         box-sizing: border-box;
         font-size: 14px;
     }
 
-    .spec-ann-col.wide {
-        width: 448px;
-    }
-
-    .spec-ann-col.wide .spec-head {
-        width: 448px;
-        height: 50px;
-    }
-
-    .spec-ann-sub-header-row {
-        width: 448px;
-        height: 50px;
-    }
-
-    .spec-ann-sub-head {
-        width: 149.33px;
-        height: 50px;
-        box-sizing: border-box;
-        flex: none;
-    }
-
-    .spec-ann-value-row {
-        width: 448px;
-        height: 90px;
-    }
-
-    .spec-ann-sub-value {
-        width: 149.33px;
-        height: 90px;
-        box-sizing: border-box;
-        flex: none;
-    }
 
     .scroll-horizontal {
         position: relative;
-        width: 328px !important;
+        width: 100% !important;
         height: 30px !important;
         margin: -12px auto 0 !important;
         /* 부모 gap 12px 상쇄하여 표와 밀착 */
@@ -1749,20 +1721,20 @@ img.ic-download {
 
     .scroll-track {
         position: absolute;
-        width: 324px;
-        height: 0px;
-        left: 2px;
-        top: 15px;
-        border: 2px solid rgba(211, 211, 211, 0.3);
+        width: 100% !important;
+        height: 0px !important;
+        left: 0 !important;
+        top: 15px !important;
+        border: 2px solid rgba(211, 211, 211, 0.3) !important;
     }
 
     .scroll-thumb {
         position: absolute;
-        width: 164px;
-        height: 0px;
-        left: 2px;
-        top: 15px;
-        border: 2px solid #D3D3D3;
+        width: 80px; /* will be updated dynamically by JS */
+        height: 0px !important;
+        left: 0 !important;
+        top: 15px !important;
+        border: 2px solid #D3D3D3 !important;
     }
 
     .usage-section {
@@ -2636,6 +2608,7 @@ img.ic-download {
 
     .bi-section .bi-color-grid {
         flex-direction: column;
+        padding: calc(100vw * 45 / 1920) 0;
         height: auto;
         gap: 20px;
     }
@@ -2718,7 +2691,7 @@ img.ic-download {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
+    padding: 45px 0;
     gap: 40px;
 
     width: 1064px;
@@ -2798,7 +2771,7 @@ img.ic-download {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
+    padding: calc(100vw * 45 / 1920) 0;
     gap: 20px;
 
     width: 1064px;
@@ -3216,13 +3189,15 @@ img.ic-download {
 .spec-table-container {
     width: 100%;
     overflow-x: auto;
+    overflow-y: hidden !important;
     -webkit-overflow-scrolling: touch;
 }
 
 .spec-ann-grid-row {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: max-content;
+    min-width: 100%;
     border-top: 1px solid #000000;
     background: #FFFFFF;
 }
@@ -3231,7 +3206,12 @@ img.ic-download {
     flex: 263;
     display: flex;
     flex-direction: column;
+    min-width: 150px;
     /* 헤더에 세로선 없음 — 내용 셀에서만 border-right 처리 */
+}
+
+.spec-ann-col:nth-child(4) {
+    min-width: 280px;
 }
 
 .spec-ann-col:last-child .spec-value {
@@ -3240,6 +3220,7 @@ img.ic-download {
 
 .spec-ann-col.wide {
     flex: 540;
+    min-width: 480px; /* Prevent wrapping at any desktop width */
 }
 
 .spec-ann-col .spec-head {
@@ -3272,6 +3253,8 @@ img.ic-download {
 
 .spec-ann-col.wide .spec-head {
     height: 50px;
+    font-size: 24px;
+    white-space: nowrap;
 }
 
 /* 추가 설비 → 하위 헤더 구분 가로선 */
@@ -4337,7 +4320,6 @@ body {
     margin: 0;
 }
 
-/* 1. 부모 박스의 gap을 40px로 고정 (아이템 간 간격을 자동으로 40px씩 배분) */
 .value-item {
     position: absolute;
     width: 100%;
@@ -4348,7 +4330,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 40px;
+    gap: min(40px, calc(100vw * 40 / 1920));
     will-change: transform, opacity;
 }
 
@@ -4389,20 +4371,22 @@ body {
 /* 우측 인디케이터 바 */
 .value-indicator {
     position: absolute;
-    width: 0px;
-    height: 42.6%;
+    width: 3px;
     right: 3.6%;
     top: 24.3%;
-    border: 3px solid #D3D3D3;
+    border-radius: 5px;
+    background: #D3D3D3;
+    overflow: hidden;
 }
 
 .value-indicator-fill {
     position: absolute;
-    left: -3px;
-    top: -3px;
-    width: 0px;
+    left: 0;
+    top: 0;
+    width: 100%;
     height: 50%;
-    border: 3px solid #F27100;
+    border-radius: 5px;
+    background: #F27100;
 }
 
 /* 📍 ===== 원통형 배터리 경쟁력 (피그마 좌표/여백 완벽 반영) ===== */
@@ -4581,6 +4565,10 @@ body {
     color: #363636;
     text-align: center;
     margin: 0;
+}
+
+.center-label-slash {
+    color: #7A7A7A;
 }
 
 .img-box-center {
@@ -4967,6 +4955,30 @@ body {
 
 
 /* ════════════════════════════════════
+           TABLET/LAPTOP — 1024px ~ 1411px (추가 설비 컬럼 줄바꿈 방지)
+           ════════════════════════════════════ */
+@media (max-width: 1411px) and (min-width: 1024px) {
+    .spec-ann-grid-row {
+        width: max-content;
+        min-width: 100%;
+    }
+
+    .spec-ann-col {
+        width: 150px;
+        flex: none;
+    }
+
+    .spec-ann-col:nth-child(4) {
+        width: 280px;
+    }
+
+    .spec-ann-col.wide {
+        width: 580px;
+        min-width: 580px;
+    }
+}
+
+/* ════════════════════════════════════
            MOBILE — 1023px 이하 (탭 패널 공통)
            Brand Resource / 제품 상세 등의 고정폭 해제
            ════════════════════════════════════ */
@@ -5059,142 +5071,143 @@ body {
 
     /* ── 소둔 열처리 표 모바일 상세 스펙 (Figma 반영) ── */
     .spec-ann-grid-row {
-        display: flex !important;
-        flex-direction: row !important;
-        width: 1049px !important;
-        height: 280px !important;
-        background: #FFFFFF !important;
-        border: none !important;
+        display: flex;
+        flex-direction: row;
+        width: max-content;
+        min-width: 100%;
+        height: 280px;
+        background: #FFFFFF;
+        border: none;
     }
 
     /* Columns styling */
     .spec-ann-col {
-        flex: none !important;
-        width: 150px !important;
-        height: auto !important;
-        border-right: 1px solid #D6D6D6 !important;
-        box-sizing: border-box !important;
+        flex: none;
+        width: 150px;
+        height: auto;
+        border-right: 1px solid #D6D6D6;
+        box-sizing: border-box;
+    }
+
+    .spec-ann-col:nth-child(4) {
+        width: 220px;
     }
 
     .spec-ann-col.wide {
-        width: 448px !important;
-        border-right: none !important;
+        width: 480px;
+        min-width: 480px;
+        border-right: none;
     }
 
     /* Cell content styling */
     .spec-ann-col .spec-head {
-        box-sizing: border-box !important;
-        width: 100% !important;
-        height: 100px !important;
-        padding: 0 18px !important;
-        background: linear-gradient(0deg, #F9FAFE, #F9FAFE), #FCFDFF !important;
-        border-top: 1px solid #000000 !important;
-        border-bottom: 1px solid #D6D6D6 !important;
-        font-family: 'Pretendard' !important;
-        font-weight: 700 !important;
-        font-size: 18px !important;
-        line-height: 160% !important;
-        color: #000000 !important;
-        justify-content: center !important;
-        text-align: center !important;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100px;
+        padding: 0 10px;
+        background: linear-gradient(0deg, #F9FAFE, #F9FAFE), #FCFDFF;
+        border-top: 1px solid #000000;
+        border-bottom: 1px solid #D6D6D6;
+        font-family: 'Pretendard';
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 160%;
+        color: #000000;
+        justify-content: center;
+        text-align: center;
+        white-space: nowrap;
     }
 
     .spec-ann-col .spec-value {
-        box-sizing: border-box !important;
-        width: 100% !important;
-        height: 90px !important;
-        padding: 14px 18px !important;
-        background: #FFFFFF !important;
-        border-top: none !important;
-        border-bottom: 1px solid #D6D6D6 !important;
-        border-right: none !important;
-        font-family: 'Pretendard' !important;
-        font-weight: 400 !important;
-        font-size: 14px !important;
-        line-height: 150% !important;
-        color: #363636 !important;
-        justify-content: center !important;
-        text-align: center !important;
-    }
-
-    /* Batch, Continuous 텍스트는 볼드(700) 처리 */
-    .spec-ann-col:first-child .spec-value {
-        font-weight: 700 !important;
-        font-size: 18px !important;
-        line-height: 160% !important;
-        color: #000000 !important;
+        box-sizing: border-box;
+        width: 100%;
+        height: 90px;
+        padding: 14px 18px;
+        background: #FFFFFF;
+        border-top: none;
+        border-bottom: 1px solid #D6D6D6;
+        border-right: none;
+        font-family: 'Pretendard';
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+        color: #363636;
+        justify-content: center;
+        text-align: center;
     }
 
     /* Wide 컬럼 전용 상단 보더 조정 (중첩 방지) */
     .spec-ann-col.wide .spec-head {
-        height: 50px !important;
-        border-bottom: 1px solid #D6D6D6 !important;
+        height: 50px;
+        border-bottom: 1px solid #D6D6D6;
+        white-space: nowrap;
+        font-size: 18px;
     }
 
     /* 추가 설비 컬럼 내부 레이아웃 */
     .spec-ann-sub-header-row {
-        display: flex !important;
-        width: 100% !important;
-        height: 50px !important;
-        background: linear-gradient(0deg, #F9FAFE, #F9FAFE), #FCFDFF !important;
-        border-top: none !important;
-        /* 상단 헤더와의 중첩 제거 */
+        display: flex;
+        width: 100%;
+        height: 50px;
+        background: linear-gradient(0deg, #F9FAFE, #F9FAFE), #FCFDFF;
+        border-top: none;
     }
 
     .spec-ann-sub-head {
-        flex: 1 !important;
-        width: 149.33px !important;
-        height: 50px !important;
-        padding: 0 18px !important;
-        border-right: 1px solid #D6D6D6 !important;
-        border-top: none !important;
-        border-bottom: 1px solid #D6D6D6 !important;
-        /* 아래쪽 구분선 복구 */
-        font-size: 18px !important;
-        font-weight: 700 !important;
-        color: #000000 !important;
-        box-sizing: border-box !important;
+        flex: 1 1 0;
+        width: auto;
+        height: 50px;
+        padding: 0 6px;
+        border-right: 1px solid #D6D6D6;
+        border-top: none;
+        border-bottom: 1px solid #D6D6D6;
+        font-size: 14px;
+        font-weight: 700;
+        color: #000000;
+        box-sizing: border-box;
+        white-space: nowrap;
     }
 
     .spec-ann-sub-head:last-child {
-        border-right: none !important;
+        border-right: none;
     }
 
     .spec-ann-value-row {
-        display: flex !important;
-        width: 100% !important;
-        height: 90px !important;
+        display: flex;
+        width: 100%;
+        height: 90px;
+        border-top: none;
     }
 
     .spec-ann-sub-value {
-        flex: 1 !important;
-        width: 149.33px !important;
-        height: 90px !important;
-        padding: 14px 18px !important;
-        border-right: 1px solid #D6D6D6 !important;
-        border-bottom: none !important;
-        /* 최하단 선 제거 */
-        border-top: none !important;
-        font-size: 14px !important;
-        color: #363636 !important;
-        box-sizing: border-box !important;
+        flex: 1 1 0;
+        width: auto;
+        height: 90px;
+        padding: 14px 4px;
+        border-right: 1px solid #D6D6D6;
+        border-top: none;
+        border-bottom: none;
+        font-size: 14px;
+        color: #363636;
+        box-sizing: border-box;
+        justify-content: center;
+        text-align: center;
     }
 
     .spec-ann-sub-value:last-child {
-        border-right: none !important;
+        border-right: none;
     }
 
     /* Wide 컬럼의 Row 1 값 (-) 조정 */
     .spec-ann-col.wide .spec-value {
-        height: 90px !important;
-        border-top: none !important;
-        border-bottom: 1px solid #D6D6D6 !important;
-        /* 얘는 중간선이므로 유지 */
+        height: 90px;
+        border-top: none;
+        border-bottom: 1px solid #D6D6D6;
     }
 
     /* 일반 컬럼의 마지막 행 선 제거 */
     .spec-ann-col:not(.wide) .spec-value:last-child {
-        border-bottom: none !important;
+        border-bottom: none;
     }
 }
 
@@ -5363,14 +5376,14 @@ body {
         width: 328px;
         height: 356px;
         border-radius: 16px;
-        padding: 40px 20px;
+        padding: 40px 20px 60px;
         margin: 0 auto;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        gap: 24px;
+        gap: auto;
     }
 
     /* illus: h-150 w-296 */

@@ -125,64 +125,128 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 /* ── 탭 패널 전환 (디켈 가치/제품/브랜드 탭) ── */
+const productTabStorageKey = 'productTab:' + window.location.pathname;
+
+function activateProductTab(panelId, shouldPersist) {
+    if (!panelId) return;
+
+    const panel = document.getElementById(panelId);
+    if (!panel || !panel.classList.contains('tab-panel')) return;
+
+    document.querySelectorAll('.tab-item[data-tab]').forEach(function (t) {
+        t.classList.remove('active');
+    });
+
+    document.querySelectorAll('.tab-panel').forEach(function (p) {
+        p.classList.remove('active');
+    });
+
+    document.querySelectorAll('.tab-item[data-tab="' + panelId + '"]').forEach(function (t) {
+        t.classList.add('active');
+    });
+
+    panel.classList.add('active');
+
+    if (shouldPersist) {
+        sessionStorage.setItem(productTabStorageKey, panelId);
+    }
+
+    window.dispatchEvent(new Event('resize'));
+}
+
+function getInitialProductTabId() {
+    const hashPanelId = window.location.hash ? window.location.hash.slice(1) : '';
+    const savedPanelId = sessionStorage.getItem(productTabStorageKey);
+
+    if (hashPanelId) {
+        const hashPanel = document.getElementById(hashPanelId);
+        if (hashPanel && hashPanel.classList.contains('tab-panel')) {
+            return hashPanelId;
+        }
+    }
+
+    if (savedPanelId) {
+        const savedPanel = document.getElementById(savedPanelId);
+        if (savedPanel && savedPanel.classList.contains('tab-panel')) {
+            return savedPanelId;
+        }
+    }
+
+    return '';
+}
+
 document.querySelectorAll('.tab-item[data-tab]').forEach(function (tab) {
     tab.addEventListener('click', function () {
         const panelId = this.getAttribute('data-tab');
-
-        // 모든 탭 아이템에서 active 제거
-        document.querySelectorAll('.tab-item[data-tab]').forEach(function (t) { 
-            t.classList.remove('active'); 
-        });
-        
-        // 모든 탭 패널에서 active 제거
-        document.querySelectorAll('.tab-panel').forEach(function (p) { 
-            p.classList.remove('active'); 
-        });
-
-        // 클릭된 탭과 동일한 data-tab을 가진 모든 탭 아이템에 active 추가 (동기화)
-        document.querySelectorAll('.tab-item[data-tab="' + panelId + '"]').forEach(function (t) {
-            t.classList.add('active');
-        });
-
-        // 해당 패널 활성화
-        const panel = document.getElementById(panelId);
-        if (panel) panel.classList.add('active');
-        
-        // 패널 전환 시 레이아웃 재계산
-        window.dispatchEvent(new Event('resize'));
+        activateProductTab(panelId, true);
+        if (panelId && window.location.hash !== '#' + panelId) {
+            history.replaceState(null, '', '#' + panelId);
+        }
     });
 });
+
+function restoreProductTab() {
+    const initialPanelId = getInitialProductTabId();
+    if (initialPanelId) {
+        activateProductTab(initialPanelId, false);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', restoreProductTab);
+window.addEventListener('pageshow', restoreProductTab);
+window.addEventListener('hashchange', restoreProductTab);
 
 /* ── 가로 스크롤바 동기화 (모바일 전용) ── */
 document.addEventListener('DOMContentLoaded', function() {
     function initScrollSync() {
         // 기존 .spec-table-container 대응
         document.querySelectorAll('.spec-table-container').forEach(function(container) {
-            if (container.dataset.scrollBound) return; // 이미 바인딩됨
-            
             const scrollHorizontal = container.nextElementSibling;
             if (scrollHorizontal && scrollHorizontal.classList.contains('scroll-horizontal')) {
                 const thumb = scrollHorizontal.querySelector('.scroll-thumb');
                 const track = scrollHorizontal.querySelector('.scroll-track');
                 
                 if (thumb && track) {
-                    container.addEventListener('scroll', function() {
-                        const scrollWidth = this.scrollWidth - this.clientWidth;
-                        if (scrollWidth <= 0) return;
-                        const scrollLeft = this.scrollLeft;
-                        const scrollPercent = Math.max(0, Math.min(1, scrollLeft / scrollWidth));
-                        const maxTravel = track.clientWidth - thumb.clientWidth;
+                    // 1. Bind scroll event listener once
+                    if (!container.dataset.scrollBound) {
+                        container.addEventListener('scroll', function() {
+                            const scrollLimit = this.scrollWidth - this.clientWidth;
+                            if (scrollLimit <= 0) return;
+                            const scrollLeft = this.scrollLeft;
+                            const scrollPercent = Math.max(0, Math.min(1, scrollLeft / scrollLimit));
+                            const maxTravel = track.clientWidth - thumb.clientWidth;
+                            thumb.style.transform = `translateX(${scrollPercent * maxTravel}px)`;
+                        });
+                        container.dataset.scrollBound = "true";
+                    }
+                    
+                    // 2. Recalculate layout on init/resize
+                    const clientWidth = container.clientWidth;
+                    const scrollWidth = container.scrollWidth;
+                    const scrollLimit = scrollWidth - clientWidth;
+                    
+                    if (window.innerWidth >= 1024 || scrollLimit <= 0) {
+                        scrollHorizontal.style.setProperty('display', 'none', 'important');
+                    } else {
+                        scrollHorizontal.style.setProperty('display', 'block', 'important');
+                        
+                        // Calculate track width and dynamic thumb width
+                        const trackWidth = track.clientWidth || 324;
+                        const thumbWidth = Math.max(30, (clientWidth / scrollWidth) * trackWidth);
+                        thumb.style.width = thumbWidth + 'px';
+                        
+                        // Update thumb position based on current scrollLeft
+                        const scrollLeft = container.scrollLeft;
+                        const scrollPercent = Math.max(0, Math.min(1, scrollLeft / scrollLimit));
+                        const maxTravel = trackWidth - thumbWidth;
                         thumb.style.transform = `translateX(${scrollPercent * maxTravel}px)`;
-                    });
-                    container.dataset.scrollBound = "true";
+                    }
                 }
             }
         });
 
         // .cat-scroll-indicator 대응 (data-target 기반 혹은 형제 요소 기반)
         document.querySelectorAll('.cat-scroll-indicator').forEach(function(indicator) {
-            if (indicator.dataset.scrollBound) return; // 이미 바인딩됨
-
             const thumb = indicator.querySelector('.cat-scroll-thumb');
             const track = indicator.querySelector('.cat-scroll-track, .cat-scroll-bg');
             if (!thumb || !track) return;
@@ -198,24 +262,38 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (scrollBox && thumb && track) {
-                scrollBox.addEventListener('scroll', function() {
-                    const scrollWidth = this.scrollWidth - this.clientWidth;
-                    if (scrollWidth <= 0) return;
-                    
-                    const scrollLeft = this.scrollLeft;
-                    const scrollPercent = Math.max(0, Math.min(1, scrollLeft / scrollWidth));
-                    
-                    const maxTravel = track.clientWidth - thumb.clientWidth;
+                if (!indicator.dataset.scrollBound) {
+                    scrollBox.addEventListener('scroll', function() {
+                        const scrollLimit = this.scrollWidth - this.clientWidth;
+                        if (scrollLimit <= 0) return;
+                        
+                        const scrollLeft = this.scrollLeft;
+                        const scrollPercent = Math.max(0, Math.min(1, scrollLeft / scrollLimit));
+                        
+                        const maxTravel = track.clientWidth - thumb.clientWidth;
+                        thumb.style.transform = `translateX(${scrollPercent * maxTravel}px)`;
+                    });
+                    indicator.dataset.scrollBound = "true";
+                }
+
+                // Recalculate layout
+                const clientWidth = scrollBox.clientWidth;
+                const scrollWidth = scrollBox.scrollWidth;
+                const scrollLimit = scrollWidth - clientWidth;
+
+                if (window.innerWidth >= 1024 || scrollLimit <= 0) {
+                    indicator.style.setProperty('display', 'none', 'important');
+                } else {
+                    indicator.style.setProperty('display', 'block', 'important');
+
+                    const trackWidth = track.clientWidth || 324;
+                    const thumbWidth = Math.max(30, (clientWidth / scrollWidth) * trackWidth);
+                    thumb.style.width = thumbWidth + 'px';
+
+                    const scrollLeft = scrollBox.scrollLeft;
+                    const scrollPercent = Math.max(0, Math.min(1, scrollLeft / scrollLimit));
+                    const maxTravel = trackWidth - thumbWidth;
                     thumb.style.transform = `translateX(${scrollPercent * maxTravel}px)`;
-                });
-                indicator.dataset.scrollBound = "true";
-                
-                // 초기 위치 설정 (이미 스크롤되어 있을 경우 대비)
-                const initialWidth = scrollBox.scrollWidth - scrollBox.clientWidth;
-                if (initialWidth > 0) {
-                    const initialPercent = scrollBox.scrollLeft / initialWidth;
-                    const initialTravel = (track.clientWidth - thumb.clientWidth) * initialPercent;
-                    thumb.style.transform = `translateX(${initialTravel}px)`;
                 }
             }
         });
@@ -225,4 +303,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // 리사이즈 시 다시 시도 (숨겨져 있던 요소가 나타날 수 있음)
     window.addEventListener('resize', initScrollSync);
 });
-

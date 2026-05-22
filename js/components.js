@@ -46,18 +46,20 @@
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-logo">
-                <img src="${prefix}assets/common/footer-logo.svg" alt="DK Steel Logo">
+                <img src="${prefix}assets/common/logo.svg" alt="DK Steel Logo">
             </div>
             <div class="footer-btn-group">
                 <a href="#" class="footer-btn">방문예약</a>
                 <a href="#" class="footer-btn">
                     YOUTUBE
-                    <img src="${prefix}assets/common/ic-youtube.svg" alt="Youtube" width="20" height="20">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.2715 3.95312C17.4806 3.95312 19.2715 5.74399 19.2715 7.95312V12.0479C19.2713 14.2568 17.4805 16.0479 15.2715 16.0479H4.72656C2.51754 16.0479 0.726755 14.2568 0.726562 12.0479V7.95312C0.726562 5.74399 2.51742 3.95312 4.72656 3.95312H15.2715ZM8.18652 13.1416L13.6289 9.99902L8.18652 6.85742V13.1416Z" fill="currentColor"/>
+                    </svg>
                 </a>
                 <a href="#" class="footer-btn">
                     패밀리 사이트
                     <svg width="13.5" height="13.5" viewBox="0 0 13.5 13.5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.75 0V13.5M0 6.75H13.5" stroke="white" stroke-width="1.5" />
+                        <path d="M6.75 0V13.5M0 6.75H13.5" stroke="currentColor" stroke-width="1.5" />
                     </svg>
                 </a>
             </div>
@@ -65,18 +67,20 @@
         <div class="footer-bottom">
             <div class="footer-divider"></div>
             <div class="footer-bottom-info">
-                <div class="footer-links">
-                    <a href="#">개인정보처리방침</a>
-                    <div class="bar"></div>
-                    <a href="#">내부정보관리규정</a>
-                    <div class="bar"></div>
-                    <a href="#">사이트맵</a>
-                    <div class="bar"></div>
-                    <a href="#">02-316-7500</a>
-                    <div class="bar"></div>
-                    <a href="#">서울특별시 중구 다동길 46</a>
+                <div class="footer-info-left">
+                    <div class="footer-links">
+                        <a href="javascript:void(0);">개인정보처리방침</a>
+                        <div class="bar"></div>
+                        <a href="javascript:void(0);">내부정보관리규정</a>
+                        <div class="bar"></div>
+                        <a href="javascript:void(0);">02-316-7500</a>
+                        <div class="bar"></div>
+                        <div class="footer-address">
+                            <span>서울특별시 중구 다동길 46</span>
+                        </div>
+                    </div>
+                    <p class="footer-copy">Copyright(C) DONGKUK INDUSTRIES All rights reserved.</p>
                 </div>
-                <p class="footer-copy">Copyright@ 2026 DONGKUK INDUSTRIES All rights Reserved.</p>
             </div>
         </div>
     </footer>`;

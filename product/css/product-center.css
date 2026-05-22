@@ -117,7 +117,8 @@ body {
 .slider-wrapper {
     width: 100%;
     position: relative;
-    height: 560px;
+    height: 29.1666vw;
+    /* active 카드 높이와 동일: 560px / 1920px */
     overflow: hidden;
     z-index: 1;
 }
@@ -203,7 +204,7 @@ body .no-transition *,
     height: 100%;
     border-radius: 50%;
     position: relative;
-    border: 1px dashed #D3D3D3;
+    border: 1px solid #D3D3D3;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -279,7 +280,8 @@ body .no-transition *,
 
 .card-text-area {
     position: absolute;
-    top: 13.0208vw;
+    top: auto;
+    bottom: 1.875vw;
     /* 250px / 1920px */
     left: 1.5625vw;
     /* 30px / 1920px */
@@ -289,8 +291,8 @@ body .no-transition *,
 }
 
 .card-title {
-    font-size: 2.2916vw;
-    /* 44px / 1920px */
+    font-size: 1.5625vw;
+    /* 30px / 1920px */
     font-weight: 700;
     line-height: 150%;
     color: #FFFFFF;
@@ -674,8 +676,8 @@ body .no-transition *,
 
 /* 닫혀있을 때 하단 타이틀 */
 .pc-title-small {
-    font-size: 1.875vw;
-    /* 36px / 1920px */
+    font-size: 1.5625vw;
+    /* 30px / 1920px */
     font-weight: 700;
     line-height: 140%;
     color: #FFFFFF;
@@ -799,7 +801,7 @@ body .no-transition *,
     }
 
     .products-container:hover .product-card .pc-title-small {
-        font-size: 1.875vw;
+        font-size: 1.5625vw;
     }
 
     .products-container:hover .product-card .pc-desc {
@@ -917,6 +919,134 @@ body .no-transition *,
     object-fit: contain;
 }
 
+
+/* ════════════════════════════════════
+   1920px 초과 — 카드 크기 고정
+   (vw 기반 카드가 무한히 커지는 것 방지)
+   ════════════════════════════════════ */
+@media (min-width: 1920px) {
+
+    /* 섹션 높이 고정: 1333px (= 69.427vw × 1920px) */
+    .standards-section {
+        height: 1333px;
+        padding-top: 120px;
+    }
+
+    .section-title {
+        font-size: 60px;
+        margin-bottom: 240px;
+    }
+
+    /* 슬라이더 높이 고정 */
+    .slider-wrapper {
+        height: 560px;
+        max-height: 560px;
+    }
+
+    .slider-track {
+        gap: 30px;
+    }
+
+    /* 비활성 카드 고정 */
+    .standard-card {
+        width: 498px;
+        /* 25.9375vw × 1920 */
+        height: 402px;
+        /* 20.9375vw × 1920 */
+        border-radius: 30px;
+    }
+
+    /* 활성 카드 고정 */
+    .standard-card.active {
+        width: 716px;
+        /* 37.2916vw × 1920 */
+        height: 560px;
+        /* 29.1666vw × 1920 */
+        border-radius: 30px;
+    }
+
+    /* 카드 아이콘 고정 */
+    .card-icon {
+        top: 30px;
+        left: 30px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .standard-card.active .card-icon {
+        top: 40px;
+        left: 40px;
+        width: 88px;
+        height: 88px;
+    }
+
+    /* 카드 텍스트 영역 고정 */
+    .card-text-area {
+        top: auto;
+        bottom: calc(100vw * 36 / 1920);
+        left: 30px;
+    }
+
+    .standard-card.active .card-text-area {
+        top: 158px;
+        left: 40px;
+        gap: 116px;
+    }
+
+    /* 카드 타이틀 고정 */
+    .card-title {
+        font-size: 30px;
+    }
+
+    .standard-card.active .card-title {
+        width: 636px;
+        height: 132px;
+        font-size: 44px;
+    }
+
+    /* 카드 설명 고정 */
+    .standard-card.active .card-desc {
+        width: 636px;
+        height: 108px;
+        font-size: 24px;
+    }
+
+    .card-desc {
+        font-size: 24px;
+    }
+
+    /* 궤도 고정 */
+    .orb-wrapper {
+        top: 386px;
+        width: 3206px;
+        height: 3206px;
+    }
+
+    .orb-main-dot {
+        top: -16.5px;
+        width: 33px;
+        height: 33px;
+    }
+
+    /* 히어로 고정 */
+    .hero-section {
+        height: 689px;
+    }
+
+    .hero-title-group {
+        top: 200px;
+        max-width: 995px;
+        gap: 20px;
+    }
+
+    .hero-subtitle {
+        font-size: 26px;
+    }
+
+    .hero-maintitle {
+        font-size: 80px;
+    }
+}
 
 /* ════════════════════════════════════
            MOBILE — 1023px 이하

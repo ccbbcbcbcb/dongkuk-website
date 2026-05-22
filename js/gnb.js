@@ -34,11 +34,15 @@
       ]
     },
     {
-      title: '제품소개',
+      title: '제품정보',
       img: 'gnb/img_product.png',
       items: [
         { text: '제품정보 센터', href: B + 'product/product-center.html', key: 'product-center' },
-        { text: '니켈도금강판: DiKel', href: B + 'product/dikel.html', key: 'dikel' },
+        { text: '니켈도금강판: DiKel', href: B + 'product/dikel.html', key: 'dikel', tabs: [
+          { text: '제품소개', href: B + 'product/dikel.html#tab-product' },
+          { text: 'DiKel 가치', href: B + 'product/dikel.html#tab-dikel' },
+          { text: '브랜드 리소스', href: B + 'product/dikel.html#tab-brand' }
+        ] },
         { text: '냉연강판', href: B + 'product/cold-rolled.html', key: 'cold-rolled' },
         { text: 'Q/T 열처리강판', href: B + 'product/heat-treated.html', key: 'heat-treated' },
         { text: '연구개발', href: B + 'product/rnd.html', key: 'rnd' }
@@ -49,9 +53,18 @@
       img: 'gnb/img_invest.png',
       items: [
         { text: '투자정보 센터', href: B + 'invest/invest-center.html', key: 'invest-center' },
-        { text: '주식정보', href: B + 'invest/stock-info.html', key: 'stock-info' },
-        { text: '재무정보', href: B + 'invest/finance-info.html', key: 'finance-info' },
-        { text: '공시 및 공고', href: B + 'invest/disclosures.html', key: 'disclosures' },
+        { text: '주식정보', href: B + 'invest/stock-info.html', key: 'stock-info', tabs: [
+          { text: '주가현황', href: B + 'invest/stock-info.html#tab-stock' },
+          { text: '주주환원', href: B + 'invest/stock-info.html#tab-return' }
+        ] },
+        { text: '재무정보', href: B + 'invest/finance-info.html', key: 'finance-info', tabs: [
+          { text: '재무상태표', href: B + 'invest/finance-info.html#tab-stock' },
+          { text: '손익계산서', href: B + 'invest/finance-info.html#tab-return' }
+        ] },
+        { text: '공시 및 공고', href: B + 'invest/disclosures.html', key: 'disclosures', tabs: [
+          { text: '공시', href: B + 'invest/disclosures.html#tab-stock' },
+          { text: '공고', href: B + 'invest/disclosures.html#tab-return' }
+        ] },
         { text: 'IR 자료실', href: B + 'invest/ir.html', key: 'ir' }
       ]
     },
@@ -61,8 +74,16 @@
       items: [
         { text: '지속가능경영 센터', href: '#', key: '' },
         { text: '환경경영', href: '#', key: '' },
-        { text: '사회경영', href: '#', key: '' },
-        { text: '윤리경영', href: '#', key: '' }
+        { text: '사회경영', href: '#', key: '', tabs: [
+          { text: '안전경영', href: '#' },
+          { text: '품질경영', href: '#' },
+          { text: '사회공헌', href: '#' }
+        ] },
+        { text: '윤리경영', href: '#', key: '', tabs: [
+          { text: '윤리강령', href: '#' },
+          { text: '윤리실천 활동', href: '#' },
+          { text: '윤리경영 위반 신고', href: '#' }
+        ] }
       ]
     },
     {
@@ -96,15 +117,26 @@
   }
 
   function desktopHTML() {
-    var h = '<div class="gnb-menu-columns">';
+    var h = '<div class="gnb-sitemap">';
     for (var i = 0; i < categories.length; i++) {
       var c = categories[i];
-      h += '<div class="gnb-menu-col">';
-      h += '<div class="gnb-menu-thumb"><img src="' + B + 'assets/common/' + c.img + '" alt="' + c.title + '"></div>';
-      h += '<div class="gnb-menu-cat">' + c.title + '</div>';
-      h += '<ul class="gnb-menu-links">';
-      for (var j = 0; j < c.items.length; j++) h += '<li>' + linkHTML(c.items[j]) + '</li>';
-      h += '</ul></div>';
+      h += '<div class="sitemap-row">';
+      h += '<div class="sitemap-row-title">' + c.title + '</div>';
+      h += '<div class="sitemap-row-items">';
+      for (var j = 0; j < c.items.length; j++) {
+        var itm = c.items[j];
+        h += '<div class="sitemap-item-col">';
+        h += '<a href="' + itm.href + '" class="sitemap-item">' + itm.text + '</a>';
+        if (itm.tabs && itm.tabs.length > 0) {
+          h += '<div class="sitemap-item-tabs">';
+          for (var k = 0; k < itm.tabs.length; k++) {
+            h += '<a href="' + itm.tabs[k].href + '" class="sitemap-tab">' + itm.tabs[k].text + '</a>';
+          }
+          h += '</div>';
+        }
+        h += '</div>';
+      }
+      h += '</div></div>';
     }
     return h + '</div>';
   }
@@ -152,6 +184,45 @@
   w.innerHTML = html;
   while (w.firstChild) document.body.appendChild(w.firstChild);
 
+  /* 기존 헤더에 GNB 중앙 메뉴 삽입 */
+  var header = document.querySelector('.gnb');
+  var gnbUtils = document.querySelector('.gnb-utils');
+  if (header && gnbUtils && !document.querySelector('.gnb-nav')) {
+      var navHtml = '<nav class="gnb-nav">';
+      for (var i = 0; i < categories.length; i++) {
+          navHtml += '<div class="gnb-nav-item" data-idx="' + i + '">';
+          navHtml += '<a href="' + categories[i].items[0].href + '" class="gnb-nav-link">' + categories[i].title + '</a>';
+          
+          // Submenu
+          navHtml += '<div class="gnb-submenu">';
+          for (var j = 0; j < categories[i].items.length; j++) {
+              navHtml += '<a href="' + categories[i].items[j].href + '">' + categories[i].items[j].text + '</a>';
+          }
+          navHtml += '</div>';
+          
+          navHtml += '</div>';
+      }
+      navHtml += '<div class="gnb-dropdown-bg"></div>';
+      navHtml += '</nav>';
+      gnbUtils.insertAdjacentHTML('beforebegin', navHtml);
+
+      // Hover events for GNB
+      var navElement = header.querySelector('.gnb-nav');
+      
+      if (navElement) {
+          navElement.addEventListener('mouseenter', function() {
+              if (window.innerWidth > 1023) {
+                  header.classList.add('is-hover');
+              }
+          });
+          navElement.addEventListener('mouseleave', function() {
+              if (window.innerWidth > 1023) {
+                  header.classList.remove('is-hover');
+              }
+          });
+      }
+  }
+
   /* ── 요소 ── */
   var menu = document.getElementById('gnb-menu');
   var overlay = document.getElementById('gnb-overlay');
@@ -169,7 +240,14 @@
     document.body.style.width = '100%';
     document.body.style.overflowY = 'scroll';
     var pageHeader = document.querySelector('#nav, .gnb, .header');
-    if (pageHeader) pageHeader.classList.add('gnb-menu-active');
+    if (pageHeader) {
+        pageHeader.classList.add('gnb-menu-active');
+        if (pageHeader.classList.contains('gnb-dark') || pageHeader.classList.contains('gnb-transparent')) {
+            menu.classList.add('sitemap-dark');
+        } else {
+            menu.classList.remove('sitemap-dark');
+        }
+    }
   }
   function closeMenu() {
     menu.classList.remove('is-open');
@@ -209,27 +287,32 @@
   /* ── 모바일 카테고리 토글 ── */
   var mobCats = menu.querySelectorAll('.gnb-mob-cat');
   for (var a = 0; a < mobCats.length; a++) {
-    mobCats[a].addEventListener('click', function () {
-      var catIdx = this.getAttribute('data-cat');
-      var sub = this.nextElementSibling; // .gnb-mob-sub
-      var isOpen = sub.classList.contains('is-open');
-
-      // 모두 닫기
+    mobCats[a].addEventListener('click', function (e) {
+      e.preventDefault();
+      var c = this.getAttribute('data-cat');
       var allCats = menu.querySelectorAll('.gnb-mob-cat');
       var allSubs = menu.querySelectorAll('.gnb-mob-sub');
       for (var i = 0; i < allCats.length; i++) {
-        allCats[i].classList.remove('is-active');
-        allSubs[i].classList.remove('is-open');
-      }
-
-      // 클릭한 것만 토글
-      if (!isOpen) {
-        this.classList.add('is-active');
-        sub.classList.add('is-open');
+        if (i == c) {
+          allCats[i].classList.toggle('is-active');
+          allSubs[i].classList.toggle('is-open');
+        } else {
+          allCats[i].classList.remove('is-active');
+          allSubs[i].classList.remove('is-open');
+        }
       }
     });
   }
 
+  /* ── 창 크기 조절 시 hover 간섭(깜빡임) 방지 ── */
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    document.body.classList.add('is-resizing');
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      document.body.classList.remove('is-resizing');
+    }, 200);
+  });
 })();
 
 /* ── GNB 스크롤 숨김 애니메이션 로직 ── */
@@ -292,28 +375,56 @@ document.addEventListener('DOMContentLoaded', function () {
       btnTop.classList.remove('show');
     }
 
-    if (footer) {
-      const footerTop = footer.offsetTop;
-      const overlap = scrollBottom - footerTop;
+    const boundaryEl = document.querySelector('.support-section') || footer;
+    if (boundaryEl) {
+      const boundaryTop = boundaryEl.getBoundingClientRect().top + scrollY;
+      const overlap = scrollBottom - boundaryTop;
       const isMobile = window.innerWidth <= 1023;
       const hasProductTabs = !!document.querySelector('.product-tabs');
       const hasHistoryFab = !!document.querySelector('.history-fab');
       
       let baseBottom = 16;
       if (isMobile) {
-        if (hasProductTabs) {
-          baseBottom = 83; // 53px (tabs height) + 30px (gap) = 83px
-        } else if (hasHistoryFab) {
-          baseBottom = 83; // 0px (fab bottom) + 53px (fab height) + 30px (gap) = 83px
+        if (hasProductTabs || hasHistoryFab) {
+          baseBottom = 83; // 53px (tabs height/fab height) + 30px (gap) = 83px
         } else {
           baseBottom = 16;
         }
       }
 
-      if (overlap > 0) {
-        btnTop.style.bottom = `${overlap + baseBottom}px`;
+      // Calculate btnTop bottom position
+      if (isMobile && (hasProductTabs || hasHistoryFab)) {
+        if (overlap > 0) {
+          btnTop.style.bottom = `${overlap + baseBottom}px`;
+        } else {
+          btnTop.style.bottom = `${baseBottom}px`;
+        }
       } else {
-        btnTop.style.bottom = `${baseBottom}px`;
+        if (overlap > baseBottom) {
+          btnTop.style.bottom = `${overlap}px`;
+        } else {
+          btnTop.style.bottom = `${baseBottom}px`;
+        }
+      }
+
+      // Adjust product-tabs position to prevent overlapping boundaryEl
+      const productTabsList = document.querySelectorAll('.product-tabs');
+      if (productTabsList.length > 0) {
+        productTabsList.forEach(tabs => {
+          if (isMobile) {
+            if (overlap > 0) {
+              tabs.style.bottom = `${overlap}px`;
+            } else {
+              tabs.style.bottom = `0px`;
+            }
+          } else {
+            if (overlap > 40) {
+              tabs.style.bottom = `${overlap}px`;
+            } else {
+              tabs.style.bottom = `40px`;
+            }
+          }
+        });
       }
     }
   });

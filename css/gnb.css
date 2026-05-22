@@ -20,17 +20,17 @@
 }
 
 /* ── DESKTOP MENU PANEL ──
-   헤더 바로 아래(top:100px)에서 확장, z-index < 헤더 */
+   헤더 바로 아래(top:90px)에서 확장, z-index < 헤더 */
 .gnb-menu {
   position: fixed;
-  top: 100px;
+  top: 90px;
   left: 0;
   transform: none;
   width: 100%;
   max-width: none;
   max-height: 0;
   z-index: 99;
-  background: #fff;
+  background: transparent;
   overflow: hidden;
   box-sizing: border-box;
   transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
@@ -40,7 +40,7 @@
 }
 .gnb-menu::-webkit-scrollbar { display: none; }
 .gnb-menu.is-open {
-  max-height: calc(100vh - 100px);
+  max-height: calc(100vh - 90px);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -50,75 +50,148 @@
 
 
 /* ════════════════════════════════════
-   DESKTOP — 5-column grid
+   DESKTOP — Sitemap (Full screen)
    ════════════════════════════════════ */
-.gnb-menu-body {
-  padding: 40px 80px 80px;
-}
-.gnb-menu-columns {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 24px;
-  max-width: 1680px;
-  margin: 0 auto;
-}
-
-.gnb-menu-thumb {
-  width: 100%;
-  max-width: 312px;
-  height: 139px;
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-.gnb-menu-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.gnb-menu-cat {
-  font-size: 24px;
-  font-weight: 700;
-  color: #1b1b1b;
-  margin-bottom: 30px;
-  letter-spacing: -0.02em;
-  padding-left: 16px;
-}
-
-.gnb-menu-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.gnb-sitemap {
+  container-type: inline-size;
+  padding: clamp(30px, 3.125cqw, 60px) clamp(24px, 4.16cqw, 80px) clamp(50px, 5.2cqw, 100px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: clamp(30px, 3.125cqw, 60px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  width: 100%;
+  min-height: calc(100vh - 90px);
+  box-sizing: border-box;
 }
-.gnb-menu-links a {
+
+/* Dark Mode Sitemap */
+.gnb-menu.sitemap-dark .gnb-sitemap {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.sitemap-row {
   display: flex;
-  padding: 10px 16px;
-  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: clamp(20px, 10cqw, 192px);
+  width: 100%;
+  max-width: 1760px; /* 원래 너비 복구 */
+  padding-bottom: clamp(30px, 3.125cqw, 60px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.gnb-menu.sitemap-dark .sitemap-row {
+  border-bottom: 1px solid #4E4E4E;
+}
+
+.sitemap-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.sitemap-row-title {
+  width: clamp(90px, 9.89cqw, 190px);
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 1.875cqw, 54px);
+  line-height: 150%;
+  color: #111111;
+  flex-shrink: 0;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.gnb-menu.sitemap-dark .sitemap-row-title {
+  color: #FFFFFF;
+}
+
+.sitemap-row-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* 1열 절대 유지 */
+  gap: clamp(4px, 0.41cqw, 8px);
+  flex-grow: 1; /* 빈 공간이 오른쪽에 남도록 채움 */
+}
+
+.sitemap-item-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: clamp(151px, 11.97cqw, 230px);
+}
+
+.sitemap-item {
+  width: 100%;
+  height: clamp(40px, 2.91cqw, 56px);
+  display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 20px;
-  font-weight: 400;
-  color: #4e4e4e;
+  justify-content: flex-start;
+  padding: clamp(6px, 0.52cqw, 10px) clamp(10px, 0.83cqw, 16px);
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  font-size: clamp(13px, 1.25cqw, 36px);
+  line-height: 150%;
+  color: #D3D3D3;
   text-decoration: none;
-  line-height: 1;
-  border-radius: 10px;
-  transition: background 0.2s ease, color 0.15s ease, font-weight 0.15s ease;
+  border-radius: clamp(8px, 0.625cqw, 12px);
+  transition: color 0.2s, background 0.2s;
+  box-sizing: border-box;
+  white-space: nowrap;
+  word-break: keep-all;
 }
-.gnb-menu-links a:hover {
-  background: #F8F9FB;
-  color: #F27100;
-  font-weight: 700;
+
+.gnb-menu:not(.sitemap-dark) .sitemap-item {
+  color: #111111;
 }
-.gnb-menu-links a.is-active {
-  background: #F8F9FB;
+
+.sitemap-item-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sitemap-tab {
+  width: 100%;
+  height: clamp(32px, 2.29cqw, 44px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: clamp(4px, 0.31cqw, 6px) clamp(10px, 0.83cqw, 16px); /* 상위 텍스트와 좌측 정렬 완벽 일치 */
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 1.04cqw, 24px); /* 20px at 1920 */
+  line-height: 160%;
+  color: #767676;
+  text-decoration: none;
+  border-radius: clamp(8px, 0.625cqw, 12px);
+  transition: color 0.2s, background 0.2s;
+  box-sizing: border-box;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.sitemap-tab:hover, .sitemap-item:hover {
+  background: rgba(0, 0, 0, 0.05);
   color: #F27100;
-  font-weight: 700;
+}
+
+.gnb-menu.sitemap-dark .sitemap-tab:hover, 
+.gnb-menu.sitemap-dark .sitemap-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.gnb-menu.sitemap-dark .sitemap-item {
+  color: #D3D3D3;
+}
+
+.sitemap-item:hover,
+.gnb-menu.sitemap-dark .sitemap-item:hover {
+  color: #F27100;
 }
 
 
@@ -149,6 +222,7 @@
     transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
     overflow-y: auto;
+    background: #fff;
   }
   .gnb-menu.is-open {
     transform: translateX(0);
@@ -240,6 +314,33 @@
     text-decoration: none;
     line-height: 1.6;
   }
+
+  /* ── Mobile Dark Mode ── */
+  .gnb-menu.sitemap-dark {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+  }
+  
+  .gnb-menu.sitemap-dark .gnb-menu-logo {
+    filter: brightness(0) invert(1);
+  }
+.gnb-menu.sitemap-dark .gnb-menu-close svg path {
+    stroke: #FFFFFF;
+  }
+  .gnb-menu.sitemap-dark .gnb-mob-cat {
+    color: #FFFFFF;
+  }
+  .gnb-menu.sitemap-dark .gnb-mob-cat.is-active {
+    color: #F27100;
+  }
+  .gnb-menu.sitemap-dark .gnb-mob-sub-inner {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .gnb-menu.sitemap-dark .gnb-mob-sub-inner a {
+    color: #D3D3D3;
+  }
+
   .gnb-mob-sub-inner a.is-active {
     color: #F27100;
     font-weight: 700;

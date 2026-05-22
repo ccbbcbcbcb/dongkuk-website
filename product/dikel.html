@@ -892,6 +892,13 @@
             <div class="tab-item" data-tab="tab-dikel">DiKel 가치</div>
             <div class="tab-item active" data-tab="tab-brand">브랜드 리소스</div>
         </nav>
+
+        <!-- Product Tabs -->
+        <div class="product-tabs">
+            <div class="ptab active">니켈도금강판</div>
+            <div class="ptab" onclick="location.href='cold-rolled.html'">냉연강판</div>
+            <div class="ptab" onclick="location.href='heat-treated.html'">Q/T열처리강판</div>
+        </div>
         <section class="story-section">
             <div class="inner">
                 <h2 class="story-title story-title-mobile">DiKel 스토리</h2>
@@ -1120,6 +1127,13 @@
             <div class="tab-item active" data-tab="tab-dikel">DiKel 가치</div>
             <div class="tab-item" data-tab="tab-brand">브랜드 리소스</div>
         </nav>
+
+        <!-- Product Tabs -->
+        <div class="product-tabs">
+            <div class="ptab active">니켈도금강판</div>
+            <div class="ptab" onclick="location.href='cold-rolled.html'">냉연강판</div>
+            <div class="ptab" onclick="location.href='heat-treated.html'">Q/T열처리강판</div>
+        </div>
         <section class="hero">
             <video class="hero-video" autoplay loop muted playsinline>
                 <source src="assets/dikel/video_dikel-value.mp4" type="video/mp4">
@@ -1249,7 +1263,7 @@
                             </div>
 
                             <div class="img-box-center-wrap">
-                                <p class="center-label">원통형 배터리 / 니켈도금강판</p>
+                                <p class="center-label">원통형 배터리 <span class="center-label-slash">/</span> 니켈도금강판</p>
                                 <div class="img-box-center">
                                     <img src="assets/dikel/dikel/cylindrical.png" alt="원통형 배터리">
                                 </div>
@@ -1762,11 +1776,25 @@
             const item0 = document.getElementById('vitem-0');
             const item1 = document.getElementById('vitem-1');
             const fill = document.getElementById('value-fill');
+            const indicator = fill ? fill.parentElement : null;
             const label = document.getElementById('value-label');
 
-            if (!section) return;
+            if (!section || !fill || !indicator) return;
+
+            function syncIndicatorHeight() {
+                const itemHeights = [item0, item1]
+                    .filter(Boolean)
+                    .map((item) => item.offsetHeight)
+                    .filter((height) => height > 0);
+
+                if (!itemHeights.length) return;
+
+                indicator.style.height = `${Math.max(...itemHeights)}px`;
+            }
 
             function updateScroll() {
+                syncIndicatorHeight();
+
                 const rect = section.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
 
@@ -1783,7 +1811,8 @@
                 item1.style.transform = `translateY(${(1 - progress) * 1000}px)`;
                 item1.style.opacity = (0.0 + (progress * 0.8)).toFixed(3);
 
-                fill.style.transform = `translateY(${progress * 230}px)`;
+                const maxOffset = Math.max(indicator.clientHeight - fill.offsetHeight, 0);
+                fill.style.transform = `translateY(${progress * maxOffset}px)`;
 
                 if (progress >= 0.5) {
                     label.textContent = 'DiKel이 열어갈 미래의 가치';
@@ -1793,6 +1822,9 @@
             }
 
             window.addEventListener('scroll', function () {
+                window.requestAnimationFrame(updateScroll);
+            });
+            window.addEventListener('resize', function () {
                 window.requestAnimationFrame(updateScroll);
             });
             updateScroll();
