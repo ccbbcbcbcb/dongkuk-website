@@ -138,8 +138,13 @@ document.addEventListener('DOMContentLoaded', function () {
             // 3) GNB 상단 헤더 페이드아웃 (풀프레임 몰입도 극대화)
             const gnb = document.querySelector('.gnb');
             if (gnb) {
-                gnb.style.opacity = 1 - imageProgress;
-                gnb.style.pointerEvents = (imageProgress > 0.85) ? 'none' : 'auto';
+                if (progress < 1) {
+                    gnb.style.opacity = 1 - imageProgress;
+                    gnb.style.pointerEvents = (imageProgress > 0.85) ? 'none' : 'auto';
+                } else {
+                    gnb.style.opacity = '';
+                    gnb.style.pointerEvents = '';
+                }
             }
 
             // 4) 이미지 프레임 확장 및 100vw/100vh 꽉 채움 제어

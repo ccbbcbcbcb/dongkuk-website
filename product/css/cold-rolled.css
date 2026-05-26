@@ -549,7 +549,7 @@ img.ic-download {
     max-width: 828px;
     min-width: 0;
     height: 720px;
-    border-radius: 1rem;
+    border-radius: 30px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -1871,6 +1871,8 @@ img.ic-download {
         font-size: 16px;
         height: auto !important;
         margin-bottom: 10px;
+        word-break: keep-all;
+        overflow-wrap: break-word;
     }
 
     .usage-right {
@@ -1917,6 +1919,8 @@ img.ic-download {
 
     .utc-footer-info {
         justify-content: flex-start;
+        word-break: keep-all;
+        overflow-wrap: break-word;
     }
 
     .utc-footer-icon {
@@ -3157,7 +3161,7 @@ img.ic-download {
     }
 
     .mo-br {
-        display: block;
+        display: none;
     }
 }
 
@@ -3184,5 +3188,9 @@ img.ic-download {
 @media (max-width: 360px) {
     .ps-mobile-diagram {
         aspect-ratio: 328 / 277 !important;
+    }
+
+    .mo-br {
+        display: block;
     }
 }

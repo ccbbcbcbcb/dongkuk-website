@@ -169,7 +169,42 @@
 
     <script src="../js/components.js"></script>
     <script src="../js/gnb.js"></script>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const newsGrid = document.querySelector('.news-grid');
+            const btnMore = document.querySelector('.btn-more');
+            
+            // 기존 뉴스 카드 8개를 복제 원본으로 확보
+            const originalCards = Array.from(newsGrid.querySelectorAll('.news-card'));
+            
+            if (btnMore && newsGrid && originalCards.length > 0) {
+                btnMore.addEventListener('click', () => {
+                    const isPC = window.innerWidth >= 1024;
+                    const itemsToAdd = isPC ? 8 : 4; // PC는 8개, 모바일은 4개씩 추가
+                    
+                    for (let i = 0; i < itemsToAdd; i++) {
+                        const cardIndex = i % originalCards.length;
+                        const clone = originalCards[cardIndex].cloneNode(true);
+                        
+                        // 자연스러운 순차 페이드인 등장 애니메이션 스타일 설정
+                        clone.style.opacity = '0';
+                        clone.style.transform = 'translateY(20px)';
+                        clone.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                        
+                        newsGrid.appendChild(clone);
+                        
+                        // 순차 딜레이 페이드인 효과 트리거
+                        requestAnimationFrame(() => {
+                            setTimeout(() => {
+                                clone.style.opacity = '1';
+                                clone.style.transform = 'translateY(0)';
+                            }, 50 * i);
+                        });
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

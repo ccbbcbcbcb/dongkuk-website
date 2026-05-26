@@ -140,7 +140,7 @@
                 <h2 class="global-title global-title-2">기술과 파트너십으로<br>미래 가치를 이어갑니다.</h2>
 
                 <div class="global-video-frame" id="globalVideoFrame">
-                    <video id="globalVideo" muted playsinline preload="auto">
+                    <video id="globalVideo" autoplay loop muted playsinline preload="auto" poster="assets/product-center/global-business.png">
                         <source src="assets/product-center/product-center-movie.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -407,70 +407,78 @@
             });
         }
 
-        // 🌐 글로벌 비즈니스 섹션 🌐
-        (function () {
-            const section = document.getElementById('globalSection');
-            const frame = document.getElementById('globalVideoFrame');
-            const video = document.getElementById('globalVideo');
-            if (!section || !frame || !video) return;
+            // 🌐 글로벌 비즈니스 섹션 🌐
+            (function () {
+                const section = document.getElementById('globalSection');
+                const frame = document.getElementById('globalVideoFrame');
+                const video = document.getElementById('globalVideo');
+                if (!section || !frame || !video) return;
 
-            video.addEventListener('loadeddata', () => { video.currentTime = 0.01; });
+                video.addEventListener('loadedmetadata', () => {
+                    try {
+                        video.currentTime = 0.01;
+                    } catch(e) {}
+                });
 
-            const title1 = section.querySelector('.global-title-1');
-            const title2 = section.querySelector('.global-title-2');
-            const markers = section.querySelectorAll('.map-marker');
-            const stats = section.querySelector('.global-stats');
-            const counters = section.querySelectorAll('.counter');
+                const title1 = section.querySelector('.global-title-1');
+                const title2 = section.querySelector('.global-title-2');
+                const markers = section.querySelectorAll('.map-marker');
+                const stats = section.querySelector('.global-stats');
+                const counters = section.querySelectorAll('.counter');
 
-            let triggered = false;
-            let counted = false;
+                let triggered = false;
+                let counted = false;
 
-            function showMarkers() {
-                markers.forEach((m, i) => setTimeout(() => m.classList.add('show'), i * 150));
-            }
-
-            function showStats() {
-                if (stats) stats.classList.add('show');
-                if (!counted) {
-                    counted = true;
-                    counters.forEach(el => {
-                        const target = parseInt(el.dataset.target, 10);
-                        let current = 0;
-                        const step = Math.ceil(target / 30);
-                        const timer = setInterval(() => {
-                            current += step;
-                            if (current >= target) { current = target; clearInterval(timer); }
-                            el.textContent = String(current).padStart(2, '0');
-                        }, 40);
-                    });
+                function showMarkers() {
+                    markers.forEach((m, i) => setTimeout(() => m.classList.add('show'), i * 150));
                 }
-            }
 
-            /* 마커: 영상 끝나기 1초 전부터 표시 */
-            let markersShown = false;
-            video.addEventListener('timeupdate', () => {
-                if (!markersShown && video.duration && video.currentTime >= video.duration - 1) {
-                    markersShown = true;
-                    showMarkers();
+                function showStats() {
+                    if (stats) stats.classList.add('show');
+                    if (!counted) {
+                        counted = true;
+                        counters.forEach(el => {
+                            const target = parseInt(el.dataset.target, 10);
+                            let current = 0;
+                            const step = Math.ceil(target / 30);
+                            const timer = setInterval(() => {
+                                current += step;
+                                if (current >= target) { current = target; clearInterval(timer); }
+                                el.textContent = String(current).padStart(2, '0');
+                            }, 40);
+                        });
+                    }
                 }
-            });
 
-            function checkScroll() {
-                if (triggered) return;
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.2) {
-                    triggered = true;
-                    window.removeEventListener('scroll', checkScroll);
-                    frame.classList.add('expanded');
-                    setTimeout(() => {
-                        title1.classList.add('fade-out');
-                        title2.classList.add('fade-in');
-                    }, 300);
-                    /* 스탯 카드: 프레임 확장과 함께 자연스럽게 등장 */
-                    setTimeout(() => showStats(), 800);
-                    setTimeout(() => video.play(), 800);
+                /* 마커: 영상 끝나기 1초 전부터 표시 */
+                let markersShown = false;
+                video.addEventListener('timeupdate', () => {
+                    if (!markersShown && video.duration && video.currentTime >= video.duration - 1) {
+                        markersShown = true;
+                        showMarkers();
+                    }
+                });
+
+                function checkScroll() {
+                    if (triggered) return;
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top < window.innerHeight * 0.2) {
+                        triggered = true;
+                        window.removeEventListener('scroll', checkScroll);
+                        frame.classList.add('expanded');
+                        setTimeout(() => {
+                            title1.classList.add('fade-out');
+                            title2.classList.add('fade-in');
+                        }, 300);
+                        /* 스탯 카드: 프레임 확장과 함께 자연스럽게 등장 */
+                        setTimeout(() => showStats(), 800);
+                        setTimeout(() => {
+                            video.play().catch(err => {
+                                console.log("Global video playback prevented or deferred:", err);
+                            });
+                        }, 800);
+                    }
                 }
-            }
 
             // 1초 딜레이: 브라우저 스크롤 복원으로 인한 즉시 트리거 방지
             setTimeout(() => {

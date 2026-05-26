@@ -327,8 +327,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // index 페이지는 orbital 등 자체 스크롤 로직이 있어 여기선 스킵
     if (page === 'main') return;
 
+    let accumulatedScroll = 0;
+
     function updateGnb() {
       const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY;
 
       // 투명 GNB 페이지: 최상단(10px 이내)이면 투명, 그 외 solid
       if (useTransparent) {
@@ -337,10 +340,19 @@ document.addEventListener('DOMContentLoaded', () => {
         gnb.classList.toggle('gnb-solid', !atTop);
       }
 
-      // 스크롤 숨기기
-      if (currentScrollY > lastScrollY && currentScrollY > 5) {
+      // 스크롤 방향 전환 시 누적값 초기화
+      if ((delta > 0 && accumulatedScroll < 0) || (delta < 0 && accumulatedScroll > 0)) {
+        accumulatedScroll = 0;
+      }
+      accumulatedScroll += delta;
+
+      // 스크롤 제어
+      if (currentScrollY <= 10) {
+        gnb.classList.remove('gnb-hidden');
+        accumulatedScroll = 0;
+      } else if (accumulatedScroll > 15) {
         gnb.classList.add('gnb-hidden');
-      } else {
+      } else if (accumulatedScroll < -2) {
         gnb.classList.remove('gnb-hidden');
       }
 

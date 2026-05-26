@@ -148,13 +148,45 @@
     padding: 0;
     width: 100%;
     height: 100px;
-    cursor: pointer;
     transition: background 0.15s;
     flex-shrink: 0;
 }
 
-.ds-row:hover {
+/* Info link styles (Title + Date touch area) */
+.ds-row-info-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    min-width: 0;
+    cursor: pointer;
+}
+
+/* Default row hover for rows that do NOT have split touch areas */
+.ds-row:not(:has(.ds-row-info-link)) {
+    cursor: pointer;
+}
+.ds-row:not(:has(.ds-row-info-link)):hover {
     background: #FAFAFA;
+}
+.ds-row:not(:has(.ds-row-info-link)):hover .ds-cell {
+    background: #FAFAFA;
+}
+
+/* Hover for rows with split touch areas */
+.ds-row-info-link:hover .ds-cell {
+    background: #FAFAFA !important;
+}
+
+/* Mobile meta helper containers - hidden by default on desktop/tablet */
+.ds-meta-mobile {
+    display: none;
+}
+.ds-meta-download-area {
+    display: none;
 }
 
 /* ===== 셀 공통 ===== */
@@ -169,10 +201,6 @@
     border-top: 1px solid #D3D3D3;
     flex-shrink: 0;
     transition: background 0.15s;
-}
-
-.ds-row:hover .ds-cell {
-    background: #FAFAFA;
 }
 
 /* 제목 셀 */
@@ -259,7 +287,7 @@
 /* ===== 더보기 버튼 ===== */
 .ds-btn-more {
     box-sizing: border-box;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -353,6 +381,10 @@
         align-items: stretch;
     }
 
+    .ds-row-info-link {
+        align-items: stretch;
+    }
+
     .ds-cell {
         height: auto;
         min-height: 80px;
@@ -439,6 +471,15 @@
             padding: 24px 0;
             align-items: flex-start;
             gap: 16px;
+            position: relative;
+        }
+
+        .ds-row-info-link {
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            height: auto;
+            gap: 12px;
         }
 
         .ds-cell {
@@ -448,7 +489,7 @@
         }
 
         .ds-cell.ds-cell-title {
-            margin-bottom: 12px;
+            margin-bottom: 0;
         }
 
         .ds-cell.ds-cell-date,
@@ -456,13 +497,18 @@
             display: none;
         }
 
-        .ds-meta {
+        .ds-meta-mobile {
             display: flex;
-            flex-direction: row;
+            align-items: center;
+        }
+
+        .ds-meta-download-area {
+            display: flex;
             align-items: center;
             gap: 12px;
-            width: auto;
-            flex-shrink: 0;
+            position: absolute;
+            bottom: 24px;
+            right: 0;
         }
 
         .ds-meta-submitter,
@@ -487,11 +533,24 @@
             font-size: 14px;
             color: #7A7A7A;
             cursor: pointer;
+            text-decoration: none;
         }
 
         .ds-meta-download img {
             width: 18px;
             height: 18px;
+        }
+    }
+
+    /* 360px 이하 초소형 모바일 해상도 대응 */
+    @media (max-width: 360px) {
+        .ds-row {
+            padding: 20px 0; /* 경계선과의 안쪽 여백 20px 보장 */
+            gap: 0;
+        }
+
+        .ds-cell.ds-cell-title {
+            padding: 16px 0; /* 제목 위아래 패딩 16px */
         }
     }
 }

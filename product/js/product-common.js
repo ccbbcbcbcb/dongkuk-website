@@ -33,8 +33,18 @@ function setUsageTab(index) {
 
     const tabContents = document.querySelectorAll('.usage-tab-content');
     tabContents.forEach((el, i) => {
-        if (i === index) el.classList.add('active');
-        else el.classList.remove('active');
+        if (i === index) {
+            el.classList.add('active');
+            // 활성화된 패널 내부의 비디오 명시적 play() 강제 실행 (iOS/사파리 무음 자동재생 유실 해결)
+            el.querySelectorAll('video').forEach(function(video) {
+                video.play().catch(function(err) {
+                    console.log("Usage video autoplay prevented:", err);
+                });
+            });
+        }
+        else {
+            el.classList.remove('active');
+        }
     });
     
     // 탭 전환 시에도 레이아웃 재계산
@@ -69,6 +79,13 @@ document.addEventListener('DOMContentLoaded', function () {
     scaleProcessCard();
     window.addEventListener('resize', function () {
         requestAnimationFrame(scaleProcessCard);
+    });
+    
+    // 초기 로드 시 활성화된 활용분야 비디오 명시적 play 호출
+    document.querySelectorAll('.usage-tab-content.active video').forEach(function(video) {
+        video.play().catch(function(err) {
+            console.log("Initial usage video autoplay prevented:", err);
+        });
     });
 });
 
@@ -146,6 +163,13 @@ function activateProductTab(panelId, shouldPersist) {
     });
 
     panel.classList.add('active');
+
+    // 탭 패널이 활성화될 때 내부 비디오가 있을 경우 iOS/Safari 자동재생 누락 대응을 위해 명시적으로 play() 호출
+    panel.querySelectorAll('video').forEach(function(video) {
+        video.play().catch(function(err) {
+            console.log("Autoplay was prevented or video failed to play:", err);
+        });
+    });
 
     if (shouldPersist) {
         sessionStorage.setItem(productTabStorageKey, panelId);

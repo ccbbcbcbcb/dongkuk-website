@@ -436,7 +436,7 @@ img.ic-download {
     max-width: 828px;
     min-width: 0;
     height: 720px;
-    border-radius: 1rem;
+    border-radius: 30px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -828,12 +828,16 @@ img.ic-download {
     border-radius: 30px;
     overflow: hidden;
     position: relative;
+    background-color: #000000;
+    /* 사파리 border-radius + overflow:hidden 서브픽셀 틈새 비침 버그 해결 */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .utc-video video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    background-color: #000000; /* 사파리 회색 박스 노출 방지 */
 }
 
 .utc-video-bg {
@@ -1232,6 +1236,63 @@ img.ic-download {
 }
 
 /* ════════════════════════════════════
+           TABLET — 1024px ~ 1280px (#tab-product 반응형 최적화)
+           word-break: keep-all 기반 텍스트 흐름 제어
+           1920/360 줄바꿈(.desk-br / .mo-br) 영향 없음
+           ════════════════════════════════════ */
+@media (max-width: 1280px) and (min-width: 1024px) {
+
+    /* ── Hero Text ── */
+    .hero-text-section {
+        padding: 80px 5vw 0;
+    }
+
+    .hero-text-section h2 {
+        font-size: clamp(28px, 3vw, 52px);
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+
+    /* ── Feature Cards ── */
+    .fcards-row {
+        gap: 16px;
+    }
+
+    .fcard .label-text {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+        left: 28px;
+    }
+
+    /* ── product-intro (제품소개 텍스트) ── */
+    .pi-title {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+
+    .pi-subtitle {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+
+    .pi-desc {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+
+    /* desk-br: 1280px 이하 태블릿에서는 숨겨 자연스럽게 이어지게 함 */
+    .desk-br {
+        display: none;
+    }
+
+    /* ── accordion 텍스트 ── */
+    .acc-title {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+}
+
+/* ════════════════════════════════════
            MOBILE — 1023px 이하 (DiKel Tab1)
            (공통: common.css가 GNB/헤더/탭/서포트/푸터 처리)
            ════════════════════════════════════ */
@@ -1464,12 +1525,8 @@ img.ic-download {
         height: 232px;
         aspect-ratio: unset;
         border-radius: 16px;
-        flex: none;
+        flex-shrink: 0;
         overflow: hidden;
-    }
-
-    .pi-right img {
-        object-position: center bottom;
     }
 
     .pi-main-texts {
@@ -1775,6 +1832,8 @@ img.ic-download {
         font-size: 16px;
         height: auto !important;
         margin-bottom: 10px;
+        word-break: keep-all;
+        overflow-wrap: break-word;
     }
 
     .usage-right {
@@ -1821,6 +1880,8 @@ img.ic-download {
 
     .utc-footer-info {
         justify-content: flex-start;
+        word-break: keep-all;
+        overflow-wrap: break-word;
     }
 
     .utc-footer-icon {
@@ -3851,6 +3912,8 @@ body {
     width: calc(100% - 60px);
     height: 800px;
     border-radius: 30px;
+    border: none;
+    outline: none;
     background: #333;
     display: flex;
     align-items: center;
@@ -3858,6 +3921,8 @@ body {
     position: relative;
     overflow: hidden;
     margin: 30px auto 0;
+    /* 사파리 border-radius + overflow:hidden 서브픽셀 틈새/선 비침 버그 해결 */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .hero-video {
@@ -3866,6 +3931,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    background-color: #000000; /* 사파리 회색 박스 노출 방지 */
     z-index: 0;
 }
 
@@ -4064,7 +4130,8 @@ body {
     padding: 0px;
     gap: 24px;
     width: 100%;
-    height: 580px;
+    height: auto;
+    min-height: 580px;
 }
 
 .mcard {
@@ -4979,6 +5046,52 @@ body {
 }
 
 /* ════════════════════════════════════
+           TABLET — 1024px ~ 1280px (material-cards 1열 배치)
+           카드 3개가 가로로 겹치지 않도록 세로 스택 전환
+           ════════════════════════════════════ */
+@media (max-width: 1280px) and (min-width: 1024px) {
+    /* material-section: 세로 배치 전환 */
+    .material-cards {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .mcard {
+        flex: none;
+        width: 100%;
+        height: auto;
+        min-height: 320px;
+        padding: 40px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 40px;
+    }
+
+    .mcard-illus {
+        flex-shrink: 0;
+        width: 220px;
+        height: 220px;
+        max-width: 220px;
+    }
+
+    .mcard-illus img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .mcard-txt {
+        flex: 1;
+        min-width: 0;
+        gap: 16px;
+        align-items: flex-start;
+    }
+}
+
+/* ════════════════════════════════════
            MOBILE — 1023px 이하 (탭 패널 공통)
            Brand Resource / 제품 상세 등의 고정폭 해제
            ════════════════════════════════════ */
@@ -4995,7 +5108,7 @@ body {
     }
 
     .mo-br {
-        display: block !important;
+        display: none !important;
     }
 
     .desk-br {
@@ -6090,5 +6203,15 @@ body {
     /* --- BI 섹션 (데스크톱 스타일 오버라이드) --- */
     .bi-section {
         padding: 40px 0;
+    }
+}
+
+/* ════════════════════════════════════
+           360px 이하 — mo-br 활성화
+           HTML의 class="mo-br" 줄바꿈은 정확히 360px 이하에서만 표시
+           ════════════════════════════════════ */
+@media (max-width: 360px) {
+    .mo-br {
+        display: block !important;
     }
 }

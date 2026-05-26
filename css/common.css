@@ -381,10 +381,17 @@ body {
 /* 메뉴 열렸을 때: 투명 → 약간 투명한 흰 배경 + 다크 텍스트 (블러 효과 포함) */
 .gnb.gnb-menu-active,
 .header.gnb-menu-active {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 80px 18px;
+    height: 90px;
+    box-sizing: border-box;
     background: rgba(255, 255, 255, 0.85); /* 0.85 투명도로 하단 사이트맵과 통일 */
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+    box-shadow: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -395,11 +402,7 @@ body {
 }
 
 .gnb.gnb-menu-active .gnb-nav,
-.gnb.gnb-menu-active .gnb-utils-links,
-.gnb.gnb-menu-active .gnb-divider,
-.header.gnb-menu-active .gnb-nav,
-.header.gnb-menu-active .utils-text,
-.header.gnb-menu-active .divider {
+.header.gnb-menu-active .gnb-nav {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -434,6 +437,40 @@ body {
 
 .gnb.gnb-menu-active .gnb-logo img {
     filter: none;
+}
+
+/* ===== 다크 / 투명 GNB 활성화 시 오버라이드 (Figma Spec) ===== */
+.gnb.gnb-transparent.gnb-menu-active,
+.gnb.gnb-dark.gnb-menu-active {
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0.8;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    box-shadow: none;
+}
+
+/* 다크 활성화 시 로고 흰색 필터 적용 */
+.gnb.gnb-transparent.gnb-menu-active .gnb-logo img,
+.gnb.gnb-dark.gnb-menu-active .gnb-logo img {
+    filter: brightness(0) invert(1);
+}
+
+/* 다크 활성화 시 문의 & KR 텍스트 색상 흰색 */
+.gnb.gnb-transparent.gnb-menu-active .gnb-utils a,
+.gnb.gnb-dark.gnb-menu-active .gnb-utils a {
+    color: #FFFFFF;
+}
+
+/* 다크 활성화 시 구분선 색상 */
+.gnb.gnb-transparent.gnb-menu-active .gnb-divider,
+.gnb.gnb-dark.gnb-menu-active .gnb-divider {
+    background: #D3D3D3;
+}
+
+/* 다크 활성화 시 메뉴 X 닫기 버튼 색상 흰색 */
+.gnb.gnb-transparent.gnb-menu-active .gnb-menu-btn span,
+.gnb.gnb-dark.gnb-menu-active .gnb-menu-btn span {
+    background: #FFFFFF;
 }
 
 

@@ -123,6 +123,18 @@ body {
     z-index: 1;
 }
 
+.slider-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 4.1145vw; /* (29.1666vw - 20.9375vw) / 2 = 4.1145vw */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFFFFF;
+    z-index: 2;
+    pointer-events: none;
+}
+
 .slider-track {
     display: flex;
     align-items: center;
@@ -130,6 +142,8 @@ body {
     gap: 1.5625vw;
     /* 30px / 1920px */
     width: max-content;
+    position: relative;
+    z-index: 3;
 }
 
 .standard-card {
@@ -141,7 +155,7 @@ body {
     /* 402px / 1920px */
     border-radius: 1.5625vw;
     /* 30px / 1920px */
-    background-color: transparent;
+    background-color: #FFFFFF;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -193,7 +207,6 @@ body .no-transition *,
     transform: translateX(-50%);
     width: 166.9791vw;
     /* 3206px / 1920px */
-    height: 166.9791vw;
     pointer-events: none;
     z-index: 0;
 }
@@ -201,10 +214,11 @@ body .no-transition *,
 .orb-orbit {
     box-sizing: border-box;
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     position: relative;
-    border: 1px solid #D3D3D3;
+    border: 1px dashed #D3D3D3;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -497,6 +511,8 @@ body .no-transition *,
     z-index: 1;
     background: #1a1a1a;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    /* 사파리 border-radius + overflow:hidden 서브픽셀 틈새 비침 버그 해결 */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .global-video-frame.expanded {
@@ -505,12 +521,14 @@ body .no-transition *,
     right: 0;
     bottom: 0;
     border-radius: 0;
+    -webkit-mask-image: none; /* 확장 상태에서는 마스크 해제 */
 }
 
 .global-video-frame video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    background-color: #000000; /* 사파리 회색 박스 노출 방지 */
 }
 
 /* 국가 마커 */
@@ -943,6 +961,10 @@ body .no-transition *,
         max-height: 560px;
     }
 
+    .slider-wrapper::before {
+        top: 79px;
+    }
+
     .slider-track {
         gap: 30px;
     }
@@ -1019,7 +1041,6 @@ body .no-transition *,
     .orb-wrapper {
         top: 386px;
         width: 3206px;
-        height: 3206px;
     }
 
     .orb-main-dot {
@@ -1126,10 +1147,9 @@ body .no-transition *,
     /* 궤도: 데스크톱 그대로, 크기·위치만 조절 */
     .orb-wrapper {
         width: 999px;
-        height: 999px;
         top: 160px;
         /* padding 40 + title 90 + gap 30 */
-        z-index: 2;
+        z-index: 0;
     }
 
     .orb-main-dot {
@@ -1153,6 +1173,10 @@ body .no-transition *,
 
     .slider-wrapper {
         height: 374px;
+    }
+
+    .slider-wrapper::before {
+        top: 64.5px;
     }
 
     .slider-track {

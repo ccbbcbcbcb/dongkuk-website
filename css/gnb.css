@@ -23,7 +23,7 @@
    헤더 바로 아래(top:90px)에서 확장, z-index < 헤더 */
 .gnb-menu {
   position: fixed;
-  top: 90px;
+  top: 89px;
   left: 0;
   transform: none;
   width: 100%;
@@ -40,7 +40,7 @@
 }
 .gnb-menu::-webkit-scrollbar { display: none; }
 .gnb-menu.is-open {
-  max-height: calc(100vh - 90px);
+  max-height: calc(100vh - 89px);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }

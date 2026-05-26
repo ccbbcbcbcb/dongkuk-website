@@ -298,13 +298,13 @@
       const hero = document.getElementById('hero');
       let lastY = window.scrollY;
 
+      let accumulatedScroll = 0;
+
       function updateGnb() {
         const currentY = window.scrollY;
         const delta = currentY - lastY;
 
         // 1. 투명↔solid 전환
-        // 투명 = 최상단(scrollY ≈ 0)에서만
-        // solid = 그 외 모든 경우 (히어로 영역 안이라도 스크롤 내리면 solid)
         if (hero) {
           const atTop = currentY <= 10;
           gnb.classList.toggle('gnb-transparent', atTop);
@@ -315,11 +315,21 @@
         const orbital = document.querySelector('.orbital-sticky');
         const inOrbital = orbital && orbital.getBoundingClientRect().top < 100 && orbital.getBoundingClientRect().bottom > 0;
 
+        // 스크롤 방향 전환 시 누적값 초기화
+        if ((delta > 0 && accumulatedScroll < 0) || (delta < 0 && accumulatedScroll > 0)) {
+          accumulatedScroll = 0;
+        }
+        accumulatedScroll += delta;
+
         if (inOrbital) {
           gnb.classList.remove('gnb-hidden');
-        } else if (delta > 0 && currentY > 50) {
+          accumulatedScroll = 0;
+        } else if (currentY <= 10) {
+          gnb.classList.remove('gnb-hidden');
+          accumulatedScroll = 0;
+        } else if (accumulatedScroll > 15) {
           gnb.classList.add('gnb-hidden');
-        } else if (delta < 0) {
+        } else if (accumulatedScroll < -2) {
           gnb.classList.remove('gnb-hidden');
         }
 
