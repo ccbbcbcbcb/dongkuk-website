@@ -37,6 +37,14 @@ body {
     background: url('../assets/invest-center/invest_center_header.png') no-repeat center/cover;
 }
 
+.invest-hero::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100px;
+    flex-shrink: 0;
+}
+
 .invest-hero::after {
     content: '';
     position: absolute;
@@ -49,7 +57,6 @@ body {
 }
 
 .invest-hero .gnb {
-    position: relative;
     z-index: 2;
     width: 100%;
     height: 100px;
@@ -95,6 +102,10 @@ body {
         padding: 100px 20px 60px;
         gap: 40px;
         background: url('../assets/invest-center/투자정보센터header_m.png') no-repeat center/cover;
+    }
+
+    .invest-hero::before {
+        height: 72px;
     }
 
     .invest-hero .gnb {
@@ -254,10 +265,10 @@ body {
 /* Frame 2116936095 - Horizontal Wrap for Price and Stats */
 .price-row-wrap {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 0px;
-    gap: clamp(12px, 3vw, 60px);
+    gap: clamp(12px, 3vw, 20px);
     width: 100%;
 }
 
@@ -683,7 +694,7 @@ body {
         padding: 0;
         justify-content: space-between;
         width: 100%;
-        max-width: 328px;
+        max-width: 100%;
         height: auto;
         min-height: 261px;
         margin-bottom: 20px;
@@ -988,9 +999,9 @@ body {
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 20px;
+        padding: 24px;
         width: 100%;
-        max-width: 328px;
+        max-width: 100%;
         height: auto;
         min-height: 270px;
         background: #F8F9FB;
@@ -1060,8 +1071,8 @@ body {
         align-items: flex-start;
         padding: 0;
         gap: 16px;
-        width: 260.54px;
-        height: 178px;
+        width: 100%;
+        height: auto;
     }
 
     /* 아이콘 + 타이틀 그룹 */
@@ -1107,8 +1118,8 @@ body {
         align-items: center;
         padding: 0;
         gap: 40px;
-        width: 260.54px;
-        height: 84px;
+        width: 100%;
+        height: auto;
     }
 
     /* 개별 지표 아이템 */
@@ -2429,6 +2440,56 @@ body {
     }
     .ir-meeting-date {
         font-size: clamp(12px, 1.04vw, 20px);
+    }
+
+    /* Notice Section - 1024~1279px: Stack columns vertically for optimal layout, keep cards side-by-side */
+    .notice-cols-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .notice-col {
+        width: 100%;
+    }
+
+    .notice-cards {
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    .notice-card {
+        width: calc((100% - 32px) / 3);
+        height: auto;
+        min-height: 301px;
+    }
+
+    .notice-card-title {
+        font-size: clamp(18px, 1.8vw, 24px);
+    }
+}
+
+/* Scoped responsive rules only active between 1024px and 1919px */
+@media (min-width: 1024px) and (max-width: 1919px) {
+    .notice-card {
+        height: auto;
+        min-height: 301px;
+    }
+    .notice-card-inner {
+        width: 100%;
+        height: auto;
+        min-height: 241px;
+    }
+    .notice-card-info {
+        width: 100%;
+        height: auto;
+        min-height: 120px;
+    }
+    .notice-card-title {
+        width: 100%;
+        height: auto;
+        min-height: 72px;
+        word-break: keep-all;
+        overflow-wrap: break-word;
     }
 }
 

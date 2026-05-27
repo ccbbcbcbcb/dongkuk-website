@@ -256,7 +256,6 @@ a {
 .card-img {
     width: 100%;
     aspect-ratio: 402 / 226;
-    background: #EEEEEE;
     border-radius: clamp(10px, 0.83vw, 16px);
     overflow: hidden;
 }

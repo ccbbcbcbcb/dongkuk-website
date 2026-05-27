@@ -670,6 +670,7 @@ img.ic-download {
 .pr-item-row {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 60px;
     align-items: flex-start;
     align-self: stretch;
@@ -677,6 +678,7 @@ img.ic-download {
 
 .pr-item-info {
     flex: 1;
+    min-width: 450px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -718,22 +720,30 @@ img.ic-download {
 .pr-chart-box {
     background: #F8F9FB;
     border-radius: 30px;
-    padding: 40px;
-    width: 890px;
+    padding: clamp(20px, 2.08vw, 40px);
+    width: 100%;
+    max-width: 890px;
+    height: auto !important;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: clamp(20px, 3.125vw, 60px);
 }
 
 .pr-chart-visual {
-    width: 810px;
-    height: 416px;
+    width: 100%;
+    max-width: 810px;
+    height: auto;
+    aspect-ratio: 810 / 416;
 }
 
 @media screen and (max-width: 1024px) {
     .pr-list-container {
         gap: 40px;
+    }
+
+    .pr-item-info {
+        min-width: unset;
     }
 
     .m-notice-text {
@@ -1068,6 +1078,16 @@ img.ic-download {
 
 /* ===== 공정과정 (Auto-Play 방식으로 변경) ===== */
 
+/* 모바일 전용 요소: 데스크탑/태블릿에서 숨김 */
+@media (min-width: 768px) {
+    .ps-mobile-indicators,
+    .ps-mobile-info-card,
+    .ps-mobile-bottom-group,
+    .ps-mobile-diagram {
+        display: none;
+    }
+}
+
 /* 1. 전체 길이를 700vh로 만들던 설비를 제거합니다 */
 .process-scroll-outer {
     position: relative;
@@ -1393,6 +1413,10 @@ img.ic-download {
            모든 고정 너비/절대 위치를 유연한 레이아웃으로 전환
            ════════════════════════════════════ */
 @media (max-width: 1023px) {
+    .process-scroll-outer {
+        padding: 0 16px;
+    }
+
     body {
         min-width: 0;
         width: 100%;
@@ -1932,6 +1956,8 @@ img.ic-download {
         font-size: 16px;
     }
 
+}
+@media (max-width: 767px) {
     /* ── 공정: 데스크탑 요소 숨김 ── */
     .process-scroll-outer {
         width: 100%;
@@ -1959,6 +1985,7 @@ img.ic-download {
         flex-direction: column;
         gap: 40px;
         transform: none;
+        zoom: calc(100vw / 360);
     }
 
     .ps-header {
@@ -2254,6 +2281,8 @@ img.ic-download {
         color: #4E4E4E;
         margin: 0;
     }
+}
+@media (max-width: 1023px) {
 
     .grade-table {
         width: 100%;
@@ -2377,6 +2406,7 @@ img.ic-download {
         flex-direction: column;
         width: 100%;
         max-width: 328px;
+        min-width: unset;
         margin: 0 auto;
         padding: 0;
         gap: 12px;

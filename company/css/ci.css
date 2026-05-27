@@ -25,6 +25,11 @@ body {
     display: block;
 }
 
+.mo-br,
+.mo-only {
+    display: none;
+}
+
 @media screen and (max-width: 1023px) {
     .pc-br {
         display: none;
@@ -248,6 +253,8 @@ body {
     flex: none;
     order: 0;
     flex-grow: 0;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 
@@ -371,6 +378,8 @@ body {
     width: 100%;
     height: auto;
     display: block;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .colors-flex {
@@ -601,12 +610,6 @@ body {
         display: none;
     }
 
-    @media screen and (max-width: 640px) {
-        .colors-intro br.mo-br {
-            display: block;
-        }
-    }
-
     .colors-flex {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -651,5 +654,20 @@ body {
 
     .color-codes span {
         font-size: clamp(12px, 3.8vw, 16px);
+    }
+}
+
+/* ════════════════════════════════════
+           360px 이하 — mo-br 활성화
+           ════════════════════════════════════ */
+@media screen and (max-width: 360px) {
+    .mo-br {
+        display: block !important;
+    }
+    .mo-only {
+        display: inline !important;
+    }
+    .colors-intro br.mo-br {
+        display: block !important;
     }
 }

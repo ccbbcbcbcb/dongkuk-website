@@ -903,6 +903,16 @@ img.ic-download {
 /* ===== 공정과정 (Scroll-Driven) ===== */
 
 /* Auto-play: 스크롤 고정 없이 자연스럽게 흐름 */
+/* 모바일 전용 요소: 데스크탑/태블릿에서 숨김 */
+@media (min-width: 768px) {
+    .ps-mobile-indicators,
+    .ps-mobile-info-card,
+    .ps-mobile-bottom-group,
+    .ps-mobile-diagram {
+        display: none;
+    }
+}
+
 .process-scroll-outer {
     position: relative;
     height: auto;
@@ -1222,6 +1232,10 @@ img.ic-download {
            모든 고정 너비/절대 위치를 유연한 레이아웃으로 전환
            ════════════════════════════════════ */
 @media (max-width: 1023px) {
+    .process-scroll-outer {
+        padding: 0 16px;
+    }
+
     body {
         min-width: 0;
         width: 100%;
@@ -1927,6 +1941,8 @@ img.ic-download {
         font-size: 16px;
     }
 
+}
+@media (max-width: 767px) {
     /* ── 공정: 데스크탑 요소 숨김 ── */
     .process-scroll-outer {
         padding: 0;
@@ -1951,6 +1967,7 @@ img.ic-download {
         flex-direction: column;
         gap: 40px;
         transform: none;
+        zoom: calc(100vw / 360);
     }
 
     .ps-header {
@@ -2192,6 +2209,8 @@ img.ic-download {
         color: #4E4E4E;
         margin: 0;
     }
+}
+@media (max-width: 1023px) {
 
     /* Grade Table — 1584px 고정폭 → 스크롤 */
     .grade-table {

@@ -600,8 +600,8 @@ body .no-transition *,
     /* 220px / 1920px */
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(12px);
-    border-radius: 20px;
-    padding: 30px;
+    border-radius: 1.0417vw; /* 20px / 1920px */
+    padding: 1.5625vw; /* 30px / 1920px */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -613,6 +613,8 @@ body .no-transition *,
     line-height: 150%;
     color: #4E4E4E;
     text-align: left;
+    white-space: nowrap;
+    word-break: keep-all;
 }
 
 .stat-box strong {
@@ -1268,6 +1270,7 @@ body .no-transition *,
     /* ── Global Business: 모바일 ── */
     .global-section {
         height: 100vh;
+        min-height: 640px;
     }
 
     .global-label {
@@ -1316,17 +1319,17 @@ body .no-transition *,
 
     .stat-box {
         width: calc(50% - 4px);
-        height: 160px;
+        height: 120px;
         border-radius: 12px;
         padding: 16px;
     }
 
     .stat-box p {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .stat-box strong {
-        font-size: 44px;
+        font-size: 36px;
     }
 
     .map-marker {
@@ -1482,5 +1485,58 @@ body .no-transition *,
         bottom: 16px;
         width: 52px;
         height: 52px;
+    }
+}
+
+/* Scoped responsive rules only active between 1024px and 1919px */
+@media (min-width: 1024px) and (max-width: 1919px) {
+    /* Prevent global video frame from overlapping title or stretching too wide */
+    .global-label {
+        top: 4.166vw;
+        left: 6.25vw;
+    }
+    .global-title {
+        top: 6.25vw;
+        left: 6.25vw;
+    }
+    .global-video-frame {
+        top: 16.666vw;
+        left: 6.25vw;
+        right: 6.25vw;
+        bottom: 3.125vw;
+        border-radius: 1.5625vw;
+    }
+    
+    /* Clamp the height of the products container to prevent squashing */
+    .products-container {
+        height: clamp(540px, 42.0833vw, 808px);
+    }
+    .product-card {
+        height: 100%;
+    }
+    
+    /* Calculate dynamic top offset of the text block relative to the clamped height */
+    .pc-text-block {
+        top: calc(clamp(540px, 42.0833vw, 808px) - 2.0833vw - 50px);
+    }
+    
+    /* Prevent product card text/titles from overflowing the card height when shrunk */
+    .product-card.expanded .pc-title-small {
+        font-size: clamp(32px, 3.125vw, 60px);
+    }
+    .product-card.expanded .pc-text-block {
+        top: clamp(24px, 2.6vw, 50px);
+        left: clamp(24px, 2.6vw, 50px);
+    }
+    .products-container:hover .product-card .pc-text-block {
+        top: calc(clamp(540px, 42.0833vw, 808px) - 2.0833vw - 50px);
+        left: 2.0833vw;
+    }
+    .products-container:hover .product-card:hover .pc-title-small {
+        font-size: clamp(32px, 3.125vw, 60px);
+    }
+    .products-container:hover .product-card:hover .pc-text-block {
+        top: clamp(24px, 2.6vw, 50px);
+        left: clamp(24px, 2.6vw, 50px);
     }
 }

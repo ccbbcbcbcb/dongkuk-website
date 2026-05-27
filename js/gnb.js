@@ -316,7 +316,7 @@
 })();
 
 /* ── GNB 스크롤 숨김 애니메이션 로직 ── */
-document.addEventListener('DOMContentLoaded', () => {
+function initGnbScroll() {
   let lastScrollY = window.scrollY;
   const gnb = document.querySelector('.gnb');
 
@@ -362,7 +362,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateGnb);
     updateGnb(); // 초기 실행
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initGnbScroll);
+} else {
+  initGnbScroll();
+}
 
 /* ── BTN TOP 공통 로직 (Responsive) ── */
 document.addEventListener('DOMContentLoaded', function () {
