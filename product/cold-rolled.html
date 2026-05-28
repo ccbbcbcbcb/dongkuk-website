@@ -1605,52 +1605,6 @@
                 });
             });
 
-            /* ── Hero Text 스크롤 애니메이션 ── */
-            document.addEventListener('DOMContentLoaded', () => {
-                const h2 = document.querySelector('.hero-text-section h2');
-                if (!h2) return;
-
-                function wrapCharacters(node) {
-                    if (node.nodeType === 3) {
-                        const text = node.nodeValue;
-                        const fragment = document.createDocumentFragment();
-                        for (let i = 0; i < text.length; i++) {
-                            const char = text[i];
-                            if (char === ' ' || char === '\n') {
-                                fragment.appendChild(document.createTextNode(char));
-                            } else {
-                                const span = document.createElement('span');
-                                span.className = 'char';
-                                span.textContent = char;
-                                fragment.appendChild(span);
-                            }
-                        }
-                        node.parentNode.replaceChild(fragment, node);
-                    } else if (node.nodeType === 1 && node.nodeName !== 'BR') {
-                        Array.from(node.childNodes).forEach(wrapCharacters);
-                    }
-                }
-
-                wrapCharacters(h2);
-
-                const chars = h2.querySelectorAll('.char');
-                const outer = document.querySelector('.hero-text-outer');
-                if (!outer) return;
-
-                function onScroll() {
-                    const rect = outer.getBoundingClientRect();
-                    const scrollRoom = outer.offsetHeight - outer.querySelector('.hero-text-inner').offsetHeight;
-                    const scrolled = -rect.top;
-
-                    let progress = Math.max(0, Math.min(1, scrolled / Math.max(scrollRoom * 0.6, 1)));
-
-                    const activeCount = Math.floor(progress * chars.length);
-                    chars.forEach((c, i) => c.classList.toggle('active', i < activeCount));
-                }
-
-                window.addEventListener('scroll', onScroll, { passive: true });
-                onScroll();
-            });
         </script>
         <script src="../js/gnb.js"></script>
 </body>

@@ -130,22 +130,19 @@ body {
 /* Investment Overview (투자개요) */
 .investment-overview {
     width: 100%;
-    max-width: 1920px;
     height: auto;
-    min-height: 755px;
-    margin: 0 auto;
+    min-height: 555px;
     padding: clamp(60px, 5.21vw, 100px) clamp(16px, 6.25vw, 120px);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     background: #FFFFFF;
 }
 
 .investment-overview .inner {
     width: 100%;
     max-width: 1680px;
-    margin: 0;
-    /* Horizontal margin removed */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(30px, 3.125vw, 60px);
     padding: 0;
     box-sizing: border-box;
 }
@@ -153,22 +150,31 @@ body {
 .overview-title {
     font-size: clamp(32px, 2.6vw, 50px);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 60px;
     color: #000000;
     margin: 0;
-    margin-bottom: clamp(30px, 3.125vw, 60px);
 }
 
 .overview-grid {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
+    align-items: center;
+    justify-content: space-between;
     gap: 24px;
     width: 100%;
-    max-width: 1680px;
-    /* Max width for desktop */
     height: 435px;
-    /* Fixed height for desktop */
+}
+
+/* 주주환원 + 파트너십 오른쪽 그룹 */
+.overview-right-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    flex: 1 1 828px;
+    max-width: 828px;
+    min-width: 0;
+    height: 435px;
 }
 
 .overview-card {
@@ -182,11 +188,24 @@ body {
 
 /* 주가정보 카드 */
 .stock-info {
-    flex: 1.7;
-    padding: 40px 0px 40px 0px;
-    /* Removed right padding as requested */
-    justify-content: space-between;
-    /* Pushes content to the bottom */
+    flex: 1 1 665px;
+    max-width: 665px;
+    height: 435px;
+    padding: 0;
+    position: relative;
+}
+
+/* 헤더: position absolute top:40px (Frame 2116936100) */
+.stock-info .card-top {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: auto;
+    height: 46px;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-start;
+    gap: 2px;
 }
 
 .card-top {
@@ -239,15 +258,129 @@ body {
     height: 36px;
 }
 
+/* 가격 섹션: position absolute top:247px (Frame 2116936458) */
 .stock-main {
+    position: absolute;
+    top: 247px;
+    left: 0;
+    width: max-content;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 60px;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    transition: top 0.3s ease;
+}
+
+/* 1734px ~ 1281px 구간: gap이 24px이 되며 카드가 줄어듦 -> 동시 다발적으로 위치 이동 및 스택(Wrap) 처리 */
+/* 1734px ~ 1281px: stock-info 유동 너비 + static flow 전환 */
+@media (max-width: 1734px) and (min-width: 1281px) {
+
+    /* overview-grid: 상단 정렬 (양쪽 모두 435px → center와 동일 결과, 경계 점프 없음) */
+    .overview-grid {
+        align-items: flex-start;
+    }
+
+    /* stock-info: 유동 너비
+       1734px → 665px, 1281px → 348px 로 선형 감소
+       공식: 70vw - 548.8px  (70 × 17.34 - 548.8 = 665 / 70 × 12.81 - 548.8 = 348) */
+    .stock-info {
+        flex: none;
+        width: clamp(348px, calc(70vw - 548.8px), 665px);
+        height: 435px;
+        padding-top: 40px; /* card-top의 top:40px 절대위치와 동일 시작점 유지 */
+    }
+
+    /* card-top: absolute → static flow
+       padding-top 40px 안에서 자연스럽게 배치 → 이전 top:40px 와 동일 위치 */
+    .stock-info .card-top {
+        position: static;
+        top: auto;
+        left: auto;
+        width: auto;
+        justify-content: flex-start;
+        margin-bottom: 30px; /* 40px pad + 46px card-top + 30px = 116px → 이전 top:116px 유지 */
+    }
+
+    /* stock-main: absolute → static flow, column 배치 */
+    .stock-main {
+        position: static;
+        top: auto;
+        left: auto;
+        width: max-content;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+/* 1280px 이하: 오른쪽 그룹이 stock-info 아래로 떨어짐 */
+@media (max-width: 1280px) {
+    .overview-grid {
+        flex-direction: column;
+        align-items: stretch; /* 자식이 가로 전체를 채우도록 */
+        height: auto;
+    }
+
+    .stock-info {
+        width: 100%;        /* fit-content 대신 풀너비 */
+        max-width: 100%;
+        flex: none;
+        height: auto;
+        min-height: 0;
+        padding: clamp(24px, 3.125vw, 40px); /* 내부 여백 복원 */
+    }
+
+    /* position:absolute 해제 → 정적 flow로 복구 */
+    .stock-info .card-top {
+        position: static;
+        top: auto;
+        left: auto;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0;
+        margin-bottom: clamp(16px, 2.08vw, 30px);
+    }
+
+    .stock-main {
+        position: static;
+        top: auto;
+        left: auto;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .stock-bottom-info {
+        width: 100%;
+        height: auto;
+    }
+
+    .info-rows-wrap {
+        width: 100%;
+        height: auto;
+    }
+
+    .overview-right-group {
+        width: 100%;
+        max-width: 100%;
+        flex: none;
+    }
+}
+
+/* 좌측: 현재가 라벨 + 가격 (Group 2116935651) */
+.stock-price-group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
-    margin: 0;
-    width: 100%;
-    height: auto;
     gap: 0;
+    flex: none;
+    height: 142px;
+    justify-content: flex-end;
 }
 
 .stock-label {
@@ -256,10 +389,13 @@ body {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: clamp(18px, 3vw, 24px);
+    font-size: 24px;
     line-height: 150%;
     color: #363636;
     margin: 0;
+    height: 36px;
+    display: flex;
+    align-items: center;
 }
 
 /* Frame 2116936095 - Horizontal Wrap for Price and Stats */
@@ -277,10 +413,10 @@ body {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    padding: 0px;
-    gap: clamp(8px, 0.73vw, 14px);
+    padding: 0;
+    gap: 14px;
     width: auto;
-    height: 112px;
+    height: auto;
 }
 
 .price-val {
@@ -288,7 +424,7 @@ body {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: clamp(40px, 4.16vw, 80px);
+    font-size: 80px;
     line-height: 140%;
     color: #000000;
     margin: 0;
@@ -296,68 +432,72 @@ body {
 
 .price-unit {
     width: auto;
-    height: 59px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: clamp(18px, 1.35vw, 26px);
+    font-size: 26px;
     line-height: 150%;
     color: #363636;
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
+    padding-bottom: clamp(2px, 0.52vw, 10px);
 }
 
-/* Frame 2116936065 - Stats Area */
+/* 우측: 통계 + 날짜 (Frame 2116936457) */
 .stock-bottom-info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
-    padding: 0px;
-    gap: 8px;
-    height: 100px;
+    padding: 0;
+    gap: 22px;
+    flex: none;
+    width: 348px;
+    height: 86px;
+    justify-content: flex-end;
 }
 
 .info-rows-wrap {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px;
+    padding: 0;
     gap: 20px;
-    height: 60px;
+    width: 348px;
+    height: 32px;
 }
 
 .info-group {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px;
-    gap: 8px;
+    padding: 0;
+    gap: 10px;
+    height: 32px;
 }
 
 .info-label-box {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 2px 0px;
-    width: auto;
-    min-width: clamp(36px, 2.7vw, 52px);
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 500;
-    font-size: clamp(16px, 1.04vw, 20px);
+    font-size: 20px;
     line-height: 160%;
     color: #7A7A7A;
+    display: flex;
+    align-items: center;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    white-space: nowrap;
 }
 
 .info-val-wrap {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px;
-    gap: 12px;
+    padding: 0;
+    gap: 8px;
+    height: 32px;
 }
 
 .info-val-wrap.down {
@@ -368,24 +508,27 @@ body {
     width: 16px;
     height: 12px;
     object-fit: contain;
-    padding-top: 4px;
-    padding-bottom: 7px;
-    box-sizing: content-box;
+    padding-top: 0;
+    padding-bottom: 0;
+    box-sizing: border-box;
 }
 
 .arrow-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translateY(2px);
 }
 
 .info-val-wrap .val {
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
-    font-size: clamp(20px, 1.56vw, 30px);
+    font-size: 30px;
     line-height: 150%;
+    display: flex;
+    align-items: center;
+    height: 32px;
+    color: inherit;
 }
 
 .info-val-wrap .unit {
@@ -394,8 +537,10 @@ body {
     font-weight: 700;
     font-size: 20px;
     line-height: 150%;
-    align-self: flex-end;
-    padding-bottom: 4px;
+    display: flex;
+    align-items: flex-end;
+    height: 32px;
+    color: inherit;
 }
 
 .v-line-svg {
@@ -405,7 +550,7 @@ body {
 }
 
 .base-date {
-    width: 211px;
+    width: 348px;
     height: 32px;
     font-family: 'Pretendard';
     font-style: normal;
@@ -415,16 +560,47 @@ body {
     display: flex;
     align-items: center;
     color: #7A7A7A;
+    margin: 0;
+}
+
+/* ── cascade 보정: 기본 width:348px 이후에 위치해야 override 됨 ── */
+
+/* 1281~1734px: 콘텐츠 너비 자동 결정 (빈 갭 방지) */
+@media (max-width: 1734px) and (min-width: 1281px) {
+    .stock-bottom-info {
+        width: auto;        /* 348px 고정 해제 → 콘텐츠 너비 */
+        height: auto;
+    }
+
+    .info-rows-wrap {
+        width: fit-content; /* info-group 텍스트 너비만큼만 */
+        height: auto;
+    }
+}
+
+/* 1024~1280px: static 레이아웃이므로 100% 채움 */
+@media (max-width: 1280px) {
+    .stock-bottom-info {
+        width: 100%;
+        height: auto;
+    }
+
+    .info-rows-wrap {
+        width: 100%;
+        height: auto;
+    }
 }
 
 /* 주주환원 카드 */
 .shareholder-return {
-    width: 28.8%;
-    /* 484px / 1680px at 1920px */
-    min-width: 320px;
+    flex: 1;
+    min-width: max-content;
+    max-width: 484px;
+    height: 435px;
     background: #F8F9FB;
     justify-content: space-between;
 }
+
 
 .return-main {
     display: flex;
@@ -466,9 +642,11 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px;
     justify-content: space-between;
-    width: 345px;
+    padding: 0;
+    gap: 10px;
+    width: 100%;
+    max-width: 345px;
     height: 100px;
 }
 
@@ -563,9 +741,9 @@ body {
 
 /* 파트너십 카드 */
 .partnership {
-    width: 19%;
-    /* 320px / 1680px at 1920px */
-    min-width: 280px;
+    flex: none;
+    width: 320px;
+    height: 435px;
     background: #FCE3CC;
     position: relative;
     overflow: hidden;
@@ -667,7 +845,7 @@ body {
         font-size: 30px;
         line-height: 140%;
         color: #000000;
-        margin-bottom: 30px;
+        margin-bottom: 0;
         height: 42px;
         display: flex;
         align-items: center;
@@ -678,6 +856,16 @@ body {
         align-items: stretch;
         gap: 10px;
         height: auto;
+    }
+
+    /* 768px 이상: 1024px 구조 유지 (가로 배치) — ≤767px에서 세로 스택으로 전환 */
+    .overview-right-group {
+        flex-direction: row;
+        align-items: stretch;
+        height: auto;
+        gap: 24px;
+        flex: none;
+        width: 100%;
     }
 
     .overview-card {
@@ -701,13 +889,17 @@ body {
         /* gap 10px + margin 20px = total 30px gap with next card */
     }
 
+    /* 모바일: 헤더 절대위치 해제 → 정적 flow로 복구 */
     .stock-info .card-top {
+        position: static;
         display: flex;
         flex-direction: row;
         align-items: center;
         padding: 14px 0;
         width: 100%;
         height: 46px;
+        top: auto;
+        left: auto;
     }
 
     .stock-info .card-title-wrap {
@@ -751,14 +943,30 @@ body {
         transform: rotate(45deg);
     }
 
+    /* 모바일: 절대위치 해제 → 세로 flex */
     .stock-main {
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        height: auto;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         padding: 0;
         width: 100%;
-        height: auto;
         min-height: 185px;
+        gap: 0;
+    }
+
+    /* 모바일: 좌측 그룹도 세로 */
+    .stock-price-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        justify-content: flex-start;
+        width: 100%;
     }
 
     .stock-label {
@@ -771,14 +979,9 @@ body {
         color: #363636;
     }
 
+    /* .price-row-wrap 제거 대비 평머화 */
     .price-row-wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0;
-        gap: 0;
-        width: 100%;
-        height: auto;
+        display: contents;
     }
 
     .price-row {
@@ -787,26 +990,26 @@ body {
         align-items: flex-end;
         padding: 0;
         gap: 14px;
-        width: 228px;
-        height: 70px;
+        width: auto;   /* 228px 고정 해제 */
+        height: auto;  /* 70px 고정 해제 */
     }
 
     .price-val {
-        width: 142px;
-        height: 70px;
+        width: auto;   /* 142px 고정 해제 */
+        height: auto;  /* 70px 고정 해제 */
         font-family: 'Pretendard';
         font-weight: 700;
-        font-size: 50px;
+        font-size: clamp(36px, 10vw, 50px); /* 뷰포트에 따라 유동 */
         line-height: 140%;
         color: #000000;
     }
 
     .price-unit {
-        width: 72px;
-        height: 50px;
+        width: auto;   /* 72px 고정 해제 */
+        height: auto;  /* 50px 고정 해제 */
         font-family: 'Pretendard';
         font-weight: 700;
-        font-size: 24px;
+        font-size: clamp(18px, 5vw, 24px); /* 유동 */
         line-height: 150%;
         color: #363636;
     }
@@ -993,15 +1196,17 @@ body {
         display: none;
     }
 
-    /* --- 주주환원 모바일 ---  */
+    /* --- 주주환원: 768px↑ 가로 배치 유지, 너비 484px 제한 ---  */
     .shareholder-return {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
         padding: 24px;
-        width: 100%;
-        max-width: 100%;
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        max-width: 484px;
         height: auto;
         min-height: 270px;
         background: #F8F9FB;
@@ -1242,7 +1447,7 @@ body {
         display: none;
     }
 
-    /* --- 파트너십 모바일 --- */
+    /* --- 파트너십: 768px↑ 가로 배치 유지 --- */
     .partnership {
         display: flex;
         flex-direction: column;
@@ -1250,9 +1455,12 @@ body {
         align-items: flex-start;
         padding: 20px;
         isolation: isolate;
-        width: 100%;
-        max-width: 328px;
-        height: 270px;
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        max-width: 320px;
+        height: auto;
+        min-height: 270px;
         background: #FCE3CC;
         border-radius: 16px;
         position: relative;
@@ -2626,5 +2834,62 @@ body {
         width: 100%;
         max-width: none;
         flex: 0 0 auto;
+    }
+}
+
+/* ── 768~1280px 보정: overview-grid column 전환 시 stock-main 가로 복원 + shareholder-return 너비 제한 ── */
+/* 모바일 미디어 쿼리(1023px) 아래에 위치하여 확실하게 덮어씁니다 */
+@media (min-width: 768px) and (max-width: 1280px) {
+
+    /* stock-main: column → row 복원 (info-rows-wrap이 stock-price-group 오른쪽으로) */
+    .stock-main {
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 60px;
+    }
+
+    .stock-price-group {
+        width: max-content;
+        height: 142px;
+        justify-content: flex-end;
+    }
+
+    .stock-bottom-info {
+        width: auto;
+        height: 86px;
+        justify-content: flex-end;
+    }
+
+    .info-rows-wrap {
+        width: 348px;
+        height: 32px;
+    }
+
+    .base-date {
+        width: auto;
+    }
+
+    /* shareholder-return: 1920px 기준 최대 너비(484px) 초과 방지 */
+    .shareholder-return {
+        max-width: 484px;
+        min-width: 0;
+    }
+}
+
+/* ≤767px: overview right-group 세로 스택 전환 (360px 등 소형 화면) */
+@media (max-width: 767px) {
+    .overview-right-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .shareholder-return {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .partnership {
+        width: 100%;
+        max-width: 328px;
     }
 }

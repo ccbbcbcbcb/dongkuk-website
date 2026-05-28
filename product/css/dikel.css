@@ -76,7 +76,9 @@
     gap: 24px;
     max-width: 1436px;
     width: 100%;
-    height: 540px;
+    aspect-ratio: 1436 / 540;
+    height: auto;
+    max-height: 540px;
 }
 
 .fcard {
@@ -84,13 +86,14 @@
     overflow: hidden;
     flex: 1;
     min-width: 0;
+    container-type: inline-size;
 }
 
 .fcard .label-text {
     position: absolute;
     left: 40px;
     top: 50px;
-    font-size: clamp(16px, 1.35vw, 26px);
+    font-size: clamp(16px, 5.65cqi, 26px);
     font-weight: 700;
     line-height: 150%;
     z-index: 10;
@@ -99,7 +102,7 @@
 .fcard .title-text {
     position: absolute;
     left: 40px;
-    font-size: clamp(30px, 3.125vw, 60px);
+    font-size: clamp(30px, 13.04cqi, 60px);
     font-weight: 700;
     line-height: 140%;
     display: flex;
@@ -110,13 +113,13 @@
 /* 1. Premium Card */
 .fcard-premium {
     max-width: 470px;
-    height: 540px;
+    height: 100%;
 }
 
 .fcard-premium .bg-main {
     position: absolute;
     width: 100%;
-    height: 460px;
+    height: 85.18%;
     left: 0;
     top: 0;
     background: #185235;
@@ -127,9 +130,9 @@
 .fcard-premium .bg-circle {
     position: absolute;
     width: calc(100% + 16px);
-    height: 470px;
+    height: 87.03%;
     left: -8px;
-    top: 306px;
+    top: 56.66%;
     background: #ffffff;
     border-radius: 99999px;
     z-index: 2;
@@ -138,9 +141,9 @@
 .fcard-premium .product-img {
     position: absolute;
     width: 100%;
-    height: 228px;
+    height: 42.22%;
     left: 0;
-    top: 312px;
+    top: 57.77%;
     background: url('../assets/dikel/steel-plate.svg') no-repeat center/contain;
     border-radius: 0px 0px 8px 8px;
     z-index: 3;
@@ -152,13 +155,13 @@
 
 .fcard-premium .title-text {
     color: #FFFFFF;
-    top: 183px;
+    top: 33.88%;
 }
 
 /* 2. Stable Card */
 .fcard-stable {
     max-width: 460px;
-    height: 540px;
+    height: 100%;
     background: #F27100;
     border-radius: 30px;
 }
@@ -169,13 +172,14 @@
 
 .fcard-stable .title-text {
     color: #FFFFFF;
-    top: 396px;
+    top: auto;
+    bottom: 40px;
 }
 
 /* 3. Next-Gen Card */
 .fcard-nextgen {
     max-width: 460px;
-    height: 540px;
+    height: 100%;
     background: #F1F3F7;
     border-radius: 30px;
 }
@@ -186,7 +190,8 @@
 
 .fcard-nextgen .title-text {
     color: #000000;
-    top: 396px;
+    top: auto;
+    bottom: 40px;
 }
 
 /* ===== Product Tabs 최적화 ===== */
@@ -341,6 +346,14 @@
     line-height: 160%;
     color: #4E4E4E;
     margin: 0;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 1600px) {
+    .pi-description-stack .pi-desc br {
+        display: none;
+    }
 }
 
 /* Brochure Download */
@@ -902,7 +915,7 @@ img.ic-download {
 /* ===== 공정과정 (Auto-Play 전환 대응) ===== */
 
 /* 모바일 전용 요소: 데스크탑/태블릿에서 숨김 */
-@media (min-width: 768px) {
+@media (min-width: 481px) {
     .ps-mobile-indicators,
     .ps-mobile-info-card,
     .ps-mobile-bottom-group,
@@ -1348,6 +1361,7 @@ img.ic-download {
         flex-direction: column;
         width: 100% !important;
         height: auto;
+        aspect-ratio: auto;
         gap: 12px;
         padding: 0;
     }
@@ -1357,7 +1371,7 @@ img.ic-download {
     .fcard-nextgen {
         width: 100% !important;
         max-width: 100% !important;
-        height: 156px;
+        height: 156px !important;
         border-radius: 16px;
         flex: none;
     }
@@ -1380,7 +1394,9 @@ img.ic-download {
         height: 170px;
         left: unset;
         right: 0;
-        top: 50%;
+        top: auto;
+        bottom: -85px;
+        transform: none;
         border-radius: 50% !important;
     }
 
@@ -1389,7 +1405,9 @@ img.ic-download {
         height: 75px;
         left: auto !important;
         right: 6px !important;
-        top: 52%;
+        top: auto !important;
+        bottom: 0 !important;
+        transform: none !important;
         background-size: contain !important;
         background-position: center bottom !important;
         border-radius: 0 0 2.7px 2.7px !important;
@@ -1412,22 +1430,17 @@ img.ic-download {
         line-height: 1.4 !important;
     }
 
-    /* 카드2, 카드3: flex 전환 */
+    /* 카드2, 카드3 */
     .fcard-stable,
     .fcard-nextgen {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        padding: 16px !important;
-        gap: 30px !important;
-        box-sizing: border-box !important;
+        overflow: hidden !important;
     }
 
     .fcard-stable .label-text,
     .fcard-nextgen .label-text {
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
+        position: absolute !important;
+        left: 16px !important;
+        top: 16px !important;
         font-size: 16px !important;
         line-height: 1.6 !important;
         font-weight: 400 !important;
@@ -1438,9 +1451,9 @@ img.ic-download {
 
     .fcard-stable .title-text,
     .fcard-nextgen .title-text {
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
+        position: absolute !important;
+        left: 16px !important;
+        top: 98px !important;
         font-size: 30px !important;
         line-height: 1.4 !important;
         margin: 0;
@@ -1901,7 +1914,7 @@ img.ic-download {
     }
 
 }
-@media (max-width: 767px) {
+@media (max-width: 480px) {
     /* ═══════════════════════════════════════════════
                공정과정 모바일 – 피그마 38:4523 기준
                ═══════════════════════════════════════════════ */
@@ -4548,8 +4561,8 @@ body {
     top: 15%;
     left: 50%;
     transform: translateX(-50%);
-    width: 56%;
-    height: auto;
+    width: 45.4347%; /* 209px / 460px */
+    height: 52.6086%; /* 242px / 460px */
 }
 
 .bsys-circle-dark .bsys-img {
@@ -4639,11 +4652,11 @@ body {
 .battery-section::before {
     content: '';
     position: absolute;
-    width: 2271px;
-    height: 2271px;
+    width: 118.28125vw; /* 2271px / 19.2 */
+    height: 118.28125vw;
     left: 50%;
     transform: translateX(-50%);
-    top: 111px;
+    top: 5.78125vw; /* 111px / 19.2 */
     border-radius: 50%;
     border: 2px solid #FFFFFF;
     pointer-events: none;
@@ -4656,13 +4669,13 @@ body {
 .battery-section::after {
     content: '';
     position: absolute;
-    width: 1501px;
-    height: 1501px;
+    width: 78.17708vw; /* 1501px / 19.2 */
+    height: 78.17708vw;
     left: 50%;
     transform: translateX(-50%);
-    top: 494px;
+    top: 25.72916vw; /* 494px / 19.2 */
     border-radius: 50%;
-    border: 8px solid #FFFFFF;
+    border: clamp(3px, 0.416vw, 8px) solid #FFFFFF;
     /* 연결 라인에 8px 보더 적용 */
     pointer-events: none;
     z-index: 0;
@@ -5586,64 +5599,64 @@ body {
     }
 
     .battery-sub-title {
-        font-size: 24px !important;
-        height: auto !important;
-        text-align: center !important;
-        line-height: 1.5 !important;
+        font-size: 24px;
+        height: auto;
+        text-align: center;
+        line-height: 1.5;
     }
 
     .battery-sub-desc {
-        font-size: 18px !important;
-        height: auto !important;
-        text-align: center !important;
-        font-weight: 500 !important;
-        color: #7A7A7A !important;
-        line-height: 1.6 !important;
+        font-size: 18px;
+        height: auto;
+        text-align: center;
+        font-weight: 500;
+        color: #7A7A7A;
+        line-height: 1.6;
     }
 
     /* ── 배터리 시스템: 모바일 세로 배열 ── */
     .battery-system {
-        height: auto !important;
-        padding: 0 !important;
-        margin-top: 16px !important;
-        gap: 30px !important;
+        height: auto;
+        padding: 0;
+        margin-top: 16px;
+        gap: 30px;
     }
 
     .bsys-card {
         width: unset;
-        height: auto !important;
-        border-radius: 200px !important;
-        background: #fff !important;
-        padding: 16px 16px !important;
+        height: auto;
+        border-radius: 200px;
+        background: #fff;
+        padding: 16px 16px;
     }
 
     .bsys-items {
-        width: 100% !important;
-        height: auto !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        padding: 0 !important;
-        gap: 0 !important;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        gap: 0;
     }
 
     /* 각 아이템: 세로 배열 */
     .bsys-item {
-        width: 100% !important;
-        height: auto !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        background: transparent !important;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        background: transparent;
     }
 
     /* 원형 배경: 모바일 반응형 원 */
     .bsys-circle {
-        width: clamp(200px, 70vw, 296px) !important;
-        height: auto !important;
-        aspect-ratio: 1 / 1 !important;
-        max-width: 100% !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        gap: 12px !important;
+        width: clamp(200px, 70vw, 296px);
+        height: auto;
+        aspect-ratio: 1 / 1;
+        max-width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
     }
 
     .bsys-img {
@@ -5685,65 +5698,65 @@ body {
 
     /* pill 라벨: 모바일 스타일 */
     .bsys-pill-label {
-        position: relative !important;
-        bottom: auto !important;
-        left: auto !important;
-        transform: none !important;
-        margin-top: 0 !important;
-        padding: 0 !important;
-        gap: 8px !important;
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 0;
+        padding: 0;
+        gap: 8px;
     }
 
     .bsys-pill-num {
-        width: 40px !important;
-        height: 40px !important;
-        background: #F1F3F7 !important;
-        font-size: 20px !important;
+        width: 40px;
+        height: 40px;
+        background: #F1F3F7;
+        font-size: 20px;
     }
 
     .bsys-circle-gray .bsys-pill-num {
-        background: #FFFFFF !important;
+        background: #FFFFFF;
     }
 
     .bsys-pill-text {
-        font-size: 20px !important;
+        font-size: 20px;
     }
 
     /* 화살표 분리: 모바일에서 세로(↓) */
     .bsys-arrow-sep {
-        width: 100% !important;
-        height: 40px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        width: 100%;
+        height: 40px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .bsys-arrow-sep img {
-        display: none !important;
+        display: none;
     }
 
     .bsys-arrow-sep::after {
-        content: '' !important;
-        display: block !important;
-        width: 18px !important;
-        height: 18px !important;
-        border-top: 0 !important;
-        border-left: 0 !important;
-        border-right: 3px solid #999999 !important;
-        border-bottom: 3px solid #999999 !important;
-        transform: rotate(45deg) !important;
-        margin: -10px 0 0 0 !important;
+        content: '';
+        display: block;
+        width: 18px;
+        height: 18px;
+        border-top: 0;
+        border-left: 0;
+        border-right: 3px solid #999999;
+        border-bottom: 3px solid #999999;
+        transform: rotate(45deg);
+        margin: -10px 0 0 0;
     }
 
     /* 기존 bsys-arrow 숨김 */
     .bsys-arrow {
-        display: none !important;
+        display: none;
     }
 
     .bsys-labels {
-        display: none !important;
+        display: none;
     }
 
     .bsys-head {
@@ -5912,63 +5925,7 @@ body {
 }
 
 /* Scoped responsive rules only active between 1024px and 1919px */
-@media (min-width: 1024px) and (max-width: 1919px) {
 
-    
-    /* Prevent battery system circles (Cell -> Module -> Pack) from overlapping */
-    .bsys-items {
-        width: calc(100% - 40px);
-    }
-    .bsys-circle {
-        width: clamp(180px, 22vw, 420px);
-        height: clamp(180px, 22vw, 420px);
-    }
-    
-    /* Proportional scaling for images inside the circles */
-    .bsys-circle-orange .bsys-img {
-        position: absolute;
-        top: 7%;
-        width: 32%;
-        height: auto;
-    }
-    .bsys-circle-gray .bsys-img {
-        position: absolute;
-        top: 15%;
-        width: 42%;
-        height: auto;
-        max-height: 35%;
-    }
-    .bsys-circle-dark .bsys-img {
-        position: absolute;
-        top: 17%;
-        width: 48%;
-        height: auto;
-        max-height: 35%;
-    }
-    
-    /* Proportional scaling for pill labels */
-    .bsys-pill-label {
-        bottom: clamp(14px, 1.8vw, 28px);
-        gap: clamp(4px, 0.5vw, 10px);
-    }
-    .bsys-pill-num,
-    .bsys-pill-text {
-        font-size: clamp(12px, 1.2vw, 26px);
-    }
-    .bsys-pill-num {
-        width: clamp(24px, 2.5vw, 48px);
-        height: clamp(24px, 2.5vw, 48px);
-    }
-
-    /* Prevent float tags from overlapping side boxes horizontally */
-    .compare-images {
-        gap: clamp(16px, 4vw, 120px);
-    }
-    .bat-float-tags {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
 
 /* ── bi-section: mono-logo-block 마진 리셋 (768px~1023px) ── */
 @media (max-width: 1023px) {

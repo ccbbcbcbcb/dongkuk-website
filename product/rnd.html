@@ -177,7 +177,13 @@
                 let progress = Math.max(0, Math.min(1, scrolled / Math.max(scrollRoom * 0.6, 1)));
 
                 const activeCount = Math.floor(progress * chars.length);
-                chars.forEach((c, i) => c.classList.toggle('active', i < activeCount));
+                chars.forEach((c, i) => {
+                    if (i < activeCount) c.classList.add('active');
+                });
+                
+                if (activeCount >= chars.length) {
+                    window.removeEventListener('scroll', onScroll);
+                }
             }
 
             window.addEventListener('scroll', onScroll, { passive: true });

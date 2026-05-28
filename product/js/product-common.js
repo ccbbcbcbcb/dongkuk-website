@@ -56,7 +56,7 @@ function scaleProcessCard() {
     const card = document.getElementById('process-card');
     const sticky = card?.parentElement;
     if (!card || !sticky) return;
-    if (window.innerWidth <= 767) {
+    if (window.innerWidth <= 480) {
         card.style.transform = '';
         sticky.style.height = '';
         return;
@@ -138,6 +138,81 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+});
+
+/* ── Product Tabs 하단 겹침 방지 ── */
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelector('.product-tabs');
+    if (!tabs) return;
+
+    let bottomOffset = 0;
+    function updateMetrics() {
+        // 기존 인라인 스타일 백업
+        const oldTransform = tabs.style.transform;
+        const oldPosition = tabs.style.position;
+        const oldBottom = tabs.style.bottom;
+        const oldTop = tabs.style.top;
+
+        // 일시적으로 인라인 스타일을 제거하여 CSS에 정의된 원래 fixed bottom 값을 정확히 측정
+        tabs.style.transform = 'none';
+        tabs.style.position = '';
+        tabs.style.bottom = '';
+        tabs.style.top = '';
+
+        const style = window.getComputedStyle(tabs);
+        bottomOffset = parseFloat(style.bottom) || 0;
+
+        // 인라인 스타일 복원
+        tabs.style.transform = oldTransform || '';
+        tabs.style.position = oldPosition;
+        tabs.style.bottom = oldBottom;
+        tabs.style.top = oldTop;
+    }
+
+    function checkCollision() {
+        const banner = document.querySelector('.support-banner') || document.querySelector('.support-section');
+        if (!banner) return;
+        
+        // 자연스러운 탭의 하단 위치 (뷰포트 기준)
+        const naturalBottom = window.innerHeight - bottomOffset;
+        const bannerTop = banner.getBoundingClientRect().top;
+        
+        const overlap = naturalBottom - bannerTop;
+        
+        if (overlap > 0) {
+            // 스크롤 지터 방지를 위해 transform 대신 절대 위치(absolute) 사용
+            // 탭의 bottom이 배너의 top에 정확히 닿도록 설정
+            const bannerPageY = banner.getBoundingClientRect().top + window.scrollY;
+            tabs.style.position = 'absolute';
+            tabs.style.top = `${bannerPageY - tabs.offsetHeight}px`;
+            tabs.style.bottom = 'auto';
+            tabs.style.transform = '';
+        } else {
+            // 원래의 fixed 상태로 복구
+            tabs.style.position = '';
+            tabs.style.top = '';
+            tabs.style.bottom = '';
+            tabs.style.transform = '';
+        }
+    }
+
+    window.addEventListener('resize', () => {
+        updateMetrics();
+        checkCollision();
+    });
+    
+    window.addEventListener('scroll', checkCollision, { passive: true });
+    
+    // 컴포넌트가 동적으로 로드될 수 있으므로 MutationObserver 사용
+    const observer = new MutationObserver(() => {
+        updateMetrics();
+        checkCollision();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // 초기화
+    updateMetrics();
+    checkCollision();
 });
 
 
