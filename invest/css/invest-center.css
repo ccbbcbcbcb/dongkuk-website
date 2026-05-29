@@ -57,7 +57,7 @@ body {
 }
 
 .invest-hero .gnb {
-    z-index: 2;
+    z-index: 1000;
     width: 100%;
     height: 100px;
 }
@@ -1322,7 +1322,7 @@ body {
         flex-direction: row;
         align-items: center;
         padding: 0;
-        gap: 40px;
+        gap: clamp(10px, 10vw - 40px, 40px); /* 화면 축소 시 갭이 더 빠르고 확실하게 줄어들도록 설정 */
         width: 100%;
         height: auto;
     }
@@ -1512,8 +1512,8 @@ body {
         align-items: center;
         padding: 0px;
         gap: 12px;
-        width: 120px;
-        height: 26px;
+        width: auto;
+        height: auto;
     }
 
     .contact-icon-wrap {
@@ -1531,8 +1531,8 @@ body {
 
     .contact-label {
         display: block;
-        width: 84px;
-        height: 26px;
+        width: auto;
+        height: auto;
         font-family: 'Pretendard';
         font-style: normal;
         font-weight: 400;
@@ -1542,8 +1542,8 @@ body {
     }
 
     .contact-val {
-        width: 220px;
-        height: 26px;
+        width: auto;
+        height: auto;
         font-family: 'Pretendard';
         font-style: normal;
         font-weight: 400;
@@ -2808,9 +2808,10 @@ body {
 
     .ir-card--dark {
         width: 100%;
-        min-height: clamp(320px, 55vw, 400px);
+        min-height: auto; /* 억지 여백 제거, 콘텐츠에 맞춤 */
         background: transparent;
         flex: 0 0 auto;
+        padding: 24px; /* 여유로운 내부 여백 */
     }
 
     .ir-card--dark::before {
@@ -2822,12 +2823,22 @@ body {
         top: 0;
         background: url('../assets/invest-center/IR자료실_m.png') center/cover no-repeat;
         z-index: 0;
+        border-radius: 16px; /* 배경 모서리도 부드럽게 */
     }
 
     .ir-card--dark .ir-card-content-wrapper {
         height: auto;
-        min-height: clamp(280px, 50vw, 368px);
-        gap: clamp(20px, 3vw, 40px);
+        min-height: auto;
+        gap: 24px; /* 타이틀과 바디 사이 적절한 간격 */
+    }
+
+    .ir-card--dark .ir-item-category {
+        font-size: clamp(20px, 4vw, 24px); /* 모바일에 맞는 적절한 폰트 크기 */
+    }
+
+    .ir-card--dark .ir-item-footer {
+        justify-content: space-between; /* 날짜와 다운로드 버튼 사이 정렬 개선 */
+        align-items: center;
     }
 
     .ir-card--light {
@@ -2837,32 +2848,57 @@ body {
     }
 }
 
-/* ── 768~1280px 보정: overview-grid column 전환 시 stock-main 가로 복원 + shareholder-return 너비 제한 ── */
-/* 모바일 미디어 쿼리(1023px) 아래에 위치하여 확실하게 덮어씁니다 */
-@media (min-width: 768px) and (max-width: 1280px) {
+/* 767px ~ 529px 구간: ir-card--dark 우측 공백 해소를 위해 가로 2단 배치 적용 */
+@media (max-width: 767px) and (min-width: 529px) {
+    .ir-card--dark .ir-card-body {
+        flex-direction: row;
+        align-items: stretch;
+    }
 
-    /* stock-main: column → row 복원 (info-rows-wrap이 stock-price-group 오른쪽으로) */
+    .ir-card--dark .ir-item {
+        flex: 1;
+        width: auto;
+    }
+
+    .ir-card--dark .ir-divider {
+        width: 1px;
+        height: auto;
+        background: rgba(255, 255, 255, 0.4);
+    }
+}
+
+/* ── ≤1280px 보정: overview-grid column 전환 시 stock-main 가로 복원 + 공간 부족 시 자연스러운 스택(Wrap) ── */
+/* 모바일 미디어 쿼리(1023px) 아래에 위치하여 강제 세로 배치를 덮어쓰고 자연스러운 줄바꿈을 유도합니다 */
+@media (max-width: 1280px) {
+
+    /* stock-main: 강제 column 해제, row 유지하되 공간 부족 시 wrap */
     .stock-main {
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: flex-end;
-        gap: 60px;
+        gap: clamp(20px, 5vw, 60px); /* 유연한 간격으로 최대한 버팀 */
+        min-height: auto; /* 1023px의 185px 강제 높이 덮어쓰기 */
     }
 
     .stock-price-group {
         width: max-content;
-        height: 142px;
+        height: auto;
         justify-content: flex-end;
     }
 
     .stock-bottom-info {
         width: auto;
-        height: 86px;
+        max-width: 100%;
+        height: auto;
         justify-content: flex-end;
     }
 
     .info-rows-wrap {
-        width: 348px;
-        height: 32px;
+        width: 100%;
+        max-width: 348px;
+        height: auto;
+        flex-wrap: wrap; /* 348px보다 좁아지면 내부 텍스트도 자연스럽게 줄바꿈 */
+        gap: 10px;
     }
 
     .base-date {
@@ -2879,12 +2915,19 @@ body {
 /* ≤767px: overview right-group 세로 스택 전환 (360px 등 소형 화면) */
 @media (max-width: 767px) {
     .overview-right-group {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 10px;
     }
 
+    .stock-info {
+        min-height: auto;
+        justify-content: flex-start;
+        gap: clamp(16px, 6vw, 40px); /* 767px부터 화면 크기에 비례하여 내부 여백 축소 */
+    }
+
     .shareholder-return {
-        width: 100%;
+        width: fit-content;
         max-width: 100%;
     }
 
@@ -2892,4 +2935,175 @@ body {
         width: 100%;
         max-width: 328px;
     }
+}
+
+/* ≤528px: 360px 모바일 최적화 디자인 (우측 그룹 세로 스택) */
+@media (max-width: 528px) {
+    .overview-right-group {
+        flex-direction: column;
+        align-items: stretch; /* 카드가 좌우로 꽉 차도록 보장 */
+        gap: 10px;
+    }
+
+    .shareholder-return, .partnership {
+        width: 100%;
+        max-width: 100%; /* 모바일 화면 꽉 채우기 */
+    }
+
+    .shareholder-return .return-stats-row {
+        justify-content: space-between;
+    }
+
+    .contact-val {
+        white-space: nowrap; /* 안전 장치 */
+    }
+}
+
+/* ==========================================================================
+   GNB & Sitemap Light Mode Overrides (Only for invest-center page)
+   ========================================================================== */
+
+/* Ensure the GNB header has a solid white background and sits above overlay in any active/expanded state */
+body[data-page="invest-center"] header.gnb.gnb-menu-active,
+body[data-page="invest-center"] header.gnb.gnb-transparent.gnb-menu-active,
+body[data-page="invest-center"] header.gnb.gnb-solid.gnb-menu-active,
+body[data-page="invest-center"] header.gnb.gnb-dark.gnb-menu-active,
+body[data-page="invest-center"] header.gnb.is-hover,
+body[data-page="invest-center"] header.gnb.gnb-transparent.is-hover,
+body[data-page="invest-center"] header.gnb.gnb-solid.is-hover,
+body[data-page="invest-center"] header.gnb.gnb-dark.is-hover {
+    background: #FFFFFF;
+    opacity: 1;
+    z-index: 1000;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    box-shadow: none;
+}
+
+/* Force solid white dropdown background for transparent GNB at any active state (no border line) */
+body[data-page="invest-center"] header.gnb .gnb-dropdown-bg,
+body[data-page="invest-center"] header.gnb.gnb-transparent .gnb-dropdown-bg,
+body[data-page="invest-center"] header.gnb.is-hover .gnb-dropdown-bg,
+body[data-page="invest-center"] header.gnb.gnb-transparent.is-hover .gnb-dropdown-bg {
+    background: #FFFFFF;
+    border-bottom: none;
+}
+
+/* Logo color - remove white filter in any active/expanded state */
+body[data-page="invest-center"] header.gnb.gnb-menu-active .gnb-logo img,
+body[data-page="invest-center"] header.gnb.is-hover .gnb-logo img {
+    filter: none;
+}
+
+/* Nav links - dark text when hovered/unfolded */
+body[data-page="invest-center"] header.gnb.is-hover .gnb-nav-link {
+    color: #111111;
+}
+body[data-page="invest-center"] header.gnb.is-hover .gnb-nav-link:hover {
+    color: #F27100;
+}
+
+/* Submenu links - dark text on white dropdown */
+body[data-page="invest-center"] header.gnb .gnb-submenu a {
+    color: #363636;
+}
+body[data-page="invest-center"] header.gnb .gnb-submenu a:hover {
+    color: #F27100;
+    font-weight: 700;
+}
+
+/* Utils links (문의, KR) - dark text when active/expanded */
+body[data-page="invest-center"] header.gnb.gnb-menu-active .gnb-utils a,
+body[data-page="invest-center"] header.gnb.is-hover .gnb-utils a {
+    color: #111111;
+}
+
+/* Divider - gray background when active/expanded */
+body[data-page="invest-center"] header.gnb.gnb-menu-active .gnb-divider,
+body[data-page="invest-center"] header.gnb.is-hover .gnb-divider {
+    background: #D3D3D3;
+}
+
+/* Hamburger button lines - dark color when active/expanded */
+body[data-page="invest-center"] header.gnb.gnb-menu-active .gnb-menu-btn span {
+    background: #4E4E4E;
+}
+body[data-page="invest-center"] header.gnb.is-hover .gnb-menu-btn span {
+    background: #111111;
+}
+
+/* 3. Sitemap (More menu dropdown panel) Override */
+body[data-page="invest-center"] .gnb-menu,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark {
+    background: #FFFFFF;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+}
+
+body[data-page="invest-center"] .gnb-menu .gnb-sitemap,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .gnb-sitemap {
+    background: #FFFFFF;
+}
+
+body[data-page="invest-center"] .gnb-menu .sitemap-row,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .sitemap-row {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body[data-page="invest-center"] .gnb-menu .sitemap-row-title,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .sitemap-row-title {
+    color: #111111;
+}
+
+body[data-page="invest-center"] .gnb-menu .sitemap-item,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .sitemap-item {
+    color: #111111;
+}
+
+body[data-page="invest-center"] .gnb-menu .sitemap-tab,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .sitemap-tab {
+    color: #767676;
+}
+
+body[data-page="invest-center"] .gnb-menu .sitemap-tab:hover,
+body[data-page="invest-center"] .gnb-menu .sitemap-item:hover,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .sitemap-tab:hover,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .sitemap-item:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #F27100;
+}
+
+body[data-page="invest-center"] .gnb-menu .gnb-menu-logo,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .gnb-menu-logo {
+    filter: none;
+}
+
+body[data-page="invest-center"] .gnb-menu .gnb-menu-close svg path,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .gnb-menu-close svg path {
+    stroke: #1b1b1b;
+}
+
+body[data-page="invest-center"] .gnb-menu .gnb-mob-cat,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .gnb-mob-cat {
+    color: #000000;
+}
+
+body[data-page="invest-center"] .gnb-menu .gnb-mob-cat.is-active,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .gnb-mob-cat.is-active {
+    color: #F27100;
+}
+
+body[data-page="invest-center"] .gnb-menu .gnb-mob-sub-inner,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .gnb-mob-sub-inner {
+    background: #F8F9FB;
+}
+
+body[data-page="invest-center"] .gnb-menu .gnb-mob-sub-inner a,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .gnb-mob-sub-inner a {
+    color: #363636;
+}
+
+body[data-page="invest-center"] .gnb-menu .gnb-mob-sub-inner a.is-active,
+body[data-page="invest-center"] .gnb-menu.sitemap-dark .gnb-mob-sub-inner a.is-active {
+    color: #F27100;
 }

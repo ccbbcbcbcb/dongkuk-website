@@ -8,11 +8,11 @@
 }
 
 .pc-only {
-    display: inline-block;
+    display: inline-block !important;
 }
 
 .mo-only {
-    display: none;
+    display: none !important;
 }
 
 /* ===== Hero Text (sticky scroll-to-color) ===== */
@@ -623,13 +623,13 @@ img.ic-download {
 }
 
 .spec-grid-row:last-child .spec-value {
-    border-bottom: none;
+    border-bottom: none !important;
 }
 
 /* 💡 만약 HTML에 spec-ann-value-center 클래스가 같이 붙어있다면 이것도 해제해야 합니다 */
 .spec-ann-value-center {
-    justify-content: flex-start;
-    padding-left: 24px;
+    justify-content: flex-start !important;
+    padding-left: 24px !important;
 }
 
 @media (min-width: 1024px) {
@@ -1318,15 +1318,15 @@ img.ic-download {
     }
 
     .pc-only {
-        display: none;
+        display: none !important;
     }
 
     .mo-only {
-        display: inline-block;
+        display: inline-block !important;
     }
 
     body {
-        min-width: 0;
+        min-width: 0 !important;
         width: 100%;
         max-width: 100vw;
         overflow-x: hidden;
@@ -1359,7 +1359,7 @@ img.ic-download {
 
     .fcards-row {
         flex-direction: column;
-        width: 100%;
+        width: 100% !important;
         height: auto;
         aspect-ratio: auto;
         gap: 12px;
@@ -1369,24 +1369,24 @@ img.ic-download {
     .fcard-premium,
     .fcard-stable,
     .fcard-nextgen {
-        width: 100%;
-        max-width: 100%;
-        height: 156px;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 156px !important;
         border-radius: 16px;
         flex: none;
     }
 
     /* 카드1: 피그마 디켈 기준 */
     .fcard-premium {
-        overflow: hidden;
+        overflow: hidden !important;
     }
 
     .fcard-premium .bg-main {
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        border-radius: 16px;
+        width: 100% !important;
+        height: 100% !important;
+        left: 0 !important;
+        top: 0 !important;
+        border-radius: 16px !important;
     }
 
     .fcard-premium .bg-circle {
@@ -1397,53 +1397,53 @@ img.ic-download {
         top: auto;
         bottom: -85px;
         transform: none;
-        border-radius: 50%;
+        border-radius: 50% !important;
     }
 
     .fcard-premium .product-img {
-        width: 157px;
+        width: 157px !important;
         height: 75px;
-        left: auto;
-        right: 6px;
-        top: auto;
-        bottom: 0;
-        transform: none;
-        background-size: contain;
-        background-position: center bottom;
-        border-radius: 0 0 2.7px 2.7px;
+        left: auto !important;
+        right: 6px !important;
+        top: auto !important;
+        bottom: 0 !important;
+        transform: none !important;
+        background-size: contain !important;
+        background-position: center bottom !important;
+        border-radius: 0 0 2.7px 2.7px !important;
     }
 
     .fcard-premium .label-text {
-        left: 16px;
-        top: 16px;
-        font-size: 16px;
-        line-height: 1.6;
-        font-weight: 400;
+        left: 16px !important;
+        top: 16px !important;
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+        font-weight: 400 !important;
         width: auto;
     }
 
     .fcard-premium .title-text {
-        left: 16px;
-        top: 98px;
+        left: 16px !important;
+        top: 98px !important;
         bottom: auto;
-        font-size: 30px;
-        line-height: 1.4;
+        font-size: 30px !important;
+        line-height: 1.4 !important;
     }
 
     /* 카드2, 카드3 */
     .fcard-stable,
     .fcard-nextgen {
-        overflow: hidden;
+        overflow: hidden !important;
     }
 
     .fcard-stable .label-text,
     .fcard-nextgen .label-text {
-        position: absolute;
-        left: 16px;
-        top: 16px;
-        font-size: 16px;
-        line-height: 1.6;
-        font-weight: 400;
+        position: absolute !important;
+        left: 16px !important;
+        top: 16px !important;
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+        font-weight: 400 !important;
         width: auto;
         max-width: 100%;
         margin: 0;
@@ -1451,11 +1451,11 @@ img.ic-download {
 
     .fcard-stable .title-text,
     .fcard-nextgen .title-text {
-        position: absolute;
-        left: 16px;
-        top: 98px;
-        font-size: 30px;
-        line-height: 1.4;
+        position: absolute !important;
+        left: 16px !important;
+        top: 98px !important;
+        font-size: 30px !important;
+        line-height: 1.4 !important;
         margin: 0;
     }
 
@@ -1509,8 +1509,8 @@ img.ic-download {
         gap: 20px;
         padding: 0 16px;
         padding-bottom: 20px;
-        max-width: 100%;
-        box-sizing: border-box;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
         overflow: hidden;
     }
 
@@ -1555,27 +1555,27 @@ img.ic-download {
 
     .pi-subtitle-group {
         order: 3;
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        box-sizing: border-box;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
         overflow-wrap: break-word;
         word-break: keep-all;
-        gap: 20px;
+        gap: 20px !important;
     }
 
     .pi-description-stack {
-        max-width: 100%;
-        min-width: 0;
-        box-sizing: border-box;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
         overflow-wrap: break-word;
     }
 
     .pi-brochure-section {
         order: 4;
-        width: 100%;
-        max-width: 100%;
-        gap: 16px;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 16px !important;
     }
 
     .pi-top-content,
@@ -1584,34 +1584,34 @@ img.ic-download {
     .pi-description-stack,
     .pi-label,
     .pi-desc {
-        width: 100%;
+        width: 100% !important;
     }
 
     /* 피그마: 30px Bold, line-height 1.4 */
     .pi-title {
-        width: 100%;
-        font-size: 30px;
-        line-height: 1.4;
+        width: 100% !important;
+        font-size: 30px !important;
+        line-height: 1.4 !important;
         height: auto;
         white-space: normal;
     }
 
     /* 피그마: 24px Bold, line-height 1.5, color #1B1B1B */
     .pi-subtitle {
-        font-size: 24px;
-        line-height: 1.5;
+        font-size: 24px !important;
+        line-height: 1.5 !important;
         width: 100%;
     }
 
     /* 피그마: Description gap-[8px] */
     .pi-description-stack {
-        gap: 8px;
+        gap: 8px !important;
     }
 
     /* 피그마: 16px Regular, line-height 1.6, color #4E4E4E */
     .pi-desc {
-        font-size: 16px;
-        line-height: 1.6;
+        font-size: 16px !important;
+        line-height: 1.6 !important;
         width: 100%;
     }
 
@@ -1622,8 +1622,8 @@ img.ic-download {
 
     /* 피그마: 브로슈어 라벨 18px Bold */
     .pi-brochure-label {
-        font-size: 18px;
-        line-height: 1.6;
+        font-size: 18px !important;
+        line-height: 1.6 !important;
     }
 
     .pi-right {
@@ -1635,10 +1635,10 @@ img.ic-download {
     }
 
     .pi-brochure-btns {
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: nowrap !important;
         gap: 4px;
         justify-content: flex-start;
     }
@@ -1670,7 +1670,7 @@ img.ic-download {
     }
 
     .pi-brochure-btns {
-        gap: 4px;
+        gap: 4px !important;
     }
 
     .btn-round img.ic-download {
@@ -1689,7 +1689,7 @@ img.ic-download {
     }
 
     .acc-item {
-        width: 100%;
+        width: 100% !important;
     }
 
     .acc-header {
@@ -1726,18 +1726,18 @@ img.ic-download {
     }
 
     .acc-body {
-        width: 100%;
+        width: 100% !important;
     }
 
     .acc-content-box {
-        width: 100%;
+        width: 100% !important;
         padding: 30px 0;
         gap: 30px;
         background: #FFFFFF;
     }
 
     .spec-grid-group {
-        width: 100%;
+        width: 100% !important;
         /* overflow-x 제거하여 타이틀과 범례가 스크롤되지 않도록 함 */
     }
 
@@ -1789,29 +1789,29 @@ img.ic-download {
 
     .scroll-horizontal {
         position: relative;
-        width: 100%;
-        height: 30px;
-        margin: -12px auto 0;
+        width: 100% !important;
+        height: 30px !important;
+        margin: -12px auto 0 !important;
         /* 부모 gap 12px 상쇄하여 표와 밀착 */
-        display: block;
+        display: block !important;
     }
 
     .scroll-track {
         position: absolute;
-        width: 100%;
-        height: 0px;
-        left: 0;
-        top: 15px;
-        border: 2px solid rgba(211, 211, 211, 0.3);
+        width: 100% !important;
+        height: 0px !important;
+        left: 0 !important;
+        top: 15px !important;
+        border: 2px solid rgba(211, 211, 211, 0.3) !important;
     }
 
     .scroll-thumb {
         position: absolute;
         width: 80px; /* will be updated dynamically by JS */
-        height: 0px;
-        left: 0;
-        top: 15px;
-        border: 2px solid #D3D3D3;
+        height: 0px !important;
+        left: 0 !important;
+        top: 15px !important;
+        border: 2px solid #D3D3D3 !important;
     }
 
     .usage-section {
@@ -1835,8 +1835,8 @@ img.ic-download {
     }
 
     .usage-left {
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
         flex-shrink: 1;
         GAP: 0
     }
@@ -1846,24 +1846,24 @@ img.ic-download {
     }
 
     .umi-desc {
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
         margin-left: 0;
         font-size: 16px;
-        height: auto;
+        height: auto !important;
         margin-bottom: 10px;
         word-break: keep-all;
         overflow-wrap: break-word;
     }
 
     .usage-right {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
     }
 
     .usage-tab-content.active {
-        position: relative;
+        position: relative !important;
     }
 
     .utc-video {
@@ -1920,16 +1920,16 @@ img.ic-download {
                ═══════════════════════════════════════════════ */
 
     .process-scroll-outer {
-        padding: 0;
-        height: auto;
-        overflow: visible;
+        padding: 0 !important;
+        height: auto !important;
+        overflow: visible !important;
     }
 
     .process-sticky {
-        align-items: stretch;
-        display: block;
-        height: auto;
-        position: relative;
+        align-items: stretch !important;
+        display: block !important;
+        height: auto !important;
+        position: relative !important;
     }
 
     .process-card {
@@ -1948,15 +1948,15 @@ img.ic-download {
 
     /* ── Header: 타이틀 + 토글 세로 배치 ── */
     .ps-header {
-        position: relative;
-        width: 100%;
-        height: auto;
-        left: 0;
-        top: 0;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        left: 0 !important;
+        top: 0 !important;
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding: 0;
+        padding: 0 !important;
     }
 
     .ps-label {
@@ -1964,44 +1964,44 @@ img.ic-download {
     }
 
     .ps-title {
-        font-size: 30px;
-        line-height: 1.5;
+        font-size: 30px !important;
+        line-height: 1.5 !important;
     }
 
     /* 토글 버튼 – 피그마: 57px, 14px Bold, pill */
     .ps-toggle {
-        width: 100%;
-        height: 57px;
-        padding: 6px;
-        border-radius: 50px;
-        gap: 4px;
+        width: 100% !important;
+        height: 57px !important;
+        padding: 6px !important;
+        border-radius: 50px !important;
+        gap: 4px !important;
     }
 
     .ps-toggle-btn {
-        flex: 1;
-        height: 45px;
-        font-size: 14px;
-        border-radius: 30px;
+        flex: 1 !important;
+        height: 45px !important;
+        font-size: 14px !important;
+        border-radius: 30px !important;
     }
 
     /* ── 데스크탑 다이어그램: 모바일에서 숨김 ── */
     .ps-diagram-area {
-        display: none;
+        display: none !important;
     }
 
     /* ── 말풍선: 모바일에서 숨김 ── */
     .ps-bubble {
-        display: none;
+        display: none !important;
     }
 
     /* ── 기존 Progress bar 숨김 ── */
     .ps-progress {
-        display: none;
+        display: none !important;
     }
 
     /* ═══ 모바일 3줄 다이어그램 ═══ */
     .ps-mobile-diagram {
-        display: block;
+        display: block !important;
         position: relative;
         width: 100%;
         border-radius: 8px;
@@ -2301,7 +2301,7 @@ img.ic-download {
 
     /* ── 모바일 인디케이터 바 ── */
     .ps-mobile-indicators {
-        display: flex;
+        display: flex !important;
         justify-content: center;
         gap: 6px;
         padding: 10px 0;
@@ -2339,7 +2339,7 @@ img.ic-download {
 
     /* ── 모바일 설명 카드 ── */
     .ps-mobile-info-card {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         gap: 10px;
         background: #FFFFFF;
@@ -2354,7 +2354,7 @@ img.ic-download {
     .ps-mobile-info-card.is-hidden,
     .ps-mobile-diagram.is-hidden,
     .ps-mobile-bottom-group.is-hidden {
-        display: none;
+        display: none !important;
     }
 
     .ps-mobile-info-header {
@@ -2388,8 +2388,8 @@ img.ic-download {
 @media (max-width: 1023px) {
 
     .grade-table {
-        width: 100%;
-        height: auto;
+        width: 100% !important;
+        height: auto !important;
         overflow-x: auto;
     }
 
@@ -2403,57 +2403,57 @@ img.ic-download {
 
     /* --- DiKel 스토리 --- */
     .story-section {
-        padding: clamp(32px, 8.9vw, 40px) 0;
+        padding: clamp(32px, 8.9vw, 40px) 0 !important;
     }
 
     .story-section .inner {
-        flex-direction: column;
-        width: 100%;
-        padding: 0 clamp(16px, 4.4vw, 24px);
-        gap: clamp(24px, 6.7vw, 30px);
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 0 clamp(16px, 4.4vw, 24px) !important;
+        gap: clamp(24px, 6.7vw, 30px) !important;
     }
 
     .story-title {
-        font-size: clamp(24px, 8.3vw, 30px);
+        font-size: clamp(24px, 8.3vw, 30px) !important;
         line-height: 1.4;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        min-height: auto;
-        text-align: left;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        text-align: left !important;
     }
 
     .story-desc {
-        font-size: clamp(14px, 4.4vw, 16px);
+        font-size: clamp(14px, 4.4vw, 16px) !important;
         line-height: 1.6;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        min-height: auto;
-        display: block;
-        text-align: center;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        display: block !important;
+        text-align: center !important;
     }
 
     .story-desc-sub {
-        max-width: 100%;
-        margin-top: 12px;
-        text-align: center;
+        max-width: 100% !important;
+        margin-top: 12px !important;
+        text-align: center !important;
     }
 
     .story-desc-group {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        gap: 12px;
-        align-items: flex-start;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        gap: 12px !important;
+        align-items: flex-start !important;
     }
 
     /* story-txt: 고정 너비(1064px) 해제 — 768px~1023px에서도 필요 */
     .story-txt {
-        gap: 20px;
-        width: 100%;
-        max-width: 100%;
-        align-items: flex-start;
+        gap: 20px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        align-items: flex-start !important;
     }
 
 }
@@ -3002,7 +3002,7 @@ img.ic-download {
 .spec-table-container {
     width: 100%;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: hidden !important;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -4408,8 +4408,6 @@ body {
     align-items: center;
     gap: 6px;
     width: 100%;
-    position: relative;
-    z-index: 10;
 }
 
 /* 📍 태그 아이템 (피그마: px-24 py-16 rounded-1000 shadow bg-#F27100 20px bold) */
@@ -4536,14 +4534,10 @@ body {
     display: block;
 }
 
-.bsys-img.mo-only {
-    display: none;
-}
-
 /* pill 라벨 (배경 제거 및 40px 위치 조정) */
 .bsys-pill-label {
     position: absolute;
-    bottom: 11%;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -4612,7 +4606,7 @@ body {
 /* 주황색/어두운 배경 대응: 텍스트 색상 반전 */
 .bsys-circle-orange .bsys-pill-text,
 .bsys-circle-dark .bsys-pill-text {
-    color: #FFFFFF;
+    color: #FFFFFF !important;
 }
 
 /* 화살표 분리 요소 */
@@ -4803,22 +4797,22 @@ body {
            ════════════════════════════════════ */
 @media (max-width: 1023px) {
     body {
-        min-width: 0;
-        width: 100%;
+        min-width: 0 !important;
+        width: 100% !important;
         overflow-x: hidden;
     }
 
     .inner {
-        max-width: 100%;
-        padding: 0 16px;
+        max-width: 100% !important;
+        padding: 0 16px !important;
     }
 
     .mo-br {
-        display: none;
+        display: none !important;
     }
 
     .desk-br {
-        display: none;
+        display: none !important;
     }
 
     /* Brand Resource 탭 패널 */
@@ -4834,58 +4828,58 @@ body {
     .product-list-inner,
     .history-section,
     .history-inner {
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     /* 모든 1680px 컨테이너 */
     [class*="grid-group"] {
-        width: 100%;
-        max-width: 100%;
-        gap: 12px;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 12px !important;
     }
 
     [class*="section"] .inner,
     [class*="content-box"],
     [class*="card-wrap"] {
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     /* 탭 패널 내 큰 컨테이너 */
     .tab-panel .inner {
-        padding: 0 16px;
+        padding: 0 16px !important;
     }
 
     /* 플렉스 컬럼 스택 */
     .brand-card-row,
     .timeline-row {
-        flex-direction: column;
-        gap: 16px;
+        flex-direction: column !important;
+        gap: 16px !important;
     }
 
     /* 이미지/미디어 */
     .brand-card-row img,
     .ci-logo-row img,
     .product-list-img {
-        max-width: 100%;
-        height: auto;
+        max-width: 100% !important;
+        height: auto !important;
     }
 
     /* 모바일 표 텍스트 중앙 정렬 및 세로 스크롤 제거 */
     .spec-value,
     .spec-ann-col .spec-value {
-        justify-content: center;
-        text-align: center;
-        padding: 0 10px;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 0 10px !important;
     }
 
     .acc-body,
     .acc-content-box,
     .spec-table-container {
-        overflow-y: hidden;
-        height: auto;
-        max-height: none;
+        overflow-y: hidden !important;
+        height: auto !important;
+        max-height: none !important;
     }
 
     /* ── 소둔 열처리 표 모바일 상세 스펙 (Figma 반영) ── */
@@ -5031,19 +5025,19 @@ body {
 
     /* ── 제품 상세 공통 모바일 타이틀 (Figma) ── */
     .material-title {
-        font-size: 30px;
-        font-weight: 700;
-        height: auto;
-        max-width: 100%;
-        line-height: 1.4;
-        text-align: left;
+        font-size: 30px !important;
+        font-weight: 700 !important;
+        height: auto !important;
+        max-width: 100% !important;
+        line-height: 1.4 !important;
+        text-align: left !important;
     }
 
     /* 카드 그리드 → 세로 스택 gap-10 */
     .material-cards {
-        flex-direction: column;
-        height: auto;
-        gap: 10px;
+        flex-direction: column !important;
+        height: auto !important;
+        gap: 10px !important;
     }
 
     .mcard {
@@ -5111,156 +5105,156 @@ body {
                피그마: px-[16px] py-[40px] gap-[20px]
                라벨 18px → 이미지 363px rounded-16 → 텍스트블록 */
     .value-section {
-        height: auto;
-        padding: 40px 0;
-        overflow: visible;
+        height: auto !important;
+        padding: 40px 0 !important;
+        overflow: visible !important;
     }
 
     .value-sticky-wrap {
-        position: relative;
-        height: auto;
-        overflow: visible;
+        position: relative !important;
+        height: auto !important;
+        overflow: visible !important;
     }
 
     .value-inner-box {
-        position: relative;
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        padding: 0 16px;
-        gap: 20px;
-        box-sizing: border-box;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 0 16px !important;
+        gap: 20px !important;
+        box-sizing: border-box !important;
     }
 
     .value-section-label {
-        position: relative;
-        left: auto;
-        top: auto;
-        font-size: 18px;
-        height: auto;
-        margin-bottom: 0;
-        order: 0;
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        font-size: 18px !important;
+        height: auto !important;
+        margin-bottom: 0 !important;
+        order: 0 !important;
     }
 
     /* 1번째 이미지 + 텍스트 */
     .value-img {
-        position: relative;
-        width: 100%;
-        height: auto;
-        left: auto;
-        top: auto;
-        border-radius: 16px;
-        overflow: hidden;
-        opacity: 1;
-        flex-shrink: 0;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        left: auto !important;
+        top: auto !important;
+        border-radius: 16px !important;
+        overflow: hidden !important;
+        opacity: 1 !important;
+        flex-shrink: 0 !important;
     }
 
     .value-img img {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
-        border-radius: 16px;
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        object-fit: cover !important;
+        border-radius: 16px !important;
     }
 
     #value-img-1 {
-        order: 1;
+        order: 1 !important;
     }
 
     #value-img-2 {
-        order: 4;
-        opacity: 1;
+        order: 4 !important;
+        opacity: 1 !important;
     }
 
     /* value-text-mask → display:contents로 자식을 부모 레벨로 올림 */
     .value-text-mask {
-        display: contents;
+        display: contents !important;
     }
 
     #vitem-0 {
-        order: 2;
+        order: 2 !important;
     }
 
     #vitem-1 {
-        order: 3;
-        display: contents;
+        order: 3 !important;
+        display: contents !important;
     }
 
     /* vitem-1 내부 자식들: 이미지(order:4) 뒤에 배치 */
     #vitem-1>.value-item-top,
     #vitem-1>.value-item-divider,
     #vitem-1>.value-item-desc {
-        order: 5;
+        order: 5 !important;
     }
 
     /* ── 가치 섹션 추가 간격 (피그마: txt wrapper py-20 gap-30) ── */
     .value-item {
-        position: relative;
-        width: 100%;
-        transform: none;
-        opacity: 1;
-        top: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        padding: 20px 0 40px 0;
+        position: relative !important;
+        width: 100% !important;
+        transform: none !important;
+        opacity: 1 !important;
+        top: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+        padding: 20px 0 40px 0 !important;
     }
 
     .value-item-top {
-        gap: 12px;
+        gap: 12px !important;
     }
 
     .value-item-tag {
-        font-size: 16px;
-        color: #F27100;
+        font-size: 16px !important;
+        color: #F27100 !important;
     }
 
     .value-item-tag-wrap {
-        height: auto;
-        padding: 0;
+        height: auto !important;
+        padding: 0 !important;
     }
 
     .value-item-title {
-        font-size: 24px;
-        line-height: 1.5;
-        height: auto;
-        width: 100%;
+        font-size: 24px !important;
+        line-height: 1.5 !important;
+        height: auto !important;
+        width: 100% !important;
     }
 
     .value-item-divider {
-        display: none;
+        display: none !important;
     }
 
     .value-item-desc {
-        max-width: 100%;
-        width: 100%;
-        font-size: 18px;
-        color: #7A7A7A;
-        font-weight: 500;
-        height: auto;
-        line-height: 1.6;
+        max-width: 100% !important;
+        width: 100% !important;
+        font-size: 18px !important;
+        color: #7A7A7A !important;
+        font-weight: 500 !important;
+        height: auto !important;
+        line-height: 1.6 !important;
     }
 
     /* 모바일에서 두번째 라벨 표시 */
     .value-label-2 {
-        display: block;
-        font-size: 18px;
-        font-weight: 700;
-        color: #7A7A7A;
-        line-height: 1.6;
-        margin-bottom: 0;
-        order: 3;
+        display: block !important;
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #7A7A7A !important;
+        line-height: 1.6 !important;
+        margin-bottom: 0 !important;
+        order: 3 !important;
     }
 
     /* 두번째 이미지: 모바일에서 보이고 순서 조정 */
     #value-img-2 {
-        opacity: 1;
-        display: block;
+        opacity: 1 !important;
+        display: block !important;
     }
 
     .value-indicator {
-        display: none;
+        display: none !important;
     }
 
     /* ── 페이지 헤더: 피그마 MOB gap-[20px] 타이틀 30px ── */
@@ -5288,13 +5282,13 @@ body {
         height: 66px;
         padding: 20px 10px;
         font-size: 16px;
-        border-bottom: 2px solid #E9E9E9;
-        color: #A7A7A7;
+        border-bottom: 2px solid #E9E9E9 !important;
+        color: #A7A7A7 !important;
     }
 
     .tab-item.active {
-        border-bottom: 2px solid #A7A7A7;
-        color: #1B1B1B;
+        border-bottom: 2px solid #A7A7A7 !important;
+        color: #1B1B1B !important;
     }
 
     .hero-bg-decor {
@@ -5304,7 +5298,7 @@ body {
 
     /* foreignObject가 모바일 Safari에서 흰 배경으로 렌더링되는 버그 회피 */
     .hero-bg-decor img {
-        display: none;
+        display: none !important;
     }
 
     .hero-bg-decor::before,
@@ -5336,91 +5330,91 @@ body {
 
     /* ── 히어로: 피그마 MOB h-[700px] 전체너비, 라운딩없음 ── */
     .hero {
-        max-width: 100%;
-        width: 100%;
-        height: 700px;
-        border-radius: 0;
-        margin: 0;
+        max-width: 100% !important;
+        width: 100% !important;
+        height: 700px !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
     }
 
 
 
     .hero-content {
-        width: 100%;
-        max-width: 328px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 0;
-        gap: 6px;
-        height: auto;
+        width: 100% !important;
+        max-width: 328px !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        padding: 0 !important;
+        gap: 6px !important;
+        height: auto !important;
     }
 
     .hero-title {
-        flex-direction: column;
-        gap: 6px;
-        align-items: center;
-        height: auto;
-        width: 100%;
+        flex-direction: column !important;
+        gap: 6px !important;
+        align-items: center !important;
+        height: auto !important;
+        width: 100% !important;
     }
 
     .hero-title-left,
     .hero-title-right {
-        gap: 8px;
-        height: auto;
-        justify-content: center;
+        gap: 8px !important;
+        height: auto !important;
+        justify-content: center !important;
     }
 
     .hero-title span {
-        font-size: 50px;
-        font-weight: 700;
+        font-size: 50px !important;
+        font-weight: 700 !important;
     }
 
     .hero-sub {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        font-size: 16px;
-        line-height: 1.6;
-        text-align: center;
-        margin: 0 auto;
-        word-break: keep-all;
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+        word-break: keep-all !important;
     }
 
     /* ── 새로운 소재: 피그마 38:4175 MOB ── */
     .material-section {
-        padding: 40px 0;
-        overflow: clip;
+        padding: 40px 0 !important;
+        overflow: clip !important;
     }
 
     .material-section .inner {
-        padding: 0 16px;
+        padding: 0 16px !important;
     }
 
     .material-content {
-        gap: 20px;
+        gap: 20px !important;
     }
 
 
 
     /* ── Why DiKel: 피그마 MOB px-[16px] py-[40px] gap-[30px] ── */
     .why-section {
-        padding: 40px 0;
-        overflow: hidden;
+        padding: 40px 0 !important;
+        overflow: hidden !important;
     }
 
     .why-section .inner {
-        padding: 0 16px;
+        padding: 0 16px !important;
     }
 
     .why-label {
-        font-size: 30px;
+        font-size: 30px !important;
     }
 
     .why-desc {
-        font-size: 30px;
-        line-height: 1.5;
+        font-size: 30px !important;
+        line-height: 1.5 !important;
     }
 
 
@@ -5429,179 +5423,179 @@ body {
                피그마: bg-[#f1f3f7] px-16 py-40 gap-40
                ══════════════════════════════════════════════════════ */
     .battery-section {
-        padding: 40px 0;
-        background: #F1F3F7;
+        padding: 40px 0 !important;
+        background: #F1F3F7 !important;
     }
 
     .battery-section::before,
     .battery-section::after {
-        display: none;
+        display: none !important;
     }
 
     .battery-section .inner {
-        padding: 0 16px;
+        padding: 0 16px !important;
     }
 
     .battery-main-title {
-        font-size: 30px;
-        height: auto;
-        margin-bottom: 40px;
-        line-height: 1.5;
+        font-size: 30px !important;
+        height: auto !important;
+        margin-bottom: 40px !important;
+        line-height: 1.5 !important;
     }
 
     .battery-compare {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
     }
 
     /* compare-row: 세로 배열, overflow 보이기 */
     .compare-row {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        overflow: visible;
-        gap: 12px;
-        padding: 0;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        height: auto !important;
+        overflow: visible !important;
+        gap: 12px !important;
+        padding: 0 !important;
     }
 
     /* compare-images: 모바일에서 세로 배열 */
     .compare-images {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        height: auto;
-        width: 100%;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        height: auto !important;
+        width: 100% !important;
     }
 
     /* center 래퍼: 모바일에서 전체 너비 (라벨+이미지+태그 세로) */
     .img-box-center-wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        width: 100%;
-        order: -1;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0 !important;
+        width: 100% !important;
+        order: -1 !important;
     }
 
     /* center 라벨: 모바일 20px */
     .center-label {
-        font-size: 20px;
-        margin-bottom: 10px;
+        font-size: 20px !important;
+        margin-bottom: 10px !important;
     }
 
     /* 원통형 이미지 (피그마 h-338 rounded-16) */
     .img-box-center {
-        position: relative;
-        width: 100%;
-        max-width: 100%;
-        border-radius: 16px;
-        overflow: visible;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1;
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 16px !important;
+        overflow: visible !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 1 !important;
     }
 
     /* 모바일 전용: 원통형 배터리를 감싸는 흰색 반원 라인 */
     .img-box-center::before {
-        content: '';
-        position: absolute;
-        width: 130vw;
-        height: 130vw;
-        max-width: 600px;
-        max-height: 600px;
-        border: 4px solid #FFFFFF;
-        border-radius: 50%;
-        top: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -1;
-        clip-path: inset(0 0 50% 0);
+        content: '' !important;
+        position: absolute !important;
+        width: 130vw !important;
+        height: 130vw !important;
+        max-width: 600px !important;
+        max-height: 600px !important;
+        border: 4px solid #FFFFFF !important;
+        border-radius: 50% !important;
+        top: 40px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: -1 !important;
+        clip-path: inset(0 0 50% 0) !important;
     }
 
     .img-box-center img {
-        width: 100%;
-        height: auto;
-        max-width: 259px;
-        object-fit: contain;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 259px !important;
+        object-fit: contain !important;
     }
 
     /* 태그 래퍼: 모바일 가로 배열 (피그마 gap-2 h-40) */
     .bat-float-tags {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 6px;
-        width: 100%;
-        justify-content: center;
-        height: auto;
-        align-items: center;
-        margin-top: 10px;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+        width: 100% !important;
+        justify-content: center !important;
+        height: auto !important;
+        align-items: center !important;
+        margin-top: 10px !important;
     }
 
     .bat-float-tag {
-        padding: 8px 0;
-        font-size: clamp(14px, 2.6vw, 14px);
-        font-weight: 700;
-        border-radius: 685px;
-        box-shadow: none;
-        flex: 1;
-        text-align: center;
-        white-space: nowrap;
+        padding: 8px 0 !important;
+        font-size: clamp(14px, 2.6vw, 14px) !important;
+        font-weight: 700 !important;
+        border-radius: 685px !important;
+        box-shadow: none !important;
+        flex: 1 !important;
+        text-align: center !important;
+        white-space: nowrap !important;
     }
 
     /* side 이미지 (피그마 flex-1 h-158 rounded-800 bg-white) – 가로 배열 */
     .img-box-side {
-        flex: none;
-        width: calc(50% - 6px);
-        height: auto;
-        aspect-ratio: 1 / 1;
-        border-radius: 50%;
-        background: #fff;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        gap: 8px;
+        flex: none !important;
+        width: calc(50% - 6px) !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1 !important;
+        border-radius: 50% !important;
+        background: #fff !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        gap: 8px !important;
     }
 
     .img-box-side img {
-        width: auto;
-        height: auto;
-        max-height: 45%;
-        max-width: 80%;
-        object-fit: contain;
-        margin: 0 auto;
+        width: auto !important;
+        height: auto !important;
+        max-height: 45% !important;
+        max-width: 80% !important;
+        object-fit: contain !important;
+        margin: 0 auto !important;
     }
 
     /* side 라벨: 모바일 14px */
     .side-label {
-        margin: 0;
-        font-size: clamp(14px, 3.12vw, 14px);
-        color: #4E4E4E;
-        line-height: 1.5;
-        white-space: normal;
-        text-align: center;
+        margin: 0 !important;
+        font-size: clamp(14px, 3.12vw, 14px) !important;
+        color: #4E4E4E !important;
+        line-height: 1.5 !important;
+        white-space: normal !important;
+        text-align: center !important;
     }
 
     /* side 이미지가 가로 배열되도록 래퍼 구조 조정 */
     .compare-images {
-        flex-wrap: wrap;
-        flex-direction: row;
+        flex-wrap: wrap !important;
+        flex-direction: row !important;
     }
 
     .img-box-center-wrap {
-        flex: 0 0 100%;
+        flex: 0 0 100% !important;
     }
 
     /* 하단 제목/설명 (피그마: gap-20 text-center) */
     .battery-head {
-        gap: 20px;
+        gap: 20px !important;
     }
 
     .battery-sub-title {
@@ -5665,18 +5659,67 @@ body {
         gap: 12px;
     }
 
+    .bsys-img {
+        max-width: 60%;
+        max-height: 60%;
+        transform: none;
+    }
+
+    .bsys-circle-orange .bsys-img {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 20%;
+        height: auto;
+        max-height: 35%;
+    }
+
+    .bsys-circle-gray .bsys-img {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 33%;
+        height: auto;
+        max-height: 26%;
+    }
+
+    .bsys-circle-dark .bsys-img {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 40%;
+        height: auto;
+        max-height: 30%;
+        object-fit: contain;
+    }
+
+    /* pill 라벨: 모바일 스타일 */
     .bsys-pill-label {
-        gap: clamp(4px, 1.5vw, 7px);
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 0;
+        padding: 0;
+        gap: 8px;
     }
 
     .bsys-pill-num {
-        width: clamp(21px, 7vw, 31px);
-        height: clamp(21px, 7vw, 31px);
-        font-size: clamp(10px, 4vw, 17px);
+        width: 40px;
+        height: 40px;
+        background: #F1F3F7;
+        font-size: 20px;
+    }
+
+    .bsys-circle-gray .bsys-pill-num {
+        background: #FFFFFF;
     }
 
     .bsys-pill-text {
-        font-size: clamp(11px, 4vw, 17px);
+        font-size: 20px;
     }
 
     /* 화살표 분리: 모바일에서 세로(↓) */
@@ -5717,152 +5760,152 @@ body {
     }
 
     .bsys-head {
-        text-align: center;
-        align-items: center;
+        text-align: center !important;
+        align-items: center !important;
     }
 
     /* ── 갤러리(디켈경쟁력): 피그마 MOB px-[16px] py-[40px] gap-[50px] ── */
     .gallery-section {
-        padding: 40px 0;
-        overflow: hidden;
+        padding: 40px 0 !important;
+        overflow: hidden !important;
     }
 
     .gallery-section .inner {
-        padding: 0 16px;
+        padding: 0 16px !important;
     }
 
     .gallery-title {
-        font-size: 30px;
-        padding: 0 16px;
-        line-height: 1.5;
-        margin-bottom: 40px;
+        font-size: 30px !important;
+        padding: 0 16px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 40px !important;
     }
 
     /* 피그마 MOB: 데스크탑 디자인 반영 (비율 및 특수 라운드 조정) */
     .gallery-scroll {
-        overflow: hidden;
-        padding: 20px 0;
-        gap: 16px;
+        overflow: hidden !important;
+        padding: 20px 0 !important;
+        gap: 16px !important;
         /* 데스크탑의 24px/19px을 고려한 모바일 간격 */
     }
 
     .gallery-img {
-        width: 220px;
-        height: 220px;
-        min-width: 220px;
-        border-radius: 30px;
-        margin-right: 0;
+        width: 220px !important;
+        height: 220px !important;
+        min-width: 220px !important;
+        border-radius: 30px !important;
+        margin-right: 0 !important;
     }
 
     /* 데스크탑 특수 디자인 모바일 이식 */
     .gallery-scroll .gallery-img:nth-child(1),
     .gallery-scroll .gallery-img:nth-child(7) {
-        border-top-left-radius: 0;
+        border-top-left-radius: 0 !important;
     }
 
     .gallery-scroll .gallery-img:nth-child(2),
     .gallery-scroll .gallery-img:nth-child(8) {
-        width: 154px;
+        width: 154px !important;
         /* 데스크탑 322px 비율 (322/460 * 220) */
-        min-width: 154px;
+        min-width: 154px !important;
     }
 
     .gallery-scroll .gallery-img:nth-child(3),
     .gallery-scroll .gallery-img:nth-child(9) {
-        border-bottom-right-radius: 0;
+        border-bottom-right-radius: 0 !important;
     }
 
     .gallery-scroll .gallery-img:nth-child(5),
     .gallery-scroll .gallery-img:nth-child(11) {
-        border-top-right-radius: 0;
+        border-top-right-radius: 0 !important;
     }
 
     .gallery-scroll .gallery-img:nth-child(6),
     .gallery-scroll .gallery-img:nth-child(12) {
-        border-bottom-right-radius: 0;
+        border-bottom-right-radius: 0 !important;
     }
 
     /* ── 활용분야 ── */
     .usage-section {
-        padding: 40px 0;
+        padding: 40px 0 !important;
     }
 
     .usage-section .inner {
-        padding: 0 16px;
+        padding: 0 16px !important;
     }
 
     .umi-icon {
-        height: 30px;
+        height: 30px !important;
     }
 
     .umi-header {
-        gap: 0;
+        gap: 0 !important;
     }
 
     .usage-menu-item {
-        gap: 12px;
+        gap: 12px !important;
     }
 
     .usage-menu-item .umi-desc {
-        display: none;
+        display: none !important;
     }
 
     .usage-menu-item.active .umi-desc {
-        display: block;
+        display: block !important;
     }
 
     /* ── 고객지원: 피그마 MOB py-[40px] px-[16px] round-[16px] ── */
     .support-section {
-        padding: 40px 16px;
+        padding: 40px 16px !important;
     }
 
     /* 불필요한 고정 너비와 flex 강제 오버라이드를 제거하여 common.css의 반응형 Grid 레이아웃을 살림 */
     .support-banner {
-        width: 100%;
-        padding: 24px 10px;
-        border-radius: 16px;
-        box-sizing: border-box;
+        width: 100% !important;
+        padding: 24px 10px !important;
+        border-radius: 16px !important;
+        box-sizing: border-box !important;
     }
 
     .support-info h3 {
-        font-size: 24px;
-        line-height: 1.5;
-        white-space: pre-wrap;
+        font-size: 24px !important;
+        line-height: 1.5 !important;
+        white-space: pre-wrap !important;
     }
 
     .support-info p {
-        font-size: 16px;
-        line-height: 1.6;
-        padding: 0 16px;
-        box-sizing: border-box;
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
     }
 
     /* 화살표 버튼 숨기기 (MOB에선 없음) */
     .btn-arrow-right {
-        display: none;
+        display: none !important;
     }
 
     /* ── 문의 CTA ── */
     .inquiry-section .inner {
-        padding: 0 16px;
-        flex-direction: column;
-        gap: 20px;
+        padding: 0 16px !important;
+        flex-direction: column !important;
+        gap: 20px !important;
     }
 
     .inquiry-section .inquiry-card {
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     /* ── BI: 로고여백 블록 ── */
     .logo-margin-block {
-        gap: 16px;
+        gap: 16px !important;
     }
 
     /* ── BI: color-values 아래 텍스트 라이트 ── */
     .color-val-text,
     .color-values {
-        font-weight: 300;
+        font-weight: 300 !important;
     }
 
     /* --- BI 섹션 (데스크톱 스타일 오버라이드) --- */
@@ -5877,7 +5920,7 @@ body {
            ════════════════════════════════════ */
 @media (max-width: 360px) {
     .mo-br {
-        display: block;
+        display: block !important;
     }
 }
 
@@ -5966,7 +6009,7 @@ body {
     }
 
     .bi-section .mobile-only-label {
-        display: none;
+        display: none !important;
     }
 
     .bi-section .logo-usage-card {
@@ -5976,7 +6019,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #F8F9FB;
+        background: #F8F9FB !important;
     }
 
     .bi-section .logo-usage-card img {
@@ -6026,7 +6069,7 @@ body {
     }
 
     .bi-section .mono-logo-subtitle .mobile-label {
-        display: inline;
+        display: inline !important;
     }
 
     .bi-section .mono-grid {
@@ -6053,8 +6096,8 @@ body {
     }
 
     .bi-section .dikel-mark img {
-        width: 100%;
-        height: 100%;
+        width: 100% !important;
+        height: 100% !important;
         object-fit: contain;
     }
 
@@ -6178,7 +6221,7 @@ body {
     /* ── mono-grid: 카드 대비 로고 비율 유지 ──
        1920px 기준: card-half ~828px 중 logo 318px = 약 38%
        768px 기준: card-half ~353px → 38% ≈ 134px
-       인라인 style="width:318px; height:68px" 을 로 덮음 */
+       인라인 style="width:318px; height:68px" 을 !important 로 덮음 */
     .bi-section .mono-card-half,
     .bi-section .mono-card-full {
         height: auto;
@@ -6386,16 +6429,6 @@ body {
         max-width: 100%;
         align-items: center;
         text-align: center;
-    }
-}
-
-/* ── battery-system 이미지 반응형 분기 처리 (기존 base 스타일 정의보다 하단에 위치하여 순서 보장) ── */
-@media (max-width: 1023px) {
-    .bsys-img.pc-only {
-        display: none;
-    }
-    .bsys-img.mo-only {
-        display: block;
     }
 }
 

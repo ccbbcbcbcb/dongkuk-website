@@ -202,8 +202,8 @@
           
           navHtml += '</div>';
       }
-      navHtml += '<div class="gnb-dropdown-bg"></div>';
       navHtml += '</nav>';
+      navHtml += '<div class="gnb-dropdown-bg"></div>';
       gnbUtils.insertAdjacentHTML('beforebegin', navHtml);
 
       // Hover events for GNB

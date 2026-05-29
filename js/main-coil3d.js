@@ -1259,7 +1259,7 @@
           /* 모바일: 카드 우상단에 안착 → X 더 크게, Y 더 크게 */
           var _mobNow = window.innerWidth <= 1023;
           var modelXEnd = ov.modelX !== undefined ? ov.modelX : (_mobNow ? 0.55 : 0.75);
-          var modelYEnd = ov.modelY !== undefined ? ov.modelY : (_mobNow ? 1.2 : 0.3);
+          var modelYEnd = ov.modelY !== undefined ? ov.modelY : (_mobNow ? 0.0 : 0.3);
           var curScale = yawGroup.scale.x;
           yawGroup.position.set(
             -OUTER_R * curScale + lerp3d(0, modelXEnd, et),

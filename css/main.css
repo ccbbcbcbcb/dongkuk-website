@@ -325,6 +325,7 @@ body {
   margin-top: 28px;
   opacity: 0;
   will-change: opacity;
+  pointer-events: auto;
 }
 
 .orb-btn-main {
@@ -354,6 +355,13 @@ body {
   text-decoration: none;
   color: #000;
   transition: all 0.3s ease;
+}
+
+.orb-cta-group:hover .orb-btn-circle,
+.orb-btn-circle:hover {
+  background: #C15A00;
+  border-color: #C15A00;
+  color: #fff;
 }
 
 .orb-inner-box {
@@ -398,7 +406,6 @@ body {
 
 .product-card {
   position: relative;
-  z-index: 1;
   width: 100%;
   /* 100vh에서 위아래 40px(총 80px) 패딩을 제외한 높이 꽉 채우기 */
   height: calc(100svh - 80px);
@@ -419,7 +426,7 @@ body {
   flex-direction: column;
   height: 100%;
   position: relative;
-  z-index: 2;
+  z-index: 12;
 }
 
 .product-dikel {
@@ -570,7 +577,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 2;
+  z-index: 12;
 }
 
 .product-bottom-group-wrap {
@@ -647,6 +654,8 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
+  position: relative;
+  z-index: 15;
 }
 
 .product-detail-btn a:not(.circle-arrow) {
@@ -1207,7 +1216,6 @@ body {
 .ir-doc-desc-wrap {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   gap: 64px;
   flex: 1;
 }
@@ -1224,6 +1232,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: auto;
 }
 
 .ir-doc-date {
@@ -1592,7 +1601,8 @@ body {
   .product-sticky {
     position: sticky;
     top: 0;
-    height: 100svh;
+    min-height: 100svh;
+    height: auto;
     width: 100%;
     padding: 0;
     background: #fff;
@@ -1603,26 +1613,27 @@ body {
   }
 
   .product-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 75svh !important;
-    padding: 24px 16px 20px !important;
-    border-radius: 16px !important;
-    margin: 0 0 16px !important;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 75svh;
+    padding: 24px 16px 20px;
+    border-radius: 16px;
+    margin: 0 0 16px;
     position: relative;
-    overflow: hidden !important;
-    background-size: cover !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-end !important;
-    box-sizing: border-box !important;
+    overflow: auto;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    box-sizing: border-box;
   }
 
   /* ── 좌측 컨텐츠 ── */
   .product-left {
     width: 100%;
-    z-index: 3;
+    z-index: 12;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -1743,16 +1754,17 @@ body {
 
   /* 비디오: Figma에서는 카드 내부에 표시 */
   .product-info-img {
-    display: block !important;
-    position: relative !important;
-    right: auto !important;
-    top: auto !important;
-    transform: none !important;
-    width: 100% !important;
-    height: 126px !important;
-    border-radius: 8px !important;
+    display: block;
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
     overflow: hidden;
-    background: transparent !important;
+    background: transparent;
   }
 
   /* ── 점 내비게이터 (모바일) ── */
@@ -1793,7 +1805,7 @@ body {
     bottom: auto !important;
     margin-top: 16px;
     width: 100%;
-    z-index: 3;
+    z-index: 12;
   }
 
   .product-bottom-group-wrap {
@@ -2151,4 +2163,25 @@ body {
   }
 
   /* ── Footer (Figma MOB 기준) ── */
+}
+
+/* 1023px ~ 529px 구간: 메인 페이지 IR 자료실 카드 우측 공백 해소를 위해 가로 2단 배치 적용 */
+@media (max-width: 1023px) and (min-width: 529px) {
+  .inv-card-ir .ir-doc-row {
+    flex-direction: row !important;
+    gap: 24px !important;
+    align-items: stretch !important;
+  }
+
+  .inv-card-ir .ir-doc-item {
+    flex: 1 !important;
+  }
+
+  .inv-card-ir .ir-divider-v {
+    width: 1px !important;
+    height: auto !important;
+    align-self: stretch !important;
+    margin: 0 !important;
+    background: rgba(255, 255, 255, 0.4) !important;
+  }
 }

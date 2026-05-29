@@ -321,10 +321,7 @@
         }
         accumulatedScroll += delta;
 
-        if (inOrbital) {
-          gnb.classList.remove('gnb-hidden');
-          accumulatedScroll = 0;
-        } else if (currentY <= 10) {
+        if (currentY <= 10) {
           gnb.classList.remove('gnb-hidden');
           accumulatedScroll = 0;
         } else if (accumulatedScroll > 15) {
@@ -405,6 +402,7 @@
       var segs = Array.from(document.querySelectorAll('.prod-arc-seg'));
       var loadingBar = document.querySelector('.product-loading-bar');
       var dots = Array.from(document.querySelectorAll('.prod-dot'));
+      var dikelName = document.querySelector('.product-dikel-name');
       var curStep = -1;
 
       function setStep(idx) {
@@ -414,6 +412,10 @@
         imgs.forEach(function (el, i) { el.classList.toggle('prod-active', i === idx); });
         segs.forEach(function (el, i) { el.style.opacity = i === idx ? '1' : '0'; });
         dots.forEach(function (el, i) { el.classList.toggle('active', i === idx); });
+        if (dikelName) {
+          dikelName.style.opacity = idx === 0 ? '1' : '0';
+          dikelName.style.transition = 'opacity 0.3s ease';
+        }
       }
 
       function onProdScroll() {

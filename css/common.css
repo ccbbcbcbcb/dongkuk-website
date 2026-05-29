@@ -159,7 +159,7 @@ body {
     transition: height 0.3s ease, opacity 0.3s ease;
     opacity: 0;
     pointer-events: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: none;
 }
 
 /* 기본 (라이트모드) 서브메뉴 텍스트 */
@@ -188,8 +188,8 @@ body {
 
 /* Hover Interaction: Dropdown Expand */
 .gnb.is-hover {
-    background: transparent !important;
-    box-shadow: none !important;
+    background: transparent;
+    box-shadow: none;
 }
 
 .gnb.is-hover .gnb-dropdown-bg {
